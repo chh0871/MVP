@@ -12,73 +12,73 @@ class AuthenticationPage extends StatefulWidget {
 
 class AuthenticationPageState extends State<AuthenticationPage> {
   AuthenticationPageState() {
-    monitorAuthenticationState();
+    // monitorAuthenticationState();
   }
 
   // Authentication
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  // final FirebaseAuth auth = FirebaseAuth.instance;
   String errorMessage = "";
   String? email;
   String? password;
   User? user;
-  monitorAuthenticationState() {
-    auth.authStateChanges().listen((User? user) {
-      if (user != null) {
-        print("Authentication: User logged in");
-      } else {
-        print("Authentication: User logged out");
-      }
-      setState(() {
-        this.user = user;
-      });
-    });
-  }
+  // monitorAuthenticationState() {
+  //   auth.authStateChanges().listen((User? user) {
+  //     if (user != null) {
+  //       print("Authentication: User logged in");
+  //     } else {
+  //       print("Authentication: User logged out");
+  //     }
+  //     setState(() {
+  //       this.user = user;
+  //     });
+  //   });
+  // }
 
   registerAccountUsingEmail(String email, String password) async {
-    try {
-      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
-          email: email,
-          password: password
-      );
-    } on FirebaseAuthException catch (err) {
-      if (err.code == "weak-password") {
-        setState(() {
-          errorMessage = "Please enter a stronger password";
-        });
-      } else if (err.code == "email-already-in-use") {
-        setState(() {
-          errorMessage = "This email has already been registered to another account";
-        });
-      }
-    } catch (err) { // other errors
-      print(err);
-    }
+    // try {
+    //   UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+    //       email: email,
+    //       password: password
+    //   );
+    // } on FirebaseAuthException catch (err) {
+    //   if (err.code == "weak-password") {
+    //     setState(() {
+    //       errorMessage = "Please enter a stronger password";
+    //     });
+    //   } else if (err.code == "email-already-in-use") {
+    //     setState(() {
+    //       errorMessage = "This email has already been registered to another account";
+    //     });
+    //   }
+    // } catch (err) { // other errors
+    //   print(err);
+    // }
   }
 
   loginUsingEmail(String email, String password) async {
-    try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-          email: email,
-          password: password
-      );
-    } on FirebaseAuthException catch (err) {
-      if (err.code == "user-not-found") {
-        setState(() {
-          errorMessage = "There is no account connected to this email address";
-        });
-      } else if (err.code == "wrong-password") {
-        setState(() {
-          errorMessage = "Incorrect password";
-        });
-      }
-    } catch (err) { // other errors
-      print(err);
-    }
+    // try {
+    //   UserCredential userCredential = await auth.signInWithEmailAndPassword(
+    //       email: email,
+    //       password: password
+    //   );
+    // } on FirebaseAuthException catch (err) {
+    //   if (err.code == "user-not-found") {
+    //     setState(() {
+    //       errorMessage = "There is no account connected to this email address";
+    //     });
+    //   } else if (err.code == "wrong-password") {
+    //     setState(() {
+    //       errorMessage = "Incorrect password";
+    //     });
+    //   }
+    // } catch (err) { // other errors
+    //   print(err);
+    // }
   }
 
   logOut() async {
-    await auth.signOut();
+    // await auth.signOut();
   }
 
   // Form

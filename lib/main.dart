@@ -1,3 +1,4 @@
+import 'package:cherry_mvp/pages/bottomNavigationPages/AuthenticationPage.dart';
 import 'package:flutter/material.dart';
 
 // Import the firebase_core plugin
@@ -8,7 +9,7 @@ import 'package:cherry_mvp/pages/ErrorPage.dart';
 import 'package:cherry_mvp/pages/NavigationPage.dart';
 import 'package:cherry_mvp/pages/LoadingPage.dart';
 
-void main() {
+void main(){
   runApp(const App());
 }
 
@@ -20,7 +21,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //title: "Firebase Flutter Demo",
-      home: HomePage()
+      home: AuthenticationPage()
     );
   }
 }

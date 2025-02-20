@@ -73,7 +73,7 @@ node_modules/
 **/ios/Pods/
 **/.dart_tool/
 **/.package/
-**/pubspec.lock
+pubspec.lock
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 **/.metadata
