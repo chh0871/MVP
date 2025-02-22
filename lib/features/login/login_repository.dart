@@ -1,7 +1,7 @@
 import 'package:cherry_mvp/core/models/model.dart';
 import 'package:cherry_mvp/core/services/services.dart';
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/core/utils/result.dart';
+import 'package:cherry_mvp/core/utils/utils.dart';
 import 'login_model.dart';
 
 class LoginRepository {
