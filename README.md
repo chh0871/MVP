@@ -65,7 +65,7 @@ git checkout -b feature-new-feature
 ```
 
 ### Step 3: Install Dependencies
-- Create a .env file and update it with necessary credentials in the root directory
+- Create a .env file in the root directory and update it with necessary credentials 
 ```shell
 flutter clean (optional)
 flutter pub get
@@ -93,7 +93,7 @@ To better understand the architecture of this project, it may be helpful to read
 - State Management: https://docs.flutter.dev/data-and-backend/state-mgmt/simple
 
 ### Few House Keeping Notes
-- Please avoid using relative imports for any items from the core folder. It's best to use the package-based import structure to ensure clarity and maintainability. For example:
+- Please avoid using relative imports for items from the core folder. It's best to use the package-based import structure. For example:
 ```dart 
 import 'package:cherry_mvp/core/utils/utils.dart'; 
 ```
