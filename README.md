@@ -15,7 +15,7 @@ lib/
 │   ├── models/                # General models
 │   ├── services/              # Services (external dependencies like network)
 │   ├── utils/                 # Helper utilities
-│   ├── reusablewidgets/               # Shared reusable widgets
+│   ├── reusablewidgets/       # Shared reusable widgets
 │   └── router/                # Handles navigation
 ├── features/                  # Main features
 │   ├── login/                 
@@ -37,7 +37,7 @@ lib/
 ### Key Points:
 - **MVVM Architecture**: The project uses the **MVVM approach** for separation of concerns.
 - **Provider**: The project uses **Provider** for state management and dependency injection.
-- **Feature Consistency**: Other features should follow the same approach as the **Login feature**, ensuring consistency in structure across **Models, Repositories, ViewModels, and UI components**.
+- **Feature Consistency**: Other features should follow the same approach as the **Login feature**, to ensure consistency.
 - **Welcome Page/LoginForm**: The **Pages** provide good example of how to navigate between screens and use other dependencies/resources within the app.
 ---
 
