@@ -15,7 +15,7 @@ lib/
 │   ├── models/                # General models
 │   ├── services/              # Services (external dependencies like network)
 │   ├── utils/                 # Helper utilities
-│   ├── widgets/               # Shared reusable widgets
+│   ├── reusablewidgets/               # Shared reusable widgets
 │   └── router/                # Handles navigation
 ├── features/                  # Main features
 │   ├── login/                 
@@ -55,8 +55,8 @@ Make sure you have the following installed:
 
 ### Step 1: Clone the Repository
 ```shell
-- git clone https://github.com/CherryCIC/MVP
-- cd CherryMVP
+git clone https://github.com/CherryCIC/MVP
+cd CherryMVP
 ```
 
 ### Step 2: Create a Feature Branch from main
@@ -104,3 +104,6 @@ import '../../core/utils/result.dart';
 ```
 
 - Avoid hardcoding strings, images, and colors directly in the widgets. They should be referenced from app_colors, app_images, and app_strings.
+```dart 
+import 'package:cherry_mvp/core/config/config.dart';
+```
