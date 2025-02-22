@@ -56,7 +56,7 @@ To better understand the architecture of this project, it may be helpful to read
 - State Management: https://docs.flutter.dev/data-and-backend/state-mgmt/simple
 
 ### Few House Keeping Notes
-- Please avoid using relative imports for any items within the core folder. It's best to use the package-based import structure to ensure clarity and maintainability. For example:
+- Please avoid using relative imports for any items from the core folder. It's best to use the package-based import structure to ensure clarity and maintainability. For example:
 <pre> import 'package:cherry_mvp/core/utils/utils.dart';  </pre>
 
 - Avoid using relative imports, such as:
