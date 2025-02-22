@@ -64,3 +64,37 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Flutter & Dart
+**/build/
+**/android/.gradle/
+**/android/app/*.keystore
+**/android/key.properties
+**/ios/Pods/
+**/.dart_tool/
+**/.package/
+pubspec.lock
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.metadata
+
+# VS Code
+**/.vscode/
+
+# JetBrains IDEs
+**/.idea/
+**/*.iml
+
+# MacOS
+.DS_Store
+
+# Web
+**/web/.dart_tool/
+
+# Firebase & Google Services
+**/android/app/google-services.json
+**/ios/Runner/GoogleService-Info.plist
+
+# Generated Files
+**/generated_plugin_registrant.dart
+
