@@ -1,15 +1,45 @@
 # CherryMVP
  
-## Project Structure
+### Project Structure
 
-lib/ ├── assets/ │ ├── images/ # Stores image assets  │ └── fonts/ # Custom fonts ├── core/ # Core functionalities shared across the app │ ├── config/ # App constants │ │ ├── app_colors.dart # Colors used in the app │ │ ├── app_strings.dart # App strings (for localization readiness) │ │ ├── app_icons.dart # Icon paths │ │ ├── app_fonts.dart # Font setup │ │ ├── config.dart # Simplified imports for config files │ ├── models/ │ │ └── user.dart # General User model │ ├── services/ # Services to interact with Firebase/Auth │ │ ├── firebase_auth_service.dart │ │ ├── firestore_service.dart │ ├── utils/ # Helper utilities │ │ ├── status.dart # Status management class │ │ ├── dependency.dart # Dependency Injection setup │ ├── widgets/ # Shared reusable widgets │ │ ├── custom_button.dart # Custom button widget │ │ ├── custom_form_field.dart # Custom text form field │ └── router/ # Handles navigation │ ├── nav_routes.dart # Defines named routes │ ├── router.dart # Exports navigation files ├── features/ # Each feature is modularized │ ├── login/ # Login Feature │ │ ├── models/ │ │ │ ├── login_model.dart # Holds login data │ │ ├── repository/ │ │ │ ├── login_repository.dart # Handles login logic │ │ ├── viewmodel/ │ │ │ ├── login_viewmodel.dart # Manages login state │ │ ├── ui/ │ │ │ ├── login_screen.dart # Login UI │ ├── register/ # Similar structure for register feature │ ├── home/ # Home Feature │ ├── dashboard/ # Dashboard Feature │ ├── profile/ # Profile Feature └── main.dart # Entry point
-
+```
+assets/
+│   ├── images/       # Stores image assets
+│   └── fonts/        # Custom fonts
+lib/
+├── core/             # Core functionalities shared across the app
+│   ├── config/       # App constants
+│   │   ├── app_colors.dart    # Colors used in the app
+│   │   ├── app_strings.dart   # App strings (for localization readiness)
+│   │   ├── config.dart        # Simplified imports for config files
+│   ├── models/                # General models
+│   ├── services/              # Services (external dependencies like network)
+│   ├── utils/                 # Helper utilities
+│   ├── widgets/               # Shared reusable widgets
+│   └── router/                # Handles navigation
+│     
+├── features/                  # Main features
+│   ├── login/                 
+│   │   ├── models/
+│   │   │   ├── login_model.dart  
+│   │   ├── repository/
+│   │   │   ├── login_repository.dart  
+│   │   ├── viewmodel/
+│   │   │   ├── login_viewmodel.dart   
+│   │   ├── ui/
+│   │   │   ├── login_screen.dart   
+│   │   └── widgets/                # Sub-widgets used in login
+│   ├── register/              
+│   ├── home/                 
+│   ├── dashboard/          
+│   ├── profile/               
+└── main.dart                  # Entry point
+```
 ### Key Points:
-- **MVVM Architecture**: The project uses the **MVVM approach** for clean code and separation of concerns.
-- **Provider**: The project uses **Provider** for state management and dependency injection, ensuring consistent and efficient dependency management across the app.
+- **MVVM Architecture**: The project uses the **MVVM approach** for separation of concerns.
+- **Provider**: The project uses **Provider** for state management and dependency injection.
 - **Feature Consistency**: Other features should follow the same approach as the **Login feature**, ensuring consistency in structure across **Models, Repositories, ViewModels, and UI components**.
-- **Welcome Page/LoginForm**: The **Pages** provide a good example of how to navigate between screens and use other dependencies/resources within the app, providing a good starting point for understanding the project structure and flow.
-
+- **Welcome Page/LoginForm**: The **Pages** provide good example of how to navigate between screens and use other dependencies/resources within the app.
 ---
 
 ## Setup and How to Contribute
@@ -25,19 +55,23 @@ Make sure you have the following installed:
 - Before you start working on a feature or bug fix, check the issues tab and pick one that you’d like to work on.
 
 ### Step 1: Clone the Repository
-- git clone https://github.com/your-repo/flutter-mvvm-project.git
-- cd flutter-mvvm-project
+```
+- git clone https://github.com/CherryCIC/MVP
+- cd CherryMVP
+```
 
 ### Step 2: Create a Feature Branch from main
-- git checkout -b feature-new-feature
+<pre> git checkout -b feature-new-feature </pre> 
 
 ### Step 3: Install Dependencies
 - Create a .env file and update it with necessary credentials in the root directory
+```
 - flutter clean (optional)
 - flutter pub get
+```
 
 ### Step 4: run the project
-- flutter run
+<pre> flutter run </pre> 
 
 ### Step 5: Submit a Pull Request
 - Once you’re done with your changes, submit a pull request from your feature branch to the main branch of the CherryMVP repository
