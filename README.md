@@ -62,4 +62,4 @@ To better understand the architecture of this project, it may be helpful to read
 - Avoid using relative imports, such as:
 <pre> import '../../core/utils/result.dart'; </pre>
 
-- Avoid hardcoding strings, images, and colors directly in the widgets. They should be referenced from AppColors, AppImages, and AppStrings.
+- Avoid hardcoding strings, images, and colors directly in the widgets. They should be referenced from app_colors, app_images, and app_strings.
