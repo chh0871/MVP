@@ -60,6 +60,6 @@ To better understand the architecture of this project, it may be helpful to read
 import 'package:cherry_mvp/core/utils/utils.dart';
 
 - Avoid using relative imports, such as:
-<pre> ```dart import '../../core/utils/result.dart'; ``` </pre>
+<pre> import '../../core/utils/result.dart'; </pre>
 
 - Avoid hardcoding strings, images, and colors directly in the widgets. They should be referenced from AppColors, AppImages, and AppStrings.
