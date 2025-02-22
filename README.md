@@ -65,7 +65,7 @@ Make sure you have the following installed:
 
 ### Step 3: Install Dependencies
 - Create a .env file and update it with necessary credentials in the root directory
-```
+```none
 - flutter clean (optional)
 - flutter pub get
 ```
@@ -94,6 +94,8 @@ To better understand the architecture of this project, it may be helpful to read
 <pre> import 'package:cherry_mvp/core/utils/utils.dart';  </pre>
 
 - Avoid using relative imports, such as:
-<pre> import '../../core/utils/result.dart'; </pre>
+```dart 
+import '../../core/utils/result.dart';
+```
 
 - Avoid hardcoding strings, images, and colors directly in the widgets. They should be referenced from app_colors, app_images, and app_strings.
