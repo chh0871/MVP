@@ -57,7 +57,7 @@ To better understand the architecture of this project, it may be helpful to read
 
 ### Few House Keeping Notes
 - Please avoid using relative imports for any items within the core folder. It's best to use the package-based import structure to ensure clarity and maintainability. For example:
-import 'package:cherry_mvp/core/utils/utils.dart';
+<pre> import 'package:cherry_mvp/core/utils/utils.dart';  </pre>
 
 - Avoid using relative imports, such as:
 <pre> import '../../core/utils/result.dart'; </pre>
