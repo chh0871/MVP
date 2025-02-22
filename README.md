@@ -26,7 +26,7 @@ lib/
 │   │   ├── viewmodel/
 │   │   │   ├── login_viewmodel.dart   
 │   │   ├── ui/
-│   │   │   ├── login_screen.dart   
+│   │   │   ├── loginpage.dart   
 │   │   └── widgets/                # Sub-widgets used in login
 │   ├── register/              
 │   ├── home/                 
