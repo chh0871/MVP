@@ -188,6 +188,12 @@
       "languageVersion": "3.7"
     },
     {
+      "name": "flutter_dotenv",
+      "rootUri": "file:///Users/guruking/.pub-cache/hosted/pub.dev/flutter_dotenv-5.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_plugin_android_lifecycle",
       "rootUri": "file:///Users/guruking/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.24",
       "packageUri": "lib/",
@@ -494,7 +500,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-02-21T21:31:47.092563Z",
+  "generated": "2025-02-22T08:15:33.459656Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/guruking/Downloads/flutter",

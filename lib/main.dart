@@ -1,5 +1,6 @@
 import 'package:cherry_mvp/features/welcome/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'core/utils/utils.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,9 @@ import 'core/router/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /// Load environment variables
+  await dotenv.load();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -46,30 +47,30 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBMgSlx4VI9Fizft4LzWSohYt09k_UtCdM',
-    appId: '1:401854471349:web:9b9538f1c44b2d1e85f2fc',
-    messagingSenderId: '401854471349',
-    projectId: 'cherry-mvp',
-    authDomain: 'cherry-mvp.firebaseapp.com',
-    storageBucket: 'cherry-mvp.firebasestorage.app',
-    measurementId: 'G-RWZMTRVS51',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.env['WEB_API_KEY']!,
+    appId: dotenv.env['WEB_APP_ID']!,
+    messagingSenderId: dotenv.env['WEB_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['WEB_PROJECT_ID']!,
+    authDomain: dotenv.env['WEB_AUTH_DOMAIN']!,
+    storageBucket: dotenv.env['WEB_STORAGE_BUCKET']!,
+    measurementId: dotenv.env['WEB_MEASUREMENT_ID']!,
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCKF0hkCPR2nhUfv_CsgZFsnWcx7hjkep4',
-    appId: '1:401854471349:android:cad8afc621be102485f2fc',
-    messagingSenderId: '401854471349',
-    projectId: 'cherry-mvp',
-    storageBucket: 'cherry-mvp.firebasestorage.app',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['ANDROID_API_KEY']!,
+    appId: dotenv.env['ANDROID_APP_ID']!,
+    messagingSenderId: dotenv.env['ANDROID_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['ANDROID_PROJECT_ID']!,
+    storageBucket: dotenv.env['ANDROID_STORAGE_BUCKET']!,
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB9jkZAhIsFB-7pmtJT-x3kw7ZLBUxOuHQ',
-    appId: '1:401854471349:ios:d18d58e54120645085f2fc',
-    messagingSenderId: '401854471349',
-    projectId: 'cherry-mvp',
-    storageBucket: 'cherry-mvp.firebasestorage.app',
-    iosBundleId: 'com.cherry.cherrymvp',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['IOS_API_KEY']!,
+    appId: dotenv.env['IOS_APP_ID']!,
+    messagingSenderId: dotenv.env['IOS_MESSAGING_SENDER_ID']!,
+    projectId: dotenv.env['IOS_PROJECT_ID']!,
+    storageBucket: dotenv.env['IOS_STORAGE_BUCKET']!,
+    iosBundleId: dotenv.env['IOS_BUNDLE_ID']!,
   );
 }
