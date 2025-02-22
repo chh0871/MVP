@@ -55,23 +55,27 @@ Make sure you have the following installed:
 - Before you start working on a feature or bug fix, check the issues tab and pick one that you’d like to work on.
 
 ### Step 1: Clone the Repository
-```
+```shell
 - git clone https://github.com/CherryCIC/MVP
 - cd CherryMVP
 ```
 
 ### Step 2: Create a Feature Branch from main
-<pre> git checkout -b feature-new-feature </pre> 
+```shell
+git checkout -b feature-new-feature
+```
 
 ### Step 3: Install Dependencies
 - Create a .env file and update it with necessary credentials in the root directory
-```none
-- flutter clean (optional)
-- flutter pub get
+```shell
+flutter clean (optional)
+flutter pub get
 ```
 
 ### Step 4: run the project
-<pre> flutter run </pre> 
+```shell
+flutter run </pre> 
+```
 
 ### Step 5: Submit a Pull Request
 - Once you’re done with your changes, submit a pull request from your feature branch to the main branch of the CherryMVP repository
@@ -91,7 +95,9 @@ To better understand the architecture of this project, it may be helpful to read
 
 ### Few House Keeping Notes
 - Please avoid using relative imports for any items from the core folder. It's best to use the package-based import structure to ensure clarity and maintainability. For example:
-<pre> import 'package:cherry_mvp/core/utils/utils.dart';  </pre>
+```dart 
+import 'package:cherry_mvp/core/utils/utils.dart'; 
+```
 
 - Avoid using relative imports, such as:
 ```dart 
