@@ -17,7 +17,6 @@ lib/
 │   ├── utils/                 # Helper utilities
 │   ├── widgets/               # Shared reusable widgets
 │   └── router/                # Handles navigation
-│     
 ├── features/                  # Main features
 │   ├── login/                 
 │   │   ├── models/
