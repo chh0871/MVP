@@ -74,7 +74,7 @@ flutter pub get
 
 ### Step 4: run the project
 ```shell
-flutter run </pre> 
+flutter run
 ```
 
 ### Step 5: Submit a Pull Request
