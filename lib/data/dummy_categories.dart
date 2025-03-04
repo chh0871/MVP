@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/category.dart';
 
@@ -23,3 +21,5 @@ const dummyCategories = [
       ],
       number: 530),
 ];
+
+
