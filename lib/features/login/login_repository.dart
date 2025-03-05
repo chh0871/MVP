@@ -34,7 +34,7 @@ class LoginRepository {
       await fetchUserFromFirestore(userCredentials?.uid ?? "");
       return result;
     } else {
-      ///complete this to add logic to create user in firestore if user does not exist(first time user)
+      ///TODO: complete this to add logic to create user in firestore if user does not exist(first time user)
       return Result.failure(result.error);
     }
   }
@@ -49,7 +49,7 @@ class LoginRepository {
       await fetchUserFromFirestore(userCredentials?.uid ?? "");
       return result;
     } else {
-      ///complete this to add logic to create user in firestore if user does not exist(first time user)
+      ///TODO: complete this to add logic to create user in firestore if user does not exist(first time user)
       return Result.failure(result.error);
     }
   }
