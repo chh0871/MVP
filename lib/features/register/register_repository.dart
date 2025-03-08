@@ -9,7 +9,6 @@ class RegisterRepository {
   final FirestoreService _firestoreService;
   final StorageProvider _storage;
 
-
   RegisterRepository(this._authService, this._firestoreService, this._storage);
 
   Future<Result<UserCredentials?>> register(RegisterRequest request) async {
