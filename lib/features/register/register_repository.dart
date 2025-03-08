@@ -34,6 +34,8 @@ class RegisterRepository {
         }
       }
 
+
+
         // Now, create the user in Firestore
         final firestoreResult = await createUserInFirestore(
           userCredentials?.uid ?? "",
@@ -53,6 +55,9 @@ class RegisterRepository {
         return Result.failure(result.error);
       }
     }
+
+  //Send Verifcation Email
+
 
   Future<Result<void>> fetchUserFromFirestore(String uid) async {
     // Fetch user document from Firestore
@@ -88,6 +93,7 @@ class RegisterRepository {
 
     if (result.isSuccess) {
       await fetchUserFromFirestore(uid);
+      await _authService.sendVerificationEmail();
       return Result.success(null);
     } else {
       return Result.failure(result.error);
