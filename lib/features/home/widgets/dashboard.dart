@@ -1,17 +1,22 @@
-import 'package:cherry_mvp/data/dummy_products.dart';
 import 'package:cherry_mvp/features/home/widgets/product_card.dart';
 import 'package:flutter/material.dart';
-
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/data/dummy_categories.dart';
-import 'package:cherry_mvp/features/home/widgets/category.dart';
+import 'package:cherry_mvp/features/home/home_viewmodel.dart';
+import 'package:provider/provider.dart';
+
+import 'category.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Dashboard')),
-      body: SingleChildScrollView(
+        body: Consumer<HomeViewModel>(
+        builder: (context, viewModel, _) {
+      final products = viewModel.fetchProducts();
+      final categories = viewModel.fetchCategories();
+
+      return SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -41,9 +46,9 @@ class DashboardPage extends StatelessWidget {
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 5,
                     childAspectRatio: 0.7),
-                itemCount: dummyProducts.length,
+                itemCount: products.length,
                 itemBuilder: (context, index) {
-                  return SingleProduct(product: dummyProducts[index]);
+                  return SingleProduct(product: products[index]);
                 },
               ),
               SizedBox(height: 30),
@@ -72,15 +77,17 @@ class DashboardPage extends StatelessWidget {
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 5,
                     childAspectRatio: 0.8),
-                itemCount: dummyCategories.length,
+                itemCount: categories.length,
                 itemBuilder: (context, index) {
-                  return SingleCategory(category: dummyCategories[index]);
+                  return SingleCategory(category: categories[index]);
                 },
               ),
             ],
           ),
         ),
-      ),
+      );
+        },
+        ),
     );
   }
 }

@@ -1,5 +1,5 @@
+import 'package:cherry_mvp/features/home/home_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:cherry_mvp/core/services/services.dart';
@@ -36,6 +36,9 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
         Provider.of<FirestoreService>(context, listen: false),
       ),
     ),
+    Provider<HomeRepository>(
+      create: (context) => HomeRepository(),
+    ),
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(
         loginRepository: Provider.of<LoginRepository>(context, listen: false),
@@ -47,7 +50,9 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
       ),
     ),
     ChangeNotifierProvider<HomeViewModel>(
-      create: (context) => HomeViewModel(),
+        create: (context) => HomeViewModel(
+          homeRepository: Provider.of<HomeRepository>(context, listen: false),
+        )
     ),
    ];
 }
