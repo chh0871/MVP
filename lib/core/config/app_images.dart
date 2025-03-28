@@ -19,4 +19,9 @@ class AppImages {
   static const shoes2 = '${_path}shoes_2.png';
   static const shoes3 = '${_path}shoes_3.png';
   static const shoes4 = '${_path}shoes_4.png';
+
+  static const mensTShirt = '${_path}mens_t_shirt.png';
+  static const homeStart = '${_path}charity_home_start.png';
+
+  static const likeHeart = '${_path}like_heart.png';
 }
