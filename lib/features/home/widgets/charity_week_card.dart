@@ -28,7 +28,7 @@ class CharityWeekCardState extends State<CharityWeekCard> {
             ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Image.asset(
-                AppImages.redBackground, // Replace with your image path
+                AppImages.charity_week_card, // Replace with your image path
                 width: double.infinity,
                 height: 170, // Adjust height as needed
                 fit: BoxFit.cover,
