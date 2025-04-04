@@ -7,6 +7,8 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
+
+
 # Firebase cache
 .firebase/
 
@@ -80,6 +82,7 @@ pubspec.lock
 .flutter-plugins
 .flutter-plugins-dependencies
 .metadata
+.dar_tool/version
 
 # VS Code
 .vscode/
@@ -102,3 +105,9 @@ web/.dart_tool/
 /generated_plugin_registrant.dart
 
 .dart_tool/package_config.json
+.dart_tool/version
+.dar_tool/version
+
+
+
+.pubspec.lock
