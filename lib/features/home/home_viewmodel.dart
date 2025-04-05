@@ -5,6 +5,7 @@ import 'package:logging/logging.dart';
 
 class HomeViewModel extends ChangeNotifier {
 
+  // ignore: unused_field
   final _log = Logger('HomeViewModel');
   final HomeRepository homeRepository;
 

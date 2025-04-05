@@ -8,7 +8,7 @@ firebase-debug.log*
 firebase-debug.*.log*
 
 
-
+.gitignore
 # Firebase cache
 .firebase/
 
@@ -107,7 +107,13 @@ web/.dart_tool/
 .dart_tool/package_config.json
 .dart_tool/version
 .dar_tool/version
+.dart_tool 
+package_config.json
+package_config_subset
+version
+.flutter-plugins
+.flutter-plugin-dependencies
 
-
+pubspeck.lock
 
 .pubspec.lock

@@ -42,7 +42,7 @@ class SingleProduct extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(4),
                   decoration: const BoxDecoration(
-                    color: Colors.red,
+                    color: Colors.pink,
                     shape: BoxShape.circle,
                   ),
                   child: const Text(
@@ -143,19 +143,7 @@ class SingleProduct extends StatelessWidget {
               '£${product.price.toStringAsFixed(2)}',
               style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => addToCart(context),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.greenBgColor,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-              ),
-              child: const Text("Add to Cart",
-                  style: TextStyle(color: Colors.white)),
-            ),
+           
           ],
         ),
       ),

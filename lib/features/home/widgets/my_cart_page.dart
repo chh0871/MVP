@@ -100,7 +100,7 @@ class MyCartPage extends StatelessWidget {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text("✅ Payment successful (mock)!"),
-                              duration: Duration(seconds: 2),
+                              duration: Duration(seconds: 4),
                             ),
                           );
                         },
@@ -112,7 +112,12 @@ class MyCartPage extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
+                foregroundColor: Colors.white,  
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 minimumSize: const Size.fromHeight(45),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
               child: const Text("Checkout"),
             ),
