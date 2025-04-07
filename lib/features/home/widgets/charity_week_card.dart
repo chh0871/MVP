@@ -105,7 +105,7 @@ class CharityWeekCardState extends State<CharityWeekCard> {
                           height: 20,
                           child: Text(
                             AppStrings.browseItemsText,
-                            style: TextStyle(
+                            style: TextStyle( 
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                               color: AppColors.white
