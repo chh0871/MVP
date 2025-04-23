@@ -1,8 +1,9 @@
-Fixes: Connect Google Auth Logic from ViewModel to UI #34
+Fixes: Connect Google Auth Logic from ViewModel to UI #34 and also #8
 
 ### Description of the Work Done:
 - added google button to the welcome page
 - used existing google auth functionalities
+- Configure Firebase:
 - added the user data (retrieved from google sign in) into firestore Database
 
 ### Screenshot (if UI was created or updated):
