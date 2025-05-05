@@ -1,3 +1,4 @@
+import 'package:cherry_mvp/features/home/widgets/smash_button.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/models/model.dart';
 import 'add_to_cart_success.dart';
@@ -14,6 +15,12 @@ class ProductCard extends StatelessWidget {
         builder: (_) => AddToCartSuccessPage(product: product),
       ),
     );
+  }
+
+  //Firebase-like function
+  Future<void> handleLikeToggle(bool isLiked) async {
+    // Simulate a delay like Firebase update
+    print('Liked state changed to: $isLiked');
   }
 
   @override
@@ -68,13 +75,36 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 4),
+
+                  //Orignal previous code--------
+                  // Row(
+                  //   children: [
+                  //     Image.asset(product.charity_image, width: 24, height: 24),
+                  //     const SizedBox(width: 6),
+                  //     Text('${product.likes} likes'),
+                  //   ],
+                  // ),
+                  //-------------------------
+                  //for like/unlike smashed button
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(product.charity_image, width: 24, height: 24),
-                      const SizedBox(width: 6),
-                      Text('${product.likes} likes'),
+                      Row(
+                        children: [
+                          Image.asset(product.charity_image,
+                              width: 24, height: 24),
+                          const SizedBox(width: 6),
+                          Text('${product.likes} likes'),
+                        ],
+                      ),
+                      //smashed button widget
+                      SmashedLikeButton(
+                        initialIsLiked: false,
+                        initialLikeCount: 0,
+                        onToggle: handleLikeToggle,
+                      ),
                     ],
-                  ),
+                  )
                 ],
               ),
             ),
