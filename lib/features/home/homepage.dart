@@ -1,7 +1,10 @@
 import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/features/addproduct/addproductpage.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
+import 'package:cherry_mvp/features/messages/messagepage.dart';
 import 'package:cherry_mvp/features/profile/profilepage.dart';
 import 'package:cherry_mvp/features/home/widgets/dashboard.dart';
+import 'package:cherry_mvp/features/search/searchpage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +24,9 @@ class HomePageState extends State<HomePage> {
 
   static final List<Widget> _pages = <Widget>[
     DashboardPage(),
+    MessagePage(),
+    SearchPage(),
+    AddProductPage(),
     ProfilePage()
     //add other pages for the bottom sheet here
   ];
@@ -66,16 +72,19 @@ class HomePageState extends State<HomePage> {
               ),
               activeIcon: Image(
                 image: AssetImage(AppImages.icHomeSelected),width: 24,height: 24,
-              ), label: ''
+              ), label: 'Home'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.messenger_outline), label: ''
+              icon: Icon(Icons.messenger_outline), label: 'Inbox'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.private_connectivity_rounded), label: ''
+              icon: Icon(Icons.private_connectivity_rounded), label: 'Search'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: ''
+              icon: Icon(Icons.add), label: 'Add'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: 'Profile'
           ),
         ],
         currentIndex: _selectedIndex,
