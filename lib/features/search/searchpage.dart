@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:cherry_mvp/core/reusablewidgets/emptystatecard.dart';
+import 'package:cherry_mvp/core/config/config.dart';
+
+import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'No products found... 🔎',
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          AppStrings.search,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: AppColors.black,
+          ),
+          textAlign: TextAlign.center,
         ),
+      ),
+      body: EmptyStateCard(
+        message: AppStrings.emptyStateSearchText,
       ),
     );
   }
