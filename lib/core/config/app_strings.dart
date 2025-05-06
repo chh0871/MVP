@@ -26,5 +26,10 @@ class AppStrings {
   static const weekText = "the week"; 
   static const browseItemsText = "Browse pledged items";
   static const learMoreText = "and learn more about"; 
-  static const workHereText = "the work the do here!"; 
+  static const workHereText = "the work the do here!";
+  static const dashboard = 'Dashboard';
+  static const messages = 'Messages';
+  static const search = 'Search';
+  static const emptyStateMessageText = 'No messages just yet... 😢';
+  static const emptyStateSearchText = 'No products found... 🔎';
 }

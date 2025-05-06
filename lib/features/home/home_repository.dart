@@ -3,10 +3,6 @@ import 'package:cherry_mvp/features/home/home_model.dart';
 
 class HomeRepository {
 
-  List<Category> fetchCategories()  {
-    return dummyCategories;
-  }
-
   List<Product> fetchProducts()  {
     return dummyProducts;
   }
