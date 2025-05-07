@@ -27,4 +27,20 @@ class AppImages {
 
   static const charity_week_card = '${_path}charity_week_card.png';
   static const empty_state_bg = '${_path}emptystatebg.png';
+
+  
+  static const product1 = '${_path}product1.png'; 
+  static const product2 = '${_path}product2.png'; 
+  static const product3 = '${_path}product3.png'; 
+  static const product4 = '${_path}product4.png'; 
+  static const product5 = '${_path}product5.png';  
+  static const product6 = '${_path}product6.png'; 
+ 
+
+  static const explore_image = '${_path}explore_image.png'; 
+  static const ad_image = '${_path}ad_image.png';  
+
+  static const discover_image1 = '${_path}discover_image1.png';
+  static const discover_image2 = '${_path}discover_image2.png';  
+
 }

@@ -6,4 +6,12 @@ class HomeRepository {
   List<Product> fetchProducts()  {
     return dummyProducts;
   }
+ 
+  List<NewProduct> fetchNewProducts()  {
+    return dummyNewProducts;
+  } 
+  
+  List<DiscoverProduct> fetchDiscoverProducts()  {
+    return dummyDiscoverProducts;
+  } 
 }
