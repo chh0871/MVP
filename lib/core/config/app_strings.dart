@@ -32,4 +32,16 @@ class AppStrings {
   static const search = 'Search';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const emptyStateSearchText = 'No products found... 🔎';
+
+  static const categoriesText = "Categories"; 
+  static const womenText = "Women"; 
+  static const menText = "Men"; 
+  static const childrenText = "Children"; 
+  static const unisexText = "Unisex"; 
+  static const designerText = "Designer"; 
+  static const profilesText = "Profiles";  
+  static const accessoriesText = "Accessories"; 
+  static const booksText = "Books"; 
+  static const toysText = "Toys & Board Games";
+  static const dvdText = "DVD's & Video Games";
 }
