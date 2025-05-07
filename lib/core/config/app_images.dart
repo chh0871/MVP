@@ -28,6 +28,10 @@ class AppImages {
   static const charity_week_card = '${_path}charity_week_card.png';
   static const empty_state_bg = '${_path}emptystatebg.png';
 
+  
+  static const waterAid_logo = '${_path}water_aid_logo.png';
+
+
 
   
   static const product1 = '${_path}product1.png'; 
@@ -55,5 +59,6 @@ class AppImages {
   static const booksIcon = '${_path}books_icon.png'; 
   static const toysIcon = '${_path}toys_icon.png'; 
   static const dvdIcon = '${_path}dvd_icon.png'; 
+
 
 }
