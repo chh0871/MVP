@@ -61,5 +61,18 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
           homeRepository: Provider.of<HomeRepository>(context, listen: false),
         )
     ),
+
+
+    
+    
+    Provider<SearchRepository>( 
+      create: (context) => SearchRepository(),
+    ),
+    ChangeNotifierProvider<SearchViewModel>(
+        create: (context) => SearchViewModel(
+          searchRepository: Provider.of<SearchRepository>(context, listen: false),
+        )
+    ),
+
    ];
 }
