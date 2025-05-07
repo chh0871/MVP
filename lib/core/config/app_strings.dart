@@ -33,6 +33,17 @@ class AppStrings {
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const emptyStateSearchText = 'No products found... 🔎';
 
+
+  
+  static const exploreText = "Explore Charities";
+  static const discover_something_Text = "Discover something beautiful..."; 
+  static const adText = "Ad";
+
+  static const discoverText = "Discover";
+  static const popularText = "Popular";
+  static const smaller_charities_Text = "Smaller Charities";
+  static const local_to_you_Text = "Local to you";
+
   static const categoriesText = "Categories"; 
   static const womenText = "Women"; 
   static const menText = "Men"; 
@@ -44,4 +55,5 @@ class AppStrings {
   static const booksText = "Books"; 
   static const toysText = "Toys & Board Games";
   static const dvdText = "DVD's & Video Games";
+
 }
