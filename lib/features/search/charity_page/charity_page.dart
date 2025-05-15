@@ -5,8 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart'; 
 import 'package:cherry_mvp/core/router/router.dart';
-import 'package:cherry_mvp/features/search/widgets/charity_page/category.dart';
-import 'package:cherry_mvp/features/search/search_viewmodel.dart'; 
+import 'package:cherry_mvp/features/search/search_viewmodel.dart';
 
 
 class CharityPage extends StatefulWidget {
@@ -88,7 +87,7 @@ class CharityPageState extends State<CharityPage> {
                   child: ListView.builder(
                     itemCount: _charities.length,  
                     itemBuilder: (context, index) {
-                      return SingleCategory(charityCategory: _charities[index]); 
+                      return Text("sss");
                     },
                   ), 
                 ),  

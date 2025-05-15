@@ -32,7 +32,7 @@ class AppStrings {
   static const search = 'Search';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const emptyStateSearchText = 'No products found... 🔎';
-]
+
   
   static const charitiesText = "Charities"; 
 
