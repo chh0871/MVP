@@ -35,7 +35,7 @@ class Footer extends StatelessWidget {
 
         Container( 
           child: Text(
-            "Version 1.0 April, 2025",
+            AppStrings.appVersion,
             style: TextStyle(fontSize: 13, color: AppColors.black, fontWeight: FontWeight.w500,),
           ),
         ),

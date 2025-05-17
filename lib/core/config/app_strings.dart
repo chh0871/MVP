@@ -63,4 +63,5 @@ class AppStrings {
   static const continueText = 'Continue';
 
   static const delete_account_Text = "Delete Account";
+  static const appVersion = "Delete Account";
 }
