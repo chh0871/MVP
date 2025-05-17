@@ -1,36 +1,27 @@
+import 'dart:core';
 import 'package:flutter/material.dart';   
 import 'package:flutter/cupertino.dart';
 import 'package:cherry_mvp/core/config/config.dart';  
  
 
-class ToggleSection extends StatefulWidget {
-  const ToggleSection({super.key});  
+class ToggleSection extends StatelessWidget { 
 
+  const ToggleSection({
+    super.key,
+    required this.isSwitchedDark,
+    required this.toggleSwitchDark,
+    required this.isSwitchedHide,
+    required this.toggleSwitchHide,
+  });   
 
+  final bool isSwitchedDark;
+  final void Function(bool)? toggleSwitchDark; 
 
-  @override
-  ToggleSectionState createState() => ToggleSectionState();
-}
+  final bool isSwitchedHide;
+  final void Function(bool)? toggleSwitchHide; 
+
 
  
-
-class ToggleSectionState extends State<ToggleSection> { 
-  
-  bool isSwitchedDark = false;
-  bool isSwitchedHide = false;
-
-  void toggleSwitchDark(bool value) {
-    setState(() {
-      isSwitchedDark = value; 
-    });
-  } 
-
-  void toggleSwitchHide(bool value) {
-    setState(() {
-      isSwitchedHide = value; 
-    });
-  } 
-
   @override 
   Widget build(BuildContext context) {     
 
@@ -44,8 +35,9 @@ class ToggleSectionState extends State<ToggleSection> {
 
           child: CupertinoSwitch( 
             value: isSwitchedDark,
-            activeTrackColor: CupertinoColors.activeBlue,
-            onChanged: toggleSwitchDark,
+            onChanged: toggleSwitchDark, 
+            inactiveTrackColor: AppColors.greyTextColor, 
+            activeColor: AppColors.primary, 
           ),
         ), 
          
@@ -60,10 +52,11 @@ class ToggleSectionState extends State<ToggleSection> {
         Padding(
           padding: EdgeInsets.only(top:5.0),
 
-          child: CupertinoSwitch( 
+          child: CupertinoSwitch(  
             value: isSwitchedHide,
-            activeTrackColor: CupertinoColors.activeBlue,
-            onChanged: toggleSwitchHide,
+            onChanged: toggleSwitchHide, 
+            inactiveTrackColor: AppColors.greyTextColor, 
+            activeColor: AppColors.primary, 
           ),
         ),
 
