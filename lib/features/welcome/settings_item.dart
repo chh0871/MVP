@@ -1,70 +1,60 @@
-import 'package:flutter/material.dart';   
-
-import 'package:cherry_mvp/core/config/config.dart';   
-
 class SettingsItem extends StatelessWidget {
-  const SettingsItem({super.key,});  
+  final String title;
+  final VoidCallback? onTap;
+  final String? trailing;
+
+  const SettingsItem({
+    Key? key,
+    required this.title,
+    this.onTap,
+    this.trailing,
+  }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {   
-    
+  Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [ 
-
-        SizedBox( 
-          height: 20, 
-        ), 
- 
+      children: [
         InkWell(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Row(
-                    children: [ 
-
-                      Padding(
-                        padding: EdgeInsets.all(0.0),
-                        child: Text( 
-                          "Profile",
-                          style: TextStyle(color: AppColors.greyTextColor, fontWeight: FontWeight.w600,),
-                        ),
-                      ),
-                    ]
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: AppColors.greyTextColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
                   ),
-                ]
-              ),
-
-              Column(
-                children: [  
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(0.0),
-                        child: Text( 
-                          "",
-                          style: TextStyle(color: AppColors.greyTextColor, fontWeight: FontWeight.w600,),
+                ),
+                Row(
+                  children: [
+                    if (trailing != null)
+                      Text(
+                        trailing!,
+                        style: const TextStyle(
+                          color: AppColors.greyTextColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-
-                      Icon(
-                        Icons.chevron_right,
-                        color: AppColors.greyTextColor, 
-                        size: 26,
-                      ), 
-                    ]
-                  )
-                ]
-              ),
-            ]
+                    if (trailing != null)
+                      const SizedBox(width: 10),
+                    const Icon(
+                      Icons.chevron_right,
+                      color: AppColors.greyTextColor,
+                      size: 26,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ), 
-
-        Divider(),  
-      ]
-    ); 
+        ),
+        const Divider(height: 1),
+      ],
+    );
   }
 }
