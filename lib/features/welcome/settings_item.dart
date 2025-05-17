@@ -37,7 +37,7 @@ class SettingsItem extends StatelessWidget {
                   children: [
                     if (trailing != null)
                       Text(
-                        trailing!,
+                        trailing,
                         style: const TextStyle(
                           color: AppColors.greyTextColor,
                           fontSize: 14,
