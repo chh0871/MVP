@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';   
+import 'package:flutter/cupertino.dart';
 import 'package:cherry_mvp/core/config/config.dart';  
  
 
@@ -37,51 +38,40 @@ class ToggleSectionState extends State<ToggleSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
 
       children: [   
-        SizedBox( 
-          height: 15, 
-        ),  
-        
-        Transform.scale(
-          scale: 0.8,
-          child: Switch(
+
+        Padding(
+          padding: EdgeInsets.only(top:15.0),
+
+          child: CupertinoSwitch( 
             value: isSwitchedDark,
-            onChanged: toggleSwitchDark, 
-            activeColor: AppColors.primary, 
-            // activeTrackColor: AppColors.redBgColor,
-            inactiveThumbColor: AppColors.white,
-            inactiveTrackColor: AppColors.greyTextColor,
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, 
-          ), 
-        ),
+            activeTrackColor: CupertinoColors.activeBlue,
+            onChanged: toggleSwitchDark,
+          ),
+        ), 
+         
 
         Text(
           AppStrings.dark_mode_Text,
           style: TextStyle(fontSize: 13, color: AppColors.greyTextColor, fontWeight: FontWeight.w600,),
         ),
 
-        
-        
-        SizedBox( 
-          height: 5, 
-        ),
-        
-        Transform.scale(
-          scale: 0.8,
-          child: Switch(
+         
+
+        Padding(
+          padding: EdgeInsets.only(top:5.0),
+
+          child: CupertinoSwitch( 
             value: isSwitchedHide,
-            onChanged: toggleSwitchHide, 
-            activeColor: AppColors.primary, 
-            // activeTrackColor: AppColors.redBgColor,
-            inactiveThumbColor: AppColors.white,
-            inactiveTrackColor: AppColors.greyTextColor,
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, 
-          ), 
+            activeTrackColor: CupertinoColors.activeBlue,
+            onChanged: toggleSwitchHide,
+          ),
         ),
 
         Text(
           AppStrings.list_listings_Text,
           style: TextStyle(fontSize: 13, color: AppColors.greyTextColor, fontWeight: FontWeight.w600,),
-        ), 
+        ),   
+
       ]
     ); 
   } 
