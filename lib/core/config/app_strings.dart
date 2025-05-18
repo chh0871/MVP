@@ -5,11 +5,11 @@ class AppStrings {
   static const skip = 'SKIP';
   static const login = 'Login';
   static const register = 'Sign Up';
-  static const create_account = 'Create Account';
+  static const createAccount = 'Create Account';
   static const welcome = 'Welcome!';
   static const professional = 'Professionals';
   static const signUpInstruction =
-      'Click Below to Sign Up as a parent or an health care proffesional';
+      'Click below to sign up as a parent or a healthcare professional';
   static const profile = 'My Profile';
   static const report = 'Report';
   static const forgotPassword = 'Forgot Password?';
@@ -18,49 +18,45 @@ class AppStrings {
   static const userCheck = 'Not you';
   static const email = 'Email';
   static const sendEmail = 'Send email';
-  static const forgotPassWordInstruction =
+  static const forgotPasswordInstruction =
       'Please type your email and we’ll get in touch';
 
-  
-  static const charityOfText = "Charity of";  
-  static const weekText = "the week"; 
+  static const charityOfText = "Charity of";
+  static const weekText = "the week";
   static const browseItemsText = "Browse pledged items";
-  static const learMoreText = "and learn more about"; 
-  static const workHereText = "the work the do here!";
+  static const learMoreText = "and learn more about";
+  static const workHereText = "the work they do here!";
   static const dashboard = 'Dashboard';
   static const messages = 'Messages';
   static const search = 'Search';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const emptyStateSearchText = 'No products found... 🔎';
-]
-  
-  static const charitiesText = "Charities"; 
 
-
-
-  
+  static const charitiesText = "Charities";
   static const exploreText = "Explore Charities";
-  static const discover_something_Text = "Discover something beautiful..."; 
+  static const discoverSomethingText = "Discover something beautiful...";
   static const adText = "Ad";
 
   static const discoverText = "Discover";
   static const popularText = "Popular";
-  static const smaller_charities_Text = "Smaller Charities";
-  static const local_to_you_Text = "Local to you";
+  static const smallerCharitiesText = "Smaller Charities";
+  static const localToYouText = "Local to you";
 
-  static const categoriesText = "Categories"; 
-  static const womenText = "Women"; 
-  static const menText = "Men"; 
-  static const childrenText = "Children"; 
-  static const unisexText = "Unisex"; 
-  static const designerText = "Designer"; 
-  static const profilesText = "Profiles";  
-  static const accessoriesText = "Accessories"; 
-  static const booksText = "Books"; 
+  static const categoriesText = "Categories";
+  static const womenText = "Women";
+  static const menText = "Men";
+  static const childrenText = "Children";
+  static const unisexText = "Unisex";
+  static const designerText = "Designer";
+  static const profilesText = "Profiles";
+  static const accessoriesText = "Accessories";
+  static const booksText = "Books";
   static const toysText = "Toys & Board Games";
-  static const dvdText = "DVD's & Video Games";
+  static const dvdText = "DVDs & Video Games";
 
   static const continueText = 'Continue';
-  
-  static const settings_Text = "Settings";
+
+  static const settingsText = "Settings";
+  static const darkModeText = "Dark mode";
+  static const listListingsText = "Hide Listings";
 }
