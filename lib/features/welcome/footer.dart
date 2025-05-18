@@ -28,11 +28,7 @@ class Footer extends StatelessWidget {
           AppStrings.appName,
           style: TextStyle(fontSize: 17, color: AppColors.black, fontWeight: FontWeight.w800,),
         ), 
-
-        Text(
-          AppStrings.appVersion,
-          style: TextStyle(fontSize: 13, color: AppColors.black, fontWeight: FontWeight.w500,),
-        ), 
+ 
 
         Padding(
           padding: EdgeInsets.only(bottom: 5),
