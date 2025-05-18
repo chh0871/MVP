@@ -32,7 +32,7 @@ class AppStrings {
   static const search = 'Search';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const emptyStateSearchText = 'No products found... 🔎';
-]
+
   
   static const charitiesText = "Charities"; 
 
@@ -61,4 +61,8 @@ class AppStrings {
   static const dvdText = "DVD's & Video Games";
 
   static const continueText = 'Continue';
+
+  
+  static const dark_mode_Text = "Dark mode";
+  static const list_listings_Text = "Hide Listings";
 }
