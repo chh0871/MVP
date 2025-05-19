@@ -1,4 +1,3 @@
- 
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
@@ -37,7 +36,7 @@ class SettingsItem extends StatelessWidget {
                   children: [
                     if (trailing != null)
                       Text(
-                        trailing,
+                        trailing!,
                         style: const TextStyle(
                           color: AppColors.greyTextColor,
                           fontSize: 14,
@@ -62,4 +61,3 @@ class SettingsItem extends StatelessWidget {
     );
   }
 }
- 
