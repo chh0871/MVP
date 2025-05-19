@@ -24,7 +24,7 @@ class AppStrings {
   static const charityOfText = "Charity of";
   static const weekText = "the week";
   static const browseItemsText = "Browse pledged items";
-  static const learMoreText = "and learn more about";
+  static const learnMoreText = "and learn more about";
   static const workHereText = "the work they do here!";
   static const dashboard = 'Dashboard';
   static const messages = 'Messages';
@@ -55,6 +55,8 @@ class AppStrings {
   static const dvdText = "DVDs & Video Games";
 
   static const continueText = 'Continue';
+  static const deleteAccountText = "Delete Account";
+  static const appVersion = "Version 1.0 April, 2025";
 
   static const settingsText = "Settings";
   static const darkModeText = "Dark mode";
