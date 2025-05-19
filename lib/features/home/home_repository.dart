@@ -6,10 +6,6 @@ class HomeRepository {
   List<Product> fetchProducts()  {
     return dummyProducts;
   }
- 
-  List<NewProduct> fetchNewProducts()  {
-    return dummyNewProducts;
-  } 
   
 
 }

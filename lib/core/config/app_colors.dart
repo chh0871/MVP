@@ -13,4 +13,7 @@ class AppColors {
   static const greenBgColor = Color(0xFF01BF07);
   static const lightGreyFill = Color(0xFFF0F0F0);
   static const greyTextColorTwo = Color(0xFF707070);
+  static const greyNavFooter= Color(0xFFA2A2A2);
+
+
 }
