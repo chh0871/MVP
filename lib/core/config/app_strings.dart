@@ -57,4 +57,8 @@ class AppStrings {
   static const continueText = 'Continue';
   static const deleteAccountText = "Delete Account";
   static const appVersion = "Version 1.0 April, 2025";
-  static const darkModeText
+
+  static const settingsText = "Settings";
+  static const darkModeText = "Dark mode";
+  static const listListingsText = "Hide Listings";
+}
