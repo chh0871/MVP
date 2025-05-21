@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart'; 
 
 
-class Footer extends StatelessWidget {
-  const Footer({super.key});  
+class SettingsFooter extends StatelessWidget {
+  const SettingsFooter({super.key});
 
 
   @override 
@@ -17,7 +17,7 @@ class Footer extends StatelessWidget {
           child: InkWell(
             onTap: () {},
             child: Text(
-              AppStrings.delete_account_Text,
+              AppStrings.deleteAccountText,
               style: TextStyle(fontSize: 13, color: AppColors.primary, fontWeight: FontWeight.w500,),
             ),
           ),

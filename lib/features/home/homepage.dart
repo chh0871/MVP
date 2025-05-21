@@ -1,6 +1,7 @@
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/features/addproduct/addproductpage.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
+import 'package:cherry_mvp/features/home/widgets/bottom_nav_bar.dart';
 import 'package:cherry_mvp/features/messages/messagepage.dart';
 import 'package:cherry_mvp/features/profile/profilepage.dart';
 import 'package:cherry_mvp/features/home/widgets/dashboard.dart';
@@ -63,36 +64,11 @@ class HomePageState extends State<HomePage> {
         onPageChanged: _onPageChanged,
         children: _pages,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors.primary,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Image(
-                image: AssetImage(AppImages.icHome),width: 24,height: 24,
-              ),
-              activeIcon: Image(
-                image: AssetImage(AppImages.icHomeSelected),width: 24,height: 24,
-              ), label: 'Home'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.messenger_outline), label: 'Inbox'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.private_connectivity_rounded), label: 'Search'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add), label: 'Add'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'Profile'
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.black,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: _onItemTapped,
+      bottomNavigationBar: CherryBottomNavBar(
+        selectedIndex: _selectedIndex,
+        onItemSelected: _onItemTapped,
+        selectedColor: AppColors.primary,
+        unselectedColor: AppColors.greyNavFooter,
       ),
     );
   }
