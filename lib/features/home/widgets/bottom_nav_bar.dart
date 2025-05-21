@@ -21,20 +21,13 @@ class CherryBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 430,
-      height: 89,
-      //padding: EdgeInsets.symmetric(horizontal: 25.0,vertical: 10),
+    return DecoratedBox(
       decoration: const BoxDecoration(
-
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(40),
-        bottomRight: Radius.circular(20),
-       ),
-
+          bottomRight: Radius.circular(20),
+        ),
         gradient: RadialGradient(
-
-
           transform: GradientRotation(-12.58),
           colors: [Color(0xFFFFC0D4), Color(0xFFFFF2F6)],
         ),
@@ -50,60 +43,49 @@ class CherryBottomNavBar extends StatelessWidget {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         elevation: 0,
-        items:  [
+        items: [
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image(
-                  width: 39.93,
-                  height: 30.29,
-                  color: selectedIndex == 0 ? selectedColor : unselectedColor,
-                  image: AssetImage(AppImages.icHome)),
+            icon: Image.asset(
+              AppImages.icHome,
+              width: 24,
+              height: 24,
+              color: selectedIndex == 0 ? selectedColor : unselectedColor,
             ),
             label: 'Home',
           ),
-
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image(
-                  width: 39.93,
-                  height: 30.29,
-                  image: AssetImage(AppImages.icMessage)),
+            icon: Image.asset(
+              AppImages.icMessage,
+              width: 24,
+              height: 24,
+              color: selectedIndex == 1 ? selectedColor : unselectedColor,
             ),
             label: 'Inbox',
           ),
-
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image(
-                  width: 39.93,
-                  height: 30.29,
-                  image: AssetImage(AppImages.icAdd)),
+            icon: Image.asset(
+              AppImages.icAdd,
+              width: 24,
+              height: 24,
+              color: selectedIndex == 2 ? selectedColor : unselectedColor,
             ),
             label: 'Give',
           ),
           BottomNavigationBarItem(
-
-            icon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image(
-                  width: 39.93,
-                  height: 30.29,
-                  image: AssetImage(AppImages.icSearch)),
+            icon: Image.asset(
+              AppImages.icSearch,
+              width: 24,
+              height: 24,
+              color: selectedIndex == 3 ? selectedColor : unselectedColor,
             ),
             label: 'Search',
           ),
-
-
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image(
-                  width: 39.93,
-                  height: 30.29,
-                  image: AssetImage(AppImages.icProfile)),
+            icon: Image.asset(
+              AppImages.icProfile,
+              width: 24,
+              height: 24,
+              color: selectedIndex == 4 ? selectedColor : unselectedColor,
             ),
             label: 'Profile',
           ),
