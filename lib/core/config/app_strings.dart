@@ -61,4 +61,8 @@ class AppStrings {
   static const settingsText = "Settings";
   static const darkModeText = "Dark mode";
   static const listListingsText = "Hide Listings";
+
+  static const profile_userActivity_bought = "Bought";
+  static const profile_userActivity_sold = "Sold";
+  static const profile_userActivity_total = "Total";
 }
