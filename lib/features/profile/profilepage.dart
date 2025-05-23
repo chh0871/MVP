@@ -1,3 +1,5 @@
+import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/features/profile/widgets/profilepage_userActivity_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -31,6 +33,25 @@ class ProfilePage extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             SizedBox(height: 20),
+            //UserActivity Card
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ProfilepageUseractivityCards(
+                      title: AppStrings.profile_userActivity_bought,
+                      value: '0'),
+                  SizedBox(width: 10),
+                  ProfilepageUseractivityCards(
+                      title: AppStrings.profile_userActivity_sold, value: '0'),
+                  SizedBox(width: 10),
+                  ProfilepageUseractivityCards(
+                      title: AppStrings.profile_userActivity_total, value: '0'),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+
             Expanded(
               child: Row(
                 children: [
