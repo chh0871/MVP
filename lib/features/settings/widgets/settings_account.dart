@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';    
 import 'package:cherry_mvp/core/config/config.dart';  
 import 'package:cherry_mvp/features/settings/settings_model.dart';  
-import 'package:cherry_mvp/features/settings/widgets/category.dart'; 
+import 'package:cherry_mvp/features/settings/widgets/settings_category_group.dart'; 
    
 
 class SettingsAccount extends StatelessWidget {
@@ -12,7 +12,7 @@ class SettingsAccount extends StatelessWidget {
   Widget build(BuildContext context) {     
 
     return Container( 
-      child: SingleCategory(list_items: dummyAccountSection, heading: AppStrings.account_Text),
+      child: SettingsCategoryGroup(list_items: dummyAccountSection, heading: AppStrings.account_Text),
     ); 
   } 
 }

@@ -8,8 +8,8 @@ import 'package:cherry_mvp/features/settings/widgets/settings_item.dart';
 
 
 
-class SingleCategory extends StatelessWidget {
-  const SingleCategory({super.key, required this.list_items, required this.heading,});
+class SettingsCategoryGroup extends StatelessWidget {
+  const SettingsCategoryGroup({super.key, required this.list_items, required this.heading,});
 
   final List<SectionSettingsItem> list_items;
   final String heading; 
