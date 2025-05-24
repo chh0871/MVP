@@ -69,4 +69,5 @@ class AppStrings {
   static const profile_generosity_changes_lives =
       "See how your generosity changes lives";
   static const profile_user_donation_Summary = "User Donation Summary";
+  static const profile_user_donation_total = "Total";
 }

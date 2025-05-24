@@ -65,7 +65,7 @@ class DonationChart extends StatelessWidget {
             Column(
               children: [
                 const Text(
-                  'Total',
+                  AppStrings.profile_user_donation_total,
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
