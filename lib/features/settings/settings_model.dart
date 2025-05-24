@@ -9,3 +9,9 @@ const dummyAccountSection = [
   SectionSettingsItem(title: AppStrings.cookie_settings_Text, trailing: ''),
   SectionSettingsItem(title: AppStrings.log_out_Text, trailing: '')
 ]; 
+
+
+const dummySupportSection = [   
+  SectionSettingsItem(title: AppStrings.chat_with_us_Text, trailing: ''), 
+  SectionSettingsItem(title: AppStrings.FAQ_Text, trailing: '')
+]; 

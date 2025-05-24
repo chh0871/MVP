@@ -75,4 +75,8 @@ class AppStrings {
   static const legal_information_Text = "Legal information";
   static const cookie_settings_Text = "Cookie settings";
   static const log_out_Text = "Log out";
+  
+  static const chat_with_us_Text = "Chat with us";
+  static const FAQ_Text = "FAQ'S";
+  static const support_Text = "Support";
 }
