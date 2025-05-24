@@ -19,7 +19,7 @@ class DonationChart extends StatelessWidget {
   Widget build(BuildContext context) {
     List<PieChartSectionData> sections = donations.entries.map((entry) {
       return PieChartSectionData(
-        color: colors[entry.key] ?? Colors.grey,
+        color: colors[entry.key] ?? AppColors.greyTextColor,
         value: entry.value,
         title: '',
         radius: 15,
@@ -35,7 +35,6 @@ class DonationChart extends StatelessWidget {
             AppStrings.profile_your_donation_impact,
             style: TextStyle(
                 fontSize: 24,
-                fontFamily: 'Instrument Sans',
                 fontWeight: FontWeight.w600,
                 color: AppColors.greyTextColorTwo),
           ),
@@ -48,7 +47,6 @@ class DonationChart extends StatelessWidget {
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                fontFamily: 'Instrument Sans',
                 color: AppColors.greyTextColorTwo),
           ),
         ),
@@ -70,14 +68,12 @@ class DonationChart extends StatelessWidget {
                   'Total',
                   style: TextStyle(
                       fontSize: 16,
-                      fontFamily: 'Instrument Sans',
                       fontWeight: FontWeight.w400,
                       color: AppColors.greyTextColorTwo),
                 ),
                 Text(
                   '£${totalAmount.toStringAsFixed(2)}',
                   style: const TextStyle(
-                      fontFamily: 'Instrument Sans',
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
                       color: AppColors.greyTextColorTwo),
@@ -121,7 +117,6 @@ class LegendItem extends StatelessWidget {
         const SizedBox(width: 6),
         Text(label,
             style: const TextStyle(
-              fontFamily: 'Instrument Sans',
               fontWeight: FontWeight.w400,
               color: AppColors.greyTextColorTwo,
               fontSize: 14,

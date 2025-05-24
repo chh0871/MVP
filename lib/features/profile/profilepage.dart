@@ -32,7 +32,7 @@ class ProfilePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'User Donation Summary',
+                  AppStrings.profile_user_donation_Summary,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 // Pie and bar charts side by side (commenting if need in future)
