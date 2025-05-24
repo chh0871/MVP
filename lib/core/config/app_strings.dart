@@ -75,4 +75,12 @@ class AppStrings {
   static const legal_information_Text = "Legal information";
   static const cookie_settings_Text = "Cookie settings";
   static const log_out_Text = "Log out";
+  
+  static const shop_Text = "Shop";
+  static const country_Text = "Country";
+  static const united_kingdom_Text = "United Kingdom";
+  static const currency_Text = "Currency";
+  static const pound_Text = "£ GBP";
+  static const sizes_Text = "Sizes"; 
+  static const UK_Text = "UK";
 }
