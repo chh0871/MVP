@@ -71,6 +71,16 @@ class AppStrings {
   static const profile_user_donation_Summary = "User Donation Summary";
   static const profile_user_donation_total = "Total";
 
+  static const profile_user_info_section_user = "User";
+  static const profile_user_info_section_following = "following";
+  static const profile_user_info_section_followers = "followers";
+  static const profile_user_info_section_buyer_discount =
+      "Buyer Discounts Active";
+  static const profile_user_info_section_buyer_awards = "Awards";
+  static const profile_user_info_section_buyer_reviews = "Reviews";
+  static const profile_user_info_location = "United Kingdom";
+  static const profile_user_info_username = "User.001";
+  static const profile_user_info_title = 'Profile';
   
   static const account_Text = "Account";
   static const language_Text = "Language";

@@ -1,6 +1,9 @@
+import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/core/models/user_section.dart';
 import 'package:cherry_mvp/features/profile/widgets/donation_impact_tracker.dart';
 import 'package:cherry_mvp/features/profile/widgets/profilepage_userActivity_cards.dart';
+import 'package:cherry_mvp/features/profile/widgets/user_information_section.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -19,11 +22,28 @@ class ProfilePage extends StatelessWidget {
     'Charity C',
     'Charity D'
   ];
+  final Map<String, dynamic> userInfoMap = {
+    'username': AppStrings.profile_user_info_username,
+    'location': AppStrings.profile_user_info_location,
+    'reviewsCount': 0,
+    'followersCount': 0,
+    'followingCount': 0,
+    'rating': 0.0,
+    'awards': 0,
+    'hasBuyerDiscounts': true,
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Profile')),
+      //profile header
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          AppStrings.profile_user_info_title,
+          style: AppTextStyles.screen_title,
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -31,10 +51,11 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  AppStrings.profile_user_donation_Summary,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                //user information section
+                UserInformationSection(
+                  userInformationSection: UserInformation.fromJson(userInfoMap),
                 ),
+
                 // Pie and bar charts side by side (commenting if need in future)
                 // SizedBox(
                 //   height: 300, // set fixed height for chart area
@@ -105,7 +126,7 @@ class ProfilePage extends StatelessWidget {
                 //     ],
                 //   ),
                 // ),
-                SizedBox(height: 20),
+
                 //donation chart
                 DonationChart(
                   totalAmount: 365.00,
@@ -122,7 +143,7 @@ class ProfilePage extends StatelessWidget {
                     'RNLI': AppColors.piechart_purple, //blue
                   },
                 ),
-                SizedBox(height: 20),
+
                 // User activity cards
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
