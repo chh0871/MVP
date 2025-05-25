@@ -91,6 +91,7 @@ class DonationChart extends StatelessWidget {
                 colors[entry.key]!);
           }).toList(),
         ),
+        SizedBox(height: 20),
       ],
     );
   }
