@@ -10,8 +10,13 @@ const dummyAccountSection = [
   SectionSettingsItem(title: AppStrings.log_out_Text, trailing: '')
 ]; 
 
-
 const dummySupportSection = [   
   SectionSettingsItem(title: AppStrings.chat_with_us_Text, trailing: ''), 
   SectionSettingsItem(title: AppStrings.FAQ_Text, trailing: '')
+
+const dummyPersonalSection = [    
+  SectionSettingsItem(title: AppStrings.profile_Text, trailing: ''), 
+  SectionSettingsItem(title: AppStrings.shipping_address_Text, trailing: ''),
+  SectionSettingsItem(title: AppStrings.payment_methods_Text, trailing: ''),  
+  SectionSettingsItem(title: AppStrings.postage_Text, trailing: '')
 ]; 

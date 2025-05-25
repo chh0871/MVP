@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';   
-  
 import 'package:cherry_mvp/core/config/config.dart';  
 import 'package:cherry_mvp/features/settings/widgets/settings_support.dart';
+import 'package:cherry_mvp/features/settings/widgets/settings_personal.dart';
 import 'package:cherry_mvp/features/settings/widgets/settings_account.dart'; 
-
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});   
@@ -38,7 +37,7 @@ class SettingsPageState extends State<SettingsPage> {
                   children: [    
 
                     SettingsSupport(),
-
+                    SettingsPersonal(), 
                     SettingsAccount(),  
                   ]
                 ),
