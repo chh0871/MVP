@@ -81,4 +81,9 @@ class AppStrings {
   static const profile_user_info_location = "United Kingdom";
   static const profile_user_info_username = "User.001";
   static const profile_user_info_title = 'Profile';
+  static const profile_user_orders = "Orders";
+  static const profile_user_liked = "Liked";
+  static const profile_user_listings = "Listings";
+  static const profile_user_Buyer_disc = "Buyer discounts";
+  static const share = 'Share';
 }
