@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';   
-import 'package:cherry_mvp/core/config/config.dart';  
-import 'package:cherry_mvp/features/settings/widgets/settings_shop.dart';
+  
+import 'package:cherry_mvp/core/config/config.dart'; 
+import 'package:cherry_mvp/features/settings/widgets/settings_toggle_section.dart';  
 import 'package:cherry_mvp/features/settings/widgets/settings_support.dart';
 import 'package:cherry_mvp/features/settings/widgets/settings_personal.dart';
+import 'package:cherry_mvp/features/settings/widgets/settings_shop.dart';
 import 'package:cherry_mvp/features/settings/widgets/settings_account.dart'; 
+import 'package:cherry_mvp/features/settings/widgets/settings_footer.dart';
+import 'package:cherry_mvp/features/settings/widgets/settings_header.dart';
+
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});   
@@ -14,13 +19,30 @@ class SettingsPage extends StatefulWidget {
 
  
 
-class SettingsPageState extends State<SettingsPage> {  
+class SettingsPageState extends State<SettingsPage> { 
+
+  bool isSwitchedDark = false;
+  bool isSwitchedHide = false;
+
+  void toggleSwitchDark(bool value) {
+    setState(() {
+      isSwitchedDark = value; 
+    });
+  } 
+
+  void toggleSwitchHide(bool value) {
+    setState(() {
+      isSwitchedHide = value; 
+    });
+  } 
 
   @override 
   Widget build(BuildContext context) {     
 
     return Scaffold( 
-      backgroundColor: AppColors.white,  
+      backgroundColor: Colors.white,  
+
+      appBar: SettingsHeader(),  
 
       body:DecoratedBox(  
         decoration: BoxDecoration( 
@@ -31,16 +53,22 @@ class SettingsPageState extends State<SettingsPage> {
             children: [  
 
               Padding(
-                padding: const EdgeInsets.only(top: 0.0, right:15.0, left:15.0),  
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),  
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start, 
 
-                  children: [    
-                    
-                    SettingsShop(),
-                    SettingsSupport(),
+                  children: [  
+                    SettingsToggleSection(isSwitchedDark: isSwitchedDark, toggleSwitchDark: toggleSwitchDark, isSwitchedHide: isSwitchedHide, toggleSwitchHide: toggleSwitchHide), 
+ 
+                    SettingsSupport(), 
+
                     SettingsPersonal(), 
-                    SettingsAccount(),  
+
+                    SettingsShop(), 
+
+                    SettingsAccount(), 
+
+                    SettingsFooter(), 
                   ]
                 ),
               ),
