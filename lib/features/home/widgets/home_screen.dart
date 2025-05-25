@@ -1,6 +1,5 @@
  
 import 'package:flutter/material.dart';     
- 
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
 
@@ -11,10 +10,10 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => HomeScreenState();
 }
 
- 
 
 class HomeScreenState extends State<HomeScreen> { 
 
+  // ignore: unused_field
   String _searchQuery = '';
 
   @override 
