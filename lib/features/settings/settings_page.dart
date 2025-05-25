@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';   
   
-import 'package:cherry_mvp/core/config/config.dart';  
+import 'package:cherry_mvp/core/config/config.dart'; 
+import 'package:cherry_mvp/features/settings/widgets/settings_personal.dart';
 import 'package:cherry_mvp/features/settings/widgets/settings_account.dart'; 
 
 
@@ -35,6 +36,8 @@ class SettingsPageState extends State<SettingsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start, 
 
                   children: [    
+
+                    SettingsPersonal(), 
 
                     SettingsAccount(),  
                   ]

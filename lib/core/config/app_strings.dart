@@ -80,4 +80,10 @@ class AppStrings {
   static const legal_information_Text = "Legal information";
   static const cookie_settings_Text = "Cookie settings";
   static const log_out_Text = "Log out";
+
+  static const personal_Text = "Personal";
+  static const profile_Text = "Profile";
+  static const shipping_address_Text = "Shipping Address";
+  static const payment_methods_Text = "Payment methods";
+  static const postage_Text = "Postage";
 }
