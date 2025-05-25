@@ -65,6 +65,11 @@ class AppStrings {
   static const profile_userActivity_bought = "Bought";
   static const profile_userActivity_sold = "Sold";
   static const profile_userActivity_total = "Total";
+  static const profile_your_donation_impact = "Your Donation Impact";
+  static const profile_generosity_changes_lives =
+      "See how your generosity changes lives";
+  static const profile_user_donation_Summary = "User Donation Summary";
+  static const profile_user_donation_total = "Total";
 
   
   static const account_Text = "Account";
@@ -83,4 +88,13 @@ class AppStrings {
   static const pound_Text = "£ GBP";
   static const sizes_Text = "Sizes"; 
   static const UK_Text = "UK";
+  static const chat_with_us_Text = "Chat with us";
+  static const FAQ_Text = "FAQ'S";
+  static const support_Text = "Support";
+
+  static const personal_Text = "Personal";
+  static const profile_Text = "Profile";
+  static const shipping_address_Text = "Shipping Address";
+  static const payment_methods_Text = "Payment methods";
+  static const postage_Text = "Postage";
 }
