@@ -70,4 +70,14 @@ class AppStrings {
       "See how your generosity changes lives";
   static const profile_user_donation_Summary = "User Donation Summary";
   static const profile_user_donation_total = "Total";
+
+  
+  static const account_Text = "Account";
+  static const language_Text = "Language";
+  static const english_Text = "English"; 
+  static const security_Text = "Security";
+  static const about_us_Text = "About us";
+  static const legal_information_Text = "Legal information";
+  static const cookie_settings_Text = "Cookie settings";
+  static const log_out_Text = "Log out";
 }
