@@ -1,5 +1,6 @@
 import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/core/models/user_section.dart';
 import 'package:cherry_mvp/features/profile/widgets/donation_impact_tracker.dart';
 import 'package:cherry_mvp/features/profile/widgets/profilepage_userActivity_cards.dart';
 import 'package:cherry_mvp/features/profile/widgets/user_information_section.dart';
@@ -21,6 +22,16 @@ class ProfilePage extends StatelessWidget {
     'Charity C',
     'Charity D'
   ];
+  final Map<String, dynamic> userInfoMap = {
+    'username': AppStrings.profile_user_info_username,
+    'location': AppStrings.profile_user_info_location,
+    'reviewsCount': 0,
+    'followersCount': 0,
+    'followingCount': 0,
+    'rating': 0.0,
+    'awards': 0,
+    'hasBuyerDiscounts': true,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +40,10 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Profile",
+          AppStrings.profile_user_info_title,
           style: AppTextStyles.screen_title,
         ),
       ),
-      // AppBar(title: Text('Profile')),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -43,14 +53,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 //user information section
                 UserInformationSection(
-                  username: AppStrings.profile_user_info_username,
-                  awards: 0,
-                  location: AppStrings.profile_user_info_location,
-                  reviewsCount: 0,
-                  followersCount: 0,
-                  followingCount: 0,
-                  rating: 0.0,
-                  hasBuyerDiscounts: true,
+                  userInformationSection: UserInformation.fromJson(userInfoMap),
                 ),
 
                 // Pie and bar charts side by side (commenting if need in future)

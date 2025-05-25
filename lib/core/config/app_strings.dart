@@ -80,4 +80,5 @@ class AppStrings {
   static const profile_user_info_section_buyer_reviews = "Reviews";
   static const profile_user_info_location = "United Kingdom";
   static const profile_user_info_username = "User.001";
+  static const profile_user_info_title = 'Profile';
 }
