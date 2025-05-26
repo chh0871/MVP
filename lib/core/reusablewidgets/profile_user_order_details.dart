@@ -20,7 +20,7 @@ class UserOrderTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 10.0),
         child: Container(
-          width: 131,
+          width: MediaQuery.of(context).size.width * 0.35,
           height: 95,
           decoration: BoxDecoration(
             color: AppColors.lightGreyFill,

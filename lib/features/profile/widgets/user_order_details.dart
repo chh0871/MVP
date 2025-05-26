@@ -3,6 +3,10 @@ import 'package:cherry_mvp/core/reusablewidgets/profile_user_order_details.dart'
 import 'package:flutter/material.dart';
 
 class UserOrderDetails extends StatelessWidget {
+  const UserOrderDetails({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,9 +30,9 @@ class UserOrderDetails extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           width: double.infinity,
           height: 41,
           decoration: BoxDecoration(
@@ -55,7 +59,7 @@ class UserOrderDetails extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
       ],
     );
   }
