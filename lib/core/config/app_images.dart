@@ -32,7 +32,7 @@ class AppImages {
 
   static const charity_week_card = '${_path}charity_week_card.png';
   static const empty_state_bg = '${_path}emptystatebg.png';
-
+  static const explore_charities = '${_path}explore_image.png';
   static const waterAid_logo = '${_path}water_aid_logo.png';
 
   static const product1 = '${_path}product1.png';
