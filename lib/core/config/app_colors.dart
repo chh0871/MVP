@@ -14,9 +14,12 @@ class AppColors {
   static const lightGreyFill = Color(0xFFF0F0F0);
   static const greyTextColorTwo = Color(0xFF707070);
   static const greyNavFooter = Color(0xFFA2A2A2);
+  static const redBgColor = Color(0xFFFF313B);
   //piechart
   static const piechart_green = Color(0xFFB7E885);
   static const piechart_pink = Color(0xfff5B9EC);
   static const piechart_red = Color(0xFFF90653);
   static const piechart_purple = Color(0xFFAEABFD);
+
+  static const profile_review = Color(0xFFFFD119);
 }

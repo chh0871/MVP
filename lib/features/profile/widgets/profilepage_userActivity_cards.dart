@@ -28,7 +28,6 @@ class ProfilepageUseractivityCards extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontFamily: 'Instrument Sans',
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
                 height: 1.3, // lineHeight of 21
@@ -41,7 +40,6 @@ class ProfilepageUseractivityCards extends StatelessWidget {
               child: Text(
                 value,
                 style: TextStyle(
-                  fontFamily: 'Instrument Sans',
                   fontWeight: FontWeight.w700,
                   fontSize: 36,
                   height: 0.6, // lineHeight of 21
