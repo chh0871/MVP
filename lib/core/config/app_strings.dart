@@ -81,6 +81,12 @@ class AppStrings {
   static const profile_user_info_location = "United Kingdom";
   static const profile_user_info_username = "User.001";
   static const profile_user_info_title = 'Profile';
+
+  static const profile_user_orders = "Orders";
+  static const profile_user_liked = "Liked";
+  static const profile_user_listings = "Listings";
+  static const profile_user_Buyer_disc = "Buyer discounts";
+  static const share = 'Share';
   
   static const account_Text = "Account";
   static const language_Text = "Language";
@@ -107,4 +113,5 @@ class AppStrings {
   static const shipping_address_Text = "Shipping Address";
   static const payment_methods_Text = "Payment methods";
   static const postage_Text = "Postage";
+
 }
