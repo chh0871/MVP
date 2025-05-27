@@ -14,7 +14,7 @@ class ProfilepageUseractivityCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 131,
+      width: MediaQuery.of(context).size.width * 0.35,
       height: 83,
       decoration: BoxDecoration(
         color: AppColors.lightGreyFill,
