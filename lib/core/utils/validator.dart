@@ -51,3 +51,17 @@ String? validateConfirmPassword(String? value, String? password) {
   }
   return null;
 }
+
+
+String? validateDonationFormFields(String? value) {
+  if (value == null || value.isEmpty) {
+    return "This cannot be empty";
+  }
+  if (value.length < 2) {
+    return "This must be at least 2 characters";
+  }
+  if (!RegExp(r"^[a-zA-Z\s]+$").hasMatch(value)) {
+    return "This can only contain letters and spaces";
+  }
+  return null;
+}

@@ -164,4 +164,12 @@ class AppStrings {
   static const open_to_other_charities_Text = "Open to other charities";
   static const open_to_offers_Text = "Open to offers";
   static const applicable_for_buyer_discounts_Text = "Applicable for buyer discounts";
+
+  // donation fields 
+  static const titleText = "Title";
+  static const descriptionText = "Description";
+  static const categoryText = "Category";
+  static const charityText = "Charity";
+  static const priceText = "Price"; 
+  static const conditionText = "Condition";
 }
