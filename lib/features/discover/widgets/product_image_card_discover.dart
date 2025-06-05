@@ -11,7 +11,8 @@ class ProductImageCardDiscover extends StatefulWidget {
   });
 
   @override
-  State<ProductImageCardDiscover> createState() => _ProductImageCardDiscoverState();
+  State<ProductImageCardDiscover> createState() =>
+      _ProductImageCardDiscoverState();
 }
 
 class _ProductImageCardDiscoverState extends State<ProductImageCardDiscover> {
@@ -21,7 +22,7 @@ class _ProductImageCardDiscoverState extends State<ProductImageCardDiscover> {
   @override
   void initState() {
     super.initState();
-    likes = widget.likes; // Initialize with the passed value
+    likes = widget.likes;
   }
 
   void _toggleLikes() {
@@ -57,7 +58,7 @@ class _ProductImageCardDiscoverState extends State<ProductImageCardDiscover> {
               onTap: _toggleLikes,
               child: Container(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.85),
                   borderRadius: BorderRadius.circular(20),
@@ -88,5 +89,3 @@ class _ProductImageCardDiscoverState extends State<ProductImageCardDiscover> {
     );
   }
 }
-
-
