@@ -15,14 +15,27 @@ class ProductImageCard extends StatefulWidget {
 }
 
 class _ProductImageCardState extends State<ProductImageCard> {
-  int likes = 0;
+  late int likes;
   bool isLiked = false;
 
-  void _incrementLikes() {
-    setState(() {
-      isLiked = true;
-      likes++;
-    });
+  @override
+  void initState() {
+    super.initState();
+    likes = widget.likes;
+  }
+
+  void _toggleLikes() {
+    if (isLiked) {
+      setState(() {
+        isLiked = false;
+        likes--;
+      });
+    } else {
+      setState(() {
+        isLiked = true;
+        likes++;
+      });
+    }
   }
 
   @override
@@ -33,15 +46,15 @@ class _ProductImageCardState extends State<ProductImageCard> {
         children: [
           Image.asset(
             widget.imagePath,
-            height: 380,
-            width: double.infinity,
+            // height: 380,
+            // width: double.infinity,
             fit: BoxFit.cover,
           ),
           Positioned(
             bottom: 12,
             right: 12,
             child: GestureDetector(
-              onTap: _incrementLikes,
+              onTap: _toggleLikes,
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 6),

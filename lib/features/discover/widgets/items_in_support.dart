@@ -64,7 +64,7 @@ class ItemsInSupport extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: dummyProducts.length,
               itemBuilder: (context, index) {
-                return ProductImageCardDiscover(
+                return ProductImageCard(
                   imagePath: dummyProducts[index]["imagePath"] as String,
                   likes: dummyProducts[index]["likes"] as int,
                 );
