@@ -80,11 +80,12 @@ class SellerInformation extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               OutlinedButton(
-                  style: ButtonStyle(
-                    side: WidgetStatePropertyAll(
-                        BorderSide(color: AppColors.greyTextColor, width: 1)),
-                    foregroundColor:
-                        WidgetStatePropertyAll(AppColors.greyTextColor),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Theme.of(context).colorScheme.secondary,
+                    side: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                    shape: StadiumBorder(),
                   ),
                   onPressed: onAskSeller,
                   child: Text('Ask seller')),

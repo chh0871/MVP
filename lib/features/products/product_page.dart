@@ -1,7 +1,4 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
-import 'package:cherry_mvp/core/models/model.dart';
-import 'package:cherry_mvp/core/models/user.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
 import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
 import 'package:cherry_mvp/features/home/home_model.dart';
@@ -20,6 +17,9 @@ class ProductPage extends StatelessWidget {
         body: CustomScrollView(
       slivers: [
         SliverAppBar(
+          leading: BackButton(
+            color: Colors.white,
+          ),
           expandedHeight: MediaQuery.of(context).size.width -
               MediaQuery.of(context).padding.top,
           flexibleSpace: FlexibleSpaceBar(
@@ -52,7 +52,7 @@ class ProductPage extends StatelessWidget {
                               Icon(
                                 Icons.favorite,
                                 size: 20,
-                                color: AppColors.primary,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                               Text(
                                 '3',
@@ -60,7 +60,8 @@ class ProductPage extends StatelessWidget {
                                     .textTheme
                                     .titleSmall
                                     ?.copyWith(
-                                      color: AppColors.primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                               ),
                             ],
@@ -87,43 +88,112 @@ class ProductPage extends StatelessWidget {
             charity: Image.asset(AppImages.homeStart),
             padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
           ),
-          Divider(
-            thickness: 8,
-            color: AppColors.dividerColor,
-          ),
+          Divider(thickness: 8),
           ProductInformation(
             product: dummyProducts.first,
             padding: EdgeInsets.all(16),
           ),
-          Divider(thickness: 8, color: AppColors.dividerColor),
+          Divider(thickness: 8),
           ListTile(
             title: Text('Description'),
+            titleTextStyle: Theme.of(context).textTheme.titleSmall,
             subtitle: Text(dummyProducts.first.description),
-            subtitleTextStyle: TextStyle(color: AppColors.greyTextColor),
+            subtitleTextStyle:
+                TextStyle(color: Theme.of(context).colorScheme.secondary),
           ),
-          Divider(thickness: 8, color: AppColors.dividerColor),
-          Padding(
-            padding: EdgeInsetsGeometry.fromLTRB(0, 12, 16, 12),
-            child: Column(
-              spacing: 8,
-              children: [
-                ShadedTile(
-                    child: Row(
+          Divider(thickness: 8),
+          ShadedTile(
+            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Row(
+                spacing: 16,
+                children: [
+                  Expanded(
+                      child: Text(
+                    'Buyer discount active',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(context).colorScheme.tertiary),
+                  )),
+                  Expanded(
+                    child: Text(
+                      'Buy 2 get 1 half price',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
+                  ),
+                  Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.tertiary,
+                        shape: BoxShape.circle),
+                    child: Icon(Icons.arrow_forward,
+                        color: Theme.of(context).colorScheme.onTertiary),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          ShadedTile(
+            onTap: () {},
+            child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  spacing: 16,
                   children: [
                     Expanded(
-                      child: Text('Open to other charities'),
-                    ),
+                        child: Text(
+                      'Open to other charities',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.tertiary),
+                    )),
                     Expanded(
-                      child: Text('Request other charity'),
+                      child: Text(
+                        'Request other charity',
+                        style: Theme.of(context)
+                            .primaryTextTheme
+                            .bodySmall
+                            ?.copyWith(
+                                color: Theme.of(context).colorScheme.primary),
+                      ),
                     ),
-                    Icon(Icons.arrow_forward_ios,
-                        size: 16, color: AppColors.primary),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 32,
+                      width: 32,
+                      child: Image.asset(
+                        AppImages.sale,
+                        height: 24,
+                        width: 24,
+                      ),
+                    ),
                   ],
                 )),
-                ShadedTile()
+          ),
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
+              spacing: 16,
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 64,
+                    child: OutlinedButton(
+                        onPressed: () {}, child: Text('Make Offer')),
+                  ),
+                ),
+                Expanded(
+                  child: SizedBox(
+                    height: 64,
+                    child:
+                        FilledButton(onPressed: () {}, child: Text('Buy Now')),
+                  ),
+                )
               ],
             ),
-          )
+          ),
+          SizedBox(height: MediaQuery.of(context).padding.bottom),
         ]),
       ],
     ));
@@ -132,26 +202,37 @@ class ProductPage extends StatelessWidget {
 
 class ShadedTile extends StatelessWidget {
   final Widget? child;
+  final VoidCallback? onTap;
 
-  const ShadedTile({super.key, this.child});
+  const ShadedTile({super.key, this.child, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      decoration: BoxDecoration(
+    return Padding(
+      padding: EdgeInsetsGeometry.fromLTRB(0, 8, 16, 8),
+      child: Material(
         borderRadius: BorderRadius.only(
-            topRight: Radius.circular(28), bottomRight: Radius.circular(28)),
-        gradient: LinearGradient(
-          colors: [
-            Theme.of(context).scaffoldBackgroundColor,
-            AppColors.primary.withValues(alpha: .1),
-          ],
-          begin: Alignment.centerLeft,
-          end: Alignment(2, .5),
+            topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
+        clipBehavior: Clip.antiAlias,
+        color: Colors.transparent,
+        type: MaterialType.button,
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Theme.of(context).scaffoldBackgroundColor,
+                  Theme.of(context).colorScheme.primaryContainer,
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment(2, .5),
+              ),
+            ),
+            child: child,
+          ),
         ),
       ),
-      child: child,
     );
   }
 }

@@ -70,4 +70,6 @@ class AppImages {
   static const profile_listings = '${_path}profile_listings.png';
   static const profile_order = '${_path}profile_order.png';
   static const profile_liked = '${_path}profile_liked.png';
+
+  static const sale = '${_path}sale.png';
 }

@@ -109,8 +109,6 @@ class AppStrings {
   static const profile_user_listings = "Listings";
   static const profile_user_Buyer_disc = "Buyer discounts";
   static const share = 'Share';
-  static const dark_mode_Text = "Dark mode";
-  static const list_listings_Text = "Hide Listings";
 
   static const account_Text = "Account";
   static const language_Text = "Language";
@@ -130,6 +128,9 @@ class AppStrings {
 
   static const chat_with_us_Text = "Chat with us";
   static const FAQ_Text = "FAQ'S";
+
+  static const dark_mode_Text = "Dark Mode";
+  static const list_listings_Text = "Hide Listings";
 
   // Country and currency
   static const country_Text = "Country";
