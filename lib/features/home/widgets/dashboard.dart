@@ -5,7 +5,6 @@ import 'package:cherry_mvp/features/home/widgets/product_card.dart';
 import 'package:cherry_mvp/core/config/config.dart'; // make sure ProductCard is here
 
 class DashboardPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +29,18 @@ class DashboardPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                    ListView.builder(
-                      itemCount: products.length,
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return ProductCard(product: products[index]);
-                      },
-                    ),
-                  ],
+                  ListView.builder(
+                    itemCount: products.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                          onTap: () => Navigator.of(context)
+                              .pushNamed('/product', arguments: '123'),
+                          child: ProductCard(product: products[index]));
+                    },
+                  ),
+                ],
               ),
             ),
           );
