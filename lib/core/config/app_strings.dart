@@ -158,4 +158,13 @@ class AppStrings {
   static const charityText = "Charity";
   static const priceText = "Price";
   static const conditionText = "Condition";
+
+  // product page
+  static const productPageDescription = "Description";
+  static const productPageBuyerDiscountActive = 'Buyer discount active';
+  static const productPageBuy2Get1HalfPrice = 'Buy 2 get 1 half price';
+  static const productPageOpenToOtherCharities = 'Open to other charities';
+  static const productPageRequestOtherCharity = 'Request other charity';
+  static const productPageMakeOffer = 'Make Offer';
+  static const productPageBuyNow = 'Buy Now';
 }

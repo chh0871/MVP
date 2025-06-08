@@ -1,4 +1,5 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
+import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
 import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
 import 'package:cherry_mvp/features/home/home_model.dart';
@@ -95,7 +96,7 @@ class ProductPage extends StatelessWidget {
           ),
           Divider(thickness: 8),
           ListTile(
-            title: Text('Description'),
+            title: Text(AppStrings.productPageDescription),
             titleTextStyle: Theme.of(context).textTheme.titleSmall,
             subtitle: Text(dummyProducts.first.description),
             subtitleTextStyle:
@@ -111,13 +112,13 @@ class ProductPage extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Text(
-                    'Buyer discount active',
+                    AppStrings.productPageBuyerDiscountActive,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Theme.of(context).colorScheme.tertiary),
                   )),
                   Expanded(
                     child: Text(
-                      'Buy 2 get 1 half price',
+                      AppStrings.productPageBuy2Get1HalfPrice,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Theme.of(context).colorScheme.primary),
                     ),
@@ -144,13 +145,13 @@ class ProductPage extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Text(
-                      'Open to other charities',
+                      AppStrings.productPageOpenToOtherCharities,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Theme.of(context).colorScheme.tertiary),
                     )),
                     Expanded(
                       child: Text(
-                        'Request other charity',
+                        AppStrings.productPageRequestOtherCharity,
                         style: Theme.of(context)
                             .primaryTextTheme
                             .bodySmall
@@ -180,14 +181,16 @@ class ProductPage extends StatelessWidget {
                   child: SizedBox(
                     height: 64,
                     child: OutlinedButton(
-                        onPressed: () {}, child: Text('Make Offer')),
+                        onPressed: () {},
+                        child: Text(AppStrings.productPageMakeOffer)),
                   ),
                 ),
                 Expanded(
                   child: SizedBox(
                     height: 64,
-                    child:
-                        FilledButton(onPressed: () {}, child: Text('Buy Now')),
+                    child: FilledButton(
+                        onPressed: () {},
+                        child: Text(AppStrings.productPageBuyNow)),
                   ),
                 )
               ],
