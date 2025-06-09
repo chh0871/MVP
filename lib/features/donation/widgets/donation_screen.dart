@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';  
+import 'package:cherry_mvp/features/donation/widgets/photo_tips_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';  
 import 'package:cherry_mvp/features/donation/widgets/donation_options.dart'; 
 import 'package:cherry_mvp/features/donation/widgets/form_fields.dart'; 
@@ -55,13 +56,15 @@ class DonationScreenState extends State<DonationScreen> {
 
     return Scaffold( 
       backgroundColor: AppColors.white,  
-      body: SingleChildScrollView( 
+      body: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
+                PhotoTipsBar(),
+                SizedBox(height: 20,),
                 FormFields(formFieldsController: _titleController, formFieldsHintText: TitleHintText, formFieldsTitle: TitleText, icon: Icons.add_circle, iconSuffix: null),
 
                 FormFields(formFieldsController: _descriptionController, formFieldsHintText: DescriptionHintText, formFieldsTitle: DescriptionText, icon: Icons.add_circle, iconSuffix: null),
