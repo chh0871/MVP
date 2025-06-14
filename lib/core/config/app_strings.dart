@@ -79,6 +79,7 @@ class AppStrings {
   static const popularText = "Popular";
   static const smallerCharitiesText = "Smaller Charities";
   static const localToYouText = "Local to you";
+// feature/118-product-details-page
   static const discoverSomethingText = "Discover something beautiful...";
 
   // Category Texts
@@ -168,3 +169,4 @@ class AppStrings {
   static const productPageMakeOffer = 'Make Offer';
   static const productPageBuyNow = 'Buy Now';
 }
+

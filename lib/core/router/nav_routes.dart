@@ -1,4 +1,9 @@
+// feature/118-product-details-page
 import 'package:cherry_mvp/features/products/product_page.dart';
+
+import 'package:cherry_mvp/features/discover/discover_page.dart';
+import 'package:cherry_mvp/features/settings/settings_page.dart';
+// main
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/features/register/registerpage.dart';
 import 'package:cherry_mvp/features/home/homepage.dart';
@@ -13,7 +18,11 @@ class AppRoutes {
   static const String home = '/home';
   static const String chat = '/chat'; // <- added chat route
   static const String discover = '/discover';
+// feature/118-product-details-page
   static const String product = '/product'; // <- added product route
+
+  static const String settingspage = '/settings';
+// main
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -31,6 +40,10 @@ class AppRoutes {
         );
       case home:
         return MaterialPageRoute(builder: (_) => HomePage());
+      case discover:
+        return MaterialPageRoute(builder: (_) => DiscoverPage());
+      case settingspage:
+        return MaterialPageRoute(builder: (_) => SettingsPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
