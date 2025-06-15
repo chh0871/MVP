@@ -15,53 +15,60 @@ class ProductImageCard extends StatefulWidget {
 }
 
 class _ProductImageCardState extends State<ProductImageCard> {
-  int likes = 0;
+  late int likes;
   bool isLiked = false;
 
-  void _incrementLikes() {
+  @override
+  void initState() {
+    super.initState();
+    likes = widget.likes;
+  }
+
+  void _toggleLike() {
     setState(() {
-      isLiked = true;
-      likes++;
+      isLiked = !isLiked;
+      likes += isLiked ? 1 : -1;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+    return Card(
+      margin: EdgeInsets.zero,
+      elevation: 6,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      clipBehavior: Clip.antiAlias,
       child: Stack(
+        fit: StackFit.expand,
         children: [
           Image.asset(
             widget.imagePath,
-            height: 380,
-            width: double.infinity,
             fit: BoxFit.cover,
           ),
           Positioned(
-            bottom: 12,
-            right: 12,
+            bottom: 8,
+            right: 8,
             child: GestureDetector(
-              onTap: _incrementLikes,
+              onTap: _toggleLike,
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.85),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
                   children: [
                     Icon(
                       isLiked ? Icons.favorite : Icons.favorite_border,
-                      size: 18,
-                      color: isLiked ? Colors.red : Colors.black87,
+                      size: 14,
+                      color: isLiked ? Colors.red : Colors.black,
                     ),
                     const SizedBox(width: 4),
                     Text(
                       likes.toString(),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 12,
                         color: Colors.black87,
                       ),
                     ),
