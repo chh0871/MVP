@@ -7,6 +7,7 @@ class SellerInformation extends StatelessWidget {
   final UserInformation user;
   final ImageProvider<Object>? profileImage;
   final Widget charity;
+  final EdgeInsets? padding;
   final VoidCallback? onAskSeller;
 
   const SellerInformation({
@@ -14,15 +15,16 @@ class SellerInformation extends StatelessWidget {
     required this.user,
     this.profileImage,
     required this.charity,
+    this.padding,
     this.onAskSeller,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding:
+          padding ?? EdgeInsetsGeometry.symmetric(horizontal: 16, vertical: 8),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 8,
         children: [
           Expanded(
@@ -68,8 +70,8 @@ class SellerInformation extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             elevation: 4,
             child: SizedBox(
-              height: 40,
-              width: 40,
+              height: 48,
+              width: 48,
               child: charity,
             ),
           ),
@@ -78,11 +80,12 @@ class SellerInformation extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               OutlinedButton(
-                  style: ButtonStyle(
-                    side: WidgetStatePropertyAll(
-                        BorderSide(color: AppColors.greyTextColor, width: 1)),
-                    foregroundColor:
-                        WidgetStatePropertyAll(AppColors.greyTextColor),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Theme.of(context).colorScheme.secondary,
+                    side: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                    shape: StadiumBorder(),
                   ),
                   onPressed: onAskSeller,
                   child: Text('Ask seller')),
