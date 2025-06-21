@@ -7,9 +7,10 @@ class Product {
   final double price;
   final String charity_image;
   final int likes;
+  final double product_price;
   final int number;
   final String size;
-
+  
   const Product(
       {required this.name,
       required this.description,

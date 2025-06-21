@@ -27,3 +27,4 @@ const dummyProducts = [
       likes: 33,
       number: 8)
 ];
+
