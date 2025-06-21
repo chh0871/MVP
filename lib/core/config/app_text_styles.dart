@@ -60,6 +60,14 @@ class AppTextStyles {
       color: AppColors.greyTextColorTwo,
       fontWeight: FontWeight.w400);
 
+  static TextStyle selectedOption = TextStyle(
+      fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.w600);
+
+  static TextStyle unselectedOption = TextStyle(
+      fontSize: 12,
+      color: AppColors.greyNavFooter,
+      fontWeight: FontWeight.w600);
+
   // Donate Page
   static TextStyle donatePhotoBarText1 = TextStyle(
     fontSize: 15,
