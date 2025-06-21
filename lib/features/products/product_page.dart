@@ -7,6 +7,15 @@ import 'package:cherry_mvp/features/products/product_information.dart';
 import 'package:cherry_mvp/features/products/seller_information.dart';
 import 'package:flutter/material.dart';
 
+import 'package:cherry_mvp/core/config/app_images.dart';
+import 'package:cherry_mvp/core/config/app_strings.dart';
+import 'package:cherry_mvp/core/models/user_section.dart';
+import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
+import 'package:cherry_mvp/features/home/home_model.dart';
+import 'package:cherry_mvp/features/products/product_information.dart';
+import 'package:cherry_mvp/features/products/seller_information.dart';
+import 'package:flutter/material.dart';
+
 class ProductPage extends StatelessWidget {
   final String productId;
 
@@ -15,17 +24,15 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          leading: BackButton(
-            color: Colors.white,
-          ),
-          expandedHeight: MediaQuery.of(context).size.width -
-              MediaQuery.of(context).padding.top,
-          flexibleSpace: FlexibleSpaceBar(
-            background: ClipRRect(
-                borderRadius: BorderRadius.only(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            leading: const BackButton(color: Colors.white),
+            expandedHeight: MediaQuery.of(context).size.width -
+                MediaQuery.of(context).padding.top,
+            flexibleSpace: FlexibleSpaceBar(
+              background: ClipRRect(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                 ),
@@ -45,25 +52,25 @@ class ProductPage extends StatelessWidget {
                         color: Colors.white54,
                         borderRadius: BorderRadius.circular(16),
                         child: Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 4),
                           child: Row(
-                            spacing: 4,
                             children: [
                               Icon(
                                 Icons.favorite,
                                 size: 20,
                                 color: Theme.of(context).colorScheme.primary,
                               ),
+                              const SizedBox(width: 4),
                               Text(
                                 '3',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleSmall
                                     ?.copyWith(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                                  color:
+                                  Theme.of(context).colorScheme.primary,
+                                ),
                               ),
                             ],
                           ),
@@ -71,84 +78,92 @@ class ProductPage extends StatelessWidget {
                       ),
                     ),
                   ],
-                )),
-          ),
-        ),
-        SliverList.list(children: [
-          SellerInformation(
-            user: UserInformation(
-              username: 'John Doe',
-              location: 'New York, USA',
-              reviewsCount: 120,
-              followersCount: 300,
-              followingCount: 150,
-              rating: 3.5,
-              awards: 37,
-              hasBuyerDiscounts: true,
-            ),
-            charity: Image.asset(AppImages.homeStart),
-            padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
-          ),
-          Divider(thickness: 8),
-          ProductInformation(
-            product: dummyProducts.first,
-            padding: EdgeInsets.all(16),
-          ),
-          Divider(thickness: 8),
-          ListTile(
-            title: Text(AppStrings.productPageDescription),
-            titleTextStyle: Theme.of(context).textTheme.titleSmall,
-            subtitle: Text(dummyProducts.first.description),
-            subtitleTextStyle:
-                TextStyle(color: Theme.of(context).colorScheme.secondary),
-          ),
-          Divider(thickness: 8),
-          ShadedTile(
-            onTap: () {},
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Row(
-                spacing: 16,
-                children: [
-                  Expanded(
-                      child: Text(
-                    AppStrings.productPageBuyerDiscountActive,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.tertiary),
-                  )),
-                  Expanded(
-                    child: Text(
-                      AppStrings.productPageBuy2Get1HalfPrice,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context).colorScheme.primary),
-                    ),
-                  ),
-                  Container(
-                    height: 32,
-                    width: 32,
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.tertiary,
-                        shape: BoxShape.circle),
-                    child: Icon(Icons.arrow_forward,
-                        color: Theme.of(context).colorScheme.onTertiary),
-                  ),
-                ],
+                ),
               ),
             ),
           ),
-          ShadedTile(
-            onTap: () {},
-            child: Padding(
-                padding: EdgeInsets.all(16),
+          SliverList.list(children: [
+            SellerInformation(
+              user: UserInformation(
+                username: 'John Doe',
+                location: 'New York, USA',
+                reviewsCount: 120,
+                followersCount: 300,
+                followingCount: 150,
+                rating: 3.5,
+                awards: 37,
+                hasBuyerDiscounts: true,
+              ),
+              charity: Image.asset(AppImages.homeStart),
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+            ),
+            const Divider(thickness: 8),
+            ProductInformation(
+              product: dummyProducts.first,
+              padding: const EdgeInsets.all(16),
+            ),
+            const Divider(thickness: 8),
+            ListTile(
+              title: Text(AppStrings.productPageDescription),
+              titleTextStyle: Theme.of(context).textTheme.titleSmall,
+              subtitle: Text(dummyProducts.first.description),
+              subtitleTextStyle: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            const Divider(thickness: 8),
+            ShadedTile(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(16),
                 child: Row(
-                  spacing: 16,
                   children: [
                     Expanded(
-                        child: Text(
-                      AppStrings.productPageOpenToOtherCharities,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context).colorScheme.tertiary),
-                    )),
+                      child: Text(
+                        AppStrings.productPageBuyerDiscountActive,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.tertiary,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        AppStrings.productPageBuy2Get1HalfPrice,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.tertiary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Theme.of(context).colorScheme.onTertiary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            ShadedTile(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        AppStrings.productPageOpenToOtherCharities,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.tertiary,
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Text(
                         AppStrings.productPageRequestOtherCharity,
@@ -156,7 +171,8 @@ class ProductPage extends StatelessWidget {
                             .primaryTextTheme
                             .bodySmall
                             ?.copyWith(
-                                color: Theme.of(context).colorScheme.primary),
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                     ),
                     Container(
@@ -170,36 +186,40 @@ class ProductPage extends StatelessWidget {
                       ),
                     ),
                   ],
-                )),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Row(
-              spacing: 16,
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 64,
-                    child: OutlinedButton(
-                        onPressed: () {},
-                        child: Text(AppStrings.productPageMakeOffer)),
-                  ),
                 ),
-                Expanded(
-                  child: SizedBox(
-                    height: 64,
-                    child: FilledButton(
-                        onPressed: () {},
-                        child: Text(AppStrings.productPageBuyNow)),
-                  ),
-                )
-              ],
+              ),
             ),
-          ),
-          SizedBox(height: MediaQuery.of(context).padding.bottom),
-        ]),
-      ],
-    ));
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 64,
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        child: Text(AppStrings.productPageMakeOffer),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SizedBox(
+                      height: 64,
+                      child: FilledButton(
+                        onPressed: () {},
+                        child: Text(AppStrings.productPageBuyNow),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
+          ]),
+        ],
+      ),
+    );
   }
 }
 
@@ -212,10 +232,12 @@ class ShadedTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.fromLTRB(0, 8, 16, 8),
+      padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
       child: Material(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(12), bottomRight: Radius.circular(12)),
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(12),
+          bottomRight: Radius.circular(12),
+        ),
         clipBehavior: Clip.antiAlias,
         color: Colors.transparent,
         type: MaterialType.button,
@@ -229,7 +251,7 @@ class ShadedTile extends StatelessWidget {
                   Theme.of(context).colorScheme.primaryContainer,
                 ],
                 begin: Alignment.centerLeft,
-                end: Alignment(2, .5),
+                end: const Alignment(2, .5),
               ),
             ),
             child: child,

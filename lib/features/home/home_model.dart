@@ -3,6 +3,7 @@ import 'package:cherry_mvp/core/models/model.dart';
 
 const dummyProducts = [
   Product(
+      id: "1",
       name: "Men's Grey Button-up T-Shirt",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
           "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -15,6 +16,7 @@ const dummyProducts = [
       likes: 8,
       number: 8),
   Product(
+      id: "2",
       name: "Shoes",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
           "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

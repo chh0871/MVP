@@ -1,4 +1,5 @@
 class Product {
+  final String id;
   final String name;
   final String description;
   final String quality;
@@ -7,13 +8,13 @@ class Product {
   final double price;
   final String charity_image;
   final int likes;
-  final double product_price;
   final int number;
   final String size;
   
   const Product(
-      {required this.name,
-      required this.description,
+      {required this.id,
+        required this.name,
+        required this.description,
       required this.quality,
       required this.product_image,
       required this.donation,

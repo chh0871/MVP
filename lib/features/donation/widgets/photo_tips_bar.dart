@@ -21,11 +21,11 @@ class PhotoTipsBar extends StatelessWidget {
           children: [
             Icon(Icons.info_outline, color: AppColors.white, size: 30),
             SizedBox(width: 10,),
-            Text(AppStrings.catchEyes, style: AppTextStyles.donatePhotoBarText1,),
+            Text("catchEyes", style: AppTextStyles.donatePhotoBarText1,),
             Spacer(),
             GestureDetector(
               onTap: () => showDialog(context: context, builder: (BuildContext context) => AlertDialog(
-                title: Text(AppStrings.photosTipPopupHeading, style: AppTextStyles.photoTipsHeadingText,),
+                title: Text("photosTipPopupHeading", style: AppTextStyles.photoTipsHeadingText,),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -35,7 +35,7 @@ class PhotoTipsBar extends StatelessWidget {
                         Image.asset(AppImages.targetIcon, width: 20, height: 20,),
                         SizedBox(width: 13,),
                         Flexible(
-                          child: Text(AppStrings.clearWellLit, style: AppTextStyles.photoTipsBodyText,),
+                          child: Text("clearWellLit", style: AppTextStyles.photoTipsBodyText,),
                         )
                       ],
                     ),
@@ -46,7 +46,7 @@ class PhotoTipsBar extends StatelessWidget {
                         Image.asset(AppImages.tshirtIcon, width: 20, height: 20,),
                         SizedBox(width: 13,),
                         Flexible(
-                          child: Text(AppStrings.multipleAngles, style: AppTextStyles.photoTipsBodyText,),
+                          child: Text("multipleAngles", style: AppTextStyles.photoTipsBodyText,),
                         )
                       ],
                     ),
@@ -57,7 +57,7 @@ class PhotoTipsBar extends StatelessWidget {
                         Image.asset(AppImages.wandIcon, width: 20, height: 20,),
                         SizedBox(width: 13,),
                         Flexible(
-                          child: Text(AppStrings.noFilters, style: AppTextStyles.photoTipsBodyText,),
+                          child: Text("noFilters", style: AppTextStyles.photoTipsBodyText,),
                         )
                       ],
                     ),
@@ -68,18 +68,18 @@ class PhotoTipsBar extends StatelessWidget {
                         Image.asset(AppImages.rulerIcon, width: 20, height: 20,),
                         SizedBox(width: 13,),
                         Flexible(
-                          child: Text(AppStrings.showItOff, style: AppTextStyles.photoTipsBodyText,),
+                          child: Text("showItOff", style: AppTextStyles.photoTipsBodyText,),
                         )
                       ],
                     ),
                   ],
                 ),
                 actions: [
-                  SizedBox(width: double.infinity, child: TextButton( style: TextButton.styleFrom(backgroundColor: AppColors.primary), onPressed:() => Navigator.pop(context, "OK"), child: Text(AppStrings.okText, style: AppTextStyles.okButtonTextStyle,))
+                  SizedBox(width: double.infinity, child: TextButton( style: TextButton.styleFrom(backgroundColor: AppColors.primary), onPressed:() => Navigator.pop(context, "OK"), child: Text("Ok", style: AppTextStyles.okButtonTextStyle,))
                   )],
               )
               ),
-              child: Text(AppStrings.learnHow, style: AppTextStyles.donatePhotoBarText2,),
+              child: Text("learnHow", style: AppTextStyles.donatePhotoBarText2,),
             )
           ],
         )

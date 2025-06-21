@@ -81,7 +81,7 @@ class ProductCard extends StatelessWidget {
 
               // Final Price
               Text(
-                '£${product.product_price.toStringAsFixed(2)}',
+                '£${product.price.toStringAsFixed(2)}',
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
