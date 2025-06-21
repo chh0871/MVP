@@ -43,6 +43,7 @@ class _ProductImageCardState extends State<ProductImageCard> {
         children: [
           Image.asset(
             widget.imagePath,
+            width: double.infinity,
             fit: BoxFit.cover,
           ),
           Positioned(
