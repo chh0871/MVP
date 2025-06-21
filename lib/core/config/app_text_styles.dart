@@ -67,4 +67,38 @@ class AppTextStyles {
       fontSize: 12,
       color: AppColors.greyNavFooter,
       fontWeight: FontWeight.w600);
+
+  // Donate Page
+  static TextStyle donatePhotoBarText1 = TextStyle(
+    fontSize: 15,
+    color: AppColors.white,
+    fontWeight: FontWeight.w500
+  );
+
+  static TextStyle donatePhotoBarText2 = TextStyle(
+      fontSize: 15,
+      color: AppColors.white,
+      fontWeight: FontWeight.w700,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.white
+  );
+
+  static TextStyle photoTipsHeadingText = TextStyle(
+    fontSize: 32,
+    color: AppColors.greyTextColorTwo,
+    fontWeight: FontWeight.w600
+  );
+
+  static TextStyle photoTipsBodyText = TextStyle(
+    fontSize: 16,
+    color: AppColors.greyTextColorTwo,
+  );
+
+  static TextStyle okButtonTextStyle = TextStyle(
+    fontSize: 16,
+    color: AppColors.white,
+    fontWeight: FontWeight.w700,
+  );
 }
+
+

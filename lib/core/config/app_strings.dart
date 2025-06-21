@@ -79,6 +79,7 @@ class AppStrings {
   static const popularText = "Popular";
   static const smallerCharitiesText = "Smaller Charities";
   static const localToYouText = "Local to you";
+// feature/118-product-details-page
   static const discoverSomethingText = "Discover something beautiful...";
 
   // Category Texts
@@ -149,6 +150,9 @@ class AppStrings {
   static const chat_with_us_Text = "Chat with us";
   static const FAQ_Text = "FAQ'S";
 
+  static const dark_mode_Text = "Dark Mode";
+  static const list_listings_Text = "Hide Listings";
+
   // Country and currency
   static const country_Text = "Country";
   static const united_kingdom_Text = "United Kingdom";
@@ -180,4 +184,14 @@ class AppStrings {
   static const itemsInSupportText = "Items in support";
   static const seeAllText = "See All";
 
+  // product page
+  static const productPageDescription = "Description";
+  static const productPageBuyerDiscountActive = 'Buyer discount active';
+  static const productPageBuy2Get1HalfPrice = 'Buy 2 get 1 half price';
+  static const productPageOpenToOtherCharities = 'Open to other charities';
+  static const productPageRequestOtherCharity = 'Request other charity';
+  static const productPageMakeOffer = 'Make Offer';
+  static const productPageBuyNow = 'Buy Now';
+
 }
+
