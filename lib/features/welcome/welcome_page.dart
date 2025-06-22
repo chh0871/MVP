@@ -51,32 +51,28 @@ class _WelcomePageState extends State<WelcomePage>
             ),
           ),
 
-          // Welcome Text at Top
-          Positioned(
-            top: 80,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Text(
-                AppStrings.welcome,
-                style: TextStyle(
-                  fontSize: 52,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.greyNavFooter,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-
-          // Pulsing Cherry Logo
           Center(
-            child: ScaleTransition(
-              scale: _pulseAnimation,
-              child: Image.asset(
-                'assets/images/cherry_logo.png',
-                width: 480,
-                height: 280,
+            child: FittedBox(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ScaleTransition(
+                    scale: _pulseAnimation,
+                    child: Image.asset(
+                      AppImages.cherry_logo,
+                      width: 350,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    AppStrings.giveInStyle,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.greyNavFooter,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

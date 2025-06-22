@@ -104,27 +104,6 @@ class AppStrings {
   static const darkModeText = "Dark mode";
   static const listListingsText = "Hide Listings";
   static const adText = "Ad";
-
-  // static const profile_userActivity_bought = "Bought";
-  // static const profile_userActivity_sold = "Sold";
-  // static const profile_userActivity_total = "Total";
-  // static const profile_your_donation_impact = "Your Donation Impact";
-  // static const profile_generosity_changes_lives =
-  //     "See how your generosity changes lives";
-  // static const profile_user_donation_Summary = "User Donation Summary";
-  // static const profile_user_donation_total = "Total";
-
-  // static const profile_user_info_section_user = "User";
-  // static const profile_user_info_section_following = "following";
-  // static const profile_user_info_section_followers = "followers";
-  // static const profile_user_info_section_buyer_discount =
-  //     "Buyer Discounts Active";
-  // static const profile_user_info_section_buyer_awards = "Awards";
-  // static const profile_user_info_section_buyer_reviews = "Reviews";
-  // static const profile_user_info_location = "United Kingdom";
-  // static const profile_user_info_username = "User.001";
-  // static const profile_user_info_title = 'Profile';
-
   static const profile_user_orders = "Orders";
   static const profile_user_liked = "Liked";
   static const profile_user_listings = "Listings";
@@ -173,12 +152,20 @@ class AppStrings {
       "Applicable for buyer discounts";
 
   // donation fields
+  static const donationsText = "Donations";
   static const titleText = "Title";
   static const descriptionText = "Description";
   static const categoryText = "Category";
   static const charityText = "Charity";
   static const priceText = "Price";
   static const conditionText = "Condition";
+  static const catchEyesText = "Catch eyes by using quality photos!";
+  static const photosTipPopupHeading = "Your photos should...";
+  static const clearWellLit = "Be clear and well lit.";
+  static const multipleAngles = "Show multiple angles, including front view, back view, tags & labels, close-up details and any flaws.";
+  static const noFilters = "No wacky filters or over-editing.";
+  static const showItOff = "If you’re comfortable, get it on & show it off! If not, something for reference is great!";
+  static const learnHow = "Learn How";
 
   //   Discover page
   static const itemsInSupportText = "Items in support";
@@ -192,6 +179,9 @@ class AppStrings {
   static const productPageRequestOtherCharity = 'Request other charity';
   static const productPageMakeOffer = 'Make Offer';
   static const productPageBuyNow = 'Buy Now';
+  static const giveInStyle = 'Give in style';
+
+
 
 }
 

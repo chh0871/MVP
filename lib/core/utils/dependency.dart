@@ -1,5 +1,11 @@
 import 'package:cherry_mvp/features/discover/discover_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_viewmodel.dart';
+import 'package:cherry_mvp/features/donation/donation_repository.dart';
+import 'package:cherry_mvp/features/donation/donation_viewmodel.dart';
+import 'package:cherry_mvp/features/products/product_repository.dart';
+import 'package:cherry_mvp/features/products/product_viewmodel.dart';
+import 'package:cherry_mvp/features/search/search_repository.dart';
+import 'package:cherry_mvp/features/search/search_viewmodel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:provider/provider.dart';
@@ -14,9 +20,6 @@ import 'package:cherry_mvp/features/home/home_viewmodel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../features/search/search_repository.dart';
-import '../../features/search/search_viewmodel.dart';
 
 List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
   return [
@@ -54,6 +57,12 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider<DiscoverRepository>(
       create: (context) => DiscoverRepository(),
     ),
+    Provider<ProductRepository>(
+      create: (context) => ProductRepository(),
+    ),
+    Provider<DonationRepository>(
+      create: (context) => DonationRepository(),
+    ),
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(
         loginRepository: Provider.of<LoginRepository>(context, listen: false),
@@ -81,6 +90,16 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
         create: (context) => DiscoverViewModel(
           discoverRepository: Provider.of<DiscoverRepository>(context, listen: false),
         )
+    ),
+    ChangeNotifierProvider<ProductViewModel>(
+        create: (context) => ProductViewModel(
+          productRepository: Provider.of<ProductRepository>(context, listen: false),
+        )
+    ),
+    ChangeNotifierProvider<DonationViewModel>(
+      create: (context) => DonationViewModel(
+        donationRepository: Provider.of<DonationRepository>(context, listen: false),
+      ),
     ),
    ];
 }

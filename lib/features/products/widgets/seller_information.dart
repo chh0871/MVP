@@ -23,7 +23,7 @@ class SellerInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          padding ?? EdgeInsetsGeometry.symmetric(horizontal: 16, vertical: 8),
+      padding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         spacing: 8,
         children: [

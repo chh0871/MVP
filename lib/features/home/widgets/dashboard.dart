@@ -1,61 +1,52 @@
+import 'package:cherry_mvp/core/router/nav_provider.dart';
+import 'package:cherry_mvp/core/router/nav_routes.dart';
+import 'package:cherry_mvp/features/products/product_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
 import 'package:cherry_mvp/features/home/widgets/product_card.dart';
-import 'package:cherry_mvp/core/config/config.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppStrings.dashboard,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: AppColors.black,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-      body: Consumer<HomeViewModel>(
-        builder: (context, viewModel, _) {
-          final products = viewModel.fetchProducts();
+    return Consumer<HomeViewModel>(
+      builder: (context, homeViewModel, _) {
+        final navigator = Provider.of<NavigationProvider>(context, listen: false);
+        final productViewModel = Provider.of<ProductViewModel>(context, listen: false);
+        final products = homeViewModel.fetchProducts();
 
-          return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                children: [
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: products.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 0.75,
-                    ),
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () => Navigator.of(context).pushNamed(
-                          '/product',
-                          arguments: products[index].id, // pass real ID
-                        ),
-                        child: ProductCard(product: products[index]),
-                      );
+        return Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 12),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  childAspectRatio: 0.61,
+                ),
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      productViewModel.setProduct(products[index]);
+                      navigator.navigateTo(AppRoutes.product);
                     },
-                  ),
-                ],
+                    child: ProductCard(product: products[index]),
+                  );
+                },
               ),
-            ),
-          );
-        },
-      ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

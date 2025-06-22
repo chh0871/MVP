@@ -1,5 +1,5 @@
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/features/addproduct/addproductpage.dart';
+import 'package:cherry_mvp/features/donation/donation_page.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
 import 'package:cherry_mvp/features/home/widgets/bottom_nav_bar.dart';
 import 'package:cherry_mvp/features/home/widgets/home_screen.dart';
@@ -26,8 +26,8 @@ class HomePageState extends State<HomePage> {
   static final List<Widget> _pages = <Widget>[
     HomeScreen(),
     MessagePage(),
+    DonationPage(),
     SearchPage(),
-    AddProductPage(),
     ProfilePage()
     //add other pages for the bottom sheet here
   ];

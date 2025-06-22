@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:cherry_mvp/core/config/config.dart';  
  
-
-class DonationOptions extends StatelessWidget { 
+class DonationOptions extends StatelessWidget {
 
   const DonationOptions({
     super.key,
@@ -26,8 +25,6 @@ class DonationOptions extends StatelessWidget {
   final bool isSwitchedApplicableBuyerDiscounts;
   final void Function(bool)? toggleSwitchApplicableBuyerDiscounts; 
 
-
- 
   @override 
   Widget build(BuildContext context) {     
 
