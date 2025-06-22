@@ -16,13 +16,10 @@ class AppRoutes {
   static const String register = '/register';
   static const String forgotPassword = '/forgotPassword';
   static const String home = '/home';
-  static const String chat = '/chat'; // <- added chat route
+  static const String chat = '/chat';
   static const String discover = '/discover';
-// feature/118-product-details-page
-  static const String product = '/product'; // <- added product route
-
+  static const String product = '/product';
   static const String settingspage = '/settings';
-// main
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -33,11 +30,7 @@ class AppRoutes {
       case register:
         return MaterialPageRoute(builder: (_) => RegisterPage());
       case product:
-        // Assuming ProductPage takes a productId as an argument
-        final productId = settings.arguments as String;
-        return MaterialPageRoute(
-          builder: (_) => ProductPage(productId: productId),
-        );
+        return MaterialPageRoute(builder: (_) => ProductPage());
       case home:
         return MaterialPageRoute(builder: (_) => HomePage());
       case discover:

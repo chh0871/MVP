@@ -1,87 +1,36 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
-import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
-import 'package:cherry_mvp/features/home/home_model.dart';
-import 'package:cherry_mvp/features/products/product_information.dart';
-import 'package:cherry_mvp/features/products/seller_information.dart';
+import 'package:cherry_mvp/features/products/widgets/product_action_row.dart';
+import 'package:cherry_mvp/features/products/widgets/product_bottom_spacer.dart';
+import 'package:cherry_mvp/features/products/widgets/product_highlight_title.dart';
+import 'package:cherry_mvp/features/products/widgets/product_information.dart';
+import 'package:cherry_mvp/features/products/product_viewmodel.dart';
+import 'package:cherry_mvp/features/products/widgets/seller_information.dart';
+import 'package:cherry_mvp/features/products/widgets/product_header_carousel.dart';
+import 'package:cherry_mvp/features/products/widgets/product_description_section.dart';
 import 'package:flutter/material.dart';
-
-import 'package:cherry_mvp/core/config/app_images.dart';
-import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/models/user_section.dart';
-import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
-import 'package:cherry_mvp/features/home/home_model.dart';
-import 'package:cherry_mvp/features/products/product_information.dart';
-import 'package:cherry_mvp/features/products/seller_information.dart';
-import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductPage extends StatelessWidget {
-  final String productId;
-
-  const ProductPage({super.key, required this.productId});
+  const ProductPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<ProductViewModel>(context);
+    final product = viewModel.product;
+
+    if (product == null) {
+      return Scaffold(
+        appBar: AppBar(),
+        body: const Center(child: Text('No product selected')),
+      );
+    }
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            leading: const BackButton(color: Colors.white),
-            expandedHeight: MediaQuery.of(context).size.width -
-                MediaQuery.of(context).padding.top,
-            flexibleSpace: FlexibleSpaceBar(
-              background: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: ImageCarousel(images: [
-                        AssetImage(AppImages.product1),
-                        AssetImage(AppImages.product2),
-                        AssetImage(AppImages.product3),
-                      ]),
-                    ),
-                    PositionedDirectional(
-                      end: 24,
-                      bottom: 16,
-                      child: Material(
-                        color: Colors.white54,
-                        borderRadius: BorderRadius.circular(16),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 4),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.favorite,
-                                size: 20,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                '3',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(
-                                  color:
-                                  Theme.of(context).colorScheme.primary,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          ProductHeaderCarousel(product),
           SliverList.list(children: [
             SellerInformation(
               user: UserInformation(
@@ -99,164 +48,32 @@ class ProductPage extends StatelessWidget {
             ),
             const Divider(thickness: 8),
             ProductInformation(
-              product: dummyProducts.first,
+              product: product,
               padding: const EdgeInsets.all(16),
             ),
             const Divider(thickness: 8),
-            ListTile(
-              title: Text(AppStrings.productPageDescription),
-              titleTextStyle: Theme.of(context).textTheme.titleSmall,
-              subtitle: Text(dummyProducts.first.description),
-              subtitleTextStyle: TextStyle(
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-            ),
+            ProductDescriptionSection(description: product.description),
             const Divider(thickness: 8),
-            ShadedTile(
+            ProductHighlightTile(
               onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        AppStrings.productPageBuyerDiscountActive,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context).colorScheme.tertiary,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        AppStrings.productPageBuy2Get1HalfPrice,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 32,
-                      width: 32,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.tertiary,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Theme.of(context).colorScheme.onTertiary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              leadingText: AppStrings.productPageBuyerDiscountActive,
+              trailingText: AppStrings.productPageBuy2Get1HalfPrice,
+              trailingIcon: const Icon(Icons.arrow_forward),
             ),
-            ShadedTile(
+            ProductHighlightTile(
               onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        AppStrings.productPageOpenToOtherCharities,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context).colorScheme.tertiary,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        AppStrings.productPageRequestOtherCharity,
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodySmall
-                            ?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 32,
-                      width: 32,
-                      child: Image.asset(
-                        AppImages.sale,
-                        height: 24,
-                        width: 24,
-                      ),
-                    ),
-                  ],
-                ),
+              leadingText: AppStrings.productPageOpenToOtherCharities,
+              trailingText: AppStrings.productPageRequestOtherCharity,
+              trailingIcon: Image.asset(
+                AppImages.sale,
+                height: 24,
+                width: 24,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 64,
-                      child: OutlinedButton(
-                        onPressed: () {},
-                        child: Text(AppStrings.productPageMakeOffer),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: SizedBox(
-                      height: 64,
-                      child: FilledButton(
-                        onPressed: () {},
-                        child: Text(AppStrings.productPageBuyNow),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).padding.bottom),
+            const ProductActionsRow(),
+            const ProductBottomSpacer(),
           ]),
         ],
-      ),
-    );
-  }
-}
-
-class ShadedTile extends StatelessWidget {
-  final Widget? child;
-  final VoidCallback? onTap;
-
-  const ShadedTile({super.key, this.child, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
-      child: Material(
-        borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(12),
-          bottomRight: Radius.circular(12),
-        ),
-        clipBehavior: Clip.antiAlias,
-        color: Colors.transparent,
-        type: MaterialType.button,
-        child: InkWell(
-          onTap: onTap,
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).scaffoldBackgroundColor,
-                  Theme.of(context).colorScheme.primaryContainer,
-                ],
-                begin: Alignment.centerLeft,
-                end: const Alignment(2, .5),
-              ),
-            ),
-            child: child,
-          ),
-        ),
       ),
     );
   }

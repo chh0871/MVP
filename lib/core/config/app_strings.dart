@@ -192,6 +192,7 @@ class AppStrings {
   static const productPageRequestOtherCharity = 'Request other charity';
   static const productPageMakeOffer = 'Make Offer';
   static const productPageBuyNow = 'Buy Now';
+  static const giveInStyle = 'Give in style';
 
 }
 
