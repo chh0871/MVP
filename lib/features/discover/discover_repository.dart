@@ -6,4 +6,8 @@ class DiscoverRepository {
   List<Charity> fetchCharities()  {
     return dummyCharities;
   }
+
+  List<Product> fetchProducts()  {
+    return dummyProducts;
+  }
 }

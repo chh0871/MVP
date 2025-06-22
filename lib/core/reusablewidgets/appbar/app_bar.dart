@@ -25,7 +25,7 @@ PreferredSizeWidget buildCommonAppBarWithBackButton(
 }
 
 PreferredSizeWidget buildCommonAppBar(
-    String title, VoidCallback onBackPressed) {
+    String title) {
   return AppBar(
     backgroundColor: AppColors.white,
     title: Text(

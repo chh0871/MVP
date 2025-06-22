@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/models/model.dart';
-import 'product_image_card.dart';
+import '../../../core/reusablewidgets/product_image_card.dart';
 import 'product_info_card.dart';
 
 class ProductCard extends StatelessWidget {
@@ -24,8 +24,7 @@ class ProductCard extends StatelessWidget {
           AspectRatio(
             aspectRatio: 1,
             child: ProductImageCard(
-              imagePath: product.product_images.isNotEmpty ? product.product_images[0] : '',
-              likes: product.likes,
+              product: product
             ),
           ),
           ProductInfoCard(product: product),

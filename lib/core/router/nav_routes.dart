@@ -1,4 +1,5 @@
 // feature/118-product-details-page
+import 'package:cherry_mvp/features/donation/donation_page.dart';
 import 'package:cherry_mvp/features/products/product_page.dart';
 
 import 'package:cherry_mvp/features/discover/discover_page.dart';
@@ -20,6 +21,7 @@ class AppRoutes {
   static const String discover = '/discover';
   static const String product = '/product';
   static const String settingspage = '/settings';
+  static const String donations = '/donations';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -37,6 +39,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => DiscoverPage());
       case settingspage:
         return MaterialPageRoute(builder: (_) => SettingsPage());
+      case donations:
+        return MaterialPageRoute(builder: (_) => DonationPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

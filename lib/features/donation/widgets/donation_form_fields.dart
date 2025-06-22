@@ -3,8 +3,8 @@ import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
 import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart'; 
 
-class FormFields extends StatefulWidget {
-  const FormFields({
+class DonationFormFields extends StatefulWidget {
+  const DonationFormFields({
     super.key,  
     required this.formFieldsController, 
     required this.formFieldsHintText, 
@@ -23,7 +23,7 @@ class FormFields extends StatefulWidget {
   FormFieldsState createState() => FormFieldsState();
 }
 
-class FormFieldsState extends State<FormFields> {
+class FormFieldsState extends State<DonationFormFields> {
   
   bool formFieldsIsEmpty = true;
 

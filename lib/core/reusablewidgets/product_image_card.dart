@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:cherry_mvp/core/models/product.dart'; // make sure this path is correct
 
 class ProductImageCard extends StatefulWidget {
-  final String imagePath;
-  final int likes;
+  final Product product;
 
   const ProductImageCard({
     super.key,
-    required this.imagePath,
-    required this.likes,
+    required this.product,
   });
 
   @override
@@ -21,7 +20,7 @@ class _ProductImageCardState extends State<ProductImageCard> {
   @override
   void initState() {
     super.initState();
-    likes = widget.likes;
+    likes = widget.product.likes;
   }
 
   void _toggleLike() {
@@ -33,15 +32,23 @@ class _ProductImageCardState extends State<ProductImageCard> {
 
   @override
   Widget build(BuildContext context) {
+    final imagePath = widget.product.product_images.isNotEmpty ? widget.product.product_images[0] : '';
+
     return Stack(
       fit: StackFit.expand,
       children: [
-        Image.asset(
-          widget.imagePath,
-          width: double.infinity,
-          height: double.infinity,
-          fit: BoxFit.cover,
-        ),
+        if (imagePath.isNotEmpty)
+          Image.asset(
+            imagePath,
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+          )
+        else
+          Container(
+            color: Colors.grey.shade300,
+            child: const Center(child: Icon(Icons.image_not_supported)),
+          ),
         Positioned(
           bottom: 8,
           right: 8,

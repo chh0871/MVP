@@ -10,7 +10,8 @@ class DiscoverCharityList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.all(18.0),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(), // Important!
       itemCount: charities.length,
       itemBuilder: (context, index) {
         final charity = charities[index];
