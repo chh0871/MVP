@@ -80,9 +80,9 @@ class _PhotoUploadState extends State<PhotoUpload> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 10),
+
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
           child: Text(
             AppStrings.take_photo_instruction,
             style: GoogleFonts.instrumentSans(
@@ -90,7 +90,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
                 height: 26 / 18,
-                letterSpacing: -0.17,
+                letterSpacing: -0.75,
                 color: AppColors.greyTextColor,
               ),
             ),
