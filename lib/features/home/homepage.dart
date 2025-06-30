@@ -1,7 +1,11 @@
 import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/features/donation/donation_page.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
+import 'package:cherry_mvp/features/home/widgets/bottom_nav_bar.dart';
+import 'package:cherry_mvp/features/home/widgets/home_screen.dart';
+import 'package:cherry_mvp/features/messages/messagepage.dart';
 import 'package:cherry_mvp/features/profile/profilepage.dart';
-import 'package:cherry_mvp/features/home/widgets/dashboard.dart';
+import 'package:cherry_mvp/features/search/searchpage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +24,10 @@ class HomePageState extends State<HomePage> {
   final PageController _pageController = PageController();
 
   static final List<Widget> _pages = <Widget>[
-    DashboardPage(),
+    HomeScreen(),
+    MessagePage(),
+    DonationPage(),
+    SearchPage(),
     ProfilePage()
     //add other pages for the bottom sheet here
   ];
@@ -57,33 +64,11 @@ class HomePageState extends State<HomePage> {
         onPageChanged: _onPageChanged,
         children: _pages,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors.primary,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Image(
-                image: AssetImage(AppImages.icHome),width: 24,height: 24,
-              ),
-              activeIcon: Image(
-                image: AssetImage(AppImages.icHomeSelected),width: 24,height: 24,
-              ), label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.messenger_outline), label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.private_connectivity_rounded), label: ''
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: ''
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.black,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: _onItemTapped,
+      bottomNavigationBar: CherryBottomNavBar(
+        selectedIndex: _selectedIndex,
+        onItemSelected: _onItemTapped,
+        selectedColor: AppColors.primary,
+        unselectedColor: AppColors.greyNavFooter,
       ),
     );
   }

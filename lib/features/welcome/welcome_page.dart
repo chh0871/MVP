@@ -4,8 +4,37 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
+
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _pulseAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    )..repeat(reverse: true);
+
+    _pulseAnimation = Tween<double>(begin: 0.95, end: 1.05).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +46,34 @@ class WelcomePage extends StatelessWidget {
           // Background Image
           Positioned.fill(
             child: Image.asset(
-            AppImages.welcomeBg,
+              AppImages.welcomeBg,
               fit: BoxFit.cover,
             ),
           ),
 
-          // Centered Welcome Text
           Center(
-            child: Text(
-              AppStrings.welcome,
-              style: TextStyle(
-                fontSize: 52,
-                fontWeight: FontWeight.bold,
-                color: AppColors.black,
+            child: FittedBox(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ScaleTransition(
+                    scale: _pulseAnimation,
+                    child: Image.asset(
+                      AppImages.cherry_logo,
+                      width: 350,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    AppStrings.giveInStyle,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.greyNavFooter,
+                    ),
+                  ),
+                ],
               ),
-              textAlign: TextAlign.center,
             ),
           ),
 
@@ -52,9 +94,13 @@ class WelcomePage extends StatelessWidget {
                       navigator.replaceWith(AppRoutes.login);
                     },
                     buttonText: AppStrings.login,
+                    textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-
                 const SizedBox(height: 30),
 
                 // Register Button
@@ -66,7 +112,7 @@ class WelcomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        AppStrings.create_account,
+                        AppStrings.createAccount,
                         style: Theme.of(context)
                             .textTheme
                             .labelSmall
