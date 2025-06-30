@@ -11,11 +11,8 @@ class HomeViewModel extends ChangeNotifier {
 
   HomeViewModel({required this.homeRepository});
 
-  List<Category> fetchCategories()  {
-    return homeRepository.fetchCategories();
-  }
-
   List<Product> fetchProducts()  {
     return homeRepository.fetchProducts();
   }
+
 }

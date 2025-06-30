@@ -106,7 +106,7 @@ class LoginFormState extends State<LoginForm> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(AppStrings.create_account,
+                  Text(AppStrings.createAccount,
                       style: Theme.of(context)
                           .textTheme
                           .labelSmall
@@ -119,7 +119,7 @@ class LoginFormState extends State<LoginForm> {
             // Forgot Password
             GestureDetector(
               onTap: () {
-               navigator.replaceWith(AppRoutes.home);
+               // navigator.replaceWith(AppRoutes.home);
               },
               child: Center(
                 child: Text(AppStrings.forgotPassword,
