@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -91,7 +91,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                 fontWeight: FontWeight.w400,
                 height: 26 / 18,
                 letterSpacing: -0.17,
-                color: AppColors.greyNavFooter,
+                color: AppColors.greyTextColor,
               ),
             ),
           ),
@@ -122,7 +122,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                 children: [
                   Icon(
                     Icons.photo_library,
-                    color: AppColors.greyNavFooter,
+                    color: AppColors.greyTextColor,
                     size: 24,
                   ),
                   const SizedBox(height: 8),
@@ -134,7 +134,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                         height: 20 / 16,
-                        color: AppColors.greyNavFooter,
+                        color: AppColors.greyTextColor,
                       ),
                     ),
                   ),
