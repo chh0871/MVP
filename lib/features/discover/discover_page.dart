@@ -6,7 +6,6 @@ import 'package:cherry_mvp/features/discover/discover_viewmodel.dart';
 import 'package:cherry_mvp/features/discover/widgets/discover_header.dart';
 import 'package:cherry_mvp/features/discover/widgets/discover_charity_list.dart';
 import 'package:cherry_mvp/features/discover/widgets/discover_selection_bar.dart';
-import 'package:cherry_mvp/features/discover/widgets/items_in_support.dart';
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
@@ -30,9 +29,10 @@ class DiscoverPage extends StatelessWidget {
                 children: [
                   const DiscoverSelectionBar(),
                   const SizedBox(height: 30),
-                  ItemsInSupport(products: products),
-                  const SizedBox(height: 30),
-                  DiscoverCharityList(charities: charities),
+                  DiscoverCharityList(
+                    charities: charities,
+                    products: products,
+                  ),
                 ],
               ),
             ),

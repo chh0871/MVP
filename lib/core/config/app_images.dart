@@ -77,4 +77,10 @@ class AppImages {
   static const wandIcon = '${_path}icon_wand.png';
   static const rulerIcon = '${_path}icon_ruler.png';
 
+  static const wwf = '${_path}wwf.png';
+  static const wwf_logo = '${_path}wwf_logo.png';
+  static const shelter = '${_path}shelter.png';
+  static const shelter_logo = '${_path}shelter_logo.png';
+  static const mind = '${_path}mind.png';
+  static const mind_logo = '${_path}mind_logo.png';
 }
