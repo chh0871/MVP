@@ -25,34 +25,30 @@ class ToggleSection extends StatelessWidget {
         child: Switch.adaptive(
           value: isSwitchedDark,
           onChanged: toggleSwitchDark,
-          inactiveTrackColor: AppColors.greyTextColor,
+          inactiveTrackColor: Theme.of(context).colorScheme.onSurfaceVariant,
           activeTrackColor: Theme.of(context).colorScheme.primary,
         ),
       ),
       Text(
         AppStrings.darkModeText,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w600,
-        ),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
       ),
       Padding(
         padding: EdgeInsets.only(top: 5.0),
         child: Switch.adaptive(
           value: isSwitchedHide,
           onChanged: toggleSwitchHide,
-          inactiveTrackColor: AppColors.greyTextColor,
+          inactiveTrackColor: Theme.of(context).colorScheme.onSurfaceVariant,
           activeTrackColor: Theme.of(context).colorScheme.primary,
         ),
       ),
       Text(
         AppStrings.listListingsText,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w600,
-        ),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
       ),
     ]);
   }

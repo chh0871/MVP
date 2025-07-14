@@ -65,11 +65,9 @@ class _WelcomePageState extends State<WelcomePage>
                   const SizedBox(height: 8),
                   Text(
                     AppStrings.giveInStyle,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.greyNavFooter,
-                    ),
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
                   ),
                 ],
               ),

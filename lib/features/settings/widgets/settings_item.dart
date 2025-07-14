@@ -23,8 +23,8 @@ class SettingsItem extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    color: AppColors.greyTextColor,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
@@ -33,16 +33,16 @@ class SettingsItem extends StatelessWidget {
                   children: [
                     Text(
                       trailing,
-                      style: const TextStyle(
-                        color: AppColors.greyTextColor,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     const SizedBox(width: 10),
-                    const Icon(
+                    Icon(
                       Icons.chevron_right,
-                      color: AppColors.greyTextColor,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                       size: 26,
                     ),
                   ],

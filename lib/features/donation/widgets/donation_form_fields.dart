@@ -42,10 +42,9 @@ class FormFieldsState extends State<DonationFormFields> {
         if (widget.formFieldsTitle != "")
           Text(
             widget.formFieldsTitle,
-            style: TextStyle(
-              color: AppColors.greyTextColor,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
           ),
 
         // Form TextField

@@ -58,7 +58,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ? Container(
                         height: 100,
                         width: 100,
-                        color: AppColors.greyTextColor,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         child: Center(
                             child: Icon(Icons.camera_alt,
                                 color: Theme.of(context).colorScheme.primary)),

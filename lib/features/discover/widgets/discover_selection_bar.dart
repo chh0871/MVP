@@ -13,7 +13,7 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.greyBgColor,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -58,7 +58,8 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
                 flex: 3,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.greyBgColor,
+                    color:
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(

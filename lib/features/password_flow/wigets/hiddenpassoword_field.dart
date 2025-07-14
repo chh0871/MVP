@@ -26,7 +26,7 @@ class _HiddenPasswordFieldState extends State<HiddenPasswordField> {
                 radius: 8,
                 backgroundColor: index < _password.length
                     ? Theme.of(context).colorScheme.primary
-                    : AppColors.lightGreyTextColor,
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             );
           }),

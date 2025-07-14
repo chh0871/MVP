@@ -66,7 +66,7 @@ class UserInformationSection extends StatelessWidget {
                               index < userInformationSection.rating
                                   ? Icons.star
                                   : Icons.star_border_outlined,
-                              color: AppColors.profile_review,
+                              color: AppColors.yellow,
                               size: 20,
                             ),
                           ),
@@ -82,10 +82,10 @@ class UserInformationSection extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(
+            Icon(
               Icons.arrow_forward_ios,
               size: 16,
-              color: AppColors.greyTextColorTwo,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ],
         ),

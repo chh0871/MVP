@@ -27,33 +27,27 @@ class DonationOptions extends StatelessWidget {
       Text(
         AppStrings.donation_options_Text,
         style: TextStyle(
-          fontSize: 15,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w300,
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
       ),
       Text(
         AppStrings.give_your_buyer_Text,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w300,
-        ),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
       ),
       Text(
         AppStrings.easy_way_Text,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w300,
-        ),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
       ),
       Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           margin: EdgeInsets.only(bottom: 20.0),
           decoration: BoxDecoration(
-            color: AppColors.lightGreyFill,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(50.0),
           ),
           child:
@@ -61,15 +55,13 @@ class DonationOptions extends StatelessWidget {
             Text(
               AppStrings.open_to_other_charities_Text,
               style: TextStyle(
-                fontSize: 15,
-                color: AppColors.greyTextColor,
-                fontWeight: FontWeight.w300,
-              ),
+                  color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
             Switch.adaptive(
               value: isSwitchedOpenToOtherCharity,
               onChanged: toggleSwitchOpenToOtherCharity,
-              inactiveTrackColor: AppColors.greyTextColor,
+              inactiveTrackColor:
+                  Theme.of(context).colorScheme.onSurfaceVariant,
               activeTrackColor: Theme.of(context).colorScheme.primary,
             )
           ])),
@@ -78,7 +70,7 @@ class DonationOptions extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           margin: EdgeInsets.only(bottom: 20.0),
           decoration: BoxDecoration(
-            color: AppColors.lightGreyFill,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(50.0),
           ),
           child:
@@ -86,15 +78,14 @@ class DonationOptions extends StatelessWidget {
             Text(
               AppStrings.open_to_offers_Text,
               style: TextStyle(
-                fontSize: 15,
-                color: AppColors.greyTextColor,
-                fontWeight: FontWeight.w300,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
             Switch.adaptive(
               value: isSwitchedOpenToOffer,
               onChanged: toggleSwitchOpenToOffer,
-              inactiveTrackColor: AppColors.greyTextColor,
+              inactiveTrackColor:
+                  Theme.of(context).colorScheme.onSurfaceVariant,
               activeTrackColor: Theme.of(context).colorScheme.primary,
             )
           ])),
@@ -103,23 +94,21 @@ class DonationOptions extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
           margin: EdgeInsets.only(bottom: 20.0),
           decoration: BoxDecoration(
-            color: AppColors.lightGreyFill,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(50.0),
           ),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
               AppStrings.applicable_for_buyer_discounts_Text,
-              style: TextStyle(
-                fontSize: 13,
-                color: AppColors.greyTextColor,
-                fontWeight: FontWeight.w300,
-              ),
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
             Switch.adaptive(
               value: isSwitchedApplicableBuyerDiscounts,
               onChanged: toggleSwitchApplicableBuyerDiscounts,
-              inactiveTrackColor: AppColors.greyTextColor,
+              inactiveTrackColor:
+                  Theme.of(context).colorScheme.onSurfaceVariant,
               activeTrackColor: Theme.of(context).colorScheme.primary,
             )
           ])),

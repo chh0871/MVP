@@ -76,10 +76,10 @@ class ProfilePage extends StatelessWidget {
                     'RNLI': 43,
                   },
                   colors: {
-                    'BHF': AppColors.piechart_red,
-                    'Samaritans': AppColors.piechart_pink,
-                    'Cancer Research': AppColors.piechart_green, //pink
-                    'RNLI': AppColors.piechart_purple, //blue
+                    'BHF': AppColors.red,
+                    'Samaritans': AppColors.pink,
+                    'Cancer Research': AppColors.green, //pink
+                    'RNLI': AppColors.purple, //blue
                   },
                 ),
 

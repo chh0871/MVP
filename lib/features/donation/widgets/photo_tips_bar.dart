@@ -16,15 +16,17 @@ class PhotoTipsBar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 13),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(Icons.info_outline,
-                color: Theme.of(context).colorScheme.surface, size: 30),
+                color: Theme.of(context).colorScheme.onPrimary, size: 30),
             const SizedBox(width: 10),
             Flexible(
               child: Text(
                 AppStrings.catchEyesText,
-                style: Theme.of(context).textTheme.titleMedium,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
               ),
             ),
             const SizedBox(width: 10),
@@ -33,7 +35,11 @@ class PhotoTipsBar extends StatelessWidget {
                 context: context,
                 builder: (context) => const PhotoTipsDialog(),
               ),
-              child: Text(AppStrings.learnHow),
+              child: Text(
+                AppStrings.learnHow,
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+              ),
             ),
           ],
         ),

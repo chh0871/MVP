@@ -15,46 +15,36 @@ class ProductInfoCard extends StatelessWidget {
         children: [
           Text(
             product.name,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
-            maxLines: 1,
             overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           const SizedBox(height: 4),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: Text(
                   product.quality,
-                  style: const TextStyle(fontSize: 12),
                   overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
               Text(
                 product.size,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                ),
+                style: Theme.of(context).textTheme.labelMedium,
               ),
             ],
           ),
           const SizedBox(height: 4),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '£${product.price.toStringAsFixed(2)}',
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12,
-                ),
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
               ),
               Image.asset(
                 product.charity_image,
@@ -64,15 +54,11 @@ class ProductInfoCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 6),
-
           Text(
             '£${product.price.toStringAsFixed(2)}',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-              color: Colors.pink,
-            ),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
           ),
         ],
       ),

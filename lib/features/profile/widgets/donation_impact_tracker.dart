@@ -19,7 +19,8 @@ class DonationChart extends StatelessWidget {
   Widget build(BuildContext context) {
     List<PieChartSectionData> sections = donations.entries.map((entry) {
       return PieChartSectionData(
-        color: colors[entry.key] ?? AppColors.greyTextColor,
+        color:
+            colors[entry.key] ?? Theme.of(context).colorScheme.onSurfaceVariant,
         value: entry.value,
         title: '',
         radius: 15,
@@ -33,21 +34,19 @@ class DonationChart extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: Text(
             AppStrings.profile_your_donation_impact,
-            style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: AppColors.greyTextColorTwo),
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
           ),
         ),
         const SizedBox(height: 8),
         Align(
           alignment: Alignment.topLeft,
-          child: const Text(
+          child: Text(
             AppStrings.profile_generosity_changes_lives,
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: AppColors.greyTextColorTwo),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
           ),
         ),
         const SizedBox(height: 32),
@@ -64,19 +63,17 @@ class DonationChart extends StatelessWidget {
             ),
             Column(
               children: [
-                const Text(
+                Text(
                   AppStrings.profile_user_donation_total,
                   style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.greyTextColorTwo),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
                 Text(
                   '£${totalAmount.toStringAsFixed(2)}',
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.greyTextColorTwo),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
               ],
             ),
@@ -117,9 +114,9 @@ class LegendItem extends StatelessWidget {
         ),
         const SizedBox(width: 6),
         Text(label,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w400,
-              color: AppColors.greyTextColorTwo,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 14,
             )),
       ],

@@ -23,7 +23,7 @@ class UserOrderTile extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.35,
           height: 95,
           decoration: BoxDecoration(
-            color: AppColors.lightGreyFill,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
@@ -34,11 +34,7 @@ class UserOrderTile extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    height: 1.3,
-                    color: AppColors.greyTextColorTwo,
-                  ),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
                 const Spacer(),
                 Align(

@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/app_button_style.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/router/nav_provider.dart';
 import 'package:cherry_mvp/core/router/nav_routes.dart';
@@ -16,36 +15,58 @@ class DiscoverButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: AppButtonStyle.exploreButtonStyle,
-      onPressed: () => _navigate(context),
-      child: SizedBox(
-          width: double.infinity,
-          height: 152,
-          child: Row(children: [
-            Expanded(
+    return SizedBox(
+        height: 156,
+        child: Material(
+            color: Theme.of(context).colorScheme.primary,
+            borderRadius: BorderRadius.circular(28),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(28),
+              onTap: () => _navigate(context),
+              child: SizedBox(
+                width: double.infinity,
                 child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 26),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppStrings.exploreText,
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                        Text(
-                          AppStrings.discoverSomethingText,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ],
-                    ))),
-            Expanded(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(28),
-                    child:
-                        Image.asset(AppImages.explore_charities, height: 146)))
-          ])),
-    );
+                    padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
+                    child: Row(children: [
+                      Expanded(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppStrings.exploreText,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onPrimary,
+                                    fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            AppStrings.discoverSomethingText,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
+                                ),
+                          ),
+                        ],
+                      )),
+                      AspectRatio(
+                        aspectRatio: 1,
+                        child: Ink(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(28),
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(
+                                        AppImages.explore_charities)))),
+                      )
+                    ])),
+              ),
+            )));
   }
 }

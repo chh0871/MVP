@@ -15,25 +15,30 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(
-        title: SearchAnchor.bar(
-            barHintText: 'AI Search: Red Polka Dot Dress',
-            isFullScreen: true,
-            suggestionsBuilder: (context, controller) => const []),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14),
-          child: Column(
-            children: [
-              DiscoverButton(),
-              AdExample(),
-              DashboardPage(),
-            ],
+      body: CustomScrollView(slivers: [
+        PinnedHeaderSliver(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(
+                16, 8 + MediaQuery.of(context).padding.top, 16, 8),
+            child: SearchAnchor.bar(
+                barBackgroundColor: WidgetStatePropertyAll(
+                    Theme.of(context).colorScheme.surfaceContainerHighest),
+                barHintText: 'AI Search: Red Polka Dot Dress',
+                isFullScreen: true,
+                suggestionsBuilder: (context, controller) => const []),
           ),
         ),
-      ),
+        SliverPadding(
+          padding: EdgeInsets.all(16),
+          sliver: SliverToBoxAdapter(
+            child: DiscoverButton(),
+          ),
+        ),
+        SliverPadding(padding: EdgeInsets.all(16), sliver: DashboardPage()),
+        SliverToBoxAdapter(
+          child: AdExample(),
+        ),
+      ]),
     );
   }
 }

@@ -65,7 +65,7 @@ class HomePageState extends State<HomePage> {
         selectedIndex: _selectedIndex,
         onItemSelected: _onItemTapped,
         selectedColor: Theme.of(context).colorScheme.primary,
-        unselectedColor: AppColors.greyNavFooter,
+        unselectedColor: Theme.of(context).colorScheme.secondary,
       ),
     );
   }

@@ -58,7 +58,8 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
                     padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: AppColors.lightGreyFill,
+                      color:
+                          Theme.of(context).colorScheme.surfaceContainerHighest,
                       boxShadow: [
                         BoxShadow(
                           color: Theme.of(context).colorScheme.onSurface,

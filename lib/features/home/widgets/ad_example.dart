@@ -10,12 +10,9 @@ class AdExample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Text(
-            AppStrings.adText,
-            style: Theme.of(context).textTheme.titleLarge,
-            textAlign: TextAlign.center,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Text(AppStrings.adText,
+              style: Theme.of(context).textTheme.titleMedium),
         ),
         Image.asset(AppImages.ad_image),
       ],

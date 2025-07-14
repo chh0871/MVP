@@ -5,7 +5,7 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
   var baseTheme = brightness == Brightness.light
       ? ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xfff90653),
+            seedColor: Colors.grey,
             dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
             brightness: brightness,
             outline: const Color(0x1a8c8a8a),
@@ -16,9 +16,11 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
             onPrimaryContainer: Colors.black,
             secondary: const Color(0xff8c8a8a),
             onSecondary: Colors.black,
+            secondaryContainer: const Color(0xfff1f1f1),
             tertiary: Color(0xff707070),
             onTertiary: Colors.white,
             surface: const Color(0xfffafafa),
+            surfaceContainerHighest: const Color(0xfff1f1f1),
             onSurface: Colors.black,
           ),
         )

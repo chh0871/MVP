@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/login/login_viewmodel.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/widgets/reusable_widgets.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 
 class LoginForm extends StatefulWidget {
@@ -65,7 +64,9 @@ class LoginFormState extends State<LoginForm> {
                 return Column(
                   children: [
                     viewModel.status.type == StatusType.loading
-                        ? const LoadingView()
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
                         : SizedBox(
                             width: double.infinity,
                             child: FilledButton(

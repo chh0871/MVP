@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/config.dart';
 import 'package:flutter/material.dart';
 
 class ProfilepageUseractivityCards extends StatelessWidget {
@@ -17,7 +16,7 @@ class ProfilepageUseractivityCards extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.35,
       height: 83,
       decoration: BoxDecoration(
-        color: AppColors.lightGreyFill,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -28,10 +27,7 @@ class ProfilepageUseractivityCards extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 16,
-                height: 1.3, // lineHeight of 21
-                color: AppColors.greyTextColorTwo,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
             Spacer(),

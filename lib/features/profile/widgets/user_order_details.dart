@@ -36,7 +36,7 @@ class UserOrderDetails extends StatelessWidget {
           width: double.infinity,
           height: 41,
           decoration: BoxDecoration(
-            color: AppColors.lightGreyFill,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
@@ -45,14 +45,12 @@ class UserOrderDetails extends StatelessWidget {
               Text(
                 AppStrings.profile_user_Buyer_disc,
                 style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.greyTextColorTwo,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
               Image.asset(
                 AppImages.profile_discount,
-                color: AppColors.piechart_red,
+                color: Theme.of(context).colorScheme.primary,
                 height: 18,
                 width: 18,
               ),
