@@ -31,7 +31,7 @@ class SettingsCategoryGroup extends StatelessWidget {
       ...list_items
           .map((item) => SettingsItem(
               title: item.title, onTap: () {}, trailing: item.trailing))
-          .toList(),
+          ,
     ]);
   }
 

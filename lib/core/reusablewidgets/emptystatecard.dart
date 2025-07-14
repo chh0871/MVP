@@ -5,13 +5,13 @@ class EmptyStateCard extends StatelessWidget {
   final String message;
 
   const EmptyStateCard({
-    Key? key,
+    super.key,
     required this.message,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Stack(

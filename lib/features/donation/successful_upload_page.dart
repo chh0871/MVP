@@ -22,7 +22,7 @@ class SuccessfulUploadPage extends StatelessWidget {
               children: [
                 Padding(padding: EdgeInsets.symmetric(vertical:screenHeight*0.15),),
 
-                Container(
+                SizedBox(
                   width: 80, 
                   height: 80,  
                   child: Card(

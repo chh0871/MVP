@@ -7,11 +7,11 @@ class UserOrderTile extends StatelessWidget {
   final String assetPath;
 
   const UserOrderTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.onPressed,
     required this.assetPath,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

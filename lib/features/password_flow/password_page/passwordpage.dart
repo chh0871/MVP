@@ -6,6 +6,8 @@ import 'package:cherry_mvp/features/password_flow/wigets/hiddenpassoword_field.d
 import 'package:flutter/material.dart';
 
 class PasswordPage extends StatelessWidget {
+  const PasswordPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

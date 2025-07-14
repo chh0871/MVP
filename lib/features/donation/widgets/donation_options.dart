@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';   
 import 'package:flutter/cupertino.dart';
 import 'package:cherry_mvp/core/config/config.dart';  
  
@@ -67,7 +66,7 @@ class DonationOptions extends StatelessWidget {
                 value: isSwitchedOpenToOtherCharity,
                 onChanged: toggleSwitchOpenToOtherCharity, 
                 inactiveTrackColor: AppColors.greyTextColor, 
-                activeColor: AppColors.primary, 
+                activeTrackColor: AppColors.primary, 
               )
             ]
           )
@@ -94,7 +93,7 @@ class DonationOptions extends StatelessWidget {
                 value: isSwitchedOpenToOffer,
                 onChanged: toggleSwitchOpenToOffer, 
                 inactiveTrackColor: AppColors.greyTextColor, 
-                activeColor: AppColors.primary, 
+                activeTrackColor: AppColors.primary, 
               )
             ]
           )
@@ -121,7 +120,7 @@ class DonationOptions extends StatelessWidget {
                 value: isSwitchedApplicableBuyerDiscounts,
                 onChanged: toggleSwitchApplicableBuyerDiscounts, 
                 inactiveTrackColor: AppColors.greyTextColor, 
-                activeColor: AppColors.primary, 
+                activeTrackColor: AppColors.primary, 
               )
             ]
           )

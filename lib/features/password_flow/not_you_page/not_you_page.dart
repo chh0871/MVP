@@ -8,6 +8,8 @@ import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class NotYouPage extends StatelessWidget {
+  const NotYouPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,7 @@ class NotYouPage extends StatelessWidget {
             children: [
               // Background Image
               Positioned(
-                child: Container(
+                child: SizedBox(
                   height: double.infinity,
                   child: Image.asset(
                     AppImages.not_you_home,

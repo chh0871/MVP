@@ -51,7 +51,7 @@ class CharityCardState extends State<CharityCard> {
                         style: TextStyle(color: AppColors.black, fontSize:14, fontWeight: FontWeight.w700 )
                       ),
 
-                      Container(
+                      SizedBox(
                         width: screenWidth-110,
                         child: Expanded(
                           child: Text(

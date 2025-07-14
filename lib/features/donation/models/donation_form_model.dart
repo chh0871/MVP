@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/core/models/model.dart';
 
 
 final String TitleHintText = 'e.g. White COS Jumper';

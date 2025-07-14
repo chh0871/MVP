@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
-import 'package:cherry_mvp/core/models/charity_category.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/model.dart';
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart';
 
 class DropdownFields extends StatefulWidget {
   const DropdownFields({

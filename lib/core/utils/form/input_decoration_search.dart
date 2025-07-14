@@ -12,11 +12,11 @@ InputDecoration buildInputDecorationSearch({required String labelText, required 
       borderSide: BorderSide(color: AppColors.greyTextColor),
     ), 
     focusedBorder: OutlineInputBorder( 
-      borderRadius: BorderRadius.circular(enabledBorderRadiusValue != null ? enabledBorderRadiusValue : 10.0),
+      borderRadius: BorderRadius.circular(enabledBorderRadiusValue ?? 10.0),
       borderSide: BorderSide(color: AppColors.greyTextColor, width: 1.0),
     ),
     enabledBorder: OutlineInputBorder( 
-      borderRadius: BorderRadius.circular(enabledBorderRadiusValue != null ? enabledBorderRadiusValue : 10.0),
+      borderRadius: BorderRadius.circular(enabledBorderRadiusValue ?? 10.0),
       borderSide: BorderSide(color: AppColors.greyTextColor, width: 1.0), 
     ),  
   
@@ -26,7 +26,7 @@ InputDecoration buildInputDecorationSearch({required String labelText, required 
     ): null,
     suffixIcon: icon != null ? Icon(
       icon, 
-      color: iconColor!= null ? iconColor : AppColors.greyTextColor
+      color: iconColor ?? AppColors.greyTextColor
     ): null,
     filled: true, 
     fillColor: AppColors.lightGreyFill, // Background color

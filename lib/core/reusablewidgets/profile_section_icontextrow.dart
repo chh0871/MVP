@@ -6,10 +6,10 @@ class IconTextRow extends StatelessWidget {
   final String text;
 
   const IconTextRow({
-    Key? key,
+    super.key,
     required this.assetPath,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

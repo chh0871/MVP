@@ -37,6 +37,8 @@ class ProfilePage extends StatelessWidget {
     'hasBuyerDiscounts': true,
   };
 
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
 

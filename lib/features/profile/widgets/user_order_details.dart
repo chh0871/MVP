@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class UserOrderDetails extends StatelessWidget {
   const UserOrderDetails({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
