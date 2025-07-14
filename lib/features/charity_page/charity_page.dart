@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/core/utils/utils.dart';
 import 'package:cherry_mvp/features/search/search_viewmodel.dart';
 
 import 'widgets/charity_card.dart';
@@ -47,20 +46,10 @@ class CharityPageState extends State<CharityPage> {
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: SizedBox(
                   height: 40,
-                  child: TextField(
-                    decoration: buildInputDecorationSearch(
-                        labelText: "Search items",
-                        hintText: "",
-                        iconPrefix: Icons.search,
-                        icon: Icons.camera_alt_rounded,
-                        enabledBorderRadiusValue: 50.0,
-                        iconColor: AppColors.greyTextColor),
-                    onChanged: (value) {
-                      setState(() {
-                        _searchQuery = value;
-                      });
-                    },
-                  ),
+                  child: SearchAnchor.bar(
+                      barHintText: 'Search items',
+                      isFullScreen: true,
+                      suggestionsBuilder: (context, controller) => []),
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: 8)),

@@ -1,4 +1,4 @@
-import 'package:cherry_mvp/core/reusablewidgets/empty_state_card.dart';
+import 'package:cherry_mvp/core/widgets/empty_state_card.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 

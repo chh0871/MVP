@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/register/register_viewmodel.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusable_widgets.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -144,7 +143,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   return Column(
                     children: [
                       viewModel.status.type == StatusType.loading
-                          ? const LoadingView()
+                          ? const Center(child: CircularProgressIndicator())
                           : SizedBox(
                               width: double.infinity,
                               child: FilledButton(

@@ -1,5 +1,5 @@
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/core/reusablewidgets/profile_user_order_details.dart';
+import 'package:cherry_mvp/core/widgets/profile_user_order_details.dart';
 import 'package:flutter/material.dart';
 
 class UserOrderDetails extends StatelessWidget {

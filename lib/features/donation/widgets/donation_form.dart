@@ -9,7 +9,6 @@ import 'package:cherry_mvp/features/donation/widgets/donation_options.dart';
 import 'package:cherry_mvp/features/donation/widgets/donation_form_fields.dart';
 import 'package:cherry_mvp/features/donation/widgets/donation_dropdown_fields.dart';
 import 'package:cherry_mvp/features/donation/donation_viewmodel.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusable_widgets.dart';
 
 class DonationForm extends StatefulWidget {
   const DonationForm({super.key});
@@ -116,7 +115,7 @@ class DonationFormState extends State<DonationForm> {
           ),
           const SizedBox(height: 20),
           viewModel.status.type == StatusType.loading
-              ? const LoadingView()
+              ? const Center(child: CircularProgressIndicator())
               : FilledButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/models/model.dart';
-import '../../../core/reusablewidgets/product_image_card.dart';
+import '../../../core/widgets/product_image_card.dart';
 import 'product_info_card.dart';
 
 class ProductCard extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
-import 'package:cherry_mvp/core/reusablewidgets/profile_section_icontextrow.dart';
+import 'package:cherry_mvp/core/widgets/profile_section_icontextrow.dart';
 import 'package:flutter/material.dart';
 
 class UserInformationSection extends StatelessWidget {

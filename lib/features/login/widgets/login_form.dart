@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/login/login_viewmodel.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusable_widgets.dart';
+import 'package:cherry_mvp/core/widgets/reusable_widgets.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 
 class LoginForm extends StatefulWidget {
