@@ -1,10 +1,8 @@
-import 'package:cherry_mvp/core/config/app_button_style.dart';
 import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_input_decorations.dart';
 import 'package:cherry_mvp/core/config/app_spacing.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class NotYouPage extends StatelessWidget {
@@ -57,43 +55,30 @@ class NotYouPage extends StatelessWidget {
                       // First Text
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          AppStrings.userCheck,
-                          style: AppTextStyles.heading1,
-                        ),
+                        child: Text(AppStrings.userCheck,
+                            style: Theme.of(context).textTheme.headlineMedium),
                       ),
-
                       SizedBox(height: AppSpacing.medium),
-
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          AppStrings.forgotPasswordInstruction,
-                          style: AppTextStyles.bodyText,
-                        ),
+                        child: Text(AppStrings.forgotPasswordInstruction),
                       ),
-
                       SizedBox(height: AppSpacing.large),
-
                       TextField(
                         decoration: AppInputDecorations
                             .inputDecorationWithBorderRadius1(
                           hintText: AppStrings.email,
                         ),
                       ),
-
                       SizedBox(height: AppSpacing.large),
-
                       SizedBox(
                         width: double.infinity,
                         height: 60,
-                        child: ElevatedButton(
+                        child: OutlinedButton(
                           onPressed: () {},
-                          style: AppButtonStyle.buttonStyle1,
                           child: const Text(AppStrings.sendEmail),
                         ),
                       ),
-
                       SizedBox(height: AppSpacing.large),
                     ],
                   ),

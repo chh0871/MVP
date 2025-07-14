@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/core/config/app_spacing.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/features/password_flow/wigets/greeting_lable.dart';
 import 'package:cherry_mvp/features/password_flow/wigets/hiddenpassoword_field.dart';
@@ -70,11 +69,7 @@ class PasswordPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // "Not you" Text
-                  Text(
-                    'Not you',
-                    style: AppTextStyles.bodyText,
-                  ),
-
+                  Text('Not you'),
                   // Icon Button
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(

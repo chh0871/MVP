@@ -1,8 +1,7 @@
 import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'photo_tips_dialog.dart';  // import the new dialog widget
+import 'photo_tips_dialog.dart'; // import the new dialog widget
 
 class PhotoTipsBar extends StatelessWidget {
   const PhotoTipsBar({super.key});
@@ -25,7 +24,7 @@ class PhotoTipsBar extends StatelessWidget {
             Flexible(
               child: Text(
                 AppStrings.catchEyesText,
-                style: AppTextStyles.donatePhotoBarText1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
             const SizedBox(width: 10),
@@ -34,10 +33,7 @@ class PhotoTipsBar extends StatelessWidget {
                 context: context,
                 builder: (context) => const PhotoTipsDialog(),
               ),
-              child: Text(
-                AppStrings.learnHow,
-                style: AppTextStyles.donatePhotoBarText2,
-              ),
+              child: Text(AppStrings.learnHow),
             ),
           ],
         ),

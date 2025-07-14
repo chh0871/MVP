@@ -27,10 +27,26 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
 
   return baseTheme.copyWith(
     textTheme: GoogleFonts.instrumentSansTextTheme(baseTheme.textTheme),
+    appBarTheme: AppBarTheme(centerTitle: true),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: baseTheme.colorScheme.primary,
+      border: const OutlineInputBorder(),
+      enabledBorder: OutlineInputBorder(
+        borderSide:
+            BorderSide(color: baseTheme.colorScheme.outline, width: 1.5),
+      ),
+      hintStyle: TextStyle(fontSize: baseTheme.textTheme.bodyMedium?.fontSize),
+      focusedBorder: OutlineInputBorder(
+        borderSide:
+            BorderSide(color: baseTheme.colorScheme.primary, width: 1.5),
+      ),
+    ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+          minimumSize: const Size(64, 48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
           ),
           side: BorderSide(
             color: baseTheme.colorScheme.primary,

@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/core/config/app_colors.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverSelectionBar extends StatefulWidget {
@@ -21,20 +20,20 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
         padding: EdgeInsets.all(3),
         child: SizedBox(
           width: double.infinity,
-          height: 40,// Ensures the Row takes the full width available
+          height: 40, // Ensures the Row takes the full width available
           child: Row(
             children: [
               Expanded(
                 flex: 3,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.white,
+                    color: Theme.of(context).colorScheme.surfaceContainer,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
                     child: Text(
                       "Popular",
-                      style: AppTextStyles.selectedOption,
+                      style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
                 ),
@@ -43,13 +42,14 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
                 flex: 3,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.greyBgColor,
+                    color:
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
                     child: Text(
                       "Smaller Charities",
-                      style: AppTextStyles.unselectedOption,
+                      style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
                 ),
@@ -64,7 +64,7 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
                   child: Center(
                     child: Text(
                       "Local to you",
-                      style: AppTextStyles.unselectedOption,
+                      style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
                 ),

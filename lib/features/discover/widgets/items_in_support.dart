@@ -1,6 +1,5 @@
 import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/models/product.dart';
 import 'package:cherry_mvp/core/reusablewidgets/product_image_card.dart';
 import 'package:cherry_mvp/core/router/nav_routes.dart';
@@ -26,9 +25,10 @@ class ItemsInSupport extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(AppStrings.itemsInSupportText, style: AppTextStyles.screen_title),
+                Text(AppStrings.itemsInSupportText,
+                    style: Theme.of(context).textTheme.titleLarge),
                 const Spacer(),
-                Text(AppStrings.seeAllText, style: AppTextStyles.charityBodyText),
+                Text(AppStrings.seeAllText),
               ],
             ),
             const SizedBox(height: 5),
@@ -42,7 +42,8 @@ class ItemsInSupport extends StatelessWidget {
                   final product = products[index];
                   return GestureDetector(
                     onTap: () {
-                      final productViewModel = Provider.of<ProductViewModel>(context, listen: false);
+                      final productViewModel =
+                          Provider.of<ProductViewModel>(context, listen: false);
                       productViewModel.setProduct(product);
                       Navigator.pushNamed(context, AppRoutes.product);
                     },

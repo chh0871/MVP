@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/reusablewidgets/appbar/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/features/donation/widgets/photo_tips_bar.dart';
@@ -10,7 +9,7 @@ class DonationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildCommonAppBar(AppStrings.donationsText),
+      appBar: AppBar(title: Text(AppStrings.donationsText)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

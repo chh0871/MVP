@@ -1,7 +1,6 @@
 import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
 import 'package:cherry_mvp/core/reusablewidgets/profile_section_icontextrow.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,6 @@ class UserInformationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,7 +26,7 @@ class UserInformationSection extends StatelessWidget {
           children: [
             Text(
               "${AppStrings.greeting}, ${AppStrings.profile_user_info_section_user}!",
-              style: AppTextStyles.bodyText_profile_heading,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             GestureDetector(
               onTap: onSettingsPressed,
@@ -50,21 +48,21 @@ class UserInformationSection extends StatelessWidget {
               children: [
                 Image.asset(
                   AppImages.profile_profileIcon,
-                  height: 46.67,
-                  width: 46.67,
+                  height: 48,
+                  width: 48,
                 ),
                 const SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(userInformationSection.username,
-                        style: AppTextStyles.bodyText_profile_heading2),
+                        style: Theme.of(context).textTheme.headlineLarge),
                     Row(
                       children: [
                         Row(
                           children: List.generate(
                             5,
-                                (index) => Icon(
+                            (index) => Icon(
                               index < userInformationSection.rating
                                   ? Icons.star
                                   : Icons.star_border_outlined,
@@ -76,7 +74,7 @@ class UserInformationSection extends StatelessWidget {
                         const SizedBox(width: 20),
                         Text(
                           '${userInformationSection.reviewsCount} ${AppStrings.profile_user_info_section_buyer_reviews}',
-                          style: AppTextStyles.bodyText_profile_subheading,
+                          style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ],
                     )
@@ -105,7 +103,7 @@ class UserInformationSection extends StatelessWidget {
                 IconTextRow(
                   assetPath: AppImages.profile_followers,
                   text:
-                  '${userInformationSection.followingCount} ${AppStrings.profile_user_info_section_following}, ${userInformationSection.followersCount} ${AppStrings.profile_user_info_section_followers}',
+                      '${userInformationSection.followingCount} ${AppStrings.profile_user_info_section_following}, ${userInformationSection.followersCount} ${AppStrings.profile_user_info_section_followers}',
                 ),
                 IconTextRow(
                   assetPath: AppImages.profile_location,
@@ -118,8 +116,7 @@ class UserInformationSection extends StatelessWidget {
                 if (userInformationSection.hasBuyerDiscounts)
                   IconTextRow(
                     assetPath: AppImages.profile_discount,
-                    text:
-                    AppStrings.profile_user_info_section_buyer_discount,
+                    text: AppStrings.profile_user_info_section_buyer_discount,
                   ),
               ],
             ),
@@ -136,7 +133,7 @@ class UserInformationSection extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   "${userInformationSection.awards} ${AppStrings.profile_user_info_section_buyer_awards}",
-                  style: AppTextStyles.bodyText_profile_subheading,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],
             ),

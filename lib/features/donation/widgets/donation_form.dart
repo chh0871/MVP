@@ -23,7 +23,8 @@ class DonationFormState extends State<DonationForm> {
 
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _addToCollectionController = TextEditingController();
+  final TextEditingController _addToCollectionController =
+      TextEditingController();
 
   String selectedCategory = '';
   String selectedPrice = '';
@@ -108,25 +109,30 @@ class DonationFormState extends State<DonationForm> {
             toggleSwitchOpenToOtherCharity: toggleSwitchOpenToOtherCharity,
             isSwitchedOpenToOffer: isSwitchedOpenToOffer,
             toggleSwitchOpenToOffer: toggleSwitchOpenToOffer,
-            isSwitchedApplicableBuyerDiscounts: isSwitchedApplicableBuyerDiscounts,
-            toggleSwitchApplicableBuyerDiscounts: toggleSwitchApplicableBuyerDiscounts,
+            isSwitchedApplicableBuyerDiscounts:
+                isSwitchedApplicableBuyerDiscounts,
+            toggleSwitchApplicableBuyerDiscounts:
+                toggleSwitchApplicableBuyerDiscounts,
           ),
           const SizedBox(height: 20),
           viewModel.status.type == StatusType.loading
               ? const LoadingView()
-              : PrimaryAppButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                if (selectedCategory.isEmpty || selectedPrice.isEmpty || selectedCondition.isEmpty) {
-                  Fluttertoast.showToast(msg: 'Please select all dropdowns');
-                  return;
-                }
-                final request = buildDonationRequest();
-                viewModel.submitDonation(request);
-              }
-            },
-            buttonText: "Submit Donation",
-          ),
+              : FilledButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      if (selectedCategory.isEmpty ||
+                          selectedPrice.isEmpty ||
+                          selectedCondition.isEmpty) {
+                        Fluttertoast.showToast(
+                            msg: 'Please select all dropdowns');
+                        return;
+                      }
+                      final request = buildDonationRequest();
+                      viewModel.submitDonation(request);
+                    }
+                  },
+                  child: Text("Submit Donation"),
+                ),
           const SizedBox(height: 20),
         ],
       ),

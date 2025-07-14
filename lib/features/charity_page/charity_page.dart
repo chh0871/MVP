@@ -27,26 +27,16 @@ class CharityPageState extends State<CharityPage> {
       final charities = viewModel.fetchCharityCategories();
 
       return Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(
               Icons.reply,
-              color: AppColors.primary,
+              color: Theme.of(context).colorScheme.primary,
               size: 20,
             ),
             onPressed: () {},
           ),
-          title: Padding(
-              padding: EdgeInsets.only(left: 10.0, top: 5.0),
-              child: Text(
-                AppStrings.charitiesText,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w700,
-                ),
-              )),
+          title: Text(AppStrings.charitiesText),
           centerTitle: true,
           actions: [],
         ),

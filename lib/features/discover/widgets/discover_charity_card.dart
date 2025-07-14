@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +61,7 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
                       color: AppColors.lightGreyFill,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.black,
+                          color: Theme.of(context).colorScheme.onSurface,
                           blurRadius: 4,
                           offset: Offset(0, 2),
                         )
@@ -77,19 +76,16 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
                             width: 15,
                             height: 11),
                         SizedBox(width: 5),
-                        Text(
-                          '${widget.likes}',
-                          style: TextStyle(fontFamily: "InstrumentSans"),
-                        ),
+                        Text('${widget.likes}'),
                       ],
                     ),
                   )),
             ),
           ],
         ),
-        SizedBox(height: 9),
-        Text(widget.title, style: AppTextStyles.charityHeadingText),
-        Text(widget.description, style: AppTextStyles.charityBodyText),
+        SizedBox(height: 8),
+        Text(widget.title, style: Theme.of(context).textTheme.titleLarge),
+        Text(widget.description),
       ],
     );
   }

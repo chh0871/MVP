@@ -1,7 +1,5 @@
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
-import 'package:cherry_mvp/core/reusablewidgets/primary_button.dart';
 import 'package:cherry_mvp/features/profile/widgets/donation_impact_tracker.dart';
 import 'package:cherry_mvp/features/profile/widgets/profilepage_userActivity_cards.dart';
 import 'package:cherry_mvp/features/profile/widgets/user_information_section.dart';
@@ -50,10 +48,7 @@ class ProfilePage extends StatelessWidget {
       //profile header
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          AppStrings.profile_user_info_title,
-          style: AppTextStyles.screen_title,
-        ),
+        title: Text(AppStrings.profile_user_info_title),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -109,10 +104,12 @@ class ProfilePage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 20),
-                PrimaryAppButton(
-                  onPressed: () {},
-                  buttonText: AppStrings.share,
-                  height: 60.0,
+                SizedBox(
+                  height: 60,
+                  child: FilledButton(
+                    onPressed: () {},
+                    child: Text(AppStrings.share),
+                  ),
                 ),
 
                 const SizedBox(height: 10)

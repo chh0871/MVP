@@ -17,14 +17,12 @@ class LoginForm extends StatefulWidget {
 }
 
 class LoginFormState extends State<LoginForm> {
-
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     final navigator = Provider.of<NavigationProvider>(context, listen: false);
 
     return Form(
@@ -34,42 +32,29 @@ class LoginFormState extends State<LoginForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Text(
-                AppStrings.login,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(color: AppColors.black),
-              ),
-            ),
             const SizedBox(height: 20),
-
             // Email Field
             TextFormField(
               controller: _emailController,
               validator: validateEmail,
               decoration:
-              buildInputDecoration(hintText: 'Email', icon: Icons.email),
+                  buildInputDecoration(hintText: 'Email', icon: Icons.email),
             ),
             const SizedBox(height: 20),
-
             // Password Field
             TextFormField(
               controller: _passwordController,
               validator: validatePassword,
               decoration:
-              buildInputDecoration(hintText: 'Password', icon: Icons.lock),
+                  buildInputDecoration(hintText: 'Password', icon: Icons.lock),
             ),
             const SizedBox(height: 20),
-
             // Consumer to listen to LoginViewModel
             Consumer<LoginViewModel>(
               builder: (context, viewModel, child) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   if (viewModel.status.type == StatusType.failure) {
-                    Fluttertoast.showToast(
-                        msg: viewModel.status.message ?? "");
+                    Fluttertoast.showToast(msg: viewModel.status.message ?? "");
                   } else if (viewModel.status.type == StatusType.success) {
                     Fluttertoast.showToast(msg: "Login Successful");
                     //move to home
@@ -81,17 +66,20 @@ class LoginFormState extends State<LoginForm> {
                   children: [
                     viewModel.status.type == StatusType.loading
                         ? const LoadingView()
-                        : PrimaryAppButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          viewModel.login(
-                            _emailController.text,
-                            _passwordController.text,
-                          );
-                        }
-                      },
-                      buttonText: "Submit",
-                    ),
+                        : SizedBox(
+                            width: double.infinity,
+                            child: FilledButton(
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  viewModel.login(
+                                    _emailController.text,
+                                    _passwordController.text,
+                                  );
+                                }
+                              },
+                              child: Text("Submit"),
+                            ),
+                          ),
                   ],
                 );
               },
@@ -101,16 +89,13 @@ class LoginFormState extends State<LoginForm> {
             // Sign Up Navigation
             GestureDetector(
               onTap: () {
-               navigator.replaceWith(AppRoutes.register);
+                navigator.replaceWith(AppRoutes.register);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(AppStrings.createAccount,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelSmall
-                          ?.copyWith(color: AppColors.primary)),
+                      style: TextStyle(color: AppColors.primary)),
                 ],
               ),
             ),
@@ -119,14 +104,11 @@ class LoginFormState extends State<LoginForm> {
             // Forgot Password
             GestureDetector(
               onTap: () {
-               // navigator.replaceWith(AppRoutes.home);
+                // navigator.replaceWith(AppRoutes.home);
               },
               child: Center(
                 child: Text(AppStrings.forgotPassword,
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelSmall
-                        ?.copyWith(color: AppColors.black)),
+                    style: Theme.of(context).textTheme.labelSmall),
               ),
             ),
           ],
