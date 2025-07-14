@@ -37,11 +37,10 @@ class ProfilePage extends StatelessWidget {
     'hasBuyerDiscounts': true,
   };
 
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     void navigateToSettings() {
       final navigator = Provider.of<NavigationProvider>(context, listen: false);
       navigator.navigateTo(AppRoutes.settingspage);
