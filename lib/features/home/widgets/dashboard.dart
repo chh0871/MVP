@@ -20,7 +20,7 @@ class DashboardPage extends StatelessWidget {
         final products = homeViewModel.fetchProducts();
         final mq = MediaQuery.of(context);
         final w = (mq.size.width - 32) / 2;
-        final h = w + mq.textScaler.scale(108);
+        final h = w + mq.textScaler.scale(96);
         return SliverGrid.builder(
           itemCount: products.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -30,13 +30,12 @@ class DashboardPage extends StatelessWidget {
             childAspectRatio: w / h,
           ),
           itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                productViewModel.setProduct(products[index]);
-                navigator.navigateTo(AppRoutes.product);
-              },
-              child: ProductCard(product: products[index]),
-            );
+            return ProductCard(
+                product: products[index],
+                onTap: () {
+                  productViewModel.setProduct(products[index]);
+                  navigator.navigateTo(AppRoutes.product);
+                });
           },
         );
       },
