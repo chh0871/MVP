@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/register/register_viewmodel.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart';
+import 'package:cherry_mvp/core/reusablewidgets/reusable_widgets.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -62,7 +62,7 @@ class _RegisterFormState extends State<RegisterForm> {
                         color: AppColors.greyTextColor,
                         child: Center(
                             child: Icon(Icons.camera_alt,
-                                color: AppColors.primary)),
+                                color: Theme.of(context).colorScheme.primary)),
                       )
                     : Image.file(
                         _selectedImage!,
@@ -87,8 +87,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: validateEmail,
-                decoration:
-                    InputDecoration(hintText: 'Email', icon: Icon(Icons.email)),
+                decoration: InputDecoration(
+                    hintText: 'Email', prefixIcon: Icon(Icons.email)),
               ),
               const SizedBox(height: 20),
 
@@ -97,7 +97,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 keyboardType: TextInputType.phone,
                 validator: validatePhoneNumber,
                 decoration: InputDecoration(
-                    hintText: 'Phone Number', icon: Icon(Icons.phone)),
+                    hintText: 'Phone Number', prefixIcon: Icon(Icons.phone)),
               ),
               const SizedBox(height: 20),
 
@@ -107,7 +107,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 obscureText: true,
                 validator: validatePassword,
                 decoration: InputDecoration(
-                    hintText: 'Password', icon: Icon(Icons.lock)),
+                    hintText: 'Password', prefixIcon: Icon(Icons.lock)),
               ),
               const SizedBox(height: 20),
 
@@ -118,7 +118,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 validator: (value) =>
                     validateConfirmPassword(value, _passwordController.text),
                 decoration: InputDecoration(
-                    hintText: 'Confirm Password', icon: Icon(Icons.lock)),
+                    hintText: 'Confirm Password', prefixIcon: Icon(Icons.lock)),
               ),
               const SizedBox(height: 20),
 

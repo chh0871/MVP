@@ -56,10 +56,10 @@ class FormFieldsState extends State<DonationFormFields> {
               controller: widget.formFieldsController,
               validator: validateDonationFormFields,
               onChanged: formFieldsCheckEmptiness,
-              decoration: buildInputDecorationFormField(
+              decoration: InputDecoration(
                   hintText: widget.formFieldsHintText,
-                  icon: formFieldsIsEmpty ? widget.icon : null,
-                  iconSuffix: widget.iconSuffix),
+                  prefixIcon: formFieldsIsEmpty ? Icon(widget.icon) : null,
+                  suffixIcon: Icon(widget.iconSuffix)),
             )),
       ],
     );

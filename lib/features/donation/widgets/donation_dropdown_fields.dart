@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/core/utils/utils.dart';
 
 class DropdownFields extends StatefulWidget {
   const DropdownFields({
@@ -37,10 +36,9 @@ class DropdownFieldsState extends State<DropdownFields> {
           setState(() => selectedDropdownItem = value);
           widget.onChanged(value); // <- notify parent
         },
-        decoration: buildInputDecorationFormField(
+        decoration: InputDecoration(
           hintText: widget.formFieldsHintText,
-          icon: null,
-          iconSuffix: Icons.keyboard_arrow_down,
+          suffixIcon: Icon(Icons.keyboard_arrow_down),
         ),
       ),
     );

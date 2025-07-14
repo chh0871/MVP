@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/login/login_viewmodel.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart';
+import 'package:cherry_mvp/core/reusablewidgets/reusable_widgets.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 
 class LoginForm extends StatefulWidget {
@@ -37,16 +37,16 @@ class LoginFormState extends State<LoginForm> {
             TextFormField(
               controller: _emailController,
               validator: validateEmail,
-              decoration:
-                  buildInputDecoration(hintText: 'Email', icon: Icons.email),
+              decoration: InputDecoration(
+                  hintText: 'Email', prefixIcon: Icon(Icons.email)),
             ),
             const SizedBox(height: 20),
             // Password Field
             TextFormField(
               controller: _passwordController,
               validator: validatePassword,
-              decoration:
-                  buildInputDecoration(hintText: 'Password', icon: Icons.lock),
+              decoration: InputDecoration(
+                  hintText: 'Password', prefixIcon: Icon(Icons.lock)),
             ),
             const SizedBox(height: 20),
             // Consumer to listen to LoginViewModel
@@ -95,7 +95,8 @@ class LoginFormState extends State<LoginForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(AppStrings.createAccount,
-                      style: TextStyle(color: AppColors.primary)),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary)),
                 ],
               ),
             ),

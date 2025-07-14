@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/core/reusablewidgets/emptystatecard.dart';
+import 'package:cherry_mvp/core/reusablewidgets/empty_state_card.dart';
 import 'package:cherry_mvp/core/config/config.dart';
-
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -12,11 +11,6 @@ class SearchPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           AppStrings.search,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: AppColors.black,
-          ),
           textAlign: TextAlign.center,
         ),
       ),

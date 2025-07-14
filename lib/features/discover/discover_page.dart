@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +12,7 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.Dis,
+        title: Text('Discover Charities'),
       ),
       body: Consumer<DiscoverViewModel>(
         builder: (context, viewModel, _) {

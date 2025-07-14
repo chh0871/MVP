@@ -9,7 +9,7 @@ import 'package:cherry_mvp/features/donation/widgets/donation_options.dart';
 import 'package:cherry_mvp/features/donation/widgets/donation_form_fields.dart';
 import 'package:cherry_mvp/features/donation/widgets/donation_dropdown_fields.dart';
 import 'package:cherry_mvp/features/donation/donation_viewmodel.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart';
+import 'package:cherry_mvp/core/reusablewidgets/reusable_widgets.dart';
 
 class DonationForm extends StatefulWidget {
   const DonationForm({super.key});

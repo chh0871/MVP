@@ -1,5 +1,5 @@
 import 'dart:core';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
 class SettingsToggleSection extends StatelessWidget {
@@ -22,11 +22,11 @@ class SettingsToggleSection extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: EdgeInsets.only(top: 15.0),
-        child: CupertinoSwitch(
+        child: Switch.adaptive(
           value: isSwitchedDark,
           onChanged: toggleSwitchDark,
           inactiveTrackColor: AppColors.greyTextColor,
-          activeTrackColor: AppColors.primary,
+          activeTrackColor: Theme.of(context).colorScheme.primary,
         ),
       ),
       Text(
@@ -39,11 +39,11 @@ class SettingsToggleSection extends StatelessWidget {
       ),
       Padding(
         padding: EdgeInsets.only(top: 5.0),
-        child: CupertinoSwitch(
+        child: Switch.adaptive(
           value: isSwitchedHide,
           onChanged: toggleSwitchHide,
           inactiveTrackColor: AppColors.greyTextColor,
-          activeTrackColor: AppColors.primary,
+          activeTrackColor: Theme.of(context).colorScheme.primary,
         ),
       ),
       Text(

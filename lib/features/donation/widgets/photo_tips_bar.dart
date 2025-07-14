@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'photo_tips_dialog.dart'; // import the new dialog widget
@@ -11,7 +10,7 @@ class PhotoTipsBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.primary,
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
@@ -19,7 +18,8 @@ class PhotoTipsBar extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.info_outline, color: AppColors.white, size: 30),
+            Icon(Icons.info_outline,
+                color: Theme.of(context).colorScheme.surface, size: 30),
             const SizedBox(width: 10),
             Flexible(
               child: Text(

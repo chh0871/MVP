@@ -107,10 +107,7 @@ class _WelcomePageState extends State<WelcomePage>
                     children: [
                       Text(
                         AppStrings.createAccount,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall
-                            ?.copyWith(color: AppColors.black),
+                        style: Theme.of(context).textTheme.labelSmall,
                       ),
                       const SizedBox(width: 5),
                       Image.asset(

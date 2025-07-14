@@ -43,7 +43,7 @@ class ProfilepageUseractivityCards extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontSize: 36,
                   height: 0.6, // lineHeight of 21
-                  color: AppColors.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),

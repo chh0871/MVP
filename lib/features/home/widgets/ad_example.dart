@@ -13,10 +13,7 @@ class AdExample extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Text(
             AppStrings.adText,
-            style: TextStyle(
-              color: AppColors.black,
-              fontSize: 20,
-            ),
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
         ),
@@ -25,4 +22,3 @@ class AdExample extends StatelessWidget {
     );
   }
 }
-

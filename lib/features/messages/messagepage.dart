@@ -1,4 +1,4 @@
-import 'package:cherry_mvp/core/reusablewidgets/emptystatecard.dart';
+import 'package:cherry_mvp/core/reusablewidgets/empty_state_card.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
@@ -9,20 +9,10 @@ class MessagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          AppStrings.messages,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: AppColors.black,
-          ),
-          textAlign: TextAlign.center,
-        ),
+        title: Text(AppStrings.messages),
       ),
       body: Center(
-        child: EmptyStateCard(
-          message: AppStrings.emptyStateMessageText
-        ),
+        child: EmptyStateCard(message: AppStrings.emptyStateMessageText),
       ),
     );
   }

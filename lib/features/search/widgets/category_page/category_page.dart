@@ -12,27 +12,15 @@ class CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 35,
-        backgroundColor: AppColors.white,
-        leading: IconButton(
-          icon: Icon(
-            Icons.reply,
-            color: AppColors.primary,
+          leading: IconButton(
+            icon: Icon(
+              Icons.reply,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            onPressed: () {},
           ),
-          onPressed: () {},
-        ),
-        title: Text(
-          AppStrings.categoriesText,
-          style: TextStyle(
-            fontSize: 15,
-            color: AppColors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-      ),
+          title: Text(AppStrings.categoriesText)),
       body: DecoratedBox(
         decoration: BoxDecoration(
             //
@@ -64,20 +52,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.womenText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.womenText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -108,10 +92,7 @@ class CategoryPageState extends State<CategoryPage> {
                                 padding: EdgeInsets.only(left: 20),
                                 child: Text(
                                   AppStrings.menText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ),
                             ]),
@@ -119,7 +100,7 @@ class CategoryPageState extends State<CategoryPage> {
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -148,20 +129,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.childrenText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.childrenText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -190,20 +167,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.unisexText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.unisexText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -232,20 +205,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.designerText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.designerText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -274,20 +243,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.profilesText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.profilesText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -316,20 +281,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.accessoriesText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.accessoriesText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -358,20 +319,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.booksText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.booksText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -400,20 +357,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.toysText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.toysText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),
@@ -442,20 +395,16 @@ class CategoryPageState extends State<CategoryPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 20),
-                                child: Text(
-                                  AppStrings.dvdText,
-                                  style: TextStyle(
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                                child: Text(AppStrings.dvdText,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
                               ),
                             ]),
                           ]),
                           Column(children: [
                             Icon(
                               Icons.chevron_right,
-                              color: AppColors.black,
+                              color: Theme.of(context).colorScheme.onSurface,
                               size: 26,
                             ),
                           ]),

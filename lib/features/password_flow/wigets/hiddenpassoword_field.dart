@@ -25,7 +25,7 @@ class _HiddenPasswordFieldState extends State<HiddenPasswordField> {
               child: CircleAvatar(
                 radius: 8,
                 backgroundColor: index < _password.length
-                    ? AppColors.primary
+                    ? Theme.of(context).colorScheme.primary
                     : AppColors.lightGreyTextColor,
               ),
             );

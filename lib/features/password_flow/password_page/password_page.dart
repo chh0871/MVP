@@ -10,7 +10,6 @@ class PasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
       body: Stack(
         children: [
           // Background Image
@@ -74,12 +73,12 @@ class PasswordPage extends StatelessWidget {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
-                      backgroundColor: AppColors.primary,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                     ),
                     onPressed: () {},
                     child: Icon(
                       Icons.arrow_forward,
-                      color: AppColors.white,
+                      color: Theme.of(context).colorScheme.surface,
                     ),
                   ),
                 ],

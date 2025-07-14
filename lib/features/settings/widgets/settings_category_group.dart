@@ -1,17 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/model.dart';
 import 'package:cherry_mvp/features/settings/widgets/settings_item.dart';
 
 class SettingsCategoryGroup extends StatelessWidget {
   const SettingsCategoryGroup({
     super.key,
-    required this.list_items,
+    required this.children,
     required this.heading,
   });
 
-  final List<SectionSettingsItem> list_items;
+  final List<SectionSettingsItem> children;
   final String heading;
 
   @override
@@ -21,17 +20,14 @@ class SettingsCategoryGroup extends StatelessWidget {
         padding: const EdgeInsets.only(top: 15.0),
         child: Text(
           heading,
-          style: TextStyle(
-            fontSize: 17,
-            color: AppColors.black,
-            fontWeight: FontWeight.w800,
-          ),
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
         ),
       ),
-      ...list_items
-          .map((item) => SettingsItem(
-              title: item.title, onTap: () {}, trailing: item.trailing))
-          ,
+      ...children.map((item) => SettingsItem(
+          title: item.title, onTap: () {}, trailing: item.trailing)),
     ]);
   }
 

@@ -1,6 +1,4 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
-import 'package:cherry_mvp/core/config/app_input_decorations.dart';
 import 'package:cherry_mvp/core/config/app_spacing.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,6 @@ class NotYouPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.bgColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Stack(
@@ -65,8 +62,7 @@ class NotYouPage extends StatelessWidget {
                       ),
                       SizedBox(height: AppSpacing.large),
                       TextField(
-                        decoration: AppInputDecorations
-                            .inputDecorationWithBorderRadius1(
+                        decoration: InputDecoration(
                           hintText: AppStrings.email,
                         ),
                       ),

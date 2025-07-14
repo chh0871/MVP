@@ -21,12 +21,12 @@ class SuccessfulUploadPage extends StatelessWidget {
               width: 80,
               height: 80,
               child: Card(
-                color: AppColors.primary,
+                color: Theme.of(context).colorScheme.primary,
                 elevation: 4,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                   side: BorderSide(
-                    color: AppColors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     width: 12,
                   ),
                 ),
@@ -35,7 +35,7 @@ class SuccessfulUploadPage extends StatelessWidget {
                       EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                   child: Icon(
                     Icons.check,
-                    color: AppColors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     size: 30,
                   ),
                 ),
@@ -45,21 +45,12 @@ class SuccessfulUploadPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 5.0),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text(
-                'Congratulations!',
-                style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w900),
-              ),
+              Text('Congratulations!',
+                  style: Theme.of(context).textTheme.titleSmall),
             ]),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
                 'Your Item has been Successfully Uploaded.',
-                style: TextStyle(
-                    color: AppColors.black,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600),
               ),
             ]),
           ])),

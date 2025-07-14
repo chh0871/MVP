@@ -29,19 +29,20 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
     textTheme: GoogleFonts.instrumentSansTextTheme(baseTheme.textTheme),
     appBarTheme: AppBarTheme(centerTitle: true),
     inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: baseTheme.colorScheme.primary,
-      border: const OutlineInputBorder(),
-      enabledBorder: OutlineInputBorder(
-        borderSide:
-            BorderSide(color: baseTheme.colorScheme.outline, width: 1.5),
-      ),
-      hintStyle: TextStyle(fontSize: baseTheme.textTheme.bodyMedium?.fontSize),
-      focusedBorder: OutlineInputBorder(
-        borderSide:
-            BorderSide(color: baseTheme.colorScheme.primary, width: 1.5),
-      ),
-    ),
+        border: const OutlineInputBorder(),
+        enabledBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(color: baseTheme.colorScheme.secondary, width: 1.5),
+        ),
+        filled: true,
+        fillColor: baseTheme.colorScheme.surface,
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(color: baseTheme.colorScheme.primary, width: 1.5),
+        ),
+        hintStyle:
+            TextStyle(fontSize: baseTheme.textTheme.bodyMedium?.fontSize),
+        prefixIconColor: baseTheme.colorScheme.secondary),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
           minimumSize: const Size(64, 48),

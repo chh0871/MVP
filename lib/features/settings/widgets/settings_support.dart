@@ -9,6 +9,6 @@ class SettingsSupport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsCategoryGroup(
-        list_items: dummySupportSection, heading: AppStrings.support_Text);
+        children: dummySupportSection, heading: AppStrings.support_Text);
   }
 }

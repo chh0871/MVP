@@ -36,10 +36,12 @@ class ProductInformation extends StatelessWidget {
                         spacing: 4,
                         children: [
                           Text('£${product.price.toStringAsFixed(2)}',
-                              style: TextStyle(color: AppColors.primary)),
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.primary)),
                           Icon(
                             Icons.verified_user,
-                            color: AppColors.primary,
+                            color: Theme.of(context).colorScheme.primary,
                           )
                         ],
                       )
