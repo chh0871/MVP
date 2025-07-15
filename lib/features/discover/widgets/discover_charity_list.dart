@@ -13,24 +13,28 @@ class DiscoverCharityList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverList.builder(
+    return SliverList.separated(
       itemCount: charities.length,
       itemBuilder: (context, index) {
         final charity = charities[index];
-        return Column(
-          children: [
-            DiscoverCharityCard(
-              title: charity.charityName,
-              description: charity.description,
-              imagePath: charity.charityImage,
-              logoPath: charity.charityLogo,
-              likes: charity.likes,
-            ),
-            SizedBox(height: 8),
-            ItemsInSupport(products: products),
-          ],
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              DiscoverCharityCard(
+                title: charity.charityName,
+                description: charity.description,
+                imagePath: charity.charityImage,
+                logoPath: charity.charityLogo,
+                likes: charity.likes,
+              ),
+              SizedBox(height: 8),
+              ItemsInSupport(products: products),
+            ],
+          ),
         );
       },
+      separatorBuilder: (context, index) => const SizedBox(height: 24),
     );
   }
 }

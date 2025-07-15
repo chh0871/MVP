@@ -16,20 +16,31 @@ class DiscoverPage extends StatelessWidget {
           final charities = viewModel.fetchCharities();
           final products = viewModel.fetchProducts();
 
-          return CustomScrollView(
-            slivers: [
-              PinnedHeaderSliver(
-                  child: SizedBox(height: MediaQuery.of(context).padding.top)),
-              SliverAppBar(title: Text('Discover'), primary: false),
-              SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                sliver: PinnedHeaderSliver(child: const DiscoverSelectionBar()),
-              ),
-              DiscoverCharityList(
-                charities: charities,
-                products: products,
-              ),
-            ],
+          return SafeArea(
+            bottom: false,
+            child: CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  backgroundColor: Theme.of(context).colorScheme.surface,
+                  scrolledUnderElevation: 0,
+                  title: Text('Discover'),
+                  floating: true,
+                  primary: false,
+                  snap: true,
+                ),
+                SliverAppBar(
+                  backgroundColor: Colors.transparent,
+                  automaticallyImplyLeading: false,
+                  title: const DiscoverSelectionBar(),
+                  primary: false,
+                  pinned: true,
+                ),
+                DiscoverCharityList(
+                  charities: charities,
+                  products: products,
+                ),
+              ],
+            ),
           );
         },
       ),

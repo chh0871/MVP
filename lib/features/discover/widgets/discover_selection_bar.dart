@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class DiscoverSelectionBar extends StatefulWidget {
@@ -14,7 +13,7 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
         padding: EdgeInsets.all(4),
