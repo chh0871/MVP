@@ -1,4 +1,5 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
+import 'package:cherry_mvp/features/search/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -74,17 +75,7 @@ class CherryBottomNavBar extends StatelessWidget {
             label: 'Give',
           ),
           BottomNavigationBarItem(
-            icon: SearchAnchor(
-              searchController: context.read(),
-              viewHintText: 'AI Search: Red Polka Dot Dress',
-              suggestionsBuilder: (context, controller) => [],
-              builder: (context, controller) => Image.asset(
-                AppImages.icSearch,
-                width: 24,
-                height: 24,
-                color: selectedIndex == 3 ? selectedColor : unselectedColor,
-              ),
-            ),
+            icon: Search(),
             label: 'Search',
           ),
           BottomNavigationBarItem(

@@ -2,7 +2,7 @@ import 'package:cherry_mvp/features/donation/donation_page.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
 import 'package:cherry_mvp/features/home/widgets/bottom_nav_bar.dart';
 import 'package:cherry_mvp/features/home/widgets/home_screen.dart';
-import 'package:cherry_mvp/features/messages/messagepage.dart';
+import 'package:cherry_mvp/features/messages/message_page.dart';
 import 'package:cherry_mvp/features/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
