@@ -9,6 +9,8 @@ class SettingsPersonal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsCategoryGroup(
-        children: dummyPersonalSection, heading: AppStrings.personalText);
+      children: dummyPersonalSection,
+      heading: AppStrings.personalText,
+    );
   }
 }

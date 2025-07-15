@@ -33,36 +33,25 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppStrings.settingsText),
-      ),
-      body: DecoratedBox(
-        decoration: BoxDecoration(
-            //
-            ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SettingsToggleSection(
-                          isSwitchedDark: isSwitchedDark,
-                          toggleSwitchDark: toggleSwitchDark,
-                          isSwitchedHide: isSwitchedHide,
-                          toggleSwitchHide: toggleSwitchHide),
-                      SettingsSupport(),
-                      SettingsPersonal(),
-                      SettingsShop(),
-                      SettingsAccount(),
-                      SettingsFooter(),
-                    ]),
-              ),
-            ],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            title: Text(AppStrings.settingsText),
+            floating: true,
+            snap: true,
           ),
-        ),
+          SettingsToggleSection(
+            isSwitchedDark: isSwitchedDark,
+            toggleSwitchDark: toggleSwitchDark,
+            isSwitchedHide: isSwitchedHide,
+            toggleSwitchHide: toggleSwitchHide,
+          ),
+          SettingsSupport(),
+          SettingsPersonal(),
+          SettingsShop(),
+          SettingsAccount(),
+          SettingsFooter(),
+        ],
       ),
     );
   }

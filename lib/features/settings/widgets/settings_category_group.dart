@@ -15,20 +15,24 @@ class SettingsCategoryGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 15.0),
-        child: Text(
-          heading,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-        ),
-      ),
-      ...children.map((item) => SettingsItem(
-          title: item.title, onTap: () {}, trailing: item.trailing)),
-    ]);
+    return SliverList.separated(
+        itemCount: children.length + 1,
+        separatorBuilder: (context, index) => const Divider(height: 1),
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return ListTile(
+              contentPadding: const EdgeInsets.all(16),
+              title: Text(heading),
+              titleTextStyle: Theme.of(context).textTheme.titleMedium,
+            );
+          }
+          final item = children[index - 1];
+          return SettingsItem(
+            title: item.title,
+            onTap: () {},
+            trailing: item.trailing,
+          );
+        });
   }
 
   @override

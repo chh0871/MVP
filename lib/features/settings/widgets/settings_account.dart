@@ -10,6 +10,8 @@ class SettingsAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsCategoryGroup(
-        children: dummyAccountSection, heading: AppStrings.accountText);
+      children: dummyAccountSection,
+      heading: AppStrings.accountText,
+    );
   }
 }

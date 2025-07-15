@@ -19,37 +19,22 @@ class SettingsToggleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: EdgeInsets.only(top: 15.0),
-        child: Switch.adaptive(
+    return SliverList.list(
+      children: [
+        SwitchListTile.adaptive(
+          title: Text(AppStrings.darkModeText),
           value: isSwitchedDark,
           onChanged: toggleSwitchDark,
-          inactiveTrackColor: Theme.of(context).colorScheme.onSurfaceVariant,
-          activeTrackColor: Theme.of(context).colorScheme.primary,
+          inactiveThumbColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
-      ),
-      Text(
-        AppStrings.darkModeText,
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-      ),
-      Padding(
-        padding: EdgeInsets.only(top: 5.0),
-        child: Switch.adaptive(
+        Divider(height: 1),
+        SwitchListTile.adaptive(
+          title: Text(AppStrings.listListingsText),
           value: isSwitchedHide,
           onChanged: toggleSwitchHide,
-          inactiveTrackColor: Theme.of(context).colorScheme.onSurfaceVariant,
-          activeTrackColor: Theme.of(context).colorScheme.primary,
+          inactiveThumbColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
-      ),
-      Text(
-        AppStrings.listListingsText,
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-      ),
-    ]);
+      ],
+    );
   }
 }

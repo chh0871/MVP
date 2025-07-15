@@ -6,29 +6,17 @@ class SettingsFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: EdgeInsets.only(top: 15),
-        child: InkWell(
-          onTap: () {},
-          child: Text(
-            AppStrings.deleteAccountText,
-            style: TextStyle(
-              fontSize: 13,
-              color: Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
+    return SliverList.list(children: [
+      ListTile(
+        title: Text(AppStrings.deleteAccountText),
+        textColor: Theme.of(context).colorScheme.primary,
+        onTap: () {},
       ),
-      Text(
-        AppStrings.appName,
-        style: Theme.of(context).textTheme.titleMedium,
-      ),
-      Padding(
-        padding: EdgeInsets.only(bottom: 5),
-        child: Text(AppStrings.appVersion,
-            style: Theme.of(context).textTheme.labelLarge),
+      ListTile(
+        title: Text(AppStrings.appName),
+        titleTextStyle: Theme.of(context).textTheme.titleMedium,
+        subtitle: Text(AppStrings.appVersion),
+        subtitleTextStyle: Theme.of(context).textTheme.labelLarge,
       ),
     ]);
   }
