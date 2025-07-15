@@ -2,7 +2,7 @@ import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/models/category.dart';
 
-class CategoryRepositoy {
+class CategoryRepository {
   List<Category> fetchCategories() {
     return [
       Category(

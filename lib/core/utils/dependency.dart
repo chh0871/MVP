@@ -1,4 +1,4 @@
-import 'package:cherry_mvp/features/categories/category_repositoy.dart';
+import 'package:cherry_mvp/features/categories/category_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_viewmodel.dart';
 import 'package:cherry_mvp/features/donation/donation_repository.dart';
@@ -58,7 +58,7 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider(create: (context) => ProductRepository()),
     Provider(create: (context) => DonationRepository()),
     Provider(create: (context) => SearchRepository()),
-    Provider(create: (context) => CategoryRepositoy()),
+    Provider(create: (context) => CategoryRepository()),
     ChangeNotifierProvider(create: (_) => SearchController()),
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(

@@ -1,5 +1,5 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
-import 'package:cherry_mvp/features/categories/category_repositoy.dart';
+import 'package:cherry_mvp/features/categories/category_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,12 +9,12 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SearchAnchor(
-      searchController: context.read(),
+      searchController: context.read<SearchController>(),
       viewHintText: 'AI Search: Red Polka Dot Dress',
       viewBackgroundColor: Theme.of(context).colorScheme.surface,
       suggestionsBuilder: (context, controller) => [
         for (final category
-            in context.read<CategoryRepositoy>().fetchCategories())
+            in context.read<CategoryRepository>().fetchCategories())
           ListTile(
             onTap: () {},
             leading: Image.asset(
