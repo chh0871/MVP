@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DropdownFields extends StatefulWidget {
-  const DropdownFields({
+class DonationDropdownField extends StatefulWidget {
+  const DonationDropdownField({
     super.key,
     required this.formFieldsHintText,
     required this.dropdownList,
@@ -13,16 +13,16 @@ class DropdownFields extends StatefulWidget {
   final ValueChanged<String?> onChanged;
 
   @override
-  DropdownFieldsState createState() => DropdownFieldsState();
+  DonationDropdownFieldState createState() => DonationDropdownFieldState();
 }
 
-class DropdownFieldsState extends State<DropdownFields> {
+class DonationDropdownFieldState extends State<DonationDropdownField> {
   String? selectedDropdownItem;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: DropdownButtonFormField<String>(
         value: selectedDropdownItem,
         items: widget.dropdownList.map((item) {
@@ -38,7 +38,7 @@ class DropdownFieldsState extends State<DropdownFields> {
         },
         decoration: InputDecoration(
           hintText: widget.formFieldsHintText,
-          suffixIcon: Icon(Icons.keyboard_arrow_down),
+          suffixIcon: const Icon(Icons.arrow_drop_down),
         ),
       ),
     );

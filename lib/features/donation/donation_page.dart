@@ -10,17 +10,15 @@ class DonationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(AppStrings.donationsText)),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: const [
-              PhotoTipsBar(),
-              SizedBox(height: 20),
-              DonationForm(),
-            ],
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: PhotoTipsBar(),
           ),
-        ),
+          SizedBox(height: 8),
+          DonationForm(),
+        ],
       ),
     );
   }

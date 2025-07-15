@@ -7,41 +7,40 @@ class PhotoTipsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 13),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(Icons.info_outline,
-                color: Theme.of(context).colorScheme.onPrimary, size: 30),
-            const SizedBox(width: 10),
-            Flexible(
-              child: Text(
-                AppStrings.catchEyesText,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
+    return Material(
+      color: Theme.of(context).colorScheme.primary,
+      borderRadius: BorderRadius.circular(8),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) => PhotoTipsDialog(), // show the dialog on tap
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 16,
+            children: [
+              Icon(Icons.info_outline,
+                  color: Theme.of(context).colorScheme.onPrimary, size: 32),
+              Flexible(
+                child: Text(
+                  AppStrings.catchEyesText,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            GestureDetector(
-              onTap: () => showDialog(
-                context: context,
-                builder: (context) => const PhotoTipsDialog(),
-              ),
-              child: Text(
+              Text(
                 AppStrings.learnHow,
                 style:
                     TextStyle(color: Theme.of(context).colorScheme.onPrimary),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

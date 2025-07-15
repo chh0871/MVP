@@ -1,3 +1,4 @@
+import 'package:cherry_mvp/features/donation/widgets/donation_option.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
@@ -23,95 +24,47 @@ class DonationOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        AppStrings.donation_options_Text,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ListTile(
+          title: Text(
+            AppStrings.donation_options_Text,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
+          ),
+          subtitle: Text(
+            '${AppStrings.give_your_buyer_Text}\n${AppStrings.easy_way_Text}',
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
-      ),
-      Text(
-        AppStrings.give_your_buyer_Text,
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-      ),
-      Text(
-        AppStrings.easy_way_Text,
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-      ),
-      Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-          margin: EdgeInsets.only(bottom: 20.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              AppStrings.open_to_other_charities_Text,
-              style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant),
-            ),
-            Switch.adaptive(
-              value: isSwitchedOpenToOtherCharity,
-              onChanged: toggleSwitchOpenToOtherCharity,
-              inactiveTrackColor:
-                  Theme.of(context).colorScheme.onSurfaceVariant,
-              activeTrackColor: Theme.of(context).colorScheme.primary,
-            )
-          ])),
-      Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-          margin: EdgeInsets.only(bottom: 20.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              AppStrings.open_to_offers_Text,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Column(
+            spacing: 8,
+            children: [
+              DonationOption(
+                labelText: AppStrings.open_to_other_charities_Text,
+                value: isSwitchedOpenToOtherCharity,
+                onChanged: toggleSwitchOpenToOtherCharity ?? (value) {},
               ),
-            ),
-            Switch.adaptive(
-              value: isSwitchedOpenToOffer,
-              onChanged: toggleSwitchOpenToOffer,
-              inactiveTrackColor:
-                  Theme.of(context).colorScheme.onSurfaceVariant,
-              activeTrackColor: Theme.of(context).colorScheme.primary,
-            )
-          ])),
-      Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-          margin: EdgeInsets.only(bottom: 20.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(50.0),
+              DonationOption(
+                labelText: AppStrings.open_to_offers_Text,
+                value: isSwitchedOpenToOffer,
+                onChanged: toggleSwitchOpenToOffer ?? (value) {},
+              ),
+              DonationOption(
+                labelText: AppStrings.applicable_for_buyer_discounts_Text,
+                value: isSwitchedApplicableBuyerDiscounts,
+                onChanged: toggleSwitchApplicableBuyerDiscounts ?? (value) {},
+              ),
+            ],
           ),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              AppStrings.applicable_for_buyer_discounts_Text,
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant),
-            ),
-            Switch.adaptive(
-              value: isSwitchedApplicableBuyerDiscounts,
-              onChanged: toggleSwitchApplicableBuyerDiscounts,
-              inactiveTrackColor:
-                  Theme.of(context).colorScheme.onSurfaceVariant,
-              activeTrackColor: Theme.of(context).colorScheme.primary,
-            )
-          ])),
-    ]);
+        )
+      ],
+    );
   }
 }

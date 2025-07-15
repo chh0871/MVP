@@ -39,7 +39,7 @@ class SettingsItem extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Icon(
                       Icons.chevron_right,
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
