@@ -48,8 +48,7 @@ class PasswordPage extends StatelessWidget {
 
                     GreetingLabel(initialName: 'Romaina'),
 
-                    SizedBox(
-                        height: AppSpacing.extraLarge), // TODO: Get from config
+                    SizedBox(height: AppSpacing.xl), // TODO: Get from config
 
                     HiddenPasswordField(),
                   ],

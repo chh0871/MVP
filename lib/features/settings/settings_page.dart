@@ -51,6 +51,10 @@ class SettingsPageState extends State<SettingsPage> {
           SettingsShop(),
           SettingsAccount(),
           SettingsFooter(),
+          SliverPadding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).padding.bottom + 16),
+          ),
         ],
       ),
     );

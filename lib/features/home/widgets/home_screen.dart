@@ -24,6 +24,7 @@ class HomeScreenState extends State<HomeScreen> {
                 barBackgroundColor: WidgetStatePropertyAll(
                     Theme.of(context).colorScheme.surfaceContainerHighest),
                 barHintText: 'AI Search: Red Polka Dot Dress',
+                barElevation: WidgetStatePropertyAll(1),
                 isFullScreen: true,
                 suggestionsBuilder: (context, controller) => const []),
           ),

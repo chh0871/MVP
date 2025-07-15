@@ -7,7 +7,7 @@ import 'package:cherry_mvp/features/settings/settings_page.dart';
 // main
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/features/register/register_page.dart';
-import 'package:cherry_mvp/features/home/homepage.dart';
+import 'package:cherry_mvp/features/home/home_page.dart';
 import 'package:cherry_mvp/features/login/login_page.dart';
 import 'package:cherry_mvp/features/welcome/welcome_page.dart';
 

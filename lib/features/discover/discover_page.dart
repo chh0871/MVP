@@ -27,7 +27,6 @@ class DiscoverPage extends StatelessWidget {
                   snap: true,
                 ),
                 SliverAppBar(
-                  backgroundColor: Colors.transparent,
                   automaticallyImplyLeading: false,
                   title: const DiscoverSelectionBar(),
                   primary: false,
