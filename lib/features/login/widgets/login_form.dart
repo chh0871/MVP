@@ -27,27 +27,32 @@ class LoginFormState extends State<LoginForm> {
     return Form(
       key: _formKey,
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
             // Email Field
             TextFormField(
               controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
               validator: validateEmail,
               decoration: InputDecoration(
-                  hintText: 'Email', prefixIcon: Icon(Icons.email)),
+                hintText: 'Email',
+                prefixIcon: Icon(Icons.email),
+              ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
             // Password Field
             TextFormField(
               controller: _passwordController,
               validator: validatePassword,
               decoration: InputDecoration(
-                  hintText: 'Password', prefixIcon: Icon(Icons.lock)),
+                hintText: 'Password',
+                prefixIcon: Icon(Icons.lock),
+              ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
             // Consumer to listen to LoginViewModel
             Consumer<LoginViewModel>(
               builder: (context, viewModel, child) {
@@ -85,32 +90,25 @@ class LoginFormState extends State<LoginForm> {
                 );
               },
             ),
-            const SizedBox(height: 20),
-
-            // Sign Up Navigation
-            GestureDetector(
-              onTap: () {
-                navigator.replaceWith(AppRoutes.register);
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(AppStrings.createAccount,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary)),
-                ],
-              ),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                  onPressed: () => navigator.replaceWith(AppRoutes.register),
+                  child: Text(AppStrings.createAccount)),
             ),
-            const SizedBox(height: 10),
-
-            // Forgot Password
-            GestureDetector(
-              onTap: () {
-                // navigator.replaceWith(AppRoutes.home);
-              },
-              child: Center(
-                child: Text(AppStrings.forgotPassword,
-                    style: Theme.of(context).textTheme.labelSmall),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () {
+                  // navigator.replaceWith(AppRoutes.home);
+                },
+                child: Center(
+                  child: Text(
+                    AppStrings.forgotPassword,
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                ),
               ),
             ),
           ],
