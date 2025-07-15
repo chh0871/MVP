@@ -63,7 +63,7 @@ class DiscoverButton extends StatelessWidget {
                                 image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: AssetImage(
-                                        AppImages.explore_charities)))),
+                                        AppImages.exploreCharities)))),
                       )
                     ])),
               ),

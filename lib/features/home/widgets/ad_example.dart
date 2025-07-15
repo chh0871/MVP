@@ -14,7 +14,7 @@ class AdExample extends StatelessWidget {
           child: Text(AppStrings.adText,
               style: Theme.of(context).textTheme.titleMedium),
         ),
-        Image.asset(AppImages.ad_image),
+        Image.asset(AppImages.adImage),
       ],
     );
   }

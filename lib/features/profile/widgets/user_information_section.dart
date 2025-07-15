@@ -31,7 +31,7 @@ class UserInformationSection extends StatelessWidget {
             GestureDetector(
               onTap: onSettingsPressed,
               child: Image.asset(
-                AppImages.profile_settings,
+                AppImages.profilesettings,
                 height: 35,
                 width: 35,
               ),
@@ -47,7 +47,7 @@ class UserInformationSection extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  AppImages.profile_profileIcon,
+                  AppImages.profileProfileIcon,
                   height: 48,
                   width: 48,
                 ),
@@ -101,21 +101,21 @@ class UserInformationSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 IconTextRow(
-                  assetPath: AppImages.profile_followers,
+                  assetPath: AppImages.profileFollowers,
                   text:
                       '${userInformationSection.followingCount} ${AppStrings.profile_user_info_section_following}, ${userInformationSection.followersCount} ${AppStrings.profile_user_info_section_followers}',
                 ),
                 IconTextRow(
-                  assetPath: AppImages.profile_location,
+                  assetPath: AppImages.profileLocation,
                   text: userInformationSection.location,
                 ),
                 IconTextRow(
-                  assetPath: AppImages.profile_email,
+                  assetPath: AppImages.profileemail,
                   text: AppStrings.email,
                 ),
                 if (userInformationSection.hasBuyerDiscounts)
                   IconTextRow(
-                    assetPath: AppImages.profile_discount,
+                    assetPath: AppImages.profileDiscount,
                     text: AppStrings.profile_user_info_section_buyer_discount,
                   ),
               ],
@@ -126,7 +126,7 @@ class UserInformationSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  AppImages.profile_awards,
+                  AppImages.profileAwards,
                   height: 23.33,
                   width: 36.66,
                 ),

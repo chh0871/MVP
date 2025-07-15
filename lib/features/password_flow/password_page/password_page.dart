@@ -16,7 +16,7 @@ class PasswordPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AppImages.password_home),
+                image: AssetImage(AppImages.passwordHome),
                 fit: BoxFit.cover,
               ),
             ),

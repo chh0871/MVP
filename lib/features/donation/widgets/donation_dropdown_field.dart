@@ -31,7 +31,6 @@ class DonationDropdownFieldState extends State<DonationDropdownField> {
             child: Text(item),
           );
         }).toList(),
-        icon: const SizedBox.shrink(), // no default dropdown icon
         onChanged: (value) {
           setState(() => selectedDropdownItem = value);
           widget.onChanged(value); // <- notify parent

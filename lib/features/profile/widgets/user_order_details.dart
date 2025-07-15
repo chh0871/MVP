@@ -18,15 +18,15 @@ class UserOrderDetails extends StatelessWidget {
               UserOrderTile(
                   title: AppStrings.profile_user_orders,
                   onPressed: () {},
-                  assetPath: AppImages.profile_order),
+                  assetPath: AppImages.profileOrder),
               UserOrderTile(
                   title: AppStrings.profile_user_liked,
                   onPressed: () {},
-                  assetPath: AppImages.profile_liked),
+                  assetPath: AppImages.profileLiked),
               UserOrderTile(
                   title: AppStrings.profile_user_listings,
                   onPressed: () {},
-                  assetPath: AppImages.profile_listings),
+                  assetPath: AppImages.profileListings),
             ],
           ),
         ),
@@ -49,7 +49,7 @@ class UserOrderDetails extends StatelessWidget {
                 ),
               ),
               Image.asset(
-                AppImages.profile_discount,
+                AppImages.profileDiscount,
                 color: Theme.of(context).colorScheme.primary,
                 height: 18,
                 width: 18,

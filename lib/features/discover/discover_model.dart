@@ -7,8 +7,8 @@ final List<Charity> dummyCharities = [
     charityName: "WaterAid",
     description:
         "In a small village in Malawi, WaterAid recently completed the construction of a new well, providing clean, safe drinking water to hundreds of residents. No more long treks for water. No more toxic sources!",
-    charityImage: AppImages.discover_image1,
-    charityLogo: AppImages.waterAid_logo,
+    charityImage: AppImages.discoverImage1,
+    charityLogo: AppImages.waterAidLogo,
     likes: 3,
   ),
   Charity(
@@ -16,7 +16,7 @@ final List<Charity> dummyCharities = [
     description:
         "After years of conservation efforts, WWF announced a rise in sea turtle hatchlings on a beach in Costa Rica! Thanks to beach patrols and community engagement, baby turtles are making their way to the ocean in record numbers. Help them shell-ebrate!",
     charityImage: AppImages.wwf,
-    charityLogo: AppImages.wwf_logo,
+    charityLogo: AppImages.wwfLogo,
     likes: 3,
   ),
   Charity(
@@ -24,7 +24,7 @@ final List<Charity> dummyCharities = [
     description:
         "Shelter UK helped dozens of families move into secure housing last month. Thanks to their advocacy and support, families now have a place to call home.",
     charityImage: AppImages.shelter,
-    charityLogo: AppImages.shelter_logo,
+    charityLogo: AppImages.shelterLogo,
     likes: 3,
   ),
   Charity(
@@ -32,7 +32,7 @@ final List<Charity> dummyCharities = [
     description:
         "The mental health charity Mind has rolled out a series of free community workshops across the UK, reaching over 5,000 people. These sessions equip individuals with tools to manage stress and anxiety.",
     charityImage: AppImages.mind,
-    charityLogo: AppImages.mind_logo,
+    charityLogo: AppImages.mindLogo,
     likes: 3,
   ),
 ];

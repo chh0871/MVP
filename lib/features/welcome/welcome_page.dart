@@ -58,7 +58,7 @@ class _WelcomePageState extends State<WelcomePage>
                   ScaleTransition(
                     scale: _pulseAnimation,
                     child: Image.asset(
-                      AppImages.cherry_logo,
+                      AppImages.cherryLogo,
                       width: 350,
                     ),
                   ),

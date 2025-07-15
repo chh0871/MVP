@@ -19,7 +19,7 @@ class EmptyStateCard extends StatelessWidget {
         children: [
           Image.asset(
             width: double.infinity,
-            AppImages.empty_state_bg,
+            AppImages.emptyStateBg,
             fit: BoxFit.cover,
           ),
           Center(

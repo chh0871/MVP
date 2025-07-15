@@ -19,7 +19,7 @@ class NotYouPage extends StatelessWidget {
                 child: SizedBox(
                   height: double.infinity,
                   child: Image.asset(
-                    AppImages.not_you_home,
+                    AppImages.notYouHome,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -42,7 +42,7 @@ class NotYouPage extends StatelessWidget {
                       AspectRatio(
                         aspectRatio: 12 / 9,
                         child: Image.asset(
-                          AppImages.cherry_logo,
+                          AppImages.cherryLogo,
                           fit: BoxFit.contain,
                         ),
                       ),
