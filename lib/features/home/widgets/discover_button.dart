@@ -37,7 +37,7 @@ class DiscoverButton extends StatelessWidget {
                             AppStrings.exploreText,
                             style: Theme.of(context)
                                 .textTheme
-                                .titleLarge
+                                .headlineMedium
                                 ?.copyWith(
                                     color:
                                         Theme.of(context).colorScheme.onPrimary,
@@ -47,7 +47,7 @@ class DiscoverButton extends StatelessWidget {
                             AppStrings.discoverSomethingText,
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyMedium
+                                .bodyLarge
                                 ?.copyWith(
                                   color:
                                       Theme.of(context).colorScheme.onPrimary,
