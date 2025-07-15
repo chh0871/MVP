@@ -26,30 +26,30 @@ class ProductInformation extends StatelessWidget {
             spacing: 16,
             children: [
               SizedBox(
-                  width: 110,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('£${product.donation.toStringAsFixed(2)}',
-                          style: TextStyle(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSurfaceVariant)),
-                      Row(
-                        spacing: 4,
-                        children: [
-                          Text('£${product.price.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.primary)),
-                          Icon(
-                            Icons.verified_user,
-                            color: Theme.of(context).colorScheme.primary,
-                          )
-                        ],
-                      )
-                    ],
-                  )),
+                width: 110,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('£${product.donation.toStringAsFixed(2)}',
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurfaceVariant)),
+                    Row(
+                      spacing: 4,
+                      children: [
+                        Text('£${product.price.toStringAsFixed(2)}',
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary)),
+                        Icon(
+                          Icons.verified_user,
+                          color: Theme.of(context).colorScheme.primary,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
               SizedBox(
                 width: 48,
                 child: Text(product.size,
