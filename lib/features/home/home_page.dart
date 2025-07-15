@@ -4,7 +4,6 @@ import 'package:cherry_mvp/features/home/widgets/bottom_nav_bar.dart';
 import 'package:cherry_mvp/features/home/widgets/home_screen.dart';
 import 'package:cherry_mvp/features/messages/messagepage.dart';
 import 'package:cherry_mvp/features/profile/profile_page.dart';
-import 'package:cherry_mvp/features/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,22 +21,48 @@ class _HomePageState extends State<HomePage> {
   static final List<Widget> _pages = <Widget>[
     HomeScreen(),
     MessagePage(),
-    DonationPage(),
-    SearchPage(),
     ProfilePage()
     //add other pages for the bottom sheet here
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    _pageController.jumpToPage(index);
+    switch (index) {
+      case 0:
+        _pageController.jumpToPage(0);
+        break;
+      case 1:
+        _pageController.jumpToPage(1);
+        break;
+      case 2:
+        showDialog(
+          context: context,
+          builder: (context) => Dialog.fullscreen(
+            child: DonationPage(),
+          ),
+        );
+        break;
+      case 3:
+        context.read<SearchController>().openView();
+        break;
+      case 4:
+        _pageController.jumpToPage(2);
+        break;
+    }
   }
 
   void _onPageChanged(int index) {
     setState(() {
-      _selectedIndex = index;
+      switch (index) {
+        case 0:
+          _selectedIndex = 0;
+          break;
+        case 1:
+          _selectedIndex = 1;
+          break;
+        case 2:
+          _selectedIndex = 4;
+          break;
+      }
     });
   }
 

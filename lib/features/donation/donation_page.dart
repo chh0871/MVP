@@ -9,7 +9,10 @@ class DonationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppStrings.donationsText)),
+      appBar: AppBar(
+        leading: CloseButton(),
+        title: Text(AppStrings.donationsText),
+      ),
       body: ListView(
         children: [
           Padding(

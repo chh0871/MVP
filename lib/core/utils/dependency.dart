@@ -8,6 +8,7 @@ import 'package:cherry_mvp/features/search/search_repository.dart';
 import 'package:cherry_mvp/features/search/search_viewmodel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:cherry_mvp/core/services/services.dart';
@@ -51,18 +52,12 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
         Provider.of<StorageProvider>(context, listen: false),
       ),
     ),
-    Provider<HomeRepository>(
-      create: (context) => HomeRepository(),
-    ),
-    Provider<DiscoverRepository>(
-      create: (context) => DiscoverRepository(),
-    ),
-    Provider<ProductRepository>(
-      create: (context) => ProductRepository(),
-    ),
-    Provider<DonationRepository>(
-      create: (context) => DonationRepository(),
-    ),
+    Provider(create: (context) => HomeRepository()),
+    Provider(create: (context) => DiscoverRepository()),
+    Provider(create: (context) => ProductRepository()),
+    Provider(create: (context) => DonationRepository()),
+    Provider(create: (context) => SearchRepository()),
+    ChangeNotifierProvider(create: (_) => SearchController()),
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(
         loginRepository: Provider.of<LoginRepository>(context, listen: false),
@@ -70,36 +65,38 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     ),
     ChangeNotifierProvider<RegisterViewModel>(
       create: (context) => RegisterViewModel(
-        registerRepository: Provider.of<RegisterRepository>(context, listen: false),
+        registerRepository:
+            Provider.of<RegisterRepository>(context, listen: false),
       ),
     ),
     ChangeNotifierProvider<HomeViewModel>(
         create: (context) => HomeViewModel(
-          homeRepository: Provider.of<HomeRepository>(context, listen: false),
-        )
-    ),
-    Provider<SearchRepository>( 
+              homeRepository:
+                  Provider.of<HomeRepository>(context, listen: false),
+            )),
+    Provider<SearchRepository>(
       create: (context) => SearchRepository(),
     ),
     ChangeNotifierProvider<SearchViewModel>(
         create: (context) => SearchViewModel(
-          searchRepository: Provider.of<SearchRepository>(context, listen: false),
-        )
-    ),
+              searchRepository:
+                  Provider.of<SearchRepository>(context, listen: false),
+            )),
     ChangeNotifierProvider<DiscoverViewModel>(
         create: (context) => DiscoverViewModel(
-          discoverRepository: Provider.of<DiscoverRepository>(context, listen: false),
-        )
-    ),
+              discoverRepository:
+                  Provider.of<DiscoverRepository>(context, listen: false),
+            )),
     ChangeNotifierProvider<ProductViewModel>(
         create: (context) => ProductViewModel(
-          productRepository: Provider.of<ProductRepository>(context, listen: false),
-        )
-    ),
+              productRepository:
+                  Provider.of<ProductRepository>(context, listen: false),
+            )),
     ChangeNotifierProvider<DonationViewModel>(
       create: (context) => DonationViewModel(
-        donationRepository: Provider.of<DonationRepository>(context, listen: false),
+        donationRepository:
+            Provider.of<DonationRepository>(context, listen: false),
       ),
     ),
-   ];
+  ];
 }

@@ -1,5 +1,6 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /// A reusable navigation bar widget that be use across the app.
 class CherryBottomNavBar extends StatelessWidget {
@@ -73,11 +74,16 @@ class CherryBottomNavBar extends StatelessWidget {
             label: 'Give',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              AppImages.icSearch,
-              width: 24,
-              height: 24,
-              color: selectedIndex == 3 ? selectedColor : unselectedColor,
+            icon: SearchAnchor(
+              searchController: context.read(),
+              viewHintText: 'AI Search: Red Polka Dot Dress',
+              suggestionsBuilder: (context, controller) => [],
+              builder: (context, controller) => Image.asset(
+                AppImages.icSearch,
+                width: 24,
+                height: 24,
+                color: selectedIndex == 3 ? selectedColor : unselectedColor,
+              ),
             ),
             label: 'Search',
           ),
