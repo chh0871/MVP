@@ -4,7 +4,7 @@ import 'package:cherry_mvp/features/products/product_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cherry_mvp/features/home/home_viewmodel.dart';
-import 'package:cherry_mvp/features/home/widgets/product_card.dart';
+import 'package:cherry_mvp/features/products/product_card.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -20,7 +20,7 @@ class DashboardPage extends StatelessWidget {
         final products = homeViewModel.fetchProducts();
         final mq = MediaQuery.of(context);
         final w = (mq.size.width - 32) / 2;
-        final h = w + mq.textScaler.scale(96);
+        final h = w + mq.textScaler.scale(100);
         return SliverGrid.builder(
           itemCount: products.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

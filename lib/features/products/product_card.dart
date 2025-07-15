@@ -47,11 +47,11 @@ class ProductCard extends StatelessWidget {
                       bottom: 16,
                       right: 16,
                       child: Material(
+                          borderRadius: BorderRadius.circular(4),
                           color: Theme.of(context)
                               .colorScheme
                               .surfaceContainerHighest,
                           type: MaterialType.button,
-                          shape: StadiumBorder(),
                           child: Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             height: 32,
