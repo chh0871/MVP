@@ -11,6 +11,7 @@ class Search extends StatelessWidget {
     return SearchAnchor(
       searchController: context.read(),
       viewHintText: 'AI Search: Red Polka Dot Dress',
+      viewBackgroundColor: Theme.of(context).colorScheme.surface,
       suggestionsBuilder: (context, controller) => [
         for (final category
             in context.read<CategoryRepositoy>().fetchCategories())

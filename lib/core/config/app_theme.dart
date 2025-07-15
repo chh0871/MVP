@@ -53,8 +53,7 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
           borderSide:
               BorderSide(color: baseTheme.colorScheme.primary, width: 1.5),
         ),
-        hintStyle:
-            TextStyle(fontSize: baseTheme.textTheme.bodyMedium?.fontSize),
+        hintStyle: TextStyle(color: baseTheme.colorScheme.secondary),
         prefixIconColor: baseTheme.colorScheme.secondary),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
@@ -62,6 +61,7 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
+          textStyle: TextStyle(fontWeight: FontWeight.w500),
           side: BorderSide(
             color: baseTheme.colorScheme.primary,
           )),
@@ -72,6 +72,7 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
           borderRadius: BorderRadius.circular(12),
         ),
         backgroundColor: baseTheme.colorScheme.primary,
+        textStyle: TextStyle(fontWeight: FontWeight.w600),
         foregroundColor: baseTheme.colorScheme.onPrimary,
       ),
     ),

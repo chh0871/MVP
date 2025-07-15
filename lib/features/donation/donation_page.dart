@@ -15,6 +15,11 @@ class DonationPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListTile(
+            title: Text(
+                'Upload clear, high-quality images to help you items shine. The more angles the better'),
+            textColor: Theme.of(context).colorScheme.secondary,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: PhotoTipsBar(),
