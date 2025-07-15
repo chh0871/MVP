@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/config.dart';
 import 'package:flutter/material.dart';
 
 const hasUserLiked = false;
@@ -70,13 +69,10 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
                     ),
                     child: Row(
                       children: [
-                        Image.asset(
-                            isLiked
-                                ? AppImages.likeHeart
-                                : AppImages.emptyHeart,
-                            width: 15,
-                            height: 11),
-                        SizedBox(width: 5),
+                        isLiked
+                            ? Icon(Icons.favorite, size: 16)
+                            : Icon(Icons.favorite_border, size: 16),
+                        SizedBox(width: 4),
                         Text('${widget.likes}'),
                       ],
                     ),
@@ -85,8 +81,12 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
           ],
         ),
         SizedBox(height: 8),
-        Text(widget.title, style: Theme.of(context).textTheme.titleLarge),
-        Text(widget.description),
+        Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          widget.description,
+          style:
+              TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+        ),
       ],
     );
   }

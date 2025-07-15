@@ -60,7 +60,7 @@ class _ProductImageCardDiscoverState extends State<ProductImageCardDiscover> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.85),
+                  color: Colors.white.withValues(alpha: 0.85),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(

@@ -11,30 +11,25 @@ class DiscoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Discover Charities'),
-      ),
       body: Consumer<DiscoverViewModel>(
         builder: (context, viewModel, _) {
           final charities = viewModel.fetchCharities();
           final products = viewModel.fetchProducts();
 
-          return SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const DiscoverSelectionBar(),
-                  const SizedBox(height: 30),
-                  DiscoverCharityList(
-                    charities: charities,
-                    products: products,
-                  ),
-                ],
+          return CustomScrollView(
+            slivers: [
+              PinnedHeaderSliver(
+                  child: SizedBox(height: MediaQuery.of(context).padding.top)),
+              SliverAppBar(title: Text('Discover'), primary: false),
+              SliverPadding(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                sliver: PinnedHeaderSliver(child: const DiscoverSelectionBar()),
               ),
-            ),
+              DiscoverCharityList(
+                charities: charities,
+                products: products,
+              ),
+            ],
           );
         },
       ),

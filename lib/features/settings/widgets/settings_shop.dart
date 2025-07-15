@@ -9,6 +9,6 @@ class SettingsShop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsCategoryGroup(
-        children: dummyShopSection, heading: AppStrings.shop_Text);
+        children: dummyShopSection, heading: AppStrings.shopText);
   }
 }

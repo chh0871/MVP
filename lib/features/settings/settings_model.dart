@@ -3,33 +3,30 @@ import 'package:cherry_mvp/core/models/model.dart';
 
 final dummyAccountSection = [
   SectionSettingsItem(
-      title: AppStrings.language_Text, trailing: AppStrings.english_Text),
-  SectionSettingsItem(title: AppStrings.security_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.about_us_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.legal_information_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.cookie_settings_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.log_out_Text, trailing: '')
+      title: AppStrings.languageText, trailing: AppStrings.englishText),
+  SectionSettingsItem(title: AppStrings.securityText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.aboutUsText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.legalInformationText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.cookieSettingsText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.logOutText, trailing: '')
 ];
 
 final dummyShopSection = [
   SectionSettingsItem(
-      title: AppStrings.country_Text, trailing: AppStrings.united_kingdom_Text),
+      title: AppStrings.countryText, trailing: AppStrings.unitedKingdomText),
   SectionSettingsItem(
-      title: AppStrings.currency_Text, trailing: AppStrings.pound_Text),
-  SectionSettingsItem(
-      title: AppStrings.sizes_Text, trailing: AppStrings.UK_Text)
+      title: AppStrings.currencyText, trailing: AppStrings.poundText),
+  SectionSettingsItem(title: AppStrings.sizesText, trailing: AppStrings.ukText)
 ];
 
 final dummySupportSection = [
-  SectionSettingsItem(title: AppStrings.chat_with_us_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.FAQ_Text, trailing: '')
+  SectionSettingsItem(title: AppStrings.chatWithUsText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.faqText, trailing: '')
 ];
-
-class FAQ_Text {}
 
 final dummyPersonalSection = [
   SectionSettingsItem(title: AppStrings.profilesText, trailing: ''),
-  SectionSettingsItem(title: AppStrings.shipping_address_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.payment_methods_Text, trailing: ''),
-  SectionSettingsItem(title: AppStrings.postage_Text, trailing: '')
+  SectionSettingsItem(title: AppStrings.shippingAddressText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.paymentMethodsText, trailing: ''),
+  SectionSettingsItem(title: AppStrings.postageText, trailing: '')
 ];

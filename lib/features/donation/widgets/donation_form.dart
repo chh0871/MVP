@@ -69,36 +69,36 @@ class DonationFormState extends State<DonationForm> {
         children: [
           DonationFormField(
             controller: _titleController,
-            hintText: TitleHintText,
-            title: TitleText,
+            hintText: titleHintText,
+            title: titleText,
             hintIcon: Icons.add_circle,
           ),
           DonationFormField(
             controller: _descriptionController,
-            hintText: DescriptionHintText,
-            title: DescriptionText,
+            hintText: descriptionHintText,
+            title: descriptionText,
             hintIcon: Icons.add_circle,
             minLines: 3,
           ),
           DonationDropdownField(
-            formFieldsHintText: CategoryHintText,
-            dropdownList: CategoryDropdownList,
+            formFieldsHintText: categoryHintText,
+            dropdownList: categoryDropdownList,
             onChanged: (val) => setState(() => selectedCategory = val!),
           ),
           DonationDropdownField(
-            formFieldsHintText: PriceHintText,
-            dropdownList: PriceDropdownList,
+            formFieldsHintText: priceHintText,
+            dropdownList: priceDropdownList,
             onChanged: (val) => setState(() => selectedPrice = val!),
           ),
           DonationDropdownField(
-            formFieldsHintText: ConditionHintText,
-            dropdownList: ConditionDropdownList,
+            formFieldsHintText: conditionHintText,
+            dropdownList: conditionDropdownList,
             onChanged: (val) => setState(() => selectedCondition = val!),
           ),
           DonationFormField(
             controller: _addToCollectionController,
-            hintText: AddToCollectionHintText,
-            title: AddToCollectionText,
+            hintText: addToCollectionHintText,
+            title: addToCollectionText,
             suffixIcon: Icons.add,
           ),
           DonationOptions(

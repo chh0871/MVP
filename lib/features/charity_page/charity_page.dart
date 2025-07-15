@@ -15,7 +15,7 @@ class CharityPage extends StatefulWidget {
 
 class CharityPageState extends State<CharityPage> {
   // ignore: unused_field
-  String _searchQuery = '';
+  final _searchQuery = '';
 
   @override
   Widget build(BuildContext context) {

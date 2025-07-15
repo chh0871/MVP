@@ -22,7 +22,7 @@ class ProductHeaderCarousel extends StatelessWidget {
             children: [
               Positioned.fill(
                 child: ImageCarousel(
-                  images: product.product_images
+                  images: product.productImages
                       .map((path) => AssetImage(path))
                       .toList(),
                 ),
@@ -35,7 +35,7 @@ class ProductHeaderCarousel extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   child: Padding(
                     padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     child: Row(
                       children: [
                         Icon(Icons.favorite,
@@ -48,9 +48,8 @@ class ProductHeaderCarousel extends StatelessWidget {
                               .textTheme
                               .titleSmall
                               ?.copyWith(
-                            color:
-                            Theme.of(context).colorScheme.primary,
-                          ),
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
                         ),
                       ],
                     ),

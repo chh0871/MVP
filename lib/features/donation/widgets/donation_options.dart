@@ -29,13 +29,13 @@ class DonationOptions extends StatelessWidget {
       children: [
         ListTile(
           title: Text(
-            AppStrings.donation_options_Text,
+            AppStrings.donationOptionsText,
             style: TextStyle(
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
           subtitle: Text(
-            '${AppStrings.give_your_buyer_Text}\n${AppStrings.easy_way_Text}',
+            '${AppStrings.giveYourBuyerText}\n${AppStrings.easyWayText}',
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -47,17 +47,17 @@ class DonationOptions extends StatelessWidget {
             spacing: 8,
             children: [
               DonationOption(
-                labelText: AppStrings.open_to_other_charities_Text,
+                labelText: AppStrings.openToOtherCharitiesText,
                 value: isSwitchedOpenToOtherCharity,
                 onChanged: toggleSwitchOpenToOtherCharity ?? (value) {},
               ),
               DonationOption(
-                labelText: AppStrings.open_to_offers_Text,
+                labelText: AppStrings.openToOffersText,
                 value: isSwitchedOpenToOffer,
                 onChanged: toggleSwitchOpenToOffer ?? (value) {},
               ),
               DonationOption(
-                labelText: AppStrings.applicable_for_buyer_discounts_Text,
+                labelText: AppStrings.applicableForBuyerDiscountsText,
                 value: isSwitchedApplicableBuyerDiscounts,
                 onChanged: toggleSwitchApplicableBuyerDiscounts ?? (value) {},
               ),

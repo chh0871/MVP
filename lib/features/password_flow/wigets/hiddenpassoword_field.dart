@@ -1,11 +1,10 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HiddenPasswordField extends StatefulWidget {
   const HiddenPasswordField({super.key});
 
   @override
-  _HiddenPasswordFieldState createState() => _HiddenPasswordFieldState();
+  State<HiddenPasswordField> createState() => _HiddenPasswordFieldState();
 }
 
 class _HiddenPasswordFieldState extends State<HiddenPasswordField> {

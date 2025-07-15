@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/core/config/config.dart';
 
 class SettingsItem extends StatelessWidget {
   final String title;

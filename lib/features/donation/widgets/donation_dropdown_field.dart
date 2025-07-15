@@ -35,10 +35,7 @@ class DonationDropdownFieldState extends State<DonationDropdownField> {
           setState(() => selectedDropdownItem = value);
           widget.onChanged(value); // <- notify parent
         },
-        decoration: InputDecoration(
-          hintText: widget.formFieldsHintText,
-          suffixIcon: const Icon(Icons.arrow_drop_down),
-        ),
+        decoration: InputDecoration(hintText: widget.formFieldsHintText),
       ),
     );
   }

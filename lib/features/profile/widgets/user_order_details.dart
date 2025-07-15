@@ -16,15 +16,15 @@ class UserOrderDetails extends StatelessWidget {
           child: Row(
             children: [
               UserOrderTile(
-                  title: AppStrings.profile_user_orders,
+                  title: AppStrings.profileUserOrders,
                   onPressed: () {},
                   assetPath: AppImages.profileOrder),
               UserOrderTile(
-                  title: AppStrings.profile_user_liked,
+                  title: AppStrings.profileUserLiked,
                   onPressed: () {},
                   assetPath: AppImages.profileLiked),
               UserOrderTile(
-                  title: AppStrings.profile_user_listings,
+                  title: AppStrings.profileUserListings,
                   onPressed: () {},
                   assetPath: AppImages.profileListings),
             ],
@@ -43,7 +43,7 @@ class UserOrderDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppStrings.profile_user_Buyer_disc,
+                AppStrings.profileUserBuyerDisc,
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),

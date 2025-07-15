@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -33,7 +32,7 @@ class DonationChart extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: Text(
-            AppStrings.profile_your_donation_impact,
+            AppStrings.profileYourDonationImpact,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -43,7 +42,7 @@ class DonationChart extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: Text(
-            AppStrings.profile_generosity_changes_lives,
+            AppStrings.profileGenerosityChangesLives,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -64,7 +63,7 @@ class DonationChart extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  AppStrings.profile_user_donation_total,
+                  AppStrings.profileUserDonationTotal,
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),

@@ -25,7 +25,7 @@ class UserInformationSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${AppStrings.greeting}, ${AppStrings.profile_user_info_section_user}!",
+              "${AppStrings.greeting}, ${AppStrings.profileUserInfoSectionUser}!",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             GestureDetector(
@@ -73,7 +73,7 @@ class UserInformationSection extends StatelessWidget {
                         ),
                         const SizedBox(width: 20),
                         Text(
-                          '${userInformationSection.reviewsCount} ${AppStrings.profile_user_info_section_buyer_reviews}',
+                          '${userInformationSection.reviewsCount} ${AppStrings.profileUserInfoSectionBuyerReviews}',
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ],
@@ -103,7 +103,7 @@ class UserInformationSection extends StatelessWidget {
                 IconTextRow(
                   assetPath: AppImages.profileFollowers,
                   text:
-                      '${userInformationSection.followingCount} ${AppStrings.profile_user_info_section_following}, ${userInformationSection.followersCount} ${AppStrings.profile_user_info_section_followers}',
+                      '${userInformationSection.followingCount} ${AppStrings.profileUserInfoSectionFollowing}, ${userInformationSection.followersCount} ${AppStrings.profileUserInfoSectionFollowers}',
                 ),
                 IconTextRow(
                   assetPath: AppImages.profileLocation,
@@ -116,7 +116,7 @@ class UserInformationSection extends StatelessWidget {
                 if (userInformationSection.hasBuyerDiscounts)
                   IconTextRow(
                     assetPath: AppImages.profileDiscount,
-                    text: AppStrings.profile_user_info_section_buyer_discount,
+                    text: AppStrings.profileUserInfoSectionBuyerDiscount,
                   ),
               ],
             ),
@@ -132,7 +132,7 @@ class UserInformationSection extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "${userInformationSection.awards} ${AppStrings.profile_user_info_section_buyer_awards}",
+                  "${userInformationSection.awards} ${AppStrings.profileUserInfoSectionBuyerAwards}",
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],

@@ -1,7 +1,7 @@
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
 import 'package:cherry_mvp/features/profile/widgets/donation_impact_tracker.dart';
-import 'package:cherry_mvp/features/profile/widgets/profilepage_userActivity_cards.dart';
+import 'package:cherry_mvp/features/profile/widgets/user_activity_cards.dart';
 import 'package:cherry_mvp/features/profile/widgets/user_information_section.dart';
 import 'package:cherry_mvp/features/profile/widgets/user_order_details.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +25,8 @@ class ProfilePage extends StatelessWidget {
     'Charity D'
   ];
   final Map<String, dynamic> userInfoMap = {
-    'username': AppStrings.profile_user_info_username,
-    'location': AppStrings.profile_user_info_location,
+    'username': AppStrings.profileUserInfoUsername,
+    'location': AppStrings.profileUserInfoLocation,
     'reviewsCount': 0,
     'followersCount': 0,
     'followingCount': 0,
@@ -48,7 +48,7 @@ class ProfilePage extends StatelessWidget {
       //profile header
       appBar: AppBar(
         centerTitle: true,
-        title: Text(AppStrings.profile_user_info_title),
+        title: Text(AppStrings.profileUserInfoTitle),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -88,16 +88,16 @@ class ProfilePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ProfilepageUseractivityCards(
-                          title: AppStrings.profile_userActivity_bought,
+                      UserActivityCards(
+                          title: AppStrings.profileUserActivityBought,
                           value: '0'),
                       SizedBox(width: 10),
-                      ProfilepageUseractivityCards(
-                          title: AppStrings.profile_userActivity_sold,
+                      UserActivityCards(
+                          title: AppStrings.profileUserActivitySold,
                           value: '0'),
                       SizedBox(width: 10),
-                      ProfilepageUseractivityCards(
-                          title: AppStrings.profile_userActivity_total,
+                      UserActivityCards(
+                          title: AppStrings.profileUserActivityTotal,
                           value: '0'),
                     ],
                   ),

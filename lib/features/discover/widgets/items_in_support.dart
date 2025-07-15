@@ -16,10 +16,10 @@ class ItemsInSupport extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+        padding: const EdgeInsets.fromLTRB(4, 8, 4, 4),
         child: Column(
           children: [
             Row(
@@ -30,7 +30,7 @@ class ItemsInSupport extends StatelessWidget {
                 Text(AppStrings.seeAllText),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 4),
             SizedBox(
               height: 100,
               child: ListView.separated(

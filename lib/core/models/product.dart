@@ -3,10 +3,10 @@ class Product {
   final String name;
   final String description;
   final String quality;
-  final List<String> product_images;
+  final List<String> productImages;
   final double donation;
   final double price;
-  final String charity_image;
+  final String charityImage;
   final int likes;
   final int number;
   final String size;
@@ -16,10 +16,10 @@ class Product {
     required this.name,
     required this.description,
     required this.quality,
-    required this.product_images,  // updated here
+    required this.productImages, // updated here
     required this.donation,
     required this.price,
-    required this.charity_image,
+    required this.charityImage,
     required this.likes,
     required this.number,
     required this.size,

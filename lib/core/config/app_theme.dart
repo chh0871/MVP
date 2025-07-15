@@ -22,6 +22,7 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
             surface: const Color(0xfffafafa),
             surfaceContainerHighest: const Color(0xfff1f1f1),
             onSurface: Colors.black,
+            onSurfaceVariant: const Color(0xff707070),
           ),
         )
       : ThemeData(

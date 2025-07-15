@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ProfilepageUseractivityCards extends StatelessWidget {
+class UserActivityCards extends StatelessWidget {
   final String title;
   final String value;
 
-  const ProfilepageUseractivityCards({
+  const UserActivityCards({
     super.key,
     required this.title,
     required this.value,
