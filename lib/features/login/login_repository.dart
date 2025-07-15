@@ -24,7 +24,7 @@ class LoginRepository {
     }
   }
 
-  Future<Result<UserCredentialsGoogleSignIn?>> signInWithGoogle() async {
+  Future<Result<UserCredentials?>> signInWithGoogle() async {
     // Attempt to login with google using the auth service
     final result = await _authService.signInWithGoogle();
     if (result.isSuccess) {

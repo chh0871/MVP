@@ -17,7 +17,7 @@ class LoginViewModel extends ChangeNotifier {
 
   final _log = Logger('LoginViewModel');
   void clearStatus() {
-    _status = Status.uninitialized; // or whatever your idle state is
+    _status = Status.uninitialized;
     notifyListeners();
   }
 

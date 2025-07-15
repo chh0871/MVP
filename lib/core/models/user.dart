@@ -9,25 +9,15 @@ class User {
 class UserCredentials {
   final String? uid;
   final String? email;
+  final String? firstname;
+  final String? photoUrl;
+  final String? phonenumber;
 
   UserCredentials({
     required this.uid,
     required this.email,
-  });
-}
-
-//for google auth
-class UserCredentialsGoogleSignIn {
-  final String? uid;
-  final String? email;
-  final String? firstname;
-  final String? photoUrl;
-  final String? phonenumber;
-  UserCredentialsGoogleSignIn({
-    required this.uid,
-    required this.email,
-    required this.firstname,
-    required this.photoUrl,
-    required this.phonenumber,
+    this.firstname,
+    this.photoUrl,
+    this.phonenumber,
   });
 }

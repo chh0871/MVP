@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 class SocialLoginButton extends StatelessWidget {
   final String label;
-  final String imagetext;
+  final String iconAsset;
   final Color color;
   final VoidCallback onPressed;
 
   const SocialLoginButton({
     super.key,
     required this.label,
-    required this.imagetext,
+    required this.iconAsset,
     required this.onPressed,
     this.color = AppColors.black,
   });
@@ -28,7 +28,7 @@ class SocialLoginButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       icon: Image.asset(
-        imagetext,
+        iconAsset,
         height: 24,
         width: 20,
       ),

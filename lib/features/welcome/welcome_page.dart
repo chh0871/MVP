@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:cherry_mvp/core/reusablewidgets/primary_button.dart';
 import 'package:cherry_mvp/features/welcome/widgets/signup_card.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:cherry_mvp/core/router/router.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
 enum AuthMode { login, signup }
@@ -99,18 +97,21 @@ class _WelcomePageState extends State<WelcomePage>
               ),
             ),
           ),
-          // ✅ Blur and dim background when card is visible
           if (showBottomCard)
             AnimatedOpacity(
               duration: const Duration(milliseconds: 300),
               opacity: showBottomCard ? 1.0 : 0.0,
-              child: Container(
-                // ignore: deprecated_member_use
-                color: Colors.black.withOpacity(0.3), // dim color
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                    color: Colors.transparent, // required for blur to apply
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: closeCard, // This will close the card
+                child: Container(
+                  // ignore: deprecated_member_use
+                  color: Colors.black.withOpacity(0.3), // dim color
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                      color: Colors.transparent,
+                    ),
                   ),
                 ),
               ),
@@ -146,7 +147,6 @@ class _WelcomePageState extends State<WelcomePage>
                 GestureDetector(
                   onTap: () {
                     toggleCard(AuthMode.signup);
-                    //navigator.replaceWith(AppRoutes.register);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -176,7 +176,7 @@ class _WelcomePageState extends State<WelcomePage>
             left: 0,
             right: 0,
             bottom: showBottomCard ? 0 : -cardHeight,
-            child: LoginSignupCard(
+            child: AuthCard(
               onClose: closeCard,
               mode: authMode ?? AuthMode.login,
             ),
