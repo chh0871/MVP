@@ -21,73 +21,51 @@ class UserInformationSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         /// Top Greeting Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "${AppStrings.greeting}, ${AppStrings.profileUserInfoSectionUser}!",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            GestureDetector(
-              onTap: onSettingsPressed,
-              child: Image.asset(
-                AppImages.profilesettings,
-                height: 35,
-                width: 35,
-              ),
-            ),
-          ],
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+              "${AppStrings.greeting}, ${AppStrings.profileUserInfoSectionUser}!"),
+          titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          trailing: IconButton(
+            onPressed: onSettingsPressed,
+            icon: Icon(Icons.settings),
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
-        const SizedBox(height: 16),
-
-        /// Profile Info Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Image.asset(
-                  AppImages.profileProfileIcon,
-                  height: 48,
-                  width: 48,
+        const SizedBox(height: 8),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: Image.asset(
+            AppImages.profileProfileIcon,
+            height: 48,
+            width: 48,
+          ),
+          title: Text(userInformationSection.username),
+          titleTextStyle: Theme.of(context).textTheme.titleSmall,
+          subtitle: Row(
+            spacing: 16,
+            children: [
+              Row(
+                children: List.generate(
+                  5,
+                  (index) => Icon(
+                    index < userInformationSection.rating
+                        ? Icons.star
+                        : Icons.star_border_outlined,
+                    color: AppColors.yellow,
+                  ),
                 ),
-                const SizedBox(width: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(userInformationSection.username,
-                        style: Theme.of(context).textTheme.headlineLarge),
-                    Row(
-                      children: [
-                        Row(
-                          children: List.generate(
-                            5,
-                            (index) => Icon(
-                              index < userInformationSection.rating
-                                  ? Icons.star
-                                  : Icons.star_border_outlined,
-                              color: AppColors.yellow,
-                              size: 20,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Text(
-                          '${userInformationSection.reviewsCount} ${AppStrings.profileUserInfoSectionBuyerReviews}',
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-          ],
+              ),
+              Text(
+                '${userInformationSection.reviewsCount} ${AppStrings.profileUserInfoSectionBuyerReviews}',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ],
+          ),
+          trailing: Icon(
+            Icons.chevron_right,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 20),
 
@@ -127,8 +105,8 @@ class UserInformationSection extends StatelessWidget {
               children: [
                 Image.asset(
                   AppImages.profileAwards,
-                  height: 23.33,
-                  width: 36.66,
+                  height: 32,
+                  width: 32,
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -139,7 +117,7 @@ class UserInformationSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 16),
       ],
     );
   }

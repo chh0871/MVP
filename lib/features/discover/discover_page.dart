@@ -21,8 +21,6 @@ class DiscoverPage extends StatelessWidget {
             child: CustomScrollView(
               slivers: [
                 SliverAppBar(
-                  backgroundColor: Theme.of(context).colorScheme.surface,
-                  scrolledUnderElevation: 0,
                   title: Text('Discover'),
                   floating: true,
                   primary: false,

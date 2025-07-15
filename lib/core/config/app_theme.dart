@@ -26,8 +26,21 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
           brightness: brightness, colorSchemeSeed: const Color(0xfff90653));
 
   return baseTheme.copyWith(
-    textTheme: GoogleFonts.instrumentSansTextTheme(baseTheme.textTheme),
-    appBarTheme: AppBarTheme(centerTitle: true),
+    textTheme: GoogleFonts.instrumentSansTextTheme(baseTheme.textTheme.copyWith(
+      titleLarge: baseTheme.textTheme.titleLarge?.copyWith(
+        fontWeight: FontWeight.w500,
+      ),
+      titleMedium: baseTheme.textTheme.titleMedium?.copyWith(
+        fontWeight: FontWeight.w500,
+      ),
+      titleSmall: baseTheme.textTheme.titleSmall?.copyWith(
+        fontWeight: FontWeight.w500,
+      ),
+    )),
+    appBarTheme: AppBarTheme(
+        backgroundColor: baseTheme.colorScheme.surface,
+        centerTitle: true,
+        scrolledUnderElevation: 0),
     inputDecorationTheme: InputDecorationTheme(
         border: const OutlineInputBorder(),
         enabledBorder: OutlineInputBorder(

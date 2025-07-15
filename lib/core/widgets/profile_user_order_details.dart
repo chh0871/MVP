@@ -14,39 +14,33 @@ class UserOrderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 10.0),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.35,
-          height: 95,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant),
-                ),
-                const Spacer(),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Image.asset(
-                    assetPath,
-                    height: 18,
-                    width: 18,
-                  ),
-                ),
-              ],
+    return Material(
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onPressed,
+        child: Stack(
+          children: [
+            Positioned(
+              top: 8,
+              left: 8,
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 8,
+              right: 8,
+              child: Image.asset(
+                assetPath,
+                height: 18,
+                width: 18,
+              ),
+            ),
+          ],
         ),
       ),
     );

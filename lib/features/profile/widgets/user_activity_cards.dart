@@ -12,39 +12,32 @@ class UserActivityCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.35,
-      height: 83,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
+    return Material(
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(10),
+      child: Stack(
+        children: [
+          Positioned(
+            left: 8,
+            top: 8,
+            child: Text(
               title,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
-            Spacer(),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Text(
-                value,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 36,
-                  height: 0.6, // lineHeight of 21
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
+          ),
+          Positioned(
+            right: 8,
+            bottom: 8,
+            child: Text(
+              value,
+              style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -29,24 +29,13 @@ class DonationChart extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: Text(
-            AppStrings.profileYourDonationImpact,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-          ),
-        ),
-        const SizedBox(height: 8),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Text(
-            AppStrings.profileGenerosityChangesLives,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-          ),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(AppStrings.profileYourDonationImpact),
+          titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          subtitle: Text(AppStrings.profileGenerosityChangesLives),
+          subtitleTextStyle: Theme.of(context).textTheme.bodySmall,
+          textColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
         const SizedBox(height: 32),
         Stack(
@@ -87,7 +76,6 @@ class DonationChart extends StatelessWidget {
                 colors[entry.key]!);
           }).toList(),
         ),
-        SizedBox(height: 20),
       ],
     );
   }

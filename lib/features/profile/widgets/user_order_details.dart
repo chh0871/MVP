@@ -11,41 +11,53 @@ class UserOrderDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
+        SizedBox(
+          height: 96,
           child: Row(
             children: [
-              UserOrderTile(
+              Expanded(
+                child: UserOrderTile(
                   title: AppStrings.profileUserOrders,
                   onPressed: () {},
-                  assetPath: AppImages.profileOrder),
-              UserOrderTile(
+                  assetPath: AppImages.profileOrder,
+                ),
+              ),
+              SizedBox(width: 8),
+              Expanded(
+                child: UserOrderTile(
                   title: AppStrings.profileUserLiked,
                   onPressed: () {},
-                  assetPath: AppImages.profileLiked),
-              UserOrderTile(
+                  assetPath: AppImages.profileLiked,
+                ),
+              ),
+              SizedBox(width: 8),
+              Expanded(
+                child: UserOrderTile(
                   title: AppStrings.profileUserListings,
                   onPressed: () {},
-                  assetPath: AppImages.profileListings),
+                  assetPath: AppImages.profileListings,
+                ),
+              ),
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 16),
         Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(16.0),
           width: double.infinity,
-          height: 41,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            spacing: 8,
             children: [
-              Text(
-                AppStrings.profileUserBuyerDisc,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+              Expanded(
+                child: Text(
+                  AppStrings.profileUserBuyerDisc,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
                 ),
               ),
               Image.asset(
@@ -57,7 +69,6 @@ class UserOrderDetails extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 10),
       ],
     );
   }
