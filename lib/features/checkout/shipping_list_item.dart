@@ -27,7 +27,7 @@ class ShippingListItem<T> extends StatelessWidget {
         leading: Icon(icon),
         title: Text(title),
         subtitle: Text(subtitle),
-        trailing: Radio(
+        trailing: Radio.adaptive(
           value: value,
           groupValue: groupValue,
           onChanged: onChanged,

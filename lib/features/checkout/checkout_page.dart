@@ -22,7 +22,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     final basket = context.read<BasketService>();
     return Scaffold(
       appBar: AppBar(
-        leading: CloseButton(),
+        leading: const CloseButton(),
         title: Text(AppStrings.checkoutTitle),
       ),
       body: CustomScrollView(
@@ -174,8 +174,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       leading: Icon(Icons.map),
                       title: Text(AppStrings.checkoutPickupPoint),
                       trailing: _deliverExpanded
-                          ? Icon(Icons.expand_less)
-                          : Icon(Icons.expand_more),
+                          ? const Icon(Icons.expand_less)
+                          : const Icon(Icons.expand_more),
                     ),
                   ),
                   SizedBox(height: 8),
