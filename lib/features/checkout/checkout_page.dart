@@ -99,42 +99,43 @@ class _CheckoutPageState extends State<CheckoutPage> {
             },
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             sliver: SliverList.list(
               children: [
-                Divider(height: 32),
+                const Divider(height: 32),
                 PriceListItem(
-                  title: Text(AppStrings.checkoutOrderTotal),
+                  title: const Text(AppStrings.checkoutOrderTotal),
                   price: basket.total,
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 PriceListItem(
                   title: Row(
-                    spacing: 4,
-                    children: [
+                    children: const [
                       Text(AppStrings.checkoutSecurityFee),
+                      SizedBox(width: 4),
                       Icon(
                         Icons.info,
-                        color: Theme.of(context).colorScheme.primary,
                         size: 16,
                       ),
                     ],
                   ),
                   price: basket.securityFee,
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 PriceListItem(
-                  title: Text(AppStrings.checkoutPostage),
+                  title: const Text(AppStrings.checkoutPostage),
                   price: basket.postage,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 PriceListItem(
-                  title: Text(AppStrings.checkoutTotal,
-                      style: Theme.of(context).textTheme.titleSmall),
+                  title: Text(
+                    AppStrings.checkoutTotal,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                   price: basket.postage,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
-                Divider(height: 32),
+                const Divider(height: 32),
                 Text(
                   AppStrings.checkoutDeliveryOption,
                   style: TextStyle(
@@ -171,72 +172,71 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     child: ListTile(
                       onTap: () =>
                           setState(() => _deliverExpanded = !_deliverExpanded),
-                      leading: Icon(Icons.map),
-                      title: Text(AppStrings.checkoutPickupPoint),
+                      leading: const Icon(Icons.map),
+                      title: const Text(AppStrings.checkoutPickupPoint),
                       trailing: _deliverExpanded
                           ? const Icon(Icons.expand_less)
                           : const Icon(Icons.expand_more),
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   if (_deliverExpanded)
                     Outlined(
                       child: Column(
-                        children: [
+                        children: const [
                           CheckboxListTile(
                             controlAffinity: ListTileControlAffinity.leading,
                             title: Text(
                               AppStrings.checkoutPickupPoint1,
-                              style: Theme.of(context).textTheme.titleSmall,
+                              style: TextStyle(),
                             ),
                             subtitle: Text(AppStrings.checkoutPickupAddress1),
                             value: true,
-                            onChanged: (value) {},
+                            onChanged: null,
                           ),
                           Divider(height: 1),
                           CheckboxListTile(
                             controlAffinity: ListTileControlAffinity.leading,
                             title: Text(AppStrings.checkoutPickupPoint2,
-                                style: Theme.of(context).textTheme.titleSmall),
+                                style: TextStyle()),
                             subtitle: Text(AppStrings.checkoutPickupAddress2),
                             value: false,
-                            onChanged: (value) {},
+                            onChanged: null,
                           ),
                           Divider(height: 1),
                           CheckboxListTile(
                             controlAffinity: ListTileControlAffinity.leading,
                             title: Text(AppStrings.checkoutPickupPoint3,
-                                style: Theme.of(context).textTheme.titleSmall),
+                                style: TextStyle()),
                             subtitle: Text(AppStrings.checkoutPickupAddress3),
                             value: false,
-                            onChanged: (value) {},
+                            onChanged: null,
                           ),
                         ],
                       ),
                     ),
                 ],
-                Divider(height: 16),
+                const Divider(height: 16),
               ],
             ),
           ),
           SliverList.list(children: [
             ListTile(
               onTap: () {},
-              title: Text(AppStrings.checkoutPayment),
+              title: const Text(AppStrings.checkoutPayment),
               titleTextStyle: Theme.of(context).textTheme.labelMedium,
-              subtitle: Text(AppStrings.checkoutChoosePayment),
-              trailing: Icon(Icons.add),
+              subtitle: const Text(AppStrings.checkoutChoosePayment),
+              trailing: const Icon(Icons.add),
               iconColor: Theme.of(context).colorScheme.primary,
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             IntrinsicHeight(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.lock,
                     size: 14,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   Text(
                     AppStrings.checkoutSecure,
@@ -248,7 +248,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
               ),
