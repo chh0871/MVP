@@ -1,6 +1,9 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
+import 'package:cherry_mvp/core/router/nav_provider.dart';
+import 'package:cherry_mvp/core/router/nav_routes.dart';
+import 'package:cherry_mvp/features/basket/basket_service.dart';
 import 'package:cherry_mvp/features/products/widgets/product_highlight_title.dart';
 import 'package:cherry_mvp/features/products/widgets/product_information.dart';
 import 'package:cherry_mvp/features/products/product_viewmodel.dart';
@@ -92,7 +95,12 @@ class ProductPage extends StatelessWidget {
                     child: SizedBox(
                       height: 56,
                       child: FilledButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<BasketService>().addItem(product);
+                          context
+                              .read<NavigationProvider>()
+                              .navigateTo(AppRoutes.checkout);
+                        },
                         child: Text(AppStrings.productPageBuyNow),
                       ),
                     ),

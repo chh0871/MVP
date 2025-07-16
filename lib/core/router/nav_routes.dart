@@ -1,5 +1,4 @@
 // feature/118-product-details-page
-import 'package:cherry_mvp/core/models/product.dart';
 import 'package:cherry_mvp/features/checkout/checkout_page.dart';
 import 'package:cherry_mvp/features/donation/donation_page.dart';
 import 'package:cherry_mvp/features/products/product_page.dart';
@@ -45,7 +44,10 @@ class AppRoutes {
       case donations:
         return MaterialPageRoute(builder: (_) => DonationPage());
       case checkout:
-        return MaterialPageRoute(builder: (_) => CheckoutPage());
+        return MaterialPageRoute(
+          fullscreenDialog: true,
+          builder: (_) => CheckoutPage(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

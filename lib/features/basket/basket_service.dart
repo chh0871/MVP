@@ -6,6 +6,12 @@ class BasketService extends ChangeNotifier {
 
   List<Product> get basketItems => List.unmodifiable(_basketItems);
 
+  double get total => _basketItems.fold(0, (sum, item) => sum + item.price);
+
+  double get securityFee => total * 0.1;
+
+  double get postage => 2.99;
+
   void addItem(Product product) {
     _basketItems.add(product);
     notifyListeners();

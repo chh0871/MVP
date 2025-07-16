@@ -1,7 +1,6 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/features/search/widgets/search.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 /// A reusable navigation bar widget that be use across the app.
 class CherryBottomNavBar extends StatelessWidget {

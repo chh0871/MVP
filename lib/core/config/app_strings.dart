@@ -179,4 +179,27 @@ class AppStrings {
   static const productPageMakeOffer = 'Make Offer';
   static const productPageBuyNow = 'Buy Now';
   static const giveInStyle = 'Give in style';
+
+  static const checkoutTitle = 'Checkout';
+  static const checkoutOrderTotal = 'Order total';
+  static const checkoutSecurityFee = 'Purchase security fee';
+  static const checkoutPostage = 'Postage';
+  static const checkoutTotal = 'Total';
+  static const checkoutDeliveryOption = 'Delivery option';
+  static const checkoutShipToPickup = 'Ship to pick-up point';
+  static const checkoutPickupSubtitle = 'From FREE';
+  static const checkoutShipToHome = 'Ship to home';
+  static const checkoutHomeSubtitle = 'From £2.99';
+  static const checkoutPickupPoint = 'Pick-up point';
+  static const checkoutPickupPoint1 = 'Pick-up Point 1';
+  static const checkoutPickupPoint2 = 'Pick-up Point 2';
+  static const checkoutPickupPoint3 = 'Pick-up Point 3';
+  static const checkoutPickupAddress1 = 'Address 1';
+  static const checkoutPickupAddress2 = 'Address 2';
+  static const checkoutPickupAddress3 = 'Address 3';
+  static const checkoutPayment = 'Payment';
+  static const checkoutChoosePayment = 'Choose a payment method';
+  static const checkoutSecure = 'This is a secure checkout';
+  static const currencySymbol = '£';
+  static const checkoutPay = 'Pay';
 }
