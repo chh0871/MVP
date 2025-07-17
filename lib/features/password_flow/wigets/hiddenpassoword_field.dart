@@ -1,9 +1,10 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HiddenPasswordField extends StatefulWidget {
+  const HiddenPasswordField({super.key});
+
   @override
-  _HiddenPasswordFieldState createState() => _HiddenPasswordFieldState();
+  State<HiddenPasswordField> createState() => _HiddenPasswordFieldState();
 }
 
 class _HiddenPasswordFieldState extends State<HiddenPasswordField> {
@@ -23,8 +24,8 @@ class _HiddenPasswordFieldState extends State<HiddenPasswordField> {
               child: CircleAvatar(
                 radius: 8,
                 backgroundColor: index < _password.length
-                    ? AppColors.primary
-                    : AppColors.lightGreyTextColor,
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             );
           }),

@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/reusablewidgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cherry_mvp/core/router/router.dart';
@@ -43,88 +42,56 @@ class _WelcomePageState extends State<WelcomePage>
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Positioned.fill(
             child: Image.asset(
               AppImages.welcomeBg,
               fit: BoxFit.cover,
             ),
           ),
-
-          Center(
-            child: FittedBox(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ScaleTransition(
-                    scale: _pulseAnimation,
-                    child: Image.asset(
-                      AppImages.cherry_logo,
-                      width: 350,
-                    ),
+          Positioned.fill(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ScaleTransition(
+                  scale: _pulseAnimation,
+                  child: Image.asset(
+                    AppImages.cherryLogo,
+                    width: 350,
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    AppStrings.giveInStyle,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.greyNavFooter,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  AppStrings.giveInStyle,
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                ),
+              ],
             ),
           ),
-
-          // Bottom Buttons
           Positioned(
-            bottom: 50,
-            left: 20,
-            right: 20,
+            bottom: MediaQuery.of(context).padding.bottom + 24,
+            left: 16,
+            right: 16,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Login Button
                 SizedBox(
                   width: double.infinity,
-                  height: 50,
-                  child: PrimaryAppButton(
-                    onPressed: () {
-                      navigator.replaceWith(AppRoutes.login);
-                    },
-                    buttonText: AppStrings.login,
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  child: FilledButton(
+                    onPressed: () => navigator.replaceWith(AppRoutes.login),
+                    child: Text(AppStrings.login),
                   ),
                 ),
-                const SizedBox(height: 30),
-
-                // Register Button
-                GestureDetector(
-                  onTap: () {
-                    navigator.replaceWith(AppRoutes.register);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        AppStrings.createAccount,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall
-                            ?.copyWith(color: AppColors.black),
-                      ),
-                      const SizedBox(width: 5),
-                      Image.asset(
-                        AppImages.icButton,
-                        width: 30,
-                        height: 30,
-                      ),
-                    ],
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () => navigator.replaceWith(AppRoutes.register),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Theme.of(context).colorScheme.onSurface,
+                    ),
+                    child: Text(AppStrings.createAccount),
                   ),
                 ),
               ],

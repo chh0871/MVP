@@ -22,8 +22,7 @@ class SellerInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-      padding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: padding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         spacing: 8,
         children: [
@@ -44,14 +43,13 @@ class SellerInformation extends StatelessWidget {
                     Row(
                       children: [
                         for (var i = 0; i < user.rating.floor(); i++)
-                          Icon(Icons.star,
-                              color: AppColors.profile_review, size: 12),
+                          Icon(Icons.star, color: AppColors.yellow, size: 12),
                         if (user.rating.ceil() != user.rating.floor())
                           Icon(Icons.star_half,
-                              color: AppColors.profile_review, size: 12),
+                              color: AppColors.yellow, size: 12),
                         for (var i = 0; i < 5 - user.rating.ceil(); i++)
                           Icon(Icons.star_border,
-                              color: AppColors.profile_review, size: 12),
+                              color: AppColors.yellow, size: 12),
                         SizedBox(width: 4),
                         Text(
                           '(${user.reviewsCount})',

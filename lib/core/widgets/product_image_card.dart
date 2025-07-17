@@ -32,7 +32,9 @@ class _ProductImageCardState extends State<ProductImageCard> {
 
   @override
   Widget build(BuildContext context) {
-    final imagePath = widget.product.product_images.isNotEmpty ? widget.product.product_images[0] : '';
+    final imagePath = widget.product.productImages.isNotEmpty
+        ? widget.product.productImages[0]
+        : '';
 
     return Stack(
       fit: StackFit.expand,
@@ -46,7 +48,7 @@ class _ProductImageCardState extends State<ProductImageCard> {
           )
         else
           Container(
-            color: Colors.grey.shade300,
+            color: Theme.of(context).colorScheme.surfaceContainerHigh,
             child: const Center(child: Icon(Icons.image_not_supported)),
           ),
         Positioned(
@@ -57,7 +59,10 @@ class _ProductImageCardState extends State<ProductImageCard> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.85),
+                color: Theme.of(context)
+                    .colorScheme
+                    .surface
+                    .withValues(alpha: 0.85),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
@@ -65,16 +70,14 @@ class _ProductImageCardState extends State<ProductImageCard> {
                   Icon(
                     isLiked ? Icons.favorite : Icons.favorite_border,
                     size: 14,
-                    color: isLiked ? Colors.red : Colors.black,
+                    color: isLiked
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.onSurface,
                   ),
                   const SizedBox(width: 4),
                   Text(
                     likes.toString(),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                      color: Colors.black87,
-                    ),
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ],
               ),

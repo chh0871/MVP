@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/core/utils/utils.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart';
 
-class DropdownFields extends StatefulWidget {
-  const DropdownFields({
+class DonationDropdownField extends StatefulWidget {
+  const DonationDropdownField({
     super.key,
     required this.formFieldsHintText,
     required this.dropdownList,
@@ -15,16 +13,16 @@ class DropdownFields extends StatefulWidget {
   final ValueChanged<String?> onChanged;
 
   @override
-  DropdownFieldsState createState() => DropdownFieldsState();
+  DonationDropdownFieldState createState() => DonationDropdownFieldState();
 }
 
-class DropdownFieldsState extends State<DropdownFields> {
+class DonationDropdownFieldState extends State<DonationDropdownField> {
   String? selectedDropdownItem;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: DropdownButtonFormField<String>(
         value: selectedDropdownItem,
         items: widget.dropdownList.map((item) {
@@ -33,16 +31,11 @@ class DropdownFieldsState extends State<DropdownFields> {
             child: Text(item),
           );
         }).toList(),
-        icon: const SizedBox.shrink(), // no default dropdown icon
         onChanged: (value) {
           setState(() => selectedDropdownItem = value);
           widget.onChanged(value); // <- notify parent
         },
-        decoration: buildInputDecorationFormField(
-          hintText: widget.formFieldsHintText,
-          icon: null,
-          iconSuffix: Icons.keyboard_arrow_down,
-        ),
+        decoration: InputDecoration(hintText: widget.formFieldsHintText),
       ),
     );
   }

@@ -1,14 +1,11 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
-import 'package:cherry_mvp/features/products/widgets/product_action_row.dart';
-import 'package:cherry_mvp/features/products/widgets/product_bottom_spacer.dart';
 import 'package:cherry_mvp/features/products/widgets/product_highlight_title.dart';
 import 'package:cherry_mvp/features/products/widgets/product_information.dart';
 import 'package:cherry_mvp/features/products/product_viewmodel.dart';
 import 'package:cherry_mvp/features/products/widgets/seller_information.dart';
 import 'package:cherry_mvp/features/products/widgets/product_header_carousel.dart';
-import 'package:cherry_mvp/features/products/widgets/product_description_section.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +49,14 @@ class ProductPage extends StatelessWidget {
               padding: const EdgeInsets.all(16),
             ),
             const Divider(thickness: 8),
-            ProductDescriptionSection(description: product.description),
+            ListTile(
+              title: Text(AppStrings.productPageDescription),
+              titleTextStyle: Theme.of(context).textTheme.titleSmall,
+              subtitle: Text(product.description),
+              subtitleTextStyle: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
             const Divider(thickness: 8),
             ProductHighlightTile(
               onTap: () {},
@@ -70,8 +74,33 @@ class ProductPage extends StatelessWidget {
                 width: 24,
               ),
             ),
-            const ProductActionsRow(),
-            const ProductBottomSpacer(),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 56,
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        child: Text(AppStrings.productPageMakeOffer),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SizedBox(
+                      height: 56,
+                      child: FilledButton(
+                        onPressed: () {},
+                        child: Text(AppStrings.productPageBuyNow),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
           ]),
         ],
       ),

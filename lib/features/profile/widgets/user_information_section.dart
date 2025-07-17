@@ -1,9 +1,8 @@
 import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/models/user_section.dart';
-import 'package:cherry_mvp/core/reusablewidgets/profile_section_icontextrow.dart';
+import 'package:cherry_mvp/core/widgets/profile_section_icontextrow.dart';
 import 'package:flutter/material.dart';
 
 class UserInformationSection extends StatelessWidget {
@@ -18,78 +17,55 @@ class UserInformationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         /// Top Greeting Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "${AppStrings.greeting}, ${AppStrings.profile_user_info_section_user}!",
-              style: AppTextStyles.bodyText_profile_heading,
-            ),
-            GestureDetector(
-              onTap: onSettingsPressed,
-              child: Image.asset(
-                AppImages.profile_settings,
-                height: 35,
-                width: 35,
-              ),
-            ),
-          ],
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+              "${AppStrings.greeting}, ${AppStrings.profileUserInfoSectionUser}!"),
+          titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          trailing: IconButton(
+            onPressed: onSettingsPressed,
+            icon: Icon(Icons.settings),
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
-        const SizedBox(height: 16),
-
-        /// Profile Info Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Image.asset(
-                  AppImages.profile_profileIcon,
-                  height: 46.67,
-                  width: 46.67,
+        const SizedBox(height: 8),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: Image.asset(
+            AppImages.profileProfileIcon,
+            height: 48,
+            width: 48,
+          ),
+          title: Text(userInformationSection.username),
+          titleTextStyle: Theme.of(context).textTheme.titleSmall,
+          subtitle: Row(
+            spacing: 16,
+            children: [
+              Row(
+                children: List.generate(
+                  5,
+                  (index) => Icon(
+                    index < userInformationSection.rating
+                        ? Icons.star
+                        : Icons.star_border_outlined,
+                    color: AppColors.yellow,
+                  ),
                 ),
-                const SizedBox(width: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(userInformationSection.username,
-                        style: AppTextStyles.bodyText_profile_heading2),
-                    Row(
-                      children: [
-                        Row(
-                          children: List.generate(
-                            5,
-                                (index) => Icon(
-                              index < userInformationSection.rating
-                                  ? Icons.star
-                                  : Icons.star_border_outlined,
-                              color: AppColors.profile_review,
-                              size: 20,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 20),
-                        Text(
-                          '${userInformationSection.reviewsCount} ${AppStrings.profile_user_info_section_buyer_reviews}',
-                          style: AppTextStyles.bodyText_profile_subheading,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-            const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: AppColors.greyTextColorTwo,
-            ),
-          ],
+              ),
+              Text(
+                '${userInformationSection.reviewsCount} ${AppStrings.profileUserInfoSectionBuyerReviews}',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ],
+          ),
+          trailing: Icon(
+            Icons.chevron_right,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 20),
 
@@ -103,23 +79,22 @@ class UserInformationSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 IconTextRow(
-                  assetPath: AppImages.profile_followers,
+                  assetPath: AppImages.profileFollowers,
                   text:
-                  '${userInformationSection.followingCount} ${AppStrings.profile_user_info_section_following}, ${userInformationSection.followersCount} ${AppStrings.profile_user_info_section_followers}',
+                      '${userInformationSection.followingCount} ${AppStrings.profileUserInfoSectionFollowing}, ${userInformationSection.followersCount} ${AppStrings.profileUserInfoSectionFollowers}',
                 ),
                 IconTextRow(
-                  assetPath: AppImages.profile_location,
+                  assetPath: AppImages.profileLocation,
                   text: userInformationSection.location,
                 ),
                 IconTextRow(
-                  assetPath: AppImages.profile_email,
+                  assetPath: AppImages.profileemail,
                   text: AppStrings.email,
                 ),
                 if (userInformationSection.hasBuyerDiscounts)
                   IconTextRow(
-                    assetPath: AppImages.profile_discount,
-                    text:
-                    AppStrings.profile_user_info_section_buyer_discount,
+                    assetPath: AppImages.profileDiscount,
+                    text: AppStrings.profileUserInfoSectionBuyerDiscount,
                   ),
               ],
             ),
@@ -129,20 +104,20 @@ class UserInformationSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  AppImages.profile_awards,
-                  height: 23.33,
-                  width: 36.66,
+                  AppImages.profileAwards,
+                  height: 32,
+                  width: 32,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "${userInformationSection.awards} ${AppStrings.profile_user_info_section_buyer_awards}",
-                  style: AppTextStyles.bodyText_profile_subheading,
+                  "${userInformationSection.awards} ${AppStrings.profileUserInfoSectionBuyerAwards}",
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],
             ),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 16),
       ],
     );
   }

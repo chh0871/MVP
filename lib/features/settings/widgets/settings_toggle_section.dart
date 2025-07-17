@@ -1,5 +1,5 @@
 import 'dart:core';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
 class SettingsToggleSection extends StatelessWidget {
@@ -19,41 +19,22 @@ class SettingsToggleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: EdgeInsets.only(top: 15.0),
-        child: CupertinoSwitch(
+    return SliverList.list(
+      children: [
+        SwitchListTile.adaptive(
+          title: Text(AppStrings.darkModeText),
           value: isSwitchedDark,
           onChanged: toggleSwitchDark,
-          inactiveTrackColor: AppColors.greyTextColor,
-          activeTrackColor: AppColors.primary,
+          inactiveThumbColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
-      ),
-      Text(
-        AppStrings.darkModeText,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.only(top: 5.0),
-        child: CupertinoSwitch(
+        Divider(height: 1),
+        SwitchListTile.adaptive(
+          title: Text(AppStrings.listListingsText),
           value: isSwitchedHide,
           onChanged: toggleSwitchHide,
-          inactiveTrackColor: AppColors.greyTextColor,
-          activeTrackColor: AppColors.primary,
+          inactiveThumbColor: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
-      ),
-      Text(
-        AppStrings.listListingsText,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    ]);
+      ],
+    );
   }
 }
