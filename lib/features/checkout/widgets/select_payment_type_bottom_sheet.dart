@@ -56,7 +56,7 @@ class _SelectPaymentTypeBottomSheetState
           const Divider(height: 1),
           ListTile(
             leading: Image.asset(
-              AppImages.paymentMethodsAppleIcon,
+              AppImages.paymentMethodsGoogleIcon,
               width: 24,
               height: 24,
             ),
