@@ -202,4 +202,23 @@ class AppStrings {
   static const checkoutSecure = 'This is a secure checkout';
   static const currencySymbol = '£';
   static const checkoutPay = 'Pay';
+  static const cardDetailsTitle = 'Card Details';
+  static const cardDetailsCardNumber = 'Card Number';
+  static const cardDetailsCardNumberHint = '1234 5678 9012 3456';
+  static const cardDetailsExpiryHint = 'MM/YY';
+  static const cardDetailsCvcHint = 'CVC';
+  static const cardDetailsSaveCard = 'Save card details for future payments';
+  static const cardDetailsCountryOrRegion = 'Country or region';
+  static const cardDetailsAgreeToSave = 'Agree to save these card details for '
+      'faster checkout. You can remove the card anytime in settings, '
+      'under payments.';
+  static const cardDetailsSaveAndUse = 'Save and use this card';
+  static const cardDetailsSave = 'Save';
+  static const paymentMethodsTitle = 'Payment Methods';
+  static const paymentMethodsInfo =
+      'Your payment information will never be shared with the seller';
+  static const paymentMethodsCard = 'Card';
+  static const paymentMethodsGooglePay = 'Google Pay';
+  static const paymentMethodsApplePay = 'Apple Pay';
+  static const paymentMethodsPay = 'Pay';
 }

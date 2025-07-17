@@ -1,3 +1,4 @@
+import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -15,7 +16,7 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
   Widget build(BuildContext context) {
     return BottomSheet(
       onClosing: () {},
-      shape: BeveledRectangleBorder(),
+      shape: const BeveledRectangleBorder(),
       builder: (context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -27,7 +28,7 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
             ),
             width: double.infinity,
             child: Text(
-              'Card Details',
+              AppStrings.cardDetailsTitle,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
@@ -37,7 +38,7 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Card Number',
+                  AppStrings.cardDetailsCardNumber,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
@@ -45,8 +46,8 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
                 const SizedBox(height: 2),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: '1234 5678 9012 3456',
-                    suffixIcon: Icon(Icons.credit_card),
+                    hintText: AppStrings.cardDetailsCardNumberHint,
+                    suffixIcon: const Icon(Icons.credit_card),
                   ),
                   inputFormatters: [
                     MaskTextInputFormatter(
@@ -62,7 +63,9 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        decoration: InputDecoration(hintText: 'MM/YY'),
+                        decoration: InputDecoration(
+                          hintText: AppStrings.cardDetailsExpiryHint,
+                        ),
                         inputFormatters: [
                           MaskTextInputFormatter(
                             mask: '##/##',
@@ -76,7 +79,9 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
                     const SizedBox(width: 8),
                     Expanded(
                       child: TextFormField(
-                        decoration: InputDecoration(hintText: 'CVC'),
+                        decoration: InputDecoration(
+                          hintText: AppStrings.cardDetailsCvcHint,
+                        ),
                         inputFormatters: [
                           MaskTextInputFormatter(
                             mask: '###',
@@ -92,21 +97,21 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
                 CheckboxListTile.adaptive(
                   contentPadding: EdgeInsets.zero,
                   controlAffinity: ListTileControlAffinity.leading,
-                  title: Text('Save card details for future payments'),
+                  title: Text(AppStrings.cardDetailsSaveCard),
                   value: _saveCardDetails,
                   onChanged: (value) =>
                       setState(() => _saveCardDetails = value ?? false),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Text(
-                  'Country or region',
+                  AppStrings.cardDetailsCountryOrRegion,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                 ),
                 const SizedBox(height: 2),
                 DropdownButtonFormField(
-                  items: [],
+                  items: const [],
                   onChanged: (value) {},
                 ),
                 const SizedBox(height: 4),
@@ -114,7 +119,7 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
                   contentPadding: EdgeInsets.zero,
                   controlAffinity: ListTileControlAffinity.leading,
                   title: Text(
-                    'Agree to save these card details for faster checkout. You can remove the card anytime in settings, under payments.',
+                    AppStrings.cardDetailsAgreeToSave,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                   value: false,
@@ -129,10 +134,10 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: FilledButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('Save and use this card'),
+              child: Text(AppStrings.cardDetailsSaveAndUse),
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Container(
             height: 48,
             width: double.infinity,
@@ -143,7 +148,7 @@ class _CardDetailsBottomSheetState extends State<CardDetailsBottomSheet> {
                 backgroundColor: Theme.of(context).colorScheme.onSurface,
               ),
               onPressed: () => Navigator.pop(context),
-              child: Text('Save'),
+              child: Text(AppStrings.cardDetailsSave),
             ),
           ),
           SizedBox(height: MediaQuery.of(context).padding.bottom + 16),

@@ -1,3 +1,5 @@
+import 'package:cherry_mvp/core/config/app_strings.dart';
+import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/features/checkout/payment_type.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +19,7 @@ class _SelectPaymentTypeBottomSheetState
   Widget build(BuildContext context) {
     return BottomSheet(
       onClosing: () {},
-      shape: BeveledRectangleBorder(),
+      shape: const BeveledRectangleBorder(),
       builder: (context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -29,21 +31,20 @@ class _SelectPaymentTypeBottomSheetState
             ),
             width: double.infinity,
             child: Text(
-              'Payment Methods',
+              AppStrings.paymentMethodsTitle,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
           ListTile(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-            title: Text(
-                'Your payment information will never be shared with the seller'),
+            title: Text(AppStrings.paymentMethodsInfo),
             titleTextStyle: Theme.of(context).textTheme.bodySmall,
             textColor: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
           const Divider(height: 1),
           ListTile(
-            leading: Icon(Icons.credit_card),
-            title: Text('Card'),
+            leading: const Icon(Icons.credit_card),
+            title: Text(AppStrings.paymentMethodsCard),
             trailing: Radio.adaptive(
                 value: PaymentType.card,
                 groupValue: _selected,
@@ -55,11 +56,11 @@ class _SelectPaymentTypeBottomSheetState
           const Divider(height: 1),
           ListTile(
             leading: Image.asset(
-              'assets/images/google.png',
+              AppImages.paymentMethodsAppleIcon,
               width: 24,
               height: 24,
             ),
-            title: Text('Google Pay'),
+            title: Text(AppStrings.paymentMethodsGooglePay),
             trailing: Radio.adaptive(
                 value: PaymentType.google,
                 groupValue: _selected,
@@ -71,11 +72,11 @@ class _SelectPaymentTypeBottomSheetState
           const Divider(height: 1),
           ListTile(
             leading: Image.asset(
-              'assets/images/apple.png',
+              AppImages.paymentMethodsAppleIcon,
               width: 24,
               height: 24,
             ),
-            title: Text('Apple Pay'),
+            title: Text(AppStrings.paymentMethodsApplePay),
             trailing: Radio.adaptive(
                 value: PaymentType.apple,
                 groupValue: _selected,
@@ -97,7 +98,7 @@ class _SelectPaymentTypeBottomSheetState
               onPressed: _selected != null
                   ? () => Navigator.pop(context, _selected)
                   : null,
-              child: Text('Pay'),
+              child: Text(AppStrings.paymentMethodsPay),
             ),
           ),
           SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
