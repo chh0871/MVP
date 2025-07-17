@@ -1,8 +1,11 @@
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/features/basket/basket_service.dart';
-import 'package:cherry_mvp/features/checkout/outlined.dart';
-import 'package:cherry_mvp/features/checkout/price_list_item.dart';
-import 'package:cherry_mvp/features/checkout/shipping_list_item.dart';
+import 'package:cherry_mvp/features/checkout/payment_type.dart';
+import 'package:cherry_mvp/features/checkout/widgets/card_details_bottom_sheet.dart';
+import 'package:cherry_mvp/features/checkout/widgets/outlined.dart';
+import 'package:cherry_mvp/features/checkout/widgets/price_list_item.dart';
+import 'package:cherry_mvp/features/checkout/widgets/select_payment_type_bottom_sheet.dart';
+import 'package:cherry_mvp/features/checkout/widgets/shipping_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -110,11 +113,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 const SizedBox(height: 4),
                 PriceListItem(
                   title: Row(
-                    children: const [
+                    spacing: 4,
+                    children: [
                       Text(AppStrings.checkoutSecurityFee),
-                      SizedBox(width: 4),
                       Icon(
                         Icons.info,
+                        color: Theme.of(context).colorScheme.primary,
                         size: 16,
                       ),
                     ],
@@ -128,10 +132,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 ),
                 const SizedBox(height: 8),
                 PriceListItem(
-                  title: Text(
-                    AppStrings.checkoutTotal,
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
+                  title: Text(AppStrings.checkoutTotal,
+                      style: Theme.of(context).textTheme.titleSmall),
                   price: basket.postage,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
@@ -183,25 +185,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   if (_deliverExpanded)
                     Outlined(
                       child: Column(
-                        children: const [
+                        children: [
                           CheckboxListTile(
                             controlAffinity: ListTileControlAffinity.leading,
                             title: Text(
                               AppStrings.checkoutPickupPoint1,
-                              style: TextStyle(),
+                              style: Theme.of(context).textTheme.titleSmall,
                             ),
                             subtitle: Text(AppStrings.checkoutPickupAddress1),
                             value: true,
-                            onChanged: null,
+                            onChanged: (value) {},
                           ),
                           Divider(height: 1),
                           CheckboxListTile(
                             controlAffinity: ListTileControlAffinity.leading,
                             title: Text(AppStrings.checkoutPickupPoint2,
-                                style: TextStyle()),
+                                style: Theme.of(context).textTheme.titleSmall),
                             subtitle: Text(AppStrings.checkoutPickupAddress2),
                             value: false,
-                            onChanged: null,
+                            onChanged: (value) {},
                           ),
                           Divider(height: 1),
                           CheckboxListTile(
@@ -210,7 +212,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 style: TextStyle()),
                             subtitle: Text(AppStrings.checkoutPickupAddress3),
                             value: false,
-                            onChanged: null,
+                            onChanged: (value) {},
                           ),
                         ],
                       ),
@@ -222,7 +224,23 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
           SliverList.list(children: [
             ListTile(
-              onTap: () {},
+              onTap: () async {
+                final selected = await showModalBottomSheet<PaymentType>(
+                  context: context,
+                  enableDrag: false,
+                  isScrollControlled: false,
+                  builder: (context) => const SelectPaymentTypeBottomSheet(),
+                );
+                if (selected == null || !context.mounted) return;
+                if (selected == PaymentType.card) {
+                  showModalBottomSheet(
+                    context: context,
+                    enableDrag: false,
+                    isScrollControlled: true,
+                    builder: (context) => const CardDetailsBottomSheet(),
+                  );
+                }
+              },
               title: const Text(AppStrings.checkoutPayment),
               titleTextStyle: Theme.of(context).textTheme.labelMedium,
               subtitle: const Text(AppStrings.checkoutChoosePayment),
@@ -234,9 +252,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.lock,
                     size: 14,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   Text(
                     AppStrings.checkoutSecure,

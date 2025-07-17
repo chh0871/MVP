@@ -1,4 +1,4 @@
-import 'package:cherry_mvp/features/checkout/outlined.dart';
+import 'package:cherry_mvp/features/checkout/widgets/outlined.dart';
 import 'package:flutter/material.dart';
 
 class ShippingListItem<T> extends StatelessWidget {

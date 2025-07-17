@@ -36,6 +36,15 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
       titleSmall: baseTheme.textTheme.titleSmall?.copyWith(
         fontWeight: FontWeight.w500,
       ),
+      headlineSmall: baseTheme.textTheme.headlineSmall?.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
+      headlineMedium: baseTheme.textTheme.headlineMedium?.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
+      headlineLarge: baseTheme.textTheme.headlineLarge?.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
     )),
     appBarTheme: AppBarTheme(
         backgroundColor: baseTheme.colorScheme.surface,
