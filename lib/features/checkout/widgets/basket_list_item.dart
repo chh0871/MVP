@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 
 class BasketListItem extends StatelessWidget {
   final Product product;
-  final VoidCallback onRemove;
+  final VoidCallback? onRemove;
 
   const BasketListItem({
     super.key,
     required this.product,
-    required this.onRemove,
+    this.onRemove,
   });
 
   @override

@@ -202,4 +202,14 @@ class AppStrings {
   static const checkoutSecure = 'This is a secure checkout';
   static const currencySymbol = '£';
   static const checkoutPay = 'Pay';
+
+  static const checkoutOrderPlaced = 'Order Placed 🎉';
+  static const checkoutThankYou = 'Thank you';
+  static const checkoutEscrowInfo =
+      'Your payment will be held in escrow until the seller sends the item and '
+      'you confirm it, after which it will be sent to the charity!';
+  static const checkoutTrackOrders = 'Track Orders';
+  static const checkoutImpactSummary = 'Impact Summary';
+  static const checkoutReview = 'Review';
+  static const checkoutContinueShopping = 'Continue Shopping';
 }
