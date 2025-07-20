@@ -29,6 +29,13 @@ class AppStrings {
   static const emptyStateSearchText = 'No products found... 🔎';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const messages = 'Messages';
+  
+  // Dashboard specific strings
+  static const loadingProducts = 'Loading products...';
+  static const failedToLoadProducts = 'Failed to load products';
+  static const unknownErrorOccurred = 'Unknown error occurred';
+  static const retry = 'Retry';
+  static const noProductsAvailable = 'No products available';
 
   // Profile donation and activity
   static const profileUserActivityBought = 'Bought';
