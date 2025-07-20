@@ -1,5 +1,3 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverSelectionBar extends StatefulWidget {
@@ -14,63 +12,55 @@ class _DiscoverSelectionBarState extends State<DiscoverSelectionBar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.greyBgColor,
-        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: EdgeInsets.all(3),
-        child: SizedBox(
-          width: double.infinity,
-          height: 40,// Ensures the Row takes the full width available
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Popular",
-                      style: AppTextStyles.selectedOption,
-                    ),
+        padding: EdgeInsets.all(4),
+        child: Row(
+          children: [
+            Expanded(
+              child: Material(
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(8),
+                elevation: 2,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                  child: Text(
+                    "Popular",
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBgColor,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Smaller Charities",
-                      style: AppTextStyles.unselectedOption,
-                    ),
-                  ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                child: Text(
+                  "Smaller Charities",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.greyBgColor,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Local to you",
-                      style: AppTextStyles.unselectedOption,
-                    ),
-                  ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+                child: Text(
+                  "Local to you",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

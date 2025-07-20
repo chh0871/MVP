@@ -31,15 +31,20 @@ class ProductInformation extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('£${product.donation.toStringAsFixed(2)}',
-                          style: TextStyle(color: AppColors.greyTextColorTwo)),
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant)),
                       Row(
                         spacing: 4,
                         children: [
                           Text('£${product.price.toStringAsFixed(2)}',
-                              style: TextStyle(color: AppColors.primary)),
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.primary)),
                           Icon(
                             Icons.verified_user,
-                            color: AppColors.primary,
+                            color: Theme.of(context).colorScheme.primary,
                           )
                         ],
                       )
@@ -48,15 +53,16 @@ class ProductInformation extends StatelessWidget {
               SizedBox(
                 width: 48,
                 child: Text(product.size,
-                    style: TextStyle(color: AppColors.greyTextColor)),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant)),
               ),
               Expanded(
                 child: Text(product.quality,
-                    style: TextStyle(color: AppColors.greenBgColor)),
+                    style: TextStyle(color: AppColors.green)),
               ),
               Icon(
                 Icons.workspace_premium,
-                color: AppColors.greyTextColor,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ],
           )

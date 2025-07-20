@@ -31,43 +31,40 @@ class AppStrings {
   static const messages = 'Messages';
 
   // Profile donation and activity
-  static const profile_userActivity_bought = 'Bought';
-  static const profile_userActivity_sold = 'Sold';
-  static const profile_userActivity_total = 'Total';
-  static const profile_user_donation_Summary = 'User Donation Summary';
-  static const profile_your_donation_impact = 'Your Donation Impact';
-  static const profile_generosity_changes_lives =
+  static const profileUserActivityBought = 'Bought';
+  static const profileUserActivitySold = 'Sold';
+  static const profileUserActivityTotal = 'Total';
+  static const profileUserDonationSummary = 'User Donation Summary';
+  static const profileYourDonationImpact = 'Your Donation Impact';
+  static const profileGenerosityChangesLives =
       'See how your generosity changes lives';
-  static const profile_user_donation_total = 'Total';
-  static const profile_user_donation_total_amount = 'Total Amount';
-  static const profile_user_donation_total_items = 'Total Items Donated';
-  static const profile_user_donation_total_items_sold = 'Total Items Sold';
-  static const profile_user_donation_total_items_bought = 'Total Items Bought';
-  static const profile_user_donation_total_items_donated =
-      'Total Items Donated';
-  static const profile_user_donation_total_items_received =
-      'Total Items Received';
-  static const profile_user_donation_total_items_given = 'Total Items Given';
-  static const profile_user_donation_total_items_received_from_others =
+  static const profileUserDonationTotal = 'Total';
+  static const profileUserDonationTotalAmount = 'Total Amount';
+  static const profileUserDonationTotalItems = 'Total Items Donated';
+  static const profileUserDonationTotalItemsSold = 'Total Items Sold';
+  static const profileUserDonationTotalItemsBought = 'Total Items Bought';
+  static const profileUserDonationTotalItemsDonated = 'Total Items Donated';
+  static const profileUserDonationTotalItemsReceived = 'Total Items Received';
+  static const profileUserDonationTotalItemsGiven = 'Total Items Given';
+  static const profileUserDonationTotalItemsReceivedFromOthers =
       'Total Items Received from Others';
-  static const profile_user_donation_total_items_given_to_others =
+  static const profileUserDonationTotalItemsGivenToOthers =
       'Total Items Given to Others';
-  static const profile_user_donation_total_items_sold_to_others =
+  static const profileUserDonationTotalItemsSoldToOthers =
       'Total Items Sold to Others';
-  static const profile_user_donation_total_items_bought_from_others =
+  static const profileUserDonationTotalItemsBoughtFromOthers =
       'Total Items Bought from Others';
 
   // Profile info section
-  static const profile_user_info_section_user = "User";
-  static const profile_user_info_section_following = "following";
-  static const profile_user_info_section_followers = "followers";
-  static const profile_user_info_section_buyer_discount =
-      "Buyer Discounts Active";
-  static const profile_user_info_section_buyer_awards = "Awards";
-  static const profile_user_info_section_buyer_reviews = "Reviews";
-  static const profile_user_info_location = "United Kingdom";
-  static const profile_user_info_username = "User.001";
-  static const profile_user_info_title = 'Profile';
+  static const profileUserInfoSectionUser = "User";
+  static const profileUserInfoSectionFollowing = "following";
+  static const profileUserInfoSectionFollowers = "followers";
+  static const profileUserInfoSectionBuyerDiscount = "Buyer Discounts Active";
+  static const profileUserInfoSectionBuyerAwards = "Awards";
+  static const profileUserInfoSectionBuyerReviews = "Reviews";
+  static const profileUserInfoLocation = "United Kingdom";
+  static const profileUserInfoUsername = "User.001";
+  static const profileUserInfoTitle = 'Profile';
 
   // Dashboard & Search
   static const dashboard = 'Dashboard';
@@ -108,51 +105,51 @@ class AppStrings {
   static const darkModeText = "Dark mode";
   static const listListingsText = "Hide Listings";
   static const adText = "Ad";
-  static const profile_user_orders = "Orders";
-  static const profile_user_liked = "Liked";
-  static const profile_user_listings = "Listings";
-  static const profile_user_Buyer_disc = "Buyer discounts";
+  static const profileUserOrders = "Orders";
+  static const profileUserLiked = "Liked";
+  static const profileUserListings = "Listings";
+  static const profileUserBuyerDisc = "Buyer discounts";
   static const share = 'Share';
 
-  static const account_Text = "Account";
-  static const language_Text = "Language";
-  static const english_Text = "English";
-  static const security_Text = "Security";
-  static const about_us_Text = "About us";
-  static const legal_information_Text = "Legal information";
-  static const cookie_settings_Text = "Cookie settings";
-  static const log_out_Text = "Log out";
-  static const support_Text = "Support";
-  static const shop_Text = "Shop";
-  static const personal_Text = "Personal";
-  static const profile_Text = "Profile";
-  static const shipping_address_Text = "Shipping Address";
-  static const payment_methods_Text = "Payment methods";
-  static const postage_Text = "Postage";
+  static const accountText = "Account";
+  static const languageText = "Language";
+  static const englishText = "English";
+  static const securityText = "Security";
+  static const aboutUsText = "About us";
+  static const legalInformationText = "Legal information";
+  static const cookieSettingsText = "Cookie settings";
+  static const logOutText = "Log out";
+  static const supportText = "Support";
+  static const shopText = "Shop";
+  static const personalText = "Personal";
+  static const profileText = "Profile";
+  static const shippingAddressText = "Shipping Address";
+  static const paymentMethodsText = "Payment methods";
+  static const postageText = "Postage";
 
-  static const chat_with_us_Text = "Chat with us";
-  static const FAQ_Text = "FAQ'S";
+  static const chatWithUsText = "Chat with us";
+  static const faqText = "FAQ'S";
 
-  static const dark_mode_Text = "Dark Mode";
-  static const list_listings_Text = "Hide Listings";
+  static const darkModeAltText = "Dark Mode";
+  static const listListingsAltText = "Hide Listings";
 
   // Country and currency
-  static const country_Text = "Country";
-  static const united_kingdom_Text = "United Kingdom";
-  static const currency_Text = "Currency";
-  static const pound_Text = "£ GBP";
-  static const sizes_Text = "Sizes";
-  static const UK_Text = "UK";
+  static const countryText = "Country";
+  static const unitedKingdomText = "United Kingdom";
+  static const currencyText = "Currency";
+  static const poundText = "£ GBP";
+  static const sizesText = "Sizes";
+  static const ukText = "UK";
 
   // donation options
-  static const donation_options_Text = "Donation Options";
-  static const give_your_buyer_Text =
+  static const donationOptionsText = "Donation Options";
+  static const giveYourBuyerText =
       "Give your buyer the option pick a cause they care about.";
-  static const easy_way_Text =
+  static const easyWayText =
       "Its an easy way to make your listing more impactful.";
-  static const open_to_other_charities_Text = "Open to other charities";
-  static const open_to_offers_Text = "Open to offers";
-  static const applicable_for_buyer_discounts_Text =
+  static const openToOtherCharitiesText = "Open to other charities";
+  static const openToOffersText = "Open to offers";
+  static const applicableForBuyerDiscountsText =
       "Applicable for buyer discounts";
 
   // donation fields
@@ -166,9 +163,11 @@ class AppStrings {
   static const catchEyesText = "Catch eyes by using quality photos!";
   static const photosTipPopupHeading = "Your photos should...";
   static const clearWellLit = "Be clear and well lit.";
-  static const multipleAngles = "Show multiple angles, including front view, back view, tags & labels, close-up details and any flaws.";
+  static const multipleAngles =
+      "Show multiple angles, including front view, back view, tags & labels, close-up details and any flaws.";
   static const noFilters = "No wacky filters or over-editing.";
-  static const showItOff = "If you’re comfortable, get it on & show it off! If not, something for reference is great!";
+  static const showItOff =
+      "If you’re comfortable, get it on & show it off! If not, something for reference is great!";
   static const learnHow = "Learn How";
 
   //   Discover page
@@ -184,8 +183,4 @@ class AppStrings {
   static const productPageMakeOffer = 'Make Offer';
   static const productPageBuyNow = 'Buy Now';
   static const giveInStyle = 'Give in style';
-
-
-
 }
-

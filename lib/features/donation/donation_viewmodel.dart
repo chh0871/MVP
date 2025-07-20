@@ -19,15 +19,15 @@ class DonationViewModel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final result = await donationRepository.submitDonation(request);
-    //
-    //   if (result.isSuccess) {
-    //     _status = Status.success;
-    //     _log.info("Donation submitted successfully");
-    //   } else {
-    //     _status = Status.failure(result.error ?? "Unknown error");
-    //     _log.warning("Donation submission failed: ${result.error}");
-    //   }
+      await donationRepository.submitDonation(request);
+      //
+      //   if (result.isSuccess) {
+      //     _status = Status.success;
+      //     _log.info("Donation submitted successfully");
+      //   } else {
+      //     _status = Status.failure(result.error ?? "Unknown error");
+      //     _log.warning("Donation submission failed: ${result.error}");
+      //   }
     } catch (e) {
       _status = Status.failure(e.toString());
       _log.severe("Exception during donation submission: $e");

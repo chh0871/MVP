@@ -1,8 +1,9 @@
 class Category {
   final String name;
-  final List<String> images;
-  final int number;
+  final String image;
 
-  const Category(
-      {required this.name, required this.images, required this.number});
+  const Category({
+    required this.name,
+    required this.image,
+  });
 }

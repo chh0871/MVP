@@ -1,5 +1,3 @@
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
-import 'package:cherry_mvp/core/config/config.dart';
 import 'package:flutter/material.dart';
 
 const hasUserLiked = false;
@@ -59,10 +57,11 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
                     padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: AppColors.lightGreyFill,
+                      color:
+                          Theme.of(context).colorScheme.surfaceContainerHighest,
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.black,
+                          color: Theme.of(context).colorScheme.onSurface,
                           blurRadius: 4,
                           offset: Offset(0, 2),
                         )
@@ -70,26 +69,24 @@ class DiscoverCharityCardState extends State<DiscoverCharityCard> {
                     ),
                     child: Row(
                       children: [
-                        Image.asset(
-                            isLiked
-                                ? AppImages.likeHeart
-                                : AppImages.emptyHeart,
-                            width: 15,
-                            height: 11),
-                        SizedBox(width: 5),
-                        Text(
-                          '${widget.likes}',
-                          style: TextStyle(fontFamily: "InstrumentSans"),
-                        ),
+                        isLiked
+                            ? Icon(Icons.favorite, size: 16)
+                            : Icon(Icons.favorite_border, size: 16),
+                        SizedBox(width: 4),
+                        Text('${widget.likes}'),
                       ],
                     ),
                   )),
             ),
           ],
         ),
-        SizedBox(height: 9),
-        Text(widget.title, style: AppTextStyles.charityHeadingText),
-        Text(widget.description, style: AppTextStyles.charityBodyText),
+        SizedBox(height: 8),
+        Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          widget.description,
+          style:
+              TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+        ),
       ],
     );
   }

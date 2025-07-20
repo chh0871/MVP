@@ -12,9 +12,9 @@ class AppImages {
   static const welcomeBg = '${_path}welcome_bg.png';
   static const bubbles = '${_path}Bubbles.png';
   static const profileImg = '${_path}image.png';
-  static const password_home = '${_path}password_home.png';
-  static const not_you_home = '${_path}not_you_bg.png';
-  static const cherry_logo = '${_path}cherry_logo.png';
+  static const passwordHome = '${_path}password_home.png';
+  static const notYouHome = '${_path}not_you_bg.png';
+  static const cherryLogo = '${_path}cherry_logo.png';
 
   static const clothing1 = '${_path}clothing_1.png';
   static const clothing2 = '${_path}clothing_2.png';
@@ -31,10 +31,10 @@ class AppImages {
   static const likeHeart = '${_path}like_heart.png';
   static const emptyHeart = '${_path}like_heart_empty.png';
 
-  static const charity_week_card = '${_path}charity_week_card.png';
-  static const empty_state_bg = '${_path}emptystatebg.png';
-  static const explore_charities = '${_path}explore_image.png';
-  static const waterAid_logo = '${_path}water_aid_logo.png';
+  static const charityWeekVard = '${_path}charity_week_card.png';
+  static const emptyStateBg = '${_path}emptystatebg.png';
+  static const exploreCharities = '${_path}explore_image.png';
+  static const waterAidLogo = '${_path}water_aid_logo.png';
 
   static const product1 = '${_path}product1.png';
   static const product2 = '${_path}product2.png';
@@ -43,11 +43,11 @@ class AppImages {
   static const product5 = '${_path}product5.png';
   static const product6 = '${_path}product6.png';
 
-  static const explore_image = '${_path}explore_image.png';
-  static const ad_image = '${_path}ad_image.png';
+  static const exploreImage = '${_path}explore_image.png';
+  static const adImage = '${_path}ad_image.png';
 
-  static const discover_image1 = '${_path}discover_image1.png';
-  static const discover_image2 = '${_path}discover_image2.png';
+  static const discoverImage1 = '${_path}discover_image1.png';
+  static const discoverImage2 = '${_path}discover_image2.png';
 
   static const womanIcon = '${_path}woman_icon.png';
   static const menIcon = '${_path}men_icon.png';
@@ -60,16 +60,16 @@ class AppImages {
   static const toysIcon = '${_path}toys_icon.png';
   static const dvdIcon = '${_path}dvd_icon.png';
 
-  static const profile_settings = '${_path}profile_setting.png';
-  static const profile_profileIcon = '${_path}profile_profile_icon.png';
-  static const profile_followers = '${_path}profile_followers.png';
-  static const profile_location = '${_path}profile_location.png';
-  static const profile_awards = '${_path}profile_awards.png';
-  static const profile_email = '${_path}profile_email.png';
-  static const profile_discount = '${_path}profile_discount.png';
-  static const profile_listings = '${_path}profile_listings.png';
-  static const profile_order = '${_path}profile_order.png';
-  static const profile_liked = '${_path}profile_liked.png';
+  static const profilesettings = '${_path}profile_setting.png';
+  static const profileProfileIcon = '${_path}profile_profile_icon.png';
+  static const profileFollowers = '${_path}profile_followers.png';
+  static const profileLocation = '${_path}profile_location.png';
+  static const profileAwards = '${_path}profile_awards.png';
+  static const profileemail = '${_path}profile_email.png';
+  static const profileDiscount = '${_path}profile_discount.png';
+  static const profileListings = '${_path}profile_listings.png';
+  static const profileOrder = '${_path}profile_order.png';
+  static const profileLiked = '${_path}profile_liked.png';
 
   static const sale = '${_path}sale.png';
   static const targetIcon = '${_path}target_icon.png';
@@ -77,4 +77,10 @@ class AppImages {
   static const wandIcon = '${_path}icon_wand.png';
   static const rulerIcon = '${_path}icon_ruler.png';
 
+  static const wwf = '${_path}wwf.png';
+  static const wwfLogo = '${_path}wwf_logo.png';
+  static const shelter = '${_path}shelter.png';
+  static const shelterLogo = '${_path}shelter_logo.png';
+  static const mind = '${_path}mind.png';
+  static const mindLogo = '${_path}mind_logo.png';
 }
