@@ -22,10 +22,19 @@ import 'package:cherry_mvp/features/home/home_viewmodel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
+  // Configuration flag - reads from environment variable
+  final bool useMockData = dotenv.env['USE_MOCK_DATA'] == 'true';
   return [
     Provider(create: (_) => NavigationProvider()),
+    
+    // Add API Service
+    Provider<ApiService>(
+      create: (_) => DioApiService(firebaseAuth: FirebaseAuth.instance),
+    ),
+    
     Provider<FirebaseAuthService>(
       create: (_) => FirebaseAuthService(firebaseAuth: FirebaseAuth.instance),
     ),
@@ -53,6 +62,7 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
         Provider.of<StorageProvider>(context, listen: false),
       ),
     ),
+<<<<<<< HEAD
     Provider(create: (context) => HomeRepository()),
     Provider(create: (context) => DiscoverRepository()),
     Provider(create: (context) => ProductRepository()),
@@ -60,6 +70,27 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider(create: (context) => SearchRepository()),
     Provider(create: (context) => CategoryRepository()),
     ChangeNotifierProvider(create: (_) => SearchController()),
+=======
+    Provider<IHomeRepository>(
+      create: (context) {
+        if (useMockData) {
+          return HomeRepositoryMock();
+        } else {
+          return
+            HomeRepository(Provider.of<ApiService>(context, listen: false));
+        }
+      },
+    ),
+    Provider<DiscoverRepository>(
+      create: (context) => DiscoverRepository(),
+    ),
+    Provider<ProductRepository>(
+      create: (context) => ProductRepository(),
+    ),
+    Provider<DonationRepository>(
+      create: (context) => DonationRepository(),
+    ),
+>>>>>>> 907abc1 (feature: add network service using dio, implemented fetch products from api)
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(
         loginRepository: Provider.of<LoginRepository>(context, listen: false),
@@ -73,10 +104,17 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     ),
     ChangeNotifierProvider<HomeViewModel>(
         create: (context) => HomeViewModel(
+<<<<<<< HEAD
               homeRepository:
                   Provider.of<HomeRepository>(context, listen: false),
             )),
     Provider<SearchRepository>(
+=======
+          homeRepository: Provider.of<IHomeRepository>(context, listen: false),
+        )
+    ),
+    Provider<SearchRepository>( 
+>>>>>>> 907abc1 (feature: add network service using dio, implemented fetch products from api)
       create: (context) => SearchRepository(),
     ),
     ChangeNotifierProvider<SearchViewModel>(
