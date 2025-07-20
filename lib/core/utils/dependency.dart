@@ -62,15 +62,8 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
         Provider.of<StorageProvider>(context, listen: false),
       ),
     ),
-<<<<<<< HEAD
-    Provider(create: (context) => HomeRepository()),
-    Provider(create: (context) => DiscoverRepository()),
-    Provider(create: (context) => ProductRepository()),
-    Provider(create: (context) => DonationRepository()),
-    Provider(create: (context) => SearchRepository()),
     Provider(create: (context) => CategoryRepository()),
     ChangeNotifierProvider(create: (_) => SearchController()),
-=======
     Provider<IHomeRepository>(
       create: (context) {
         if (useMockData) {
@@ -90,7 +83,6 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider<DonationRepository>(
       create: (context) => DonationRepository(),
     ),
->>>>>>> 907abc1 (feature: add network service using dio, implemented fetch products from api)
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(
         loginRepository: Provider.of<LoginRepository>(context, listen: false),
@@ -104,17 +96,10 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     ),
     ChangeNotifierProvider<HomeViewModel>(
         create: (context) => HomeViewModel(
-<<<<<<< HEAD
               homeRepository:
                   Provider.of<HomeRepository>(context, listen: false),
-            )),
+        )),
     Provider<SearchRepository>(
-=======
-          homeRepository: Provider.of<IHomeRepository>(context, listen: false),
-        )
-    ),
-    Provider<SearchRepository>( 
->>>>>>> 907abc1 (feature: add network service using dio, implemented fetch products from api)
       create: (context) => SearchRepository(),
     ),
     ChangeNotifierProvider<SearchViewModel>(

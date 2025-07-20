@@ -91,7 +91,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                 fontWeight: FontWeight.w400,
                 height: 26 / 18,
                 letterSpacing: -0.75,
-                color: AppColors.greyTextColor,
+                color: AppColors.grey,
               ),
             ),
           ),
@@ -105,8 +105,8 @@ class _PhotoUploadState extends State<PhotoUpload> {
               width: 460,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: AppColors.lightGreyTextColor,
-                border: Border.all(color: AppColors.primary, width: 1),
+                color: AppColors.grey,
+                border: Border.all(color: AppColors.red, width: 1),
               ),
               child: selectedImage != null
                   ? ClipRRect(
@@ -122,7 +122,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                 children: [
                   Icon(
                     Icons.photo_library,
-                    color: AppColors.greyTextColor,
+                    color: AppColors.grey,
                     size: 24,
                   ),
                   const SizedBox(height: 8),
@@ -134,7 +134,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                         height: 20 / 16,
-                        color: AppColors.greyTextColor,
+                        color: AppColors.grey,
                       ),
                     ),
                   ),

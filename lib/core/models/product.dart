@@ -54,7 +54,7 @@ class Product {
     return 0.0;
   }
 
-  static int _parseInt(dynamic value) {
+  static int _parseInt(`dynamic value) {
     if (value == null) return 0;
     if (value is int) return value;
     if (value is double) return value.toInt();
