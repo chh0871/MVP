@@ -32,8 +32,8 @@ class _ProductImageCardState extends State<ProductImageCard> {
 
   @override
   Widget build(BuildContext context) {
-    final imagePath = widget.product.productImages.isNotEmpty
-        ? widget.product.productImages[0]
+    final imagePath = widget.product.product_images.isNotEmpty
+        ? widget.product.product_images[0]
         : '';
 
     return Stack(

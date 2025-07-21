@@ -38,7 +38,7 @@ class ProductCard extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                               image: DecorationImage(
                                   image:
-                                      AssetImage(product.productImages.first),
+                                      AssetImage(product.product_images.first),
                                   fit: BoxFit.cover)),
                         ),
                       ),
@@ -118,7 +118,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 Image.asset(
-                  product.charityImage,
+                  product.charity_image,
                   height: 20,
                   width: 20,
                   fit: BoxFit.cover,

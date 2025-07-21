@@ -7,6 +7,10 @@ class AppStrings {
   static const register = 'Sign Up';
   static const createAccount = 'Create Account';
   static const welcome = 'Welcome!';
+  static const take_photo = 'Upload or take new photos';
+  static const cameraPhoto = 'Take Photo';
+  static const galleryPhoto='Choose from Gallery';
+  static const take_photo_instruction ='Upload clear, high-quality images to help your items shine. The more angles the better.';
   static const professional = 'Professionals';
   static const signUpInstruction =
       'Click below to sign up as a parent or a healthcare professional';
@@ -25,6 +29,13 @@ class AppStrings {
   static const emptyStateSearchText = 'No products found... 🔎';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const messages = 'Messages';
+  
+  // Dashboard specific strings
+  static const loadingProducts = 'Loading products...';
+  static const failedToLoadProducts = 'Failed to load products';
+  static const unknownErrorOccurred = 'Unknown error occurred';
+  static const retry = 'Retry';
+  static const noProductsAvailable = 'No products available';
 
   // Profile donation and activity
   static const profileUserActivityBought = 'Bought';
