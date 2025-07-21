@@ -1,4 +1,4 @@
-import 'package:cherry_mvp/features/basket/basket_service.dart';
+import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/categories/category_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_viewmodel.dart';
@@ -60,7 +60,7 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider(create: (context) => DonationRepository()),
     Provider(create: (context) => SearchRepository()),
     Provider(create: (context) => CategoryRepository()),
-    ChangeNotifierProvider(create: (context) => BasketService()),
+    ChangeNotifierProvider(create: (context) => CheckoutViewModel()),
     ChangeNotifierProvider(create: (_) => SearchController()),
     ChangeNotifierProvider<LoginViewModel>(
       create: (context) => LoginViewModel(

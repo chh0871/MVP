@@ -1,5 +1,5 @@
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/features/basket/basket_service.dart';
+import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/checkout/widgets/outlined.dart';
 import 'package:cherry_mvp/features/checkout/widgets/price_list_item.dart';
 import 'package:cherry_mvp/features/checkout/widgets/shipping_list_item.dart';
@@ -19,7 +19,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
 
   @override
   Widget build(BuildContext context) {
-    final basket = context.read<BasketService>();
+    final basket = context.read<CheckoutViewModel>();
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       sliver: SliverList.list(
@@ -27,7 +27,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           const Divider(height: 32),
           PriceListItem(
             title: const Text(AppStrings.checkoutOrderTotal),
-            price: basket.total,
+            price: basket.itemTotal,
           ),
           const SizedBox(height: 4),
           PriceListItem(
@@ -54,7 +54,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
               AppStrings.checkoutTotal,
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            price: basket.postage,
+            price: basket.total,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const Divider(height: 32),
