@@ -97,7 +97,7 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     ChangeNotifierProvider<HomeViewModel>(
         create: (context) => HomeViewModel(
               homeRepository:
-                  Provider.of<HomeRepository>(context, listen: false),
+                  Provider.of<IHomeRepository>(context, listen: false),
         )),
     Provider<SearchRepository>(
       create: (context) => SearchRepository(),
