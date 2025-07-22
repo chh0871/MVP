@@ -1,4 +1,3 @@
-import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/features/basket/basket_service.dart';
 import 'package:cherry_mvp/features/checkout/widgets/basket_list_item.dart';
