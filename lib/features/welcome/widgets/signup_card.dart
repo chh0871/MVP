@@ -1,7 +1,8 @@
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
+import 'dart:developer';
+
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/core/reusablewidgets/form/button_style.dart';
-import 'package:cherry_mvp/core/reusablewidgets/loading_view.dart';
+import 'package:cherry_mvp/features/welcome/widgets/button_style.dart';
+import 'package:cherry_mvp/features/welcome/widgets/loading_view.dart';
 import 'package:cherry_mvp/core/router/router.dart';
 import 'package:cherry_mvp/core/utils/status.dart';
 import 'package:cherry_mvp/features/login/login_viewmodel.dart';
@@ -40,7 +41,7 @@ class AuthCard extends StatelessWidget {
         }
       });
       return Card(
-        color: AppColors.bgColor,
+        color: Color(0xFFFAFAFA),
         margin: EdgeInsets.zero,
         elevation: 20,
         shape: const RoundedRectangleBorder(
@@ -57,7 +58,7 @@ class AuthCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                         isLogin ? AppStrings.login : AppStrings.register,
-                        style: AppTextStyles.signupCardText
+                        style: Theme.of(context).textTheme.titleMedium
                         //  TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                         ),
                   ),
@@ -77,7 +78,7 @@ class AuthCard extends StatelessWidget {
                 iconAsset: AppImages.authAppleIcon,
                 onPressed: () {
                   isLoading
-                      ? null
+                      ? () {}
                       : () {
                           Fluttertoast.showToast(msg: "iOS Coming Soon");
                         };
@@ -97,28 +98,40 @@ class AuthCard extends StatelessWidget {
 
               const SizedBox(height: 10),
               Row(
-                children: const [
-                  Expanded(child: Divider(color: AppColors.greyNavFooter)),
+                children: [
+                  //colors have to be changes
+                  Expanded(
+                      child: Divider(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  )),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(AppStrings.or,
-                        style: TextStyle(color: AppColors.greyNavFooter)),
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        )),
                   ),
-                  Expanded(child: Divider(color: AppColors.greyNavFooter)),
+                  Expanded(
+                      child: Divider(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  )),
                 ],
               ),
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
+                  //  log("message");
                   isLoading
-                      ? null
+                      ? () {}
                       : isLogin
                           ? navigator.replaceWith(AppRoutes.login)
                           : navigator.replaceWith(AppRoutes.register);
                 },
-                child: const Text(
+                child: Text(
                   AppStrings.continueWithEmail,
-                  style: TextStyle(color: AppColors.primary),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ),
             ],

@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/core/config/app_colors.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SocialLoginButton extends StatelessWidget {
@@ -21,7 +20,7 @@ class SocialLoginButton extends StatelessWidget {
     return OutlinedButton.icon(
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        side: BorderSide(color: AppColors.greyNavFooter, width: 2.0),
+        side: BorderSide(color: AppColors.grey, width: 2.0),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
         minimumSize: const Size.fromHeight(50),
         foregroundColor: color,
@@ -34,7 +33,7 @@ class SocialLoginButton extends StatelessWidget {
       ),
       label: Text(
         label,
-        style: AppTextStyles.signupCardButtonText,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
     );
   }

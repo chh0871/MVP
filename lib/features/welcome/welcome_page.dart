@@ -73,23 +73,46 @@ class _WelcomePageState extends State<WelcomePage>
                   ScaleTransition(
                     scale: _pulseAnimation,
                     child: Image.asset(
-                      AppImages.cherry_logo,
+                      //change
+                      AppImages.cherryLogo,
                       width: 350,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     AppStrings.giveInStyle,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.greyNavFooter,
-                    ),
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
                   ),
+                  SizedBox(
+                    height: showBottomCard
+                        ? MediaQuery.of(context).size.height * 0.1
+                        : 0,
+                  )
                 ],
               ),
             ),
           ),
+          if (showBottomCard)
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 300),
+              opacity: showBottomCard ? 1.0 : 0.0,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: closeCard, // This will close the card
+                child: Container(
+                  // ignore: deprecated_member_use
+                  color: Colors.black.withOpacity(0.3), // dim color
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                      color: Colors.transparent,
+                    ),
+                  ),
+                ),
+              ),
+            ),
 
           // Bottom Buttons
           Positioned(
@@ -100,21 +123,17 @@ class _WelcomePageState extends State<WelcomePage>
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  width: double.infinity,
                   height: 50,
-                  child: PrimaryAppButton(
+                  width: double.infinity,
+                  child: FilledButton(
                     onPressed: () {
-                      navigator.replaceWith(AppRoutes.login);
+                      toggleCard(AuthMode.login);
                     },
-                    buttonText: AppStrings.login,
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    child: Text(AppStrings.login),
                   ),
                 ),
-                const SizedBox(height: 30),
+
+                const SizedBox(height: 20),
 
                 // Register Button
                 GestureDetector(
