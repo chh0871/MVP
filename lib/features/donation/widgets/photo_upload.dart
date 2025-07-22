@@ -34,8 +34,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
         });
       }
     } catch (e) {
-      print('Error picking image: $e');
-      if (context.mounted) {
+      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Error picking image: $e')),
         );
@@ -80,11 +79,10 @@ class _PhotoUploadState extends State<PhotoUpload> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
           child: Text(
-            AppStrings.take_photo_instruction,
+            AppStrings.takePhotoInstruction,
             style: GoogleFonts.instrumentSans(
               textStyle: TextStyle(
                 fontSize: 18,
@@ -110,36 +108,36 @@ class _PhotoUploadState extends State<PhotoUpload> {
               ),
               child: selectedImage != null
                   ? ClipRRect(
-                borderRadius: BorderRadius.circular(18),
-                child: Image.file(
-                  File(selectedImage!.path),
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                ),
-              )
-                  : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.photo_library,
-                    color: AppColors.grey,
-                    size: 24,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    AppStrings.take_photo,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.instrumentSans(
-                      textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        height: 20 / 16,
-                        color: AppColors.grey,
+                      borderRadius: BorderRadius.circular(18),
+                      child: Image.file(
+                        File(selectedImage!.path),
+                        fit: BoxFit.cover,
+                        width: double.infinity,
                       ),
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.photo_library,
+                          color: AppColors.grey,
+                          size: 24,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          AppStrings.takePhoto,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.instrumentSans(
+                            textStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              height: 20 / 16,
+                              color: AppColors.grey,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
             ),
           ),
         ),
@@ -147,4 +145,3 @@ class _PhotoUploadState extends State<PhotoUpload> {
     );
   }
 }
-
