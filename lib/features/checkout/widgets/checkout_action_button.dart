@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class CheckoutActionButton extends StatelessWidget {
   final Widget label;
   final Widget? icon;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const CheckoutActionButton({
     super.key,
     required this.label,
     this.icon,
-    required this.onPressed,
+    this.onPressed,
   });
 
   @override

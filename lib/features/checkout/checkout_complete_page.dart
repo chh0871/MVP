@@ -91,13 +91,12 @@ class CheckoutCompletePage extends StatelessWidget {
                     icon: SvgPicture.asset(
                       AppImages.checkoutTrackOrdersIcon,
                       colorFilter: ColorFilter.mode(
-                        Theme.of(context).colorScheme.primary,
+                        Theme.of(context).colorScheme.onSurfaceVariant,
                         BlendMode.srcIn,
                       ),
                       height: 24,
                       width: 24,
                     ),
-                    onPressed: () {},
                   ),
                   const SizedBox(width: 8),
                   CheckoutActionButton(
@@ -105,13 +104,12 @@ class CheckoutCompletePage extends StatelessWidget {
                     icon: SvgPicture.asset(
                       AppImages.checkoutImpactSummaryIcon,
                       colorFilter: ColorFilter.mode(
-                        Theme.of(context).colorScheme.primary,
+                        Theme.of(context).colorScheme.onSurfaceVariant,
                         BlendMode.srcIn,
                       ),
                       height: 24,
                       width: 24,
                     ),
-                    onPressed: () {},
                   ),
                   const SizedBox(width: 8),
                   CheckoutActionButton(
@@ -119,13 +117,12 @@ class CheckoutCompletePage extends StatelessWidget {
                     icon: SvgPicture.asset(
                       AppImages.checkoutReviewIcon,
                       colorFilter: ColorFilter.mode(
-                        Theme.of(context).colorScheme.primary,
+                        Theme.of(context).colorScheme.onSurfaceVariant,
                         BlendMode.srcIn,
                       ),
                       height: 24,
                       width: 24,
                     ),
-                    onPressed: () {},
                   ),
                 ],
               ),
