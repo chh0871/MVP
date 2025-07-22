@@ -1,3 +1,4 @@
+import 'package:cherry_mvp/features/donation/widgets/photo_upload.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/features/donation/widgets/photo_tips_bar.dart';
@@ -9,24 +10,19 @@ class DonationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: CloseButton(),
-        title: Text(AppStrings.donationsText),
-      ),
-      body: ListView(
-        children: [
-          ListTile(
-            title: Text(
-                'Upload clear, high-quality images to help you items shine. The more angles the better'),
-            textColor: Theme.of(context).colorScheme.secondary,
+      appBar: AppBar(title: Text(AppStrings.donationsText)),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: const [
+              PhotoUpload(),
+              PhotoTipsBar(),
+              SizedBox(height: 20),
+              DonationForm(),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: PhotoTipsBar(),
-          ),
-          SizedBox(height: 8),
-          DonationForm(),
-        ],
+        ),
       ),
     );
   }

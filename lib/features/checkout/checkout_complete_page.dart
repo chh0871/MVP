@@ -1,5 +1,5 @@
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/features/basket/basket_service.dart';
+import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/checkout/widgets/basket_list_item.dart';
 import 'package:cherry_mvp/features/checkout/widgets/checkout_action_button.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ class CheckoutCompletePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final basket = context.read<BasketService>();
+    final basket = context.read<CheckoutViewModel>();
     return Scaffold(
       body: SingleChildScrollView(
         padding: MediaQuery.of(context).padding,

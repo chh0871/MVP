@@ -25,11 +25,16 @@ dependencies:
   fl_chart: ^0.66.2
   google_fonts: ^6.2.1
   flutter_svg: ^2.2.0
+  dio: ^5.7.0
+  pretty_dio_logger: ^1.4.0
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.7
 
 flutter:
   uses-material-design: true

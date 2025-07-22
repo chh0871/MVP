@@ -55,10 +55,13 @@ class HomeScreenState extends State<HomeScreen> {
             child: DiscoverButton(),
           ),
         ),
-        SliverPadding(padding: EdgeInsets.all(16), sliver: DashboardPage()),
         SliverToBoxAdapter(
           child: AdExample(),
         ),
+        SliverPadding(
+          padding: EdgeInsets.all(16),
+          sliver: SliverToBoxAdapter(child: DashboardPage())
+        )
       ]),
     );
   }
