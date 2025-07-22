@@ -8,13 +8,13 @@ class Product {
   final String name;
   final String description;
   final String quality;
-  final List<String> product_images;
+  final List<String> productImages;
   @JsonKey(fromJson: _parseDouble)
   final double donation;
   @JsonKey(fromJson: _parseDouble)
   final double price;
   @JsonKey(defaultValue: '')
-  final String charity_image;
+  final String charityImage;
   @JsonKey(fromJson: _parseInt)
   final int likes;
   @JsonKey(fromJson: _parseInt)
@@ -26,10 +26,10 @@ class Product {
     required this.name,
     required this.description,
     required this.quality,
-    required this.product_images,
+    required this.productImages,
     required this.donation,
     required this.price,
-    required this.charity_image,
+    required this.charityImage,
     required this.likes,
     required this.number,
     required this.size,

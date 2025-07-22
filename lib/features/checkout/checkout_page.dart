@@ -1,4 +1,5 @@
 import 'package:cherry_mvp/core/config/app_strings.dart';
+import 'package:cherry_mvp/core/router/nav_routes.dart';
 import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/checkout/widgets/basket_list_item.dart';
 import 'package:cherry_mvp/features/checkout/widgets/delivery_options.dart';
@@ -62,18 +63,19 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
               ),
               height: 56,
               width: double.infinity,
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushReplacementNamed(
+                    context, AppRoutes.checkoutComplete),
                 child: Text(AppStrings.checkoutPay),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
           ])
         ],
       ),

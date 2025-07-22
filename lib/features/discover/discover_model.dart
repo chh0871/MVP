@@ -45,13 +45,13 @@ const dummyProducts = [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "8/Great",
     size: "M",
-    product_images: [
+    productImages: [
       AppImages.mensTShirt,
       AppImages.mensTShirt, // You can add more images or different ones
     ],
     donation: 6.40,
     price: 7.00,
-    charity_image: AppImages.homeStart,
+    charityImage: AppImages.homeStart,
     likes: 8,
     number: 8,
   ),
@@ -62,13 +62,13 @@ const dummyProducts = [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "6/Good",
     size: "8",
-    product_images: [
+    productImages: [
       AppImages.shoes2,
       AppImages.shoes2,
     ],
     donation: 16.00,
     price: 17.00,
-    charity_image: AppImages.homeStart,
+    charityImage: AppImages.homeStart,
     likes: 33,
     number: 8,
   ),
@@ -79,12 +79,12 @@ const dummyProducts = [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "6/Good",
     size: "8",
-    product_images: [
+    productImages: [
       AppImages.shoes2,
     ],
     donation: 17.00,
     price: 17.00,
-    charity_image: AppImages.homeStart,
+    charityImage: AppImages.homeStart,
     likes: 33,
     number: 9,
   ),
@@ -95,12 +95,12 @@ const dummyProducts = [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "6/Good",
     size: "8",
-    product_images: [
+    productImages: [
       AppImages.shoes2,
     ],
     donation: 17.00,
     price: 17.00,
-    charity_image: AppImages.homeStart,
+    charityImage: AppImages.homeStart,
     likes: 33,
     number: 9,
   )
