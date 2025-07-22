@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/core/config/app_images.dart';
-import 'package:cherry_mvp/core/models/charity_category.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/model.dart';
 
@@ -7,9 +6,33 @@ final List<Charity> dummyCharities = [
   Charity(
     charityName: "WaterAid",
     description:
-    "In a small village in Malawi, WaterAid recently completed the construction of a new well, providing clean, safe drinking water to hundreds of residents. No more long treks for water. No more toxic sources!",
-    charityImage: AppImages.discover_image1,
-    charityLogo: AppImages.waterAid_logo,
+        "In a small village in Malawi, WaterAid recently completed the construction of a new well, providing clean, safe drinking water to hundreds of residents. No more long treks for water. No more toxic sources!",
+    charityImage: AppImages.discoverImage1,
+    charityLogo: AppImages.waterAidLogo,
+    likes: 3,
+  ),
+  Charity(
+    charityName: "WWF",
+    description:
+        "After years of conservation efforts, WWF announced a rise in sea turtle hatchlings on a beach in Costa Rica! Thanks to beach patrols and community engagement, baby turtles are making their way to the ocean in record numbers. Help them shell-ebrate!",
+    charityImage: AppImages.wwf,
+    charityLogo: AppImages.wwfLogo,
+    likes: 3,
+  ),
+  Charity(
+    charityName: "Shelter",
+    description:
+        "Shelter UK helped dozens of families move into secure housing last month. Thanks to their advocacy and support, families now have a place to call home.",
+    charityImage: AppImages.shelter,
+    charityLogo: AppImages.shelterLogo,
+    likes: 3,
+  ),
+  Charity(
+    charityName: "Mind",
+    description:
+        "The mental health charity Mind has rolled out a series of free community workshops across the UK, reaching over 5,000 people. These sessions equip individuals with tools to manage stress and anxiety.",
+    charityImage: AppImages.mind,
+    charityLogo: AppImages.mindLogo,
     likes: 3,
   ),
 ];
@@ -18,12 +41,13 @@ const dummyProducts = [
   Product(
     id: "1",
     name: "Men's Grey Button-up T-Shirt",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "8/Great",
     size: "M",
     product_images: [
       AppImages.mensTShirt,
-      AppImages.mensTShirt,  // You can add more images or different ones
+      AppImages.mensTShirt, // You can add more images or different ones
     ],
     donation: 6.40,
     price: 7.00,
@@ -34,7 +58,8 @@ const dummyProducts = [
   Product(
     id: "2",
     name: "Shoes",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "6/Good",
     size: "8",
     product_images: [
@@ -50,7 +75,8 @@ const dummyProducts = [
   Product(
     id: "3",
     name: "Shoes",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "6/Good",
     size: "8",
     product_images: [
@@ -65,7 +91,8 @@ const dummyProducts = [
   Product(
     id: "4",
     name: "Shoes",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     quality: "6/Good",
     size: "8",
     product_images: [
@@ -78,4 +105,3 @@ const dummyProducts = [
     number: 9,
   )
 ];
-

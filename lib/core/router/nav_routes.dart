@@ -1,4 +1,5 @@
 // feature/118-product-details-page
+import 'package:cherry_mvp/features/checkout/checkout_page.dart';
 import 'package:cherry_mvp/features/donation/donation_page.dart';
 import 'package:cherry_mvp/features/products/product_page.dart';
 
@@ -6,9 +7,9 @@ import 'package:cherry_mvp/features/discover/discover_page.dart';
 import 'package:cherry_mvp/features/settings/settings_page.dart';
 // main
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/features/register/registerpage.dart';
-import 'package:cherry_mvp/features/home/homepage.dart';
-import 'package:cherry_mvp/features/login/loginpage.dart';
+import 'package:cherry_mvp/features/register/register_page.dart';
+import 'package:cherry_mvp/features/home/home_page.dart';
+import 'package:cherry_mvp/features/login/login_page.dart';
 import 'package:cherry_mvp/features/welcome/welcome_page.dart';
 
 class AppRoutes {
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String product = '/product';
   static const String settingspage = '/settings';
   static const String donations = '/donations';
+  static const String checkout = '/checkout';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -41,6 +43,11 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => SettingsPage());
       case donations:
         return MaterialPageRoute(builder: (_) => DonationPage());
+      case checkout:
+        return MaterialPageRoute(
+          fullscreenDialog: true,
+          builder: (_) => CheckoutPage(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

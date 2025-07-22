@@ -26,37 +26,43 @@ class ProductInformation extends StatelessWidget {
             spacing: 16,
             children: [
               SizedBox(
-                  width: 110,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('£${product.donation.toStringAsFixed(2)}',
-                          style: TextStyle(color: AppColors.greyTextColorTwo)),
-                      Row(
-                        spacing: 4,
-                        children: [
-                          Text('£${product.price.toStringAsFixed(2)}',
-                              style: TextStyle(color: AppColors.primary)),
-                          Icon(
-                            Icons.verified_user,
-                            color: AppColors.primary,
-                          )
-                        ],
-                      )
-                    ],
-                  )),
+                width: 110,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('£${product.donation.toStringAsFixed(2)}',
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurfaceVariant)),
+                    Row(
+                      spacing: 4,
+                      children: [
+                        Text('£${product.price.toStringAsFixed(2)}',
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary)),
+                        Icon(
+                          Icons.verified_user,
+                          color: Theme.of(context).colorScheme.primary,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
               SizedBox(
                 width: 48,
                 child: Text(product.size,
-                    style: TextStyle(color: AppColors.greyTextColor)),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant)),
               ),
               Expanded(
                 child: Text(product.quality,
-                    style: TextStyle(color: AppColors.greenBgColor)),
+                    style: TextStyle(color: AppColors.green)),
               ),
               Icon(
                 Icons.workspace_premium,
-                color: AppColors.greyTextColor,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ],
           )

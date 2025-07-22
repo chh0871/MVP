@@ -1,5 +1,5 @@
 import 'dart:core';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
 
 class ToggleSection extends StatelessWidget {
@@ -22,37 +22,33 @@ class ToggleSection extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: EdgeInsets.only(top: 15.0),
-        child: CupertinoSwitch(
+        child: Switch.adaptive(
           value: isSwitchedDark,
           onChanged: toggleSwitchDark,
-          inactiveTrackColor: AppColors.greyTextColor,
-          activeTrackColor: AppColors.primary,
+          inactiveTrackColor: Theme.of(context).colorScheme.onSurfaceVariant,
+          activeTrackColor: Theme.of(context).colorScheme.primary,
         ),
       ),
       Text(
         AppStrings.darkModeText,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w600,
-        ),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
       ),
       Padding(
         padding: EdgeInsets.only(top: 5.0),
-        child: CupertinoSwitch(
+        child: Switch.adaptive(
           value: isSwitchedHide,
           onChanged: toggleSwitchHide,
-          inactiveTrackColor: AppColors.greyTextColor,
-          activeTrackColor: AppColors.primary,
+          inactiveTrackColor: Theme.of(context).colorScheme.onSurfaceVariant,
+          activeTrackColor: Theme.of(context).colorScheme.primary,
         ),
       ),
       Text(
         AppStrings.listListingsText,
-        style: TextStyle(
-          fontSize: 13,
-          color: AppColors.greyTextColor,
-          fontWeight: FontWeight.w600,
-        ),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
       ),
     ]);
   }

@@ -1,65 +1,74 @@
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/core/reusablewidgets/profile_user_order_details.dart';
+import 'package:cherry_mvp/core/widgets/profile_user_order_details.dart';
 import 'package:flutter/material.dart';
 
 class UserOrderDetails extends StatelessWidget {
   const UserOrderDetails({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
+        SizedBox(
+          height: 96,
           child: Row(
             children: [
-              UserOrderTile(
-                  title: AppStrings.profile_user_orders,
+              Expanded(
+                child: UserOrderTile(
+                  title: AppStrings.profileUserOrders,
                   onPressed: () {},
-                  assetPath: AppImages.profile_order),
-              UserOrderTile(
-                  title: AppStrings.profile_user_liked,
+                  assetPath: AppImages.profileOrder,
+                ),
+              ),
+              SizedBox(width: 8),
+              Expanded(
+                child: UserOrderTile(
+                  title: AppStrings.profileUserLiked,
                   onPressed: () {},
-                  assetPath: AppImages.profile_liked),
-              UserOrderTile(
-                  title: AppStrings.profile_user_listings,
+                  assetPath: AppImages.profileLiked,
+                ),
+              ),
+              SizedBox(width: 8),
+              Expanded(
+                child: UserOrderTile(
+                  title: AppStrings.profileUserListings,
                   onPressed: () {},
-                  assetPath: AppImages.profile_listings),
+                  assetPath: AppImages.profileListings,
+                ),
+              ),
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 16),
         Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(16.0),
           width: double.infinity,
-          height: 41,
           decoration: BoxDecoration(
-            color: AppColors.lightGreyFill,
-            borderRadius: BorderRadius.circular(10),
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            spacing: 8,
             children: [
-              Text(
-                AppStrings.profile_user_Buyer_disc,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.greyTextColorTwo,
+              Expanded(
+                child: Text(
+                  AppStrings.profileUserBuyerDisc,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
                 ),
               ),
               Image.asset(
-                AppImages.profile_discount,
-                color: AppColors.piechart_red,
+                AppImages.profileDiscount,
+                color: Theme.of(context).colorScheme.primary,
                 height: 18,
                 width: 18,
               ),
             ],
           ),
         ),
-        const SizedBox(height: 10),
       ],
     );
   }

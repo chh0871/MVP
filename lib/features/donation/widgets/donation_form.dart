@@ -6,10 +6,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 import 'package:cherry_mvp/features/donation/widgets/donation_options.dart';
-import 'package:cherry_mvp/features/donation/widgets/donation_form_fields.dart';
-import 'package:cherry_mvp/features/donation/widgets/donation_dropdown_fields.dart';
+import 'package:cherry_mvp/features/donation/widgets/donation_form_field.dart';
+import 'package:cherry_mvp/features/donation/widgets/donation_dropdown_field.dart';
 import 'package:cherry_mvp/features/donation/donation_viewmodel.dart';
-import 'package:cherry_mvp/core/reusablewidgets/reusablewidgets.dart';
 
 class DonationForm extends StatefulWidget {
   const DonationForm({super.key});
@@ -23,7 +22,8 @@ class DonationFormState extends State<DonationForm> {
 
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _addToCollectionController = TextEditingController();
+  final TextEditingController _addToCollectionController =
+      TextEditingController();
 
   String selectedCategory = '';
   String selectedPrice = '';
@@ -67,67 +67,75 @@ class DonationFormState extends State<DonationForm> {
       key: _formKey,
       child: Column(
         children: [
-          DonationFormFields(
-            formFieldsController: _titleController,
-            formFieldsHintText: TitleHintText,
-            formFieldsTitle: TitleText,
-            icon: Icons.add_circle,
-            iconSuffix: null,
+          DonationFormField(
+            controller: _titleController,
+            hintText: titleHintText,
+            title: titleText,
+            hintIcon: Icons.add_circle,
           ),
-          DonationFormFields(
-            formFieldsController: _descriptionController,
-            formFieldsHintText: DescriptionHintText,
-            formFieldsTitle: DescriptionText,
-            icon: Icons.add_circle,
-            iconSuffix: null,
+          DonationFormField(
+            controller: _descriptionController,
+            hintText: descriptionHintText,
+            title: descriptionText,
+            hintIcon: Icons.add_circle,
+            minLines: 3,
           ),
-          DropdownFields(
-            formFieldsHintText: CategoryHintText,
-            dropdownList: CategoryDropdownList,
+          DonationDropdownField(
+            formFieldsHintText: categoryHintText,
+            dropdownList: categoryDropdownList,
             onChanged: (val) => setState(() => selectedCategory = val!),
           ),
-          DropdownFields(
-            formFieldsHintText: PriceHintText,
-            dropdownList: PriceDropdownList,
+          DonationDropdownField(
+            formFieldsHintText: priceHintText,
+            dropdownList: priceDropdownList,
             onChanged: (val) => setState(() => selectedPrice = val!),
           ),
-          DropdownFields(
-            formFieldsHintText: ConditionHintText,
-            dropdownList: ConditionDropdownList,
+          DonationDropdownField(
+            formFieldsHintText: conditionHintText,
+            dropdownList: conditionDropdownList,
             onChanged: (val) => setState(() => selectedCondition = val!),
           ),
-          DonationFormFields(
-            formFieldsController: _addToCollectionController,
-            formFieldsHintText: AddToCollectionHintText,
-            formFieldsTitle: AddToCollectionText,
-            icon: null,
-            iconSuffix: Icons.add,
+          DonationFormField(
+            controller: _addToCollectionController,
+            hintText: addToCollectionHintText,
+            title: addToCollectionText,
+            suffixIcon: Icons.add,
           ),
           DonationOptions(
             isSwitchedOpenToOtherCharity: isSwitchedOpenToOtherCharity,
             toggleSwitchOpenToOtherCharity: toggleSwitchOpenToOtherCharity,
             isSwitchedOpenToOffer: isSwitchedOpenToOffer,
             toggleSwitchOpenToOffer: toggleSwitchOpenToOffer,
-            isSwitchedApplicableBuyerDiscounts: isSwitchedApplicableBuyerDiscounts,
-            toggleSwitchApplicableBuyerDiscounts: toggleSwitchApplicableBuyerDiscounts,
+            isSwitchedApplicableBuyerDiscounts:
+                isSwitchedApplicableBuyerDiscounts,
+            toggleSwitchApplicableBuyerDiscounts:
+                toggleSwitchApplicableBuyerDiscounts,
           ),
-          const SizedBox(height: 20),
-          viewModel.status.type == StatusType.loading
-              ? const LoadingView()
-              : PrimaryAppButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                if (selectedCategory.isEmpty || selectedPrice.isEmpty || selectedCondition.isEmpty) {
-                  Fluttertoast.showToast(msg: 'Please select all dropdowns');
-                  return;
-                }
-                final request = buildDonationRequest();
-                viewModel.submitDonation(request);
-              }
-            },
-            buttonText: "Submit Donation",
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: viewModel.status.type == StatusType.loading
+                ? const Center(child: CircularProgressIndicator())
+                : SizedBox(
+                    height: 56,
+                    width: double.infinity,
+                    child: FilledButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          if (selectedCategory.isEmpty ||
+                              selectedPrice.isEmpty ||
+                              selectedCondition.isEmpty) {
+                            Fluttertoast.showToast(
+                                msg: 'Please select all dropdowns');
+                            return;
+                          }
+                          final request = buildDonationRequest();
+                          viewModel.submitDonation(request);
+                        }
+                      },
+                      child: Text("Submit Donation"),
+                    ),
+                  ),
           ),
-          const SizedBox(height: 20),
         ],
       ),
     );

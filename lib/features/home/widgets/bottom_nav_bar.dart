@@ -1,26 +1,28 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_images.dart';
+import 'package:cherry_mvp/features/search/widgets/search.dart';
 import 'package:flutter/material.dart';
-
-
 
 /// A reusable navigation bar widget that be use across the app.
 class CherryBottomNavBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemSelected;
-  final Color selectedColor;
-  final Color unselectedColor;
+  final Color? selectedColor;
+  final Color? unselectedColor;
 
   const CherryBottomNavBar({
     super.key,
     required this.selectedIndex,
     required this.onItemSelected,
-    this.selectedColor = AppColors.primary,
-    this.unselectedColor = AppColors.greyNavFooter,
+    this.selectedColor,
+    this.unselectedColor,
   });
 
   @override
   Widget build(BuildContext context) {
+    final selectedColor =
+        this.selectedColor ?? Theme.of(context).colorScheme.primary;
+    final unselectedColor =
+        this.unselectedColor ?? Theme.of(context).colorScheme.onSurfaceVariant;
     return DecoratedBox(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -72,12 +74,7 @@ class CherryBottomNavBar extends StatelessWidget {
             label: 'Give',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              AppImages.icSearch,
-              width: 24,
-              height: 24,
-              color: selectedIndex == 3 ? selectedColor : unselectedColor,
-            ),
+            icon: Search(),
             label: 'Search',
           ),
           BottomNavigationBarItem(

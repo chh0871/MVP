@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:cherry_mvp/core/reusablewidgets/primary_button.dart';
 import 'package:cherry_mvp/features/welcome/widgets/signup_card.dart';
 import 'package:flutter/material.dart';
 import 'package:cherry_mvp/core/config/config.dart';
@@ -59,13 +58,13 @@ class _WelcomePageState extends State<WelcomePage>
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Positioned.fill(
             child: Image.asset(
               AppImages.welcomeBg,
               fit: BoxFit.cover,
             ),
           ),
+
           Center(
             child: FittedBox(
               child: Column(
@@ -87,51 +86,25 @@ class _WelcomePageState extends State<WelcomePage>
                       color: AppColors.greyNavFooter,
                     ),
                   ),
-                  //when card open background will be adjusted
-                  SizedBox(
-                    height: showBottomCard
-                        ? MediaQuery.of(context).size.height * 0.1
-                        : 0,
-                  )
                 ],
               ),
             ),
           ),
-          if (showBottomCard)
-            AnimatedOpacity(
-              duration: const Duration(milliseconds: 300),
-              opacity: showBottomCard ? 1.0 : 0.0,
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: closeCard, // This will close the card
-                child: Container(
-                  // ignore: deprecated_member_use
-                  color: Colors.black.withOpacity(0.3), // dim color
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child: Container(
-                      color: Colors.transparent,
-                    ),
-                  ),
-                ),
-              ),
-            ),
 
           // Bottom Buttons
           Positioned(
-            bottom: 50,
-            left: 20,
-            right: 20,
+            bottom: MediaQuery.of(context).padding.bottom + 24,
+            left: 16,
+            right: 16,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Login Button
                 SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: PrimaryAppButton(
                     onPressed: () {
-                      toggleCard(AuthMode.login);
+                      navigator.replaceWith(AppRoutes.login);
                     },
                     buttonText: AppStrings.login,
                     textStyle: const TextStyle(

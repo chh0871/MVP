@@ -1,7 +1,6 @@
-class DiscoverItem { 
-  final String item_image;  
-  final int likes;  
- 
-  const DiscoverItem(
-      {required this.item_image, required this.likes});
+class DiscoverItem {
+  final String itemImage;
+  final int likes;
+
+  const DiscoverItem({required this.itemImage, required this.likes});
 }

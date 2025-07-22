@@ -1,5 +1,5 @@
 import 'package:cherry_mvp/core/models/product.dart';
-import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
+import 'package:cherry_mvp/core/widgets/image_carousel.dart';
 import 'package:flutter/material.dart';
 
 class ProductHeaderCarousel extends StatelessWidget {
