@@ -85,4 +85,8 @@ class AppImages {
   static const mindLogo = '${_path}mind_logo.png';
   static const paymentMethodsGoogleIcon = '${_path}google.png';
   static const paymentMethodsAppleIcon = '${_path}apple.png';
+
+  static const checkoutTrackOrdersIcon = '${_path}track_orders.svg';
+  static const checkoutImpactSummaryIcon = '${_path}impact_summary.svg';
+  static const checkoutReviewIcon = '${_path}review.svg';
 }
