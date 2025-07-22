@@ -120,7 +120,6 @@ class AuthCard extends StatelessWidget {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  //  log("message");
                   isLoading
                       ? () {}
                       : isLogin
