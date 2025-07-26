@@ -34,7 +34,6 @@ class _DashboardPageState extends State<DashboardPage> {
     if (!_hasInitialized) {
       _hasInitialized = true;
       context.read<HomeViewModel>().fetchProducts();
-      // context.read<CategoryViewModel>().fetchCategories();
     }
   }
 
