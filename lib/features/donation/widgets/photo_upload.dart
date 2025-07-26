@@ -1,12 +1,8 @@
 import 'dart:io';
 
 import 'package:cherry_mvp/core/config/app_strings.dart';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../../../core/config/app_colors.dart';
 
 class PhotoUpload extends StatefulWidget {
   const PhotoUpload({super.key});
@@ -24,7 +20,7 @@ class _PhotoUploadState extends State<PhotoUpload> {
       final XFile? picked = await picker.pickImage(
         source: source,
         maxWidth: double.infinity,
-        maxHeight: 512,
+        maxHeight: 1024,
         imageQuality: 85,
       );
 
@@ -42,106 +38,98 @@ class _PhotoUploadState extends State<PhotoUpload> {
     }
   }
 
-  void _pickProductImage() {
-    showModalBottomSheet(
+  void _pickProductImage() async {
+    final source = await showModalBottomSheet<ImageSource>(
       context: context,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
       builder: (context) => SafeArea(
-        child: Wrap(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBox(height: 16),
             ListTile(
               leading: const Icon(Icons.camera_alt),
               title: const Text(AppStrings.cameraPhoto),
               onTap: () {
-                Navigator.pop(context);
-                pickImage(ImageSource.camera);
+                Navigator.pop(context, ImageSource.camera);
               },
             ),
             ListTile(
               leading: const Icon(Icons.photo_library),
               title: const Text(AppStrings.galleryPhoto),
               onTap: () {
-                Navigator.pop(context);
-                pickImage(ImageSource.gallery);
+                Navigator.pop(context, ImageSource.gallery);
               },
             ),
           ],
         ),
       ),
     );
+    if (source == null) return;
+    await pickImage(source);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-          child: Text(
-            AppStrings.takePhotoInstruction,
-            style: GoogleFonts.instrumentSans(
-              textStyle: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-                height: 26 / 18,
-                letterSpacing: -0.75,
-                color: AppColors.grey,
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-          child: GestureDetector(
-            onTap: _pickProductImage,
-            child: Container(
-              height: selectedImage != null ? 406 : 140,
-              width: 460,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: AppColors.grey,
-                border: Border.all(color: AppColors.red, width: 1),
-              ),
-              child: selectedImage != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(18),
-                      child: Image.file(
-                        File(selectedImage!.path),
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
-                    )
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.photo_library,
-                          color: AppColors.grey,
-                          size: 24,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          AppStrings.takePhoto,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.instrumentSans(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              height: 20 / 16,
-                              color: AppColors.grey,
-                            ),
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 16,
+        children: [
+          Text(AppStrings.takePhotoInstruction),
+          Material(
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(20),
+            child: InkWell(
+              onTap: _pickProductImage,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 1,
+                  ),
+                ),
+                height: selectedImage != null
+                    ? MediaQuery.of(context).size.width - 32
+                    : 160,
+                width: double.infinity,
+                child: selectedImage != null
+                    ? Ink(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            image: FileImage(File(selectedImage!.path)),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      ],
-                    ),
+                      )
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.photo_library,
+                            size: 24,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            AppStrings.takePhoto,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
