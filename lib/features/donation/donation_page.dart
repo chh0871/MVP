@@ -10,18 +10,19 @@ class DonationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppStrings.donationsText)),
+      appBar: AppBar(
+          leading: CloseButton(),
+          title: Text(
+            AppStrings.donationsText,
+          )),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: const [
-              PhotoUpload(),
-              PhotoTipsBar(),
-              SizedBox(height: 20),
-              DonationForm(),
-            ],
-          ),
+        child: Column(
+          children: const [
+            PhotoUpload(),
+            PhotoTipsBar(),
+            SizedBox(height: 16),
+            DonationForm(),
+          ],
         ),
       ),
     );
