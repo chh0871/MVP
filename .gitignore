@@ -47,3 +47,6 @@ app.*.map.json
 
 .env
 .metadata
+
+# Ignore generated JSON files
+lib/core/models/category.g.dart

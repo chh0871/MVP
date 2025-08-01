@@ -1,5 +1,6 @@
 import 'package:cherry_mvp/core/router/nav_provider.dart';
 import 'package:cherry_mvp/core/router/nav_routes.dart';
+import 'package:cherry_mvp/features/categories/category_view_model.dart';
 import 'package:cherry_mvp/features/products/product_card.dart';
 import 'package:cherry_mvp/features/products/product_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,13 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   bool _hasInitialized = false;
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<CategoryViewModel>(context, listen: false).fetchCategories();
+    });
+  }
 
   @override
   void didChangeDependencies() {
@@ -33,8 +41,10 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
       builder: (context, homeViewModel, _) {
-        final navigator = Provider.of<NavigationProvider>(context, listen: false);
-        final productViewModel = Provider.of<ProductViewModel>(context, listen: false);
+        final navigator =
+            Provider.of<NavigationProvider>(context, listen: false);
+        final productViewModel =
+            Provider.of<ProductViewModel>(context, listen: false);
         final products = homeViewModel.products;
         final status = homeViewModel.status;
 
@@ -58,30 +68,30 @@ class _DashboardPageState extends State<DashboardPage> {
 
               // Show products grid when data is loaded
               else if (products.isNotEmpty)
-                  GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: products.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 0.61,
-                    ),
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          productViewModel.setProduct(products[index]);
-                          navigator.navigateTo(AppRoutes.product);
-                        },
-                        child: ProductCard(product: products[index]),
-                      );
-                    },
-                  )
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: products.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 0.61,
+                  ),
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        productViewModel.setProduct(products[index]);
+                        navigator.navigateTo(AppRoutes.product);
+                      },
+                      child: ProductCard(product: products[index]),
+                    );
+                  },
+                )
 
-                // Show empty state if no products
-                else
-                  const DashboardEmptyWidget(),
+              // Show empty state if no products
+              else
+                const DashboardEmptyWidget(),
             ],
           ),
         );

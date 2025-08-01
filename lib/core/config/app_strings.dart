@@ -109,6 +109,9 @@ class AppStrings {
   static const booksText = "Books";
   static const toysText = "Toys & Board Games";
   static const dvdText = "DVDs & Video Games";
+  static const failedToLoadCategories = 'Failed to load categories';
+  static const loadingCategories = 'Loading categories...';
+  static const noCategoriesAvailable = 'No categories available';
 
   // Settings and Misc
   static const deleteAccountText = "Delete Account";
