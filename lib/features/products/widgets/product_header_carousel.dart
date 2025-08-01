@@ -36,7 +36,7 @@ class ProductHeaderCarousel extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   child: Padding(
                     padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     child: Row(
                       children: [
                         Icon(Icons.favorite,
@@ -49,9 +49,8 @@ class ProductHeaderCarousel extends StatelessWidget {
                               .textTheme
                               .titleSmall
                               ?.copyWith(
-                            color:
-                            Theme.of(context).colorScheme.primary,
-                          ),
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
                         ),
                       ],
                     ),

@@ -3,7 +3,7 @@ import 'package:cherry_mvp/features/categories/category_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_viewmodel.dart';
 import 'package:cherry_mvp/features/donation/donation_repository.dart';
-import 'package:cherry_mvp/features/donation/donation_viewmodel.dart';
+import 'package:cherry_mvp/features/donation/donation_view_model.dart';
 import 'package:cherry_mvp/features/products/product_repository.dart';
 import 'package:cherry_mvp/features/products/product_viewmodel.dart';
 import 'package:cherry_mvp/features/search/search_repository.dart';

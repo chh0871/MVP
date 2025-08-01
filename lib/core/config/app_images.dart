@@ -1,6 +1,8 @@
 class AppImages {
   static const _path = 'assets/images/';
 
+  static const authAppleIcon = '${_path}authAppleIcon.png';
+  static const authGoogleIcon = '${_path}authGoogleIcon.png';
   static const icHome = '${_path}ic_home.png';
   static const icHomeSelected = '${_path}ic_home_selected.png';
   static const icSearch = '${_path}search.png';
@@ -76,11 +78,16 @@ class AppImages {
   static const tshirtIcon = '${_path}icon_tshirt.png';
   static const wandIcon = '${_path}icon_wand.png';
   static const rulerIcon = '${_path}icon_ruler.png';
-
   static const wwf = '${_path}wwf.png';
   static const wwfLogo = '${_path}wwf_logo.png';
   static const shelter = '${_path}shelter.png';
   static const shelterLogo = '${_path}shelter_logo.png';
   static const mind = '${_path}mind.png';
   static const mindLogo = '${_path}mind_logo.png';
+  static const paymentMethodsGoogleIcon = '${_path}google.png';
+  static const paymentMethodsAppleIcon = '${_path}apple.png';
+
+  static const checkoutTrackOrdersIcon = '${_path}track_orders.svg';
+  static const checkoutImpactSummaryIcon = '${_path}impact_summary.svg';
+  static const checkoutReviewIcon = '${_path}review.svg';
 }

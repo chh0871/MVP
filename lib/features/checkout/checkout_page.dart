@@ -1,7 +1,11 @@
 import 'package:cherry_mvp/core/config/app_strings.dart';
+import 'package:cherry_mvp/core/router/nav_routes.dart';
 import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
+import 'package:cherry_mvp/features/checkout/payment_type.dart';
 import 'package:cherry_mvp/features/checkout/widgets/basket_list_item.dart';
+import 'package:cherry_mvp/features/checkout/widgets/card_details_bottom_sheet.dart';
 import 'package:cherry_mvp/features/checkout/widgets/delivery_options.dart';
+import 'package:cherry_mvp/features/checkout/widgets/select_payment_type_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +40,23 @@ class _CheckoutPageState extends State<CheckoutPage> {
           DeliveryOptions(),
           SliverList.list(children: [
             ListTile(
-              onTap: () {},
+              onTap: () async {
+                final selected = await showModalBottomSheet<PaymentType>(
+                  context: context,
+                  enableDrag: false,
+                  isScrollControlled: false,
+                  builder: (context) => const SelectPaymentTypeBottomSheet(),
+                );
+                if (selected == null || !context.mounted) return;
+                if (selected == PaymentType.card) {
+                  showModalBottomSheet(
+                    context: context,
+                    enableDrag: false,
+                    isScrollControlled: true,
+                    builder: (context) => const CardDetailsBottomSheet(),
+                  );
+                }
+              },
               title: const Text(AppStrings.checkoutPayment),
               titleTextStyle: Theme.of(context).textTheme.labelMedium,
               subtitle: const Text(AppStrings.checkoutChoosePayment),
@@ -48,9 +68,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.lock,
                     size: 14,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   Text(
                     AppStrings.checkoutSecure,
@@ -62,18 +83,19 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 8,
               ),
               height: 56,
               width: double.infinity,
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushReplacementNamed(
+                    context, AppRoutes.checkoutComplete),
                 child: Text(AppStrings.checkoutPay),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).padding.bottom + 16),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
           ])
         ],
       ),

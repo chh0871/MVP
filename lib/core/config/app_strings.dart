@@ -1,16 +1,21 @@
 class AppStrings {
   static const appName = 'Cherry';
   static const loginToContinue = 'Login to continue';
+  static const continueWithEmail = 'Continue with email';
+  static const continueWithApple = "Continue with Apple";
+  static const continueWithGoogle = "Continue with Google";
+  static const or = 'or';
   static const next = 'NEXT';
   static const skip = 'SKIP';
   static const login = 'Login';
   static const register = 'Sign Up';
   static const createAccount = 'Create Account';
   static const welcome = 'Welcome!';
-  static const take_photo = 'Upload or take new photos';
+  static const takePhoto = 'Upload or take new photos';
   static const cameraPhoto = 'Take Photo';
-  static const galleryPhoto='Choose from Gallery';
-  static const take_photo_instruction ='Upload clear, high-quality images to help your items shine. The more angles the better.';
+  static const galleryPhoto = 'Choose from Gallery';
+  static const takePhotoInstruction =
+      'Upload clear, high-quality images to help your items shine. The more angles the better.';
   static const professional = 'Professionals';
   static const signUpInstruction =
       'Click below to sign up as a parent or a healthcare professional';
@@ -29,7 +34,7 @@ class AppStrings {
   static const emptyStateSearchText = 'No products found... 🔎';
   static const emptyStateMessageText = 'No messages just yet... 😢';
   static const messages = 'Messages';
-  
+
   // Dashboard specific strings
   static const loadingProducts = 'Loading products...';
   static const failedToLoadProducts = 'Failed to load products';
@@ -213,4 +218,33 @@ class AppStrings {
   static const checkoutSecure = 'This is a secure checkout';
   static const currencySymbol = '£';
   static const checkoutPay = 'Pay';
+  static const cardDetailsTitle = 'Card Details';
+  static const cardDetailsCardNumber = 'Card Number';
+  static const cardDetailsCardNumberHint = '1234 5678 9012 3456';
+  static const cardDetailsExpiryHint = 'MM/YY';
+  static const cardDetailsCvcHint = 'CVC';
+  static const cardDetailsSaveCard = 'Save card details for future payments';
+  static const cardDetailsCountryOrRegion = 'Country or region';
+  static const cardDetailsAgreeToSave = 'Agree to save these card details for '
+      'faster checkout. You can remove the card anytime in settings, '
+      'under payments.';
+  static const cardDetailsSaveAndUse = 'Save and use this card';
+  static const cardDetailsSave = 'Save';
+  static const paymentMethodsTitle = 'Payment Methods';
+  static const paymentMethodsInfo =
+      'Your payment information will never be shared with the seller';
+  static const paymentMethodsCard = 'Card';
+  static const paymentMethodsGooglePay = 'Google Pay';
+  static const paymentMethodsApplePay = 'Apple Pay';
+  static const paymentMethodsPay = 'Pay';
+
+  static const checkoutOrderPlaced = 'Order Placed 🎉';
+  static const checkoutThankYou = 'Thank you';
+  static const checkoutEscrowInfo =
+      'Your payment will be held in escrow until the seller sends the item and '
+      'you confirm it, after which it will be sent to the charity!';
+  static const checkoutTrackOrders = 'Track Orders';
+  static const checkoutImpactSummary = 'Impact Summary';
+  static const checkoutReview = 'Review';
+  static const checkoutContinueShopping = 'Continue Shopping';
 }
