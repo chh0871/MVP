@@ -1,6 +1,10 @@
 class AppStrings {
   static const appName = 'Cherry';
   static const loginToContinue = 'Login to continue';
+  static const continueWithEmail = 'Continue with email';
+  static const continueWithApple = "Continue with Apple";
+  static const continueWithGoogle = "Continue with Google";
+  static const or = 'or';
   static const next = 'NEXT';
   static const skip = 'SKIP';
   static const login = 'Login';
@@ -105,6 +109,9 @@ class AppStrings {
   static const booksText = "Books";
   static const toysText = "Toys & Board Games";
   static const dvdText = "DVDs & Video Games";
+  static const failedToLoadCategories = 'Failed to load categories';
+  static const loadingCategories = 'Loading categories...';
+  static const noCategoriesAvailable = 'No categories available';
 
   // Settings and Misc
   static const deleteAccountText = "Delete Account";
