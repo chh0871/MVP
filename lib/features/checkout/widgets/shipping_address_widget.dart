@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/features/checkout/widgets/shipping_address_widget.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:cherry_mvp/features/checkout/constants/address_constants.dart';
 
 class ShippingAddressWidget extends StatefulWidget {
   final Function(PlaceDetails)? onAddressSelected;
@@ -28,13 +28,18 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
   bool _isAddressConfirmed = false; // New state to track confirmation
   
 
- final String _apiKey = dotenv.env['GOOGLE_API_KEY'] ?? '';
+ final String _apiKey = dotenv.env[AddressConstants.apiKeyEnvVar] ?? '';
   
   @override
   void initState() {
     super.initState();
     _addressController.addListener(_onAddressChanged);
     _addressFocusNode.addListener(_onFocusChanged);
+    
+    // Check if API key is available
+    if (_apiKey.isEmpty) {
+      debugPrint(AddressConstants.apiKeyMissingError);
+    }
   }
 
   @override
@@ -77,7 +82,7 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
   }
 
   Future<void> _searchPlaces(String query) async {
-    if (query.isEmpty || _isAddressConfirmed) return;
+    if (query.isEmpty || _isAddressConfirmed || _apiKey.isEmpty) return;
     
     setState(() {
       _isLoading = true;
@@ -88,8 +93,8 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
           'https://maps.googleapis.com/maps/api/place/autocomplete/json'
           '?input=${Uri.encodeComponent(query)}'
           '&key=$_apiKey'
-          '&types=address'
-          '&components=country:us'; // Adjust country as needed
+          '&types=${AddressConstants.addressTypeFilter}'
+          '&components=${AddressConstants.countryRestriction}';
 
       final response = await http.get(Uri.parse(url));
       
@@ -105,10 +110,25 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
             _showPredictions = _predictions.isNotEmpty && !_isAddressConfirmed;
             _isLoading = false;
           });
+        } else {
+          // Handle API error status
+          setState(() {
+            _isLoading = false;
+            _showPredictions = false;
+          });
+          if (data['status'] != 'ZERO_RESULTS') {
+            debugPrint('${AddressConstants.addressSearchError}: ${data['status']}');
+          }
         }
+      } else {
+        setState(() {
+          _isLoading = false;
+          _showPredictions = false;
+        });
+        debugPrint('${AddressConstants.addressSearchError}: HTTP ${response.statusCode}');
       }
     } catch (e) {
-      debugPrint('Error searching places: $e');
+      debugPrint('${AddressConstants.addressSearchError}: $e');
       setState(() {
         _isLoading = false;
         _showPredictions = false;
@@ -117,6 +137,11 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
   }
 
   Future<PlaceDetails?> _getPlaceDetails(String placeId) async {
+    if (_apiKey.isEmpty) {
+      debugPrint(AddressConstants.apiKeyMissingError);
+      return null;
+    }
+    
     try {
       final String url = 
           'https://maps.googleapis.com/maps/api/place/details/json'
@@ -131,10 +156,14 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
         
         if (data['status'] == 'OK') {
           return PlaceDetails.fromJson(data['result']);
+        } else {
+          debugPrint('${AddressConstants.placeDetailsError}: ${data['status']}');
         }
+      } else {
+        debugPrint('${AddressConstants.placeDetailsError}: HTTP ${response.statusCode}');
       }
     } catch (e) {
-      debugPrint('Error getting place details: $e');
+      debugPrint('${AddressConstants.placeDetailsError}: $e');
     }
     return null;
   }
@@ -183,7 +212,7 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
           focusNode: _addressFocusNode,
           readOnly: _isAddressConfirmed, // Make read-only when confirmed
           decoration: InputDecoration(
-            hintText: 'Enter your shipping address',
+            hintText: AddressConstants.addressHintText,
             prefixIcon: const Icon(Icons.location_on),
             suffixIcon: _isLoading 
                 ? const Padding(
@@ -198,7 +227,7 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
                     ? IconButton(
                         icon: const Icon(Icons.edit),
                         onPressed: _editAddress,
-                        tooltip: 'Edit address',
+                        tooltip: AddressConstants.editAddressTooltip,
                       )
                     : null,
             border: OutlineInputBorder(
@@ -323,7 +352,7 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Address Confirmed',
+                        AddressConstants.addressConfirmedTitle,
                         style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           color: Theme.of(context).colorScheme.onPrimaryContainer,
                           fontWeight: FontWeight.w600,
@@ -342,7 +371,7 @@ class _ShippingAddressWidgetState extends State<ShippingAddressWidget> {
                 TextButton(
                   onPressed: _editAddress,
                   child: Text(
-                    'Edit',
+                    AddressConstants.editButtonText,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontWeight: FontWeight.w600,
@@ -434,12 +463,12 @@ class PlaceDetails {
   }
 
   // Helper methods to extract specific address components
-  String get streetNumber => _getComponent('street_number');
-  String get route => _getComponent('route');
-  String get locality => _getComponent('locality');
-  String get administrativeAreaLevel1 => _getComponent('administrative_area_level_1');
-  String get postalCode => _getComponent('postal_code');
-  String get country => _getComponent('country');
+  String get streetNumber => _getComponent(AddressConstants.streetNumberType);
+  String get route => _getComponent(AddressConstants.routeType);
+  String get locality => _getComponent(AddressConstants.localityType);
+  String get administrativeAreaLevel1 => _getComponent(AddressConstants.administrativeAreaLevel1Type);
+  String get postalCode => _getComponent(AddressConstants.postalCodeType);
+  String get country => _getComponent(AddressConstants.countryType);
 
   String _getComponent(String type) {
     try {
