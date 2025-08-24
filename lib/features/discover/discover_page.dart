@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/features/discover/discover_viewmodel.dart';
-import 'package:cherry_mvp/features/discover/widgets/discover_header.dart';
 import 'package:cherry_mvp/features/discover/widgets/discover_charity_list.dart';
 import 'package:cherry_mvp/features/discover/widgets/discover_selection_bar.dart';
-import 'package:cherry_mvp/features/discover/widgets/items_in_support.dart';
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
@@ -14,27 +11,32 @@ class DiscoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: const DiscoverHeader(),
       body: Consumer<DiscoverViewModel>(
         builder: (context, viewModel, _) {
           final charities = viewModel.fetchCharities();
           final products = viewModel.fetchProducts();
 
-          return SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const DiscoverSelectionBar(),
-                  const SizedBox(height: 30),
-                  ItemsInSupport(products: products),
-                  const SizedBox(height: 30),
-                  DiscoverCharityList(charities: charities),
-                ],
-              ),
+          return SafeArea(
+            bottom: false,
+            child: CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  title: Text('Discover'),
+                  floating: true,
+                  primary: false,
+                  snap: true,
+                ),
+                SliverAppBar(
+                  automaticallyImplyLeading: false,
+                  title: const DiscoverSelectionBar(),
+                  primary: false,
+                  pinned: true,
+                ),
+                DiscoverCharityList(
+                  charities: charities,
+                  products: products,
+                ),
+              ],
             ),
           );
         },

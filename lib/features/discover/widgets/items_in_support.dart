@@ -1,8 +1,6 @@
-import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
-import 'package:cherry_mvp/core/config/app_text_styles.dart';
 import 'package:cherry_mvp/core/models/product.dart';
-import 'package:cherry_mvp/core/reusablewidgets/product_image_card.dart';
+import 'package:cherry_mvp/core/widgets/product_image_card.dart';
 import 'package:cherry_mvp/core/router/nav_routes.dart';
 import 'package:cherry_mvp/features/products/product_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -17,21 +15,22 @@ class ItemsInSupport extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.greyBgColor,
-        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+        padding: const EdgeInsets.fromLTRB(4, 8, 4, 4),
         child: Column(
           children: [
             Row(
               children: [
-                Text(AppStrings.itemsInSupportText, style: AppTextStyles.screen_title),
+                Text(AppStrings.itemsInSupportText,
+                    style: Theme.of(context).textTheme.titleLarge),
                 const Spacer(),
-                Text(AppStrings.seeAllText, style: AppTextStyles.charityBodyText),
+                Text(AppStrings.seeAllText),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 4),
             SizedBox(
               height: 100,
               child: ListView.separated(
@@ -42,7 +41,8 @@ class ItemsInSupport extends StatelessWidget {
                   final product = products[index];
                   return GestureDetector(
                     onTap: () {
-                      final productViewModel = Provider.of<ProductViewModel>(context, listen: false);
+                      final productViewModel =
+                          Provider.of<ProductViewModel>(context, listen: false);
                       productViewModel.setProduct(product);
                       Navigator.pushNamed(context, AppRoutes.product);
                     },

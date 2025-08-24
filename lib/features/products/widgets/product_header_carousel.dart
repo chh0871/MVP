@@ -1,5 +1,6 @@
 import 'package:cherry_mvp/core/models/product.dart';
-import 'package:cherry_mvp/core/reusablewidgets/image_carousel.dart';
+import 'package:cherry_mvp/core/widgets/image_carousel.dart';
+import 'package:cherry_mvp/core/utils/image_provider_helper.dart';
 import 'package:flutter/material.dart';
 
 class ProductHeaderCarousel extends StatelessWidget {
@@ -23,7 +24,7 @@ class ProductHeaderCarousel extends StatelessWidget {
               Positioned.fill(
                 child: ImageCarousel(
                   images: product.product_images
-                      .map((path) => AssetImage(path))
+                      .map((path) => ImageProviderHelper.getImageProvider(path))
                       .toList(),
                 ),
               ),
@@ -35,7 +36,7 @@ class ProductHeaderCarousel extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   child: Padding(
                     padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     child: Row(
                       children: [
                         Icon(Icons.favorite,
@@ -48,9 +49,8 @@ class ProductHeaderCarousel extends StatelessWidget {
                               .textTheme
                               .titleSmall
                               ?.copyWith(
-                            color:
-                            Theme.of(context).colorScheme.primary,
-                          ),
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
                         ),
                       ],
                     ),

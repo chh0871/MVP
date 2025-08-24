@@ -1,8 +1,10 @@
-import 'package:cherry_mvp/core/reusablewidgets/primary_button.dart';
+import 'dart:ui';
+
+import 'package:cherry_mvp/features/welcome/widgets/signup_card.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:cherry_mvp/core/router/router.dart';
 import 'package:cherry_mvp/core/config/config.dart';
+
+enum AuthMode { login, signup }
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -30,6 +32,20 @@ class _WelcomePageState extends State<WelcomePage>
     );
   }
 
+  //for card to show up
+  bool showBottomCard = false;
+  AuthMode? authMode;
+  void toggleCard(AuthMode mode) {
+    setState(() {
+      authMode = mode;
+      showBottomCard = true;
+    });
+  }
+
+  void closeCard() {
+    setState(() => showBottomCard = false);
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -38,12 +54,10 @@ class _WelcomePageState extends State<WelcomePage>
 
   @override
   Widget build(BuildContext context) {
-    final navigator = Provider.of<NavigationProvider>(context, listen: false);
-
+    final double cardHeight = 400;
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Positioned.fill(
             child: Image.asset(
               AppImages.welcomeBg,
@@ -59,54 +73,72 @@ class _WelcomePageState extends State<WelcomePage>
                   ScaleTransition(
                     scale: _pulseAnimation,
                     child: Image.asset(
-                      AppImages.cherry_logo,
+                      //change
+                      AppImages.cherryLogo,
                       width: 350,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     AppStrings.giveInStyle,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.greyNavFooter,
-                    ),
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
                   ),
+                  SizedBox(
+                    height: showBottomCard
+                        ? MediaQuery.of(context).size.height * 0.1
+                        : 0,
+                  )
                 ],
               ),
             ),
           ),
-
-          // Bottom Buttons
-          Positioned(
-            bottom: 50,
-            left: 20,
-            right: 20,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Login Button
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: PrimaryAppButton(
-                    onPressed: () {
-                      navigator.replaceWith(AppRoutes.login);
-                    },
-                    buttonText: AppStrings.login,
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+          if (showBottomCard)
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 300),
+              opacity: showBottomCard ? 1.0 : 0.0,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: closeCard, // This will close the card
+                child: Container(
+                  // ignore: deprecated_member_use
+                  color: Colors.black.withOpacity(0.3), // dim color
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                      color: Colors.transparent,
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
+              ),
+            ),
+
+          // Bottom Buttons
+          Positioned(
+            bottom: MediaQuery.of(context).padding.bottom + 24,
+            left: 16,
+            right: 16,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: FilledButton(
+                    onPressed: () {
+                      toggleCard(AuthMode.login);
+                    },
+                    child: Text(AppStrings.login),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
 
                 // Register Button
                 GestureDetector(
                   onTap: () {
-                    navigator.replaceWith(AppRoutes.register);
+                    toggleCard(AuthMode.signup);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -128,6 +160,17 @@ class _WelcomePageState extends State<WelcomePage>
                   ),
                 ),
               ],
+            ),
+          ),
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOut,
+            left: 0,
+            right: 0,
+            bottom: showBottomCard ? 0 : -cardHeight,
+            child: AuthCard(
+              onClose: closeCard,
+              mode: authMode ?? AuthMode.login,
             ),
           ),
         ],
