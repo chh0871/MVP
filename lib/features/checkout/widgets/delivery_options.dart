@@ -2,7 +2,9 @@ import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/checkout/widgets/outlined.dart';
 import 'package:cherry_mvp/features/checkout/widgets/price_list_item.dart';
+import 'package:cherry_mvp/features/checkout/widgets/shipping_address_widget.dart';
 import 'package:cherry_mvp/features/checkout/widgets/shipping_list_item.dart';
+import 'package:cherry_mvp/features/checkout/constants/address_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -88,6 +90,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
               },
             ),
           ),
+          // Show pickup points when pickup is selected
           if (_delivery == 'pickup') ...[
             const SizedBox(height: 8),
             Outlined(
@@ -137,6 +140,23 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                   ],
                 ),
               ),
+          ],
+          // Show address input field when home delivery is selected
+          if (_delivery == 'home') ...[
+            const SizedBox(height: 16),
+            Text(
+              AddressConstants.deliveryAddressTitle,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 8),
+            ShippingAddressWidget(
+              onAddressSelected: (PlaceDetails addressDetails) {
+                // Save the selected address to the CheckoutViewModel
+                basket.setShippingAddress(addressDetails);
+              },
+            ),
           ],
           const Divider(height: 16),
         ],
