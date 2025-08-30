@@ -66,6 +66,7 @@ class LoginViewModel extends ChangeNotifier {
 
     try {
       final result = await loginRepository.signInWithApple();
+
       if (result.isSuccess) {
         _status = Status.success;
       } else {
