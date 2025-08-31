@@ -1,9 +1,9 @@
 enum StatusType {
-  uninitialized,  // Before any request is made
-  loading,        // When a request is in progress
-  success,        // When request completes successfully
-  failure,        // When request fails
-  canceled,       // If request was canceled
+  uninitialized, // Before any request is made
+  loading, // When a request is in progress
+  success, // When request completes successfully
+  failure, // When request fails
+  canceled, // If request was canceled
 }
 
 class Status {
@@ -21,4 +21,3 @@ class Status {
     return Status(StatusType.failure, message: message);
   }
 }
-

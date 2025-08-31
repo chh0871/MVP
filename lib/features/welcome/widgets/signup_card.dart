@@ -71,30 +71,25 @@ class AuthCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
-
-              SocialLoginButton(
-                label: AppStrings.continueWithApple,
-                iconAsset: AppImages.authAppleIcon,
-                onPressed: () {
-                  isLoading
-                      ? () {}
-                      : () {
-                          Fluttertoast.showToast(msg: "iOS Coming Soon");
-                        };
-                },
-              ),
-              const SizedBox(height: 10),
-
-              viewModel.status.type == StatusType.loading
-                  ? const LoadingView()
-                  : SocialLoginButton(
-                      label: AppStrings.continueWithGoogle,
-                      iconAsset: AppImages.authGoogleIcon,
-                      onPressed: () {
-                        loginViewModel.signInWithGoogle();
-                      },
-                    ),
+              ...(viewModel.status.type == StatusType.loading
+                  ? [const LoadingView()]
+                  : [
+                      SocialLoginButton(
+                        label: AppStrings.continueWithApple,
+                        iconAsset: AppImages.authAppleIcon,
+                        onPressed: () {
+                          loginViewModel.signInWithApple();
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                      SocialLoginButton(
+                        label: AppStrings.continueWithGoogle,
+                        iconAsset: AppImages.authGoogleIcon,
+                        onPressed: () {
+                          loginViewModel.signInWithGoogle();
+                        },
+                      ),
+                    ]),
 
               const SizedBox(height: 10),
               Row(
