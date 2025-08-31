@@ -2,6 +2,7 @@
 import 'package:cherry_mvp/features/checkout/checkout_complete_page.dart';
 import 'package:cherry_mvp/features/checkout/checkout_page.dart';
 import 'package:cherry_mvp/features/donation/donation_page.dart';
+import 'package:cherry_mvp/features/donation/successful_upload_page.dart';
 import 'package:cherry_mvp/features/products/product_page.dart';
 
 import 'package:cherry_mvp/features/discover/discover_page.dart';
@@ -26,6 +27,7 @@ class AppRoutes {
   static const String donations = '/donations';
   static const String checkout = '/checkout';
   static const String checkoutComplete = '/checkoutComplete';
+  static const String donationSuccess = '/donationSuccess';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -55,6 +57,8 @@ class AppRoutes {
           fullscreenDialog: true,
           builder: (_) => const CheckoutCompletePage(),
         );
+      case donationSuccess:
+        return MaterialPageRoute(builder: (_) => const SuccessfulUploadPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

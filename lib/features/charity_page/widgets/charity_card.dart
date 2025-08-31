@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cherry_mvp/core/models/model.dart';
+import 'package:cherry_mvp/core/config/app_strings.dart';
+import 'package:cherry_mvp/features/charity_page/charity_model.dart';
 
 class CharityCard extends StatefulWidget {
   const CharityCard({
@@ -23,15 +24,15 @@ class CharityCardState extends State<CharityCard> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child:
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Column(children: [
                   ClipRRect(
                     borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(12)),
+                        const BorderRadius.vertical(top: Radius.circular(12)),
                     child: Image.asset(
-                      widget.charity.charityImage,
+                      widget.charity.imageUrl,
                       height: 80,
                       width: 80,
                       fit: BoxFit.cover,
@@ -39,13 +40,13 @@ class CharityCardState extends State<CharityCard> {
                   ),
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(widget.charity.charityName,
+                  Text(widget.charity.name,
                       style: Theme.of(context).textTheme.titleSmall),
                   SizedBox(
                     width: screenWidth - 110,
                     child: Expanded(
                         child: Text(
-                      widget.charity.description,
+                      AppStrings.charityDescription,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color:
                                 Theme.of(context).colorScheme.onSurfaceVariant,
@@ -54,10 +55,10 @@ class CharityCardState extends State<CharityCard> {
                     )),
                   ),
                   Padding(
-                      padding: EdgeInsets.only(right: 10),
+                      padding: const EdgeInsets.only(right: 10),
                       child: InkWell(
                           onTap: () {},
-                          child: Text("See More",
+                          child: Text(AppStrings.seeMore,
                               style: Theme.of(context)
                                   .textTheme
                                   .labelMedium
@@ -69,7 +70,7 @@ class CharityCardState extends State<CharityCard> {
               ]),
             ),
           ]),
-      Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Divider()),
+      const Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Divider()),
     ]);
   }
 }

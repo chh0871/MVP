@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:cherry_mvp/core/config/config.dart';
-import 'package:cherry_mvp/features/search/search_viewmodel.dart';
+import 'package:cherry_mvp/core/utils/utils.dart';
+import 'package:cherry_mvp/features/charity_page/charity_viewmodel.dart';
 
 import 'widgets/charity_card.dart';
 
@@ -14,16 +15,22 @@ class CharityPage extends StatefulWidget {
 }
 
 class CharityPageState extends State<CharityPage> {
-  // ignore: unused_field
-  final _searchQuery = '';
+  bool _hasInitialized = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_hasInitialized) {
+      _hasInitialized = true;
+      context.read<CharityViewModel>().fetchCharities();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Consumer<SearchViewModel>(builder: (context, viewModel, child) {
-      final charities = viewModel.fetchCharityCategories();
+    return Consumer<CharityViewModel>(builder: (context, viewModel, child) {
+      final charities = viewModel.charities;
+      final status = viewModel.status;
 
       return Scaffold(
         appBar: AppBar(
@@ -33,36 +40,67 @@ class CharityPageState extends State<CharityPage> {
               color: Theme.of(context).colorScheme.primary,
               size: 20,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(AppStrings.charitiesText),
           centerTitle: true,
-          actions: [],
         ),
         body: Container(
-            padding: EdgeInsets.only(top: 5),
+            padding: const EdgeInsets.only(top: 5),
             child: Column(children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SizedBox(
                   height: 40,
                   child: SearchAnchor.bar(
-                      barHintText: 'Search items',
+                      barHintText: AppStrings.searchCharities,
                       isFullScreen: true,
                       suggestionsBuilder: (context, controller) => []),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: 8)),
+              const Padding(padding: EdgeInsets.only(top: 8)),
               Expanded(
-                child: ListView.builder(
-                  itemCount: charities.length,
-                  itemBuilder: (context, index) {
-                    return CharityCard(charity: charities[index]);
-                  },
-                ),
+                child: _buildCharityList(viewModel, status, charities),
               ),
             ])),
       );
     });
+  }
+
+  Widget _buildCharityList(CharityViewModel viewModel, Status status, List charities) {
+    // Show loading widget when fetching data
+    if (status.type == StatusType.loading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    // Show error widget if failed
+    if (status.type == StatusType.failure) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('${AppStrings.charityError}: ${status.message}'),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () => viewModel.fetchCharities(),
+              child: Text(AppStrings.retry),
+            ),
+          ],
+        ),
+      );
+    }
+
+    // Show charities list when data is loaded
+    if (charities.isNotEmpty) {
+      return ListView.builder(
+        itemCount: charities.length,
+        itemBuilder: (context, index) {
+          return CharityCard(charity: charities[index]);
+        },
+      );
+    }
+
+    // Show empty state if no charities
+    return Center(child: Text(AppStrings.noCharitiesAvailable));
   }
 }

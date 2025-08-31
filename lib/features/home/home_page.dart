@@ -1,5 +1,4 @@
 import 'package:cherry_mvp/features/donation/donation_page.dart';
-import 'package:cherry_mvp/features/home/home_viewmodel.dart';
 import 'package:cherry_mvp/features/home/widgets/bottom_nav_bar.dart';
 import 'package:cherry_mvp/features/home/widgets/home_screen.dart';
 import 'package:cherry_mvp/features/messages/message_page.dart';
@@ -22,7 +21,6 @@ class _HomePageState extends State<HomePage> {
     HomeScreen(),
     MessagePage(),
     ProfilePage()
-    //add other pages for the bottom sheet here
   ];
 
   void _onItemTapped(int index) {
@@ -74,9 +72,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    final navigator = Provider.of<HomeViewModel>(context, listen: false);
-
     return Scaffold(
       body: PageView(
         controller: _pageController,

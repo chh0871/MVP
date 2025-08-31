@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/core/router/router.dart';
 
 class SuccessfulUploadPage extends StatelessWidget {
   const SuccessfulUploadPage({super.key});
@@ -45,17 +47,16 @@ class SuccessfulUploadPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 5.0),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text('Congratulations!',
+              Text(AppStrings.congratulations,
                   style: Theme.of(context).textTheme.titleSmall),
             ]),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
-                'Your Item has been Successfully Uploaded.',
+                AppStrings.itemUploadedSuccessfully,
               ),
             ]),
           ])),
 
-          // Button Continue
           Positioned(
             bottom: 50,
             left: 20,
@@ -64,7 +65,14 @@ class SuccessfulUploadPage extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Navigate back to home using the navigation provider
+                  final navigationProvider = Provider.of<NavigationProvider>(context, listen: false);
+                  navigationProvider.navigateToAndRemoveUntil(
+                    AppRoutes.home,
+                    (route) => false, // Remove all previous routes
+                  );
+                },
                 child: Text(AppStrings.continueText),
               ),
             ),
