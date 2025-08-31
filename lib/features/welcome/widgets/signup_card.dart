@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/features/welcome/widgets/button_style.dart';
 import 'package:cherry_mvp/features/welcome/widgets/loading_view.dart';

@@ -8,16 +8,17 @@ class StorageProvider {
 
   StorageProvider({required this.firebaseStorage});
 
-  Future<Result<String>> uploadImage(File imageFile, String firstName) async {
+  /// Generic upload method for any file path
+  Future<Result<String>> uploadImage(File imageFile, String storagePath) async {
     try {
       final storageRef = firebaseStorage.ref();
-      final imageRef = storageRef.child('user_images/${firstName}_profile_picture.png');
+      final imageRef = storageRef.child(storagePath);
 
       await imageRef.putFile(imageFile);
 
       // Return the download URL
       return Result.success(await imageRef.getDownloadURL());
-    }on FirebaseException catch (e) {
+    } on FirebaseException catch (e) {
       return Result.failure(e.message ?? ErrorStrings.storageError);
     } catch (e) {
       return Result.failure(e.toString());

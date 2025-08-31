@@ -1,6 +1,5 @@
 
 import 'package:cherry_mvp/features/search/search_repository.dart';
-import 'package:cherry_mvp/core/models/model.dart'; 
 import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart';
 
@@ -12,8 +11,5 @@ class SearchViewModel extends ChangeNotifier {
 
   SearchViewModel({required this.searchRepository});
  
-   
-  List<Charity> fetchCharityCategories()  {
-    return searchRepository.fetchCharityCategories();
-  }
+  // Search-related methods only
 }

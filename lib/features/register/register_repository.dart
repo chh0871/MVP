@@ -22,7 +22,7 @@ class RegisterRepository {
       if (request.imageFile != null && request.imageFile!.existsSync()) {
         // Upload image if a file is provided
         final imageUploadResult = await _storage.uploadImage(
-            request.imageFile!, request.firstname);
+            request.imageFile!, 'user_images/${request.firstname}_profile_picture.png');
 
         if (imageUploadResult.isSuccess) {
           photoUrl = imageUploadResult

@@ -65,3 +65,17 @@ String? validateDonationFormFields(String? value) {
   }
   return null;
 }
+
+String? validateOptionalDonationFormFields(String? value) {
+  // Optional field - no validation if empty
+  if (value == null || value.isEmpty) {
+    return null;
+  }
+  if (value.length < 2) {
+    return "This must be at least 2 characters";
+  }
+  if (!RegExp(r"^[a-zA-Z\s]+$").hasMatch(value)) {
+    return "This can only contain letters and spaces";
+  }
+  return null;
+}

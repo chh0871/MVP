@@ -175,6 +175,9 @@ class AppStrings {
   static const charityError='Failed to load charities';
   static const loadCharities='Loading charities...';
   static const noCharitiesAvailable='No charities available';
+  static const searchCharities = 'Search charities';
+  static const seeMore = 'See More';
+  static const charityDescription = 'Supporting communities through various charitable initiatives and programs.';
 
   static const charityText = "Charity";
   static const priceText = "Price";
@@ -254,4 +257,26 @@ class AppStrings {
   static const checkoutImpactSummary = 'Impact Summary';
   static const checkoutReview = 'Review';
   static const checkoutContinueShopping = 'Continue Shopping';
+  
+  // Donation form validation messages
+  static const pleaseSelectAllDropdowns = 'Please select all dropdowns';
+  static const pleaseSelectCharity = 'Please select a charity';
+  static const pleaseAddPhoto = 'Please add at least one photo';
+  static const submitDonation = 'Submit Donation';
+  
+  // Photo upload messages
+  static const errorPickingImage = 'Error picking image';
+  static const tapToAddPhotos = 'Tap to add photos (multiple allowed)';
+  static const galleryPhotoMultiple = 'Gallery Photo (Multiple)';
+  
+  // Donation submission messages
+  static const donationSubmittedSuccessfully = 'Donation submitted successfully!';
+  static const unexpectedErrorOccurred = 'An unexpected error occurred';
+  static const userNotAuthenticated = 'User not authenticated';
+  static const failedToUploadImages = 'Failed to upload images';
+  static const failedToSubmitDonation = 'Failed to submit donation';
+  
+  // Success page messages
+  static const congratulations = 'Congratulations!';
+  static const itemUploadedSuccessfully = 'Your Item has been Successfully Uploaded.';
 }

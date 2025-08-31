@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:cherry_mvp/core/models/category.dart';
+import 'package:cherry_mvp/features/charity_page/charity_model.dart';
 
 part 'product.g.dart';
 
@@ -8,18 +10,23 @@ class Product {
   final String name;
   final String description;
   final String quality;
+  @JsonKey(name: 'product_images')
   final List<String> productImages;
   @JsonKey(fromJson: _parseDouble)
   final double donation;
   @JsonKey(fromJson: _parseDouble)
   final double price;
-  @JsonKey(defaultValue: '')
-  final String charityImage;
   @JsonKey(fromJson: _parseInt)
   final int likes;
   @JsonKey(fromJson: _parseInt)
   final int number;
   final String size;
+  final String? categoryId;
+  final String? charityId;
+  final String? createdAt;
+  final String? updatedAt;
+  final Category? category;
+  final Charity? charity;
 
   const Product({
     required this.id,
@@ -29,17 +36,26 @@ class Product {
     required this.productImages,
     required this.donation,
     required this.price,
-    required this.charityImage,
     required this.likes,
     required this.number,
     required this.size,
+    this.categoryId,
+    this.charityId,
+    this.createdAt,
+    this.updatedAt,
+    this.category,
+    this.charity,
   });
+
+  // Computed property for charityImage
+  String get charityImage => charity?.imageUrl ?? '';
 
   factory Product.fromJson(Map<String, dynamic> json) {
     // Handle fallback for product_images vs images
     if (json['product_images'] == null && json['images'] != null) {
       json['product_images'] = json['images'];
     }
+    
     return _$ProductFromJson(json);
   }
 
