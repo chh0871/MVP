@@ -70,8 +70,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
             icon: Icons.location_on,
             title: AppStrings.checkoutShipToPickup,
             subtitle: AppStrings.checkoutPickupSubtitle,
-            value: _delivery,
-            groupValue: 'pickup',
+            value: 'pickup',
+            groupValue: _delivery,
             onChanged: (value) => setState(
               () => _delivery = value,
             ),
@@ -81,8 +81,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
             icon: Icons.home,
             title: AppStrings.checkoutShipToHome,
             subtitle: AppStrings.checkoutHomeSubtitle,
-            value: _delivery,
-            groupValue: 'home',
+            value: 'home',
+            groupValue: _delivery,
             onChanged: (value) => setState(
               () {
                 _delivery = value;
@@ -92,54 +92,127 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           ),
           // Show pickup points when pickup is selected
           if (_delivery == 'pickup') ...[
-            const SizedBox(height: 8),
-            Outlined(
-              child: ListTile(
-                onTap: () =>
-                    setState(() => _deliverExpanded = !_deliverExpanded),
-                leading: const Icon(Icons.map),
-                title: const Text(AppStrings.checkoutPickupPoint),
-                trailing: _deliverExpanded
-                    ? const Icon(Icons.expand_less)
-                    : const Icon(Icons.expand_more),
-              ),
+            Consumer<CheckoutViewModel>(builder: (context, model, _) {
+              final status = model.status;
+              final inposts = model.nearestInpost;
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8),
+                  Outlined(
+                    child: ListTile(
+                      onTap: () =>
+                          setState(() => _deliverExpanded = !_deliverExpanded),
+                      leading: const Icon(Icons.map),
+                      title: const Text(AppStrings.checkoutPickupPoint),
+                      trailing: _deliverExpanded
+                          ? const Icon(Icons.expand_less)
+                          : const Icon(Icons.expand_more),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  if (_deliverExpanded) ...[
+                    model.selectedInpost != null
+                        ? Outlined(
+                            child: Column(
+                              children: [
+                                CheckboxListTile(
+                                  controlAffinity:
+                                      ListTileControlAffinity.leading,
+                                  title: Text(
+                                    AppStrings.checkoutPickupPoint1,
+                                    style: TextStyle(),
+                                  ),
+                                  subtitle:
+                                      Text(AppStrings.checkoutPickupAddress1),
+                                  value: true,
+                                  onChanged: null,
+                                ),
+                              ],
+                            ),
+                          )
+                        : Outlined(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: inposts.length,
+                              itemBuilder: (context, index) {
+                                final data = inposts[index];
+                                return Column(
+                                  children: [
+                                    CheckboxListTile(
+                                      controlAffinity:
+                                          ListTileControlAffinity.leading,
+                                      title: Text(data.name),
+                                      subtitle: Text(data.address),
+                                      value:
+                                          model.selectedInpost?.id == data.id,
+                                      onChanged: (val) {
+                                        if (val == true) {
+                                          model.setSelectedInpost(data);
+                                        }
+                                      },
+                                    ),
+                                    if (index != inposts.length - 1)
+                                      const Divider(height: 1),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                  ],
+
+                  // if (_deliverExpanded)
+                  //   Outlined(
+                  //     child: Column(
+                  //       children: const [
+                  //         CheckboxListTile(
+                  //           controlAffinity: ListTileControlAffinity.leading,
+                  //           title: Text(
+                  //             AppStrings.checkoutPickupPoint1,
+                  //             style: TextStyle(),
+                  //           ),
+                  //           subtitle: Text(AppStrings.checkoutPickupAddress1),
+                  //           value: true,
+                  //           onChanged: null,
+                  //         ),
+                  //         Divider(height: 1),
+                  //         CheckboxListTile(
+                  //           controlAffinity: ListTileControlAffinity.leading,
+                  //           title: Text(AppStrings.checkoutPickupPoint2,
+                  //               style: TextStyle()),
+                  //           subtitle: Text(AppStrings.checkoutPickupAddress2),
+                  //           value: false,
+                  //           onChanged: null,
+                  //         ),
+                  //         Divider(height: 1),
+                  //         CheckboxListTile(
+                  //           controlAffinity: ListTileControlAffinity.leading,
+                  //           title: Text(AppStrings.checkoutPickupPoint3,
+                  //               style: TextStyle()),
+                  //           subtitle: Text(AppStrings.checkoutPickupAddress3),
+                  //           value: false,
+                  //           onChanged: null,
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                ],
+              );
+            })
+          ],
+
+          if (_delivery == "pickup") ...[
+            const SizedBox(height: 16),
+            Text(
+              AddressConstants.postalCodeKey,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
             const SizedBox(height: 8),
-            if (_deliverExpanded)
-              Outlined(
-                child: Column(
-                  children: const [
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: Text(
-                        AppStrings.checkoutPickupPoint1,
-                        style: TextStyle(),
-                      ),
-                      subtitle: Text(AppStrings.checkoutPickupAddress1),
-                      value: true,
-                      onChanged: null,
-                    ),
-                    Divider(height: 1),
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: Text(AppStrings.checkoutPickupPoint2,
-                          style: TextStyle()),
-                      subtitle: Text(AppStrings.checkoutPickupAddress2),
-                      value: false,
-                      onChanged: null,
-                    ),
-                    Divider(height: 1),
-                    CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: Text(AppStrings.checkoutPickupPoint3,
-                          style: TextStyle()),
-                      subtitle: Text(AppStrings.checkoutPickupAddress3),
-                      value: false,
-                      onChanged: null,
-                    ),
-                  ],
-                ),
-              ),
+            PostalCodeWidget(),
           ],
           // Show address input field when home delivery is selected
           if (_delivery == 'home') ...[
@@ -147,8 +220,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
             Text(
               AddressConstants.deliveryAddressTitle,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
             const SizedBox(height: 8),
             ShippingAddressWidget(
@@ -160,6 +233,40 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           ],
           const Divider(height: 16),
         ],
+      ),
+    );
+  }
+}
+
+class PostalCodeWidget extends StatelessWidget {
+  PostalCodeWidget({
+    super.key,
+  });
+
+  final TextEditingController postcodeController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: postcodeController,
+      keyboardType: TextInputType.streetAddress,
+      textInputAction: TextInputAction.search,
+      onEditingComplete: () {
+        Provider.of<CheckoutViewModel>(context, listen: false)
+            .fetchNearestInPosts(postcodeController.text);
+      },
+      decoration: InputDecoration(
+        hintText: AddressConstants.postalCodeHintText,
+        prefixIcon: const Icon(Icons.location_on),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.outline,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.outline,
+          ),
+        ),
       ),
     );
   }

@@ -6,4 +6,5 @@ class ApiEndpoints {
   static String versioned(String endpoint) => '/$apiVersion$endpoint';
 
   static const String categories = '/categories';
+  static const String inpostLockers = '/shipping/inpost/lockers';
 }

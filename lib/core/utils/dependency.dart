@@ -1,4 +1,5 @@
 import 'package:cherry_mvp/features/categories/category_view_model.dart';
+import 'package:cherry_mvp/features/checkout/checkout_repository.dart';
 import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/categories/category_repository.dart';
 import 'package:cherry_mvp/features/discover/discover_repository.dart';
@@ -64,7 +65,7 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
         Provider.of<StorageProvider>(context, listen: false),
       ),
     ),
-    ChangeNotifierProvider(create: (context) => CheckoutViewModel()),
+
     ChangeNotifierProvider(create: (_) => SearchController()),
     Provider<IHomeRepository>(
       create: (context) {
@@ -88,6 +89,12 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider<ICategoryRepository>(
       create: (context) {
         return CategoryRepository(
+            Provider.of<ApiService>(context, listen: false));
+      },
+    ),
+    Provider<ICheckoutRepository>(
+      create: (context) {
+        return CheckoutRepository(
             Provider.of<ApiService>(context, listen: false));
       },
     ),
@@ -136,5 +143,11 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
               categoryRepository:
                   Provider.of<ICategoryRepository>(context, listen: false),
             )),
+    ChangeNotifierProvider<CheckoutViewModel>(
+      create: (context) => CheckoutViewModel(
+        checkoutRepository:
+            Provider.of<ICheckoutRepository>(context, listen: false),
+      ),
+    ),
   ];
 }
