@@ -27,7 +27,7 @@ import 'package:cherry_mvp/core/router/router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
+List<SingleChildWidget> buildProviders(prefs) {
   // Configuration flag - reads from environment variable
   final bool useMockData = dotenv.env['USE_MOCK_DATA'] == 'true';
   return [
@@ -95,7 +95,9 @@ List<SingleChildWidget> buildProviders(SharedPreferences prefs) {
     Provider<ICheckoutRepository>(
       create: (context) {
         return CheckoutRepository(
-            Provider.of<ApiService>(context, listen: false));
+          Provider.of<ApiService>(context, listen: false),
+          Provider.of<FirestoreService>(context, listen: false),
+        );
       },
     ),
     ChangeNotifierProvider<LoginViewModel>(

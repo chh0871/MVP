@@ -1,3 +1,4 @@
+import 'package:cherry_mvp/core/config/config.dart';
 import 'package:cherry_mvp/core/models/inpost_model.dart';
 import 'package:cherry_mvp/core/models/product.dart';
 import 'package:cherry_mvp/core/utils/utils.dart';
@@ -49,6 +50,22 @@ class CheckoutViewModel extends ChangeNotifier {
   List<InpostModel> get nearestInpost => _nearestInpost;
 
   InpostModel? selectedInpost;
+
+  bool showLocker = false;
+
+  bool hasLocker = false;
+
+  String? deliveryChoice;
+
+  setDeliveryChoice(String val) {
+    deliveryChoice = val;
+    notifyListeners();
+  }
+
+  setShowLocker(bool val) {
+    showLocker = val;
+    notifyListeners();
+  }
 
   setSelectedInpost(InpostModel data) {
     selectedInpost = data;
@@ -245,6 +262,7 @@ class CheckoutViewModel extends ChangeNotifier {
     try {
       //final result = await checkoutRepository.fetchNearestInPosts(postalCode);
       if (_nearestInpost.isNotEmpty) {
+        showLocker = true;
         _status = Status.success;
       } else {
         _status = Status.failure(//result.error ??
@@ -257,5 +275,37 @@ class CheckoutViewModel extends ChangeNotifier {
     }
 
     notifyListeners();
+  }
+
+  Future<void> storeLockerInFirestore() async {
+    try {
+      await checkoutRepository.storeLockerInFirestore(selectedInpost!);
+    } catch (e) {
+      _log.severe('Error storing locker to firestore:: $e');
+    }
+  }
+
+  Future<Result> fetchUserLocker() async {
+    final result = await checkoutRepository.fetchUserLocker();
+    if (result.isSuccess) {
+      final doc = result.value;
+      if (doc != null && doc.exists) {
+        // hydrate your selectedInpost here
+        selectedInpost = InpostModel(
+          id: doc.get(FirestoreConstants.id),
+          name: doc.get(FirestoreConstants.name),
+          address: doc.get(FirestoreConstants.address),
+          postcode: doc.get(FirestoreConstants.postcode),
+          lat: doc.get(FirestoreConstants.lat),
+          long: doc.get(FirestoreConstants.long),
+        );
+        hasLocker = true;
+        showLocker = true;
+        notifyListeners();
+      }
+      return Result.success(null);
+    } else {
+      return Result.failure(result.error);
+    }
   }
 }

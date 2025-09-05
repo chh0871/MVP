@@ -67,33 +67,61 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           ),
           const SizedBox(height: 8),
           ShippingListItem(
-            icon: Icons.location_on,
-            title: AppStrings.checkoutShipToPickup,
-            subtitle: AppStrings.checkoutPickupSubtitle,
-            value: 'pickup',
-            groupValue: _delivery,
-            onChanged: (value) => setState(
-              () => _delivery = value,
-            ),
-          ),
+              icon: Icons.location_on,
+              title: AppStrings.checkoutShipToPickup,
+              subtitle: AppStrings.checkoutPickupSubtitle,
+              value: 'pickup',
+              groupValue: _delivery,
+              onChanged: (value) {
+                setState(
+                  () {
+                    _delivery = value;
+                    if (context.read<CheckoutViewModel>().selectedInpost !=
+                        null) {
+                      _deliverExpanded = true;
+                    }
+                  },
+                );
+                Provider.of<CheckoutViewModel>(context, listen: false)
+                    .setDeliveryChoice(value ?? '');
+              }),
           const SizedBox(height: 8),
           ShippingListItem(
-            icon: Icons.home,
-            title: AppStrings.checkoutShipToHome,
-            subtitle: AppStrings.checkoutHomeSubtitle,
-            value: 'home',
-            groupValue: _delivery,
-            onChanged: (value) => setState(
-              () {
-                _delivery = value;
-                _deliverExpanded = false;
-              },
+              icon: Icons.home,
+              title: AppStrings.checkoutShipToHome,
+              subtitle: AppStrings.checkoutHomeSubtitle,
+              value: 'home',
+              groupValue: _delivery,
+              onChanged: (value) {
+                setState(
+                  () {
+                    _delivery = value;
+                    _deliverExpanded = false;
+                  },
+                );
+                Provider.of<CheckoutViewModel>(context, listen: false)
+                    .setShowLocker(false);
+                Provider.of<CheckoutViewModel>(context, listen: false)
+                    .setDeliveryChoice(value ?? '');
+              }),
+          if (_delivery == "pickup" &&
+              !context.watch<CheckoutViewModel>().showLocker) ...[
+            const SizedBox(height: 16),
+            Text(
+              AddressConstants.postalCodeKey,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
-          ),
+            const SizedBox(height: 8),
+            PostalCodeWidget(),
+          ],
           // Show pickup points when pickup is selected
-          if (_delivery == 'pickup') ...[
+          if (_delivery == 'pickup' &&
+              context.watch<CheckoutViewModel>().showLocker) ...[
             Consumer<CheckoutViewModel>(builder: (context, model, _) {
               final status = model.status;
+
               final inposts = model.nearestInpost;
 
               return Column(
@@ -113,7 +141,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                   ),
                   const SizedBox(height: 8),
                   if (_deliverExpanded) ...[
-                    model.selectedInpost != null
+                    model.selectedInpost != null &&
+                            context.watch<CheckoutViewModel>().hasLocker
                         ? Outlined(
                             child: Column(
                               children: [
@@ -121,11 +150,11 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                                   controlAffinity:
                                       ListTileControlAffinity.leading,
                                   title: Text(
-                                    AppStrings.checkoutPickupPoint1,
+                                    model.selectedInpost?.name ?? '',
                                     style: TextStyle(),
                                   ),
                                   subtitle:
-                                      Text(AppStrings.checkoutPickupAddress1),
+                                      Text(model.selectedInpost?.address ?? ''),
                                   value: true,
                                   onChanged: null,
                                 ),
@@ -203,17 +232,6 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
             })
           ],
 
-          if (_delivery == "pickup") ...[
-            const SizedBox(height: 16),
-            Text(
-              AddressConstants.postalCodeKey,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
-            ),
-            const SizedBox(height: 8),
-            PostalCodeWidget(),
-          ],
           // Show address input field when home delivery is selected
           if (_delivery == 'home') ...[
             const SizedBox(height: 16),
