@@ -50,9 +50,7 @@ List<SingleChildWidget> buildProviders(prefs) {
       ),
     ),
     Provider<StorageProvider>(
-      create: (_) => StorageProvider(
-        firebaseStorage: FirebaseStorage.instance,
-      ),
+      create: (_) => StorageProvider(firebaseStorage: FirebaseStorage.instance),
     ),
     Provider<LoginRepository>(
       create: (context) => LoginRepository(
@@ -75,16 +73,13 @@ List<SingleChildWidget> buildProviders(prefs) {
           return HomeRepositoryMock();
         } else {
           return HomeRepository(
-              Provider.of<ApiService>(context, listen: false));
+            Provider.of<ApiService>(context, listen: false),
+          );
         }
       },
     ),
-    Provider<DiscoverRepository>(
-      create: (context) => DiscoverRepository(),
-    ),
-    Provider<ProductRepository>(
-      create: (context) => ProductRepository(),
-    ),
+    Provider<DiscoverRepository>(create: (context) => DiscoverRepository()),
+    Provider<ProductRepository>(create: (context) => ProductRepository()),
     Provider<IDonationRepository>(
       create: (context) {
         if (useMockData) {
@@ -92,7 +87,10 @@ List<SingleChildWidget> buildProviders(prefs) {
         } else {
           return DonationRepository(
             apiService: Provider.of<ApiService>(context, listen: false),
-            storageProvider: Provider.of<StorageProvider>(context, listen: false),
+            storageProvider: Provider.of<StorageProvider>(
+              context,
+              listen: false,
+            ),
             firebaseAuth: FirebaseAuth.instance,
           );
         }
@@ -101,7 +99,8 @@ List<SingleChildWidget> buildProviders(prefs) {
     Provider<ICategoryRepository>(
       create: (context) {
         return CategoryRepository(
-            Provider.of<ApiService>(context, listen: false));
+          Provider.of<ApiService>(context, listen: false),
+        );
       },
     ),
     Provider<ICheckoutRepository>(
@@ -110,15 +109,17 @@ List<SingleChildWidget> buildProviders(prefs) {
           Provider.of<ApiService>(context, listen: false),
           Provider.of<FirestoreService>(context, listen: false),
         );
+      },
+    ),
     Provider<ICharityRepository>(
       create: (context) {
         if (useMockData) {
           return CharityRepositoryMock();
         } else {
           return CharityRepository(
-              Provider.of<ApiService>(context, listen: false));
+            Provider.of<ApiService>(context, listen: false),
+          );
         }
-
       },
     ),
     ChangeNotifierProvider<LoginViewModel>(
@@ -128,55 +129,71 @@ List<SingleChildWidget> buildProviders(prefs) {
     ),
     ChangeNotifierProvider<RegisterViewModel>(
       create: (context) => RegisterViewModel(
-        registerRepository:
-            Provider.of<RegisterRepository>(context, listen: false),
+        registerRepository: Provider.of<RegisterRepository>(
+          context,
+          listen: false,
+        ),
       ),
     ),
     ChangeNotifierProvider<HomeViewModel>(
-        create: (context) => HomeViewModel(
-              homeRepository:
-                  Provider.of<IHomeRepository>(context, listen: false),
-            )),
-    Provider<SearchRepository>(
-      create: (context) => SearchRepository(),
+      create: (context) => HomeViewModel(
+        homeRepository: Provider.of<IHomeRepository>(context, listen: false),
+      ),
     ),
+    Provider<SearchRepository>(create: (context) => SearchRepository()),
     ChangeNotifierProvider<SearchViewModel>(
-        create: (context) => SearchViewModel(
-              searchRepository:
-                  Provider.of<SearchRepository>(context, listen: false),
-            )),
+      create: (context) => SearchViewModel(
+        searchRepository: Provider.of<SearchRepository>(context, listen: false),
+      ),
+    ),
     ChangeNotifierProvider<DiscoverViewModel>(
-        create: (context) => DiscoverViewModel(
-              discoverRepository:
-                  Provider.of<DiscoverRepository>(context, listen: false),
-            )),
+      create: (context) => DiscoverViewModel(
+        discoverRepository: Provider.of<DiscoverRepository>(
+          context,
+          listen: false,
+        ),
+      ),
+    ),
     ChangeNotifierProvider<ProductViewModel>(
-        create: (context) => ProductViewModel(
-              productRepository:
-                  Provider.of<ProductRepository>(context, listen: false),
-            )),
+      create: (context) => ProductViewModel(
+        productRepository: Provider.of<ProductRepository>(
+          context,
+          listen: false,
+        ),
+      ),
+    ),
     ChangeNotifierProvider<DonationViewModel>(
       create: (context) => DonationViewModel(
-        donationRepository:
-            Provider.of<IDonationRepository>(context, listen: false),
+        donationRepository: Provider.of<IDonationRepository>(
+          context,
+          listen: false,
+        ),
       ),
     ),
     ChangeNotifierProvider<CategoryViewModel>(
-        create: (context) => CategoryViewModel(
-              categoryRepository:
-                  Provider.of<ICategoryRepository>(context, listen: false),
-            )),
+      create: (context) => CategoryViewModel(
+        categoryRepository: Provider.of<ICategoryRepository>(
+          context,
+          listen: false,
+        ),
+      ),
+    ),
 
     ChangeNotifierProvider<CheckoutViewModel>(
       create: (context) => CheckoutViewModel(
-        checkoutRepository:
-            Provider.of<ICheckoutRepository>(context, listen: false),
+        checkoutRepository: Provider.of<ICheckoutRepository>(
+          context,
+          listen: false,
+        ),
       ),
     ),
     ChangeNotifierProvider<CharityViewModel>(
-        create: (context) => CharityViewModel(
-              charityRepository:
-                  Provider.of<ICharityRepository>(context, listen: false),
-            )),
+      create: (context) => CharityViewModel(
+        charityRepository: Provider.of<ICharityRepository>(
+          context,
+          listen: false,
+        ),
+      ),
+    ),
   ];
 }
