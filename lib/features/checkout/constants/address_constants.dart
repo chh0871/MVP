@@ -28,6 +28,9 @@ class AddressConstants {
   static const String editButtonText = 'Edit';
   static const String editAddressTooltip = 'Edit address';
   static const String postalCodeHintText = 'Enter your postalcode';
+  static const String addressHinText = 'address';
+  static const String cityHintText = 'city';
+  static const String postCodeHintText = 'postcode';
 
   // Error messages
   static const String addressSearchError = 'Error searching places';

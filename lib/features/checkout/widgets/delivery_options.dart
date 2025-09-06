@@ -1,11 +1,16 @@
+// ignore_for_file: unnecessary_const
+
+import 'package:cherry_mvp/core/config/app_colors.dart';
 import 'package:cherry_mvp/core/config/app_strings.dart';
 import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/checkout/widgets/outlined.dart';
 import 'package:cherry_mvp/features/checkout/widgets/price_list_item.dart';
+import 'package:cherry_mvp/features/checkout/widgets/share_location_dialog.dart';
 import 'package:cherry_mvp/features/checkout/widgets/shipping_address_widget.dart';
 import 'package:cherry_mvp/features/checkout/widgets/shipping_list_item.dart';
 import 'package:cherry_mvp/features/checkout/constants/address_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class DeliveryOptions extends StatefulWidget {
@@ -18,6 +23,10 @@ class DeliveryOptions extends StatefulWidget {
 class _DeliveryOptionsState extends State<DeliveryOptions> {
   String? _delivery;
   var _deliverExpanded = false;
+
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController postcodeController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +70,118 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           ),
           const Divider(height: 32),
           Text(
+            AppStrings.address,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: addressController,
+            keyboardType: TextInputType.streetAddress,
+            decoration: InputDecoration(
+              hintText: AddressConstants.addressHinText,
+              border: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppStrings.postCode,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: 175,
+                    child: TextField(
+                      controller: postcodeController,
+                      keyboardType: TextInputType.streetAddress,
+                      decoration: InputDecoration(
+                        hintText: AddressConstants.postCodeHintText,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppStrings.city,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                  ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: 175,
+                    child: TextField(
+                      controller: cityController,
+                      keyboardType: TextInputType.streetAddress,
+                      decoration: InputDecoration(
+                        hintText: AddressConstants.cityHintText,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            spacing: 10,
+            children: [
+              Icon(
+                Icons.check_box_outline_blank,
+                color: AppColors.red,
+              ),
+              Text(
+                AppStrings.useAsDefaultAddress,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+              ),
+            ],
+          ),
+          const Divider(height: 32),
+          Text(
             AppStrings.checkoutDeliveryOption,
             style: TextStyle(
                 color: Theme.of(context).colorScheme.onSurfaceVariant),
@@ -73,17 +194,31 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
               value: 'pickup',
               groupValue: _delivery,
               onChanged: (value) {
-                setState(
-                  () {
-                    _delivery = value;
-                    if (context.read<CheckoutViewModel>().selectedInpost !=
-                        null) {
-                      _deliverExpanded = true;
-                    }
-                  },
-                );
+                if (postcodeController.text.isEmpty &&
+                    context.read<CheckoutViewModel>().selectedInpost == null) {
+                  Fluttertoast.showToast(
+                      msg: "Postcode required",
+                      backgroundColor: AppColors.red,
+                      textColor: AppColors.white);
+                  return;
+                }
+                setState(() {
+                  _delivery = value;
+
+                  if (context.read<CheckoutViewModel>().selectedInpost !=
+                      null) {
+                    _deliverExpanded = true;
+                  }
+                });
                 Provider.of<CheckoutViewModel>(context, listen: false)
                     .setDeliveryChoice(value ?? '');
+                if (context.read<CheckoutViewModel>().selectedInpost == null) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => ShareLocationDialog(
+                        postcode: postcodeController.text.trim()),
+                  );
+                }
               }),
           const SizedBox(height: 8),
           ShippingListItem(
@@ -104,18 +239,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                 Provider.of<CheckoutViewModel>(context, listen: false)
                     .setDeliveryChoice(value ?? '');
               }),
-          if (_delivery == "pickup" &&
-              !context.watch<CheckoutViewModel>().showLocker) ...[
-            const SizedBox(height: 16),
-            Text(
-              AddressConstants.postalCodeKey,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
-            ),
-            const SizedBox(height: 8),
-            PostalCodeWidget(),
-          ],
+
           // Show pickup points when pickup is selected
           if (_delivery == 'pickup' &&
               context.watch<CheckoutViewModel>().showLocker) ...[
@@ -191,42 +315,6 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                             ),
                           ),
                   ],
-
-                  // if (_deliverExpanded)
-                  //   Outlined(
-                  //     child: Column(
-                  //       children: const [
-                  //         CheckboxListTile(
-                  //           controlAffinity: ListTileControlAffinity.leading,
-                  //           title: Text(
-                  //             AppStrings.checkoutPickupPoint1,
-                  //             style: TextStyle(),
-                  //           ),
-                  //           subtitle: Text(AppStrings.checkoutPickupAddress1),
-                  //           value: true,
-                  //           onChanged: null,
-                  //         ),
-                  //         Divider(height: 1),
-                  //         CheckboxListTile(
-                  //           controlAffinity: ListTileControlAffinity.leading,
-                  //           title: Text(AppStrings.checkoutPickupPoint2,
-                  //               style: TextStyle()),
-                  //           subtitle: Text(AppStrings.checkoutPickupAddress2),
-                  //           value: false,
-                  //           onChanged: null,
-                  //         ),
-                  //         Divider(height: 1),
-                  //         CheckboxListTile(
-                  //           controlAffinity: ListTileControlAffinity.leading,
-                  //           title: Text(AppStrings.checkoutPickupPoint3,
-                  //               style: TextStyle()),
-                  //           subtitle: Text(AppStrings.checkoutPickupAddress3),
-                  //           value: false,
-                  //           onChanged: null,
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
                 ],
               );
             })
@@ -251,40 +339,6 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           ],
           const Divider(height: 16),
         ],
-      ),
-    );
-  }
-}
-
-class PostalCodeWidget extends StatelessWidget {
-  PostalCodeWidget({
-    super.key,
-  });
-
-  final TextEditingController postcodeController = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: postcodeController,
-      keyboardType: TextInputType.streetAddress,
-      textInputAction: TextInputAction.search,
-      onEditingComplete: () {
-        Provider.of<CheckoutViewModel>(context, listen: false)
-            .fetchNearestInPosts(postcodeController.text);
-      },
-      decoration: InputDecoration(
-        hintText: AddressConstants.postalCodeHintText,
-        prefixIcon: const Icon(Icons.location_on),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.outline,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.outline,
-          ),
-        ),
       ),
     );
   }

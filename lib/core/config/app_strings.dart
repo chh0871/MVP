@@ -250,4 +250,11 @@ class AppStrings {
   static const checkoutImpactSummary = 'Impact Summary';
   static const checkoutReview = 'Review';
   static const checkoutContinueShopping = 'Continue Shopping';
+  static const String address = 'Address';
+  static const String postCode = 'Postcode';
+  static const String city = 'City';
+  static const String useAsDefaultAddress = 'Use as my Default address';
+  static const String cancel = 'Cancel';
+  static const String wantToShareLocation =
+      'Do you want to share your location?';
 }

@@ -21,10 +21,10 @@ class FirestoreService {
       if (isOrder) {
         final uid = prefs.getString(FirestoreConstants.id);
         documentSnapshot = await firebaseFirestore
-            .collection(FirestoreConstants.pathUserCollection)
-            .doc(uid)
             .collection(collectionName)
             .doc(documentId)
+            .collection(FirestoreConstants.lockers)
+            .doc(uid)
             .get();
       } else {
         documentSnapshot = await firebaseFirestore
@@ -50,10 +50,10 @@ class FirestoreService {
       if (isOrder) {
         final uid = prefs.getString(FirestoreConstants.id);
         await firebaseFirestore
-            .collection(FirestoreConstants.pathUserCollection)
-            .doc(uid)
             .collection(collectionName)
             .doc(documentId)
+            .collection(FirestoreConstants.lockers)
+            .doc(uid)
             .set(data);
       } else {
         await firebaseFirestore

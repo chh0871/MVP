@@ -16,4 +16,5 @@ class FirestoreConstants {
   static const postcode = "postcode";
   static const lat = "lat";
   static const long = "long";
+  static const lockers = "lockers";
 }
