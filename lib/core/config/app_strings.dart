@@ -257,4 +257,7 @@ class AppStrings {
   static const String cancel = 'Cancel';
   static const String wantToShareLocation =
       'Do you want to share your location?';
+  static const String noPickupPointAvailable =
+      'Pickup points currently unavailable, please try again later';
+  static const loadingPickupPoint = 'Loading Pickup point...';
 }

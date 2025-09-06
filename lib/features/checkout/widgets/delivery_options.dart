@@ -1,9 +1,12 @@
 // ignore_for_file: unnecessary_const
 
-import 'package:cherry_mvp/core/config/app_colors.dart';
-import 'package:cherry_mvp/core/config/app_strings.dart';
+import 'package:cherry_mvp/core/config/config.dart';
+import 'package:cherry_mvp/core/utils/utils.dart';
 import 'package:cherry_mvp/features/checkout/checkout_view_model.dart';
 import 'package:cherry_mvp/features/checkout/widgets/outlined.dart';
+import 'package:cherry_mvp/features/checkout/widgets/pickup_points_empty_widget.dart';
+import 'package:cherry_mvp/features/checkout/widgets/pickup_points_error_widget.dart';
+import 'package:cherry_mvp/features/checkout/widgets/pickup_points_loading_widget.dart';
 import 'package:cherry_mvp/features/checkout/widgets/price_list_item.dart';
 import 'package:cherry_mvp/features/checkout/widgets/share_location_dialog.dart';
 import 'package:cherry_mvp/features/checkout/widgets/shipping_address_widget.dart';
@@ -248,75 +251,90 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
 
               final inposts = model.nearestInpost;
 
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 8),
-                  Outlined(
-                    child: ListTile(
-                      onTap: () =>
-                          setState(() => _deliverExpanded = !_deliverExpanded),
-                      leading: const Icon(Icons.map),
-                      title: const Text(AppStrings.checkoutPickupPoint),
-                      trailing: _deliverExpanded
-                          ? const Icon(Icons.expand_less)
-                          : const Icon(Icons.expand_more),
+              if (status.type == StatusType.loading) {
+                PickupPointsLoadingWidget();
+              } else if (status.type == StatusType.failure) {
+                PickupPointErrorWidget(
+                  errorMessage: status.message,
+                  onRetry: () =>
+                      model.fetchNearestInPosts(postcodeController.text.trim()),
+                );
+              } else if (status.type == StatusType.success) {
+                if (inposts.isEmpty) {
+                  return PickupPointsEmptyWidget();
+                }
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 8),
+                    Outlined(
+                      child: ListTile(
+                        onTap: () => setState(
+                            () => _deliverExpanded = !_deliverExpanded),
+                        leading: const Icon(Icons.map),
+                        title: const Text(AppStrings.checkoutPickupPoint),
+                        trailing: _deliverExpanded
+                            ? const Icon(Icons.expand_less)
+                            : const Icon(Icons.expand_more),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  if (_deliverExpanded) ...[
-                    model.selectedInpost != null &&
-                            context.watch<CheckoutViewModel>().hasLocker
-                        ? Outlined(
-                            child: Column(
-                              children: [
-                                CheckboxListTile(
-                                  controlAffinity:
-                                      ListTileControlAffinity.leading,
-                                  title: Text(
-                                    model.selectedInpost?.name ?? '',
-                                    style: TextStyle(),
-                                  ),
-                                  subtitle:
-                                      Text(model.selectedInpost?.address ?? ''),
-                                  value: true,
-                                  onChanged: null,
-                                ),
-                              ],
-                            ),
-                          )
-                        : Outlined(
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: inposts.length,
-                              itemBuilder: (context, index) {
-                                final data = inposts[index];
-                                return Column(
-                                  children: [
-                                    CheckboxListTile(
-                                      controlAffinity:
-                                          ListTileControlAffinity.leading,
-                                      title: Text(data.name),
-                                      subtitle: Text(data.address),
-                                      value:
-                                          model.selectedInpost?.id == data.id,
-                                      onChanged: (val) {
-                                        if (val == true) {
-                                          model.setSelectedInpost(data);
-                                        }
-                                      },
+                    const SizedBox(height: 8),
+                    if (_deliverExpanded) ...[
+                      model.selectedInpost != null &&
+                              context.watch<CheckoutViewModel>().hasLocker
+                          ? Outlined(
+                              child: Column(
+                                children: [
+                                  CheckboxListTile(
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    title: Text(
+                                      model.selectedInpost?.name ?? '',
+                                      style: TextStyle(),
                                     ),
-                                    if (index != inposts.length - 1)
-                                      const Divider(height: 1),
-                                  ],
-                                );
-                              },
+                                    subtitle: Text(
+                                        model.selectedInpost?.address ?? ''),
+                                    value: true,
+                                    onChanged: null,
+                                  ),
+                                ],
+                              ),
+                            )
+                          : Outlined(
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: inposts.length,
+                                itemBuilder: (context, index) {
+                                  final data = inposts[index];
+                                  return Column(
+                                    children: [
+                                      CheckboxListTile(
+                                        controlAffinity:
+                                            ListTileControlAffinity.leading,
+                                        title: Text(data.name),
+                                        subtitle: Text(data.address),
+                                        value:
+                                            model.selectedInpost?.id == data.id,
+                                        onChanged: (val) {
+                                          if (val == true) {
+                                            model.setSelectedInpost(data);
+                                          }
+                                        },
+                                      ),
+                                      if (index != inposts.length - 1)
+                                        const Divider(height: 1),
+                                    ],
+                                  );
+                                },
+                              ),
                             ),
-                          ),
+                    ],
                   ],
-                ],
-              );
+                );
+              }
+
+              return SizedBox.shrink();
             })
           ],
 
