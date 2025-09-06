@@ -67,7 +67,7 @@ class CheckoutViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  setSelectedInpost(InpostModel data) {
+  setSelectedInpost(var data) {
     selectedInpost = data;
     notifyListeners();
   }
@@ -209,12 +209,14 @@ class CheckoutViewModel extends ChangeNotifier {
       // Prepare order data for API call
       final Map<String, dynamic> orderData = {
         'items': basketItems
-            .map((item) => {
-                  'id': item.id,
-                  'name': item.name,
-                  'price': item.price,
-                  // Add other product fields as needed
-                })
+            .map(
+              (item) => {
+                'id': item.id,
+                'name': item.name,
+                'price': item.price,
+                // Add other product fields as needed
+              },
+            )
             .toList(),
         'shipping_address': {
           'formatted_address': formattedShippingAddress,
@@ -236,7 +238,7 @@ class CheckoutViewModel extends ChangeNotifier {
           'security_fee': securityFee,
           'postage': postage,
           'total': total,
-        }
+        },
       };
 
       // TODO: Implement actual API call here
@@ -254,7 +256,7 @@ class CheckoutViewModel extends ChangeNotifier {
     }
   }
 
-// fetch nearest inPost locker for pickup
+  // fetch nearest inPost locker for pickup
   Future<void> fetchNearestInPosts(String postalCode) async {
     _status = Status.loading;
     notifyListeners();
@@ -265,8 +267,10 @@ class CheckoutViewModel extends ChangeNotifier {
         showLocker = true;
         _status = Status.success;
       } else {
-        _status = Status.failure(//result.error ??
-            'Pickup points currently unavailable, please try again later');
+        _status = Status.failure(
+          //result.error ??
+          'Pickup points currently unavailable, please try again later',
+        );
         _log.warning('Fetch nearest inPost locker failed! ');
       }
     } catch (e) {
@@ -301,6 +305,7 @@ class CheckoutViewModel extends ChangeNotifier {
         );
         hasLocker = true;
         showLocker = true;
+        _status = Status.success;
         notifyListeners();
       }
       return Result.success(null);

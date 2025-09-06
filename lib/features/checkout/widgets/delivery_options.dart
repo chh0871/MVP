@@ -49,10 +49,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
               children: const [
                 Text(AppStrings.checkoutSecurityFee),
                 SizedBox(width: 4),
-                Icon(
-                  Icons.info,
-                  size: 16,
-                ),
+                Icon(Icons.info, size: 16),
               ],
             ),
             price: basket.securityFee,
@@ -75,8 +72,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           Text(
             AppStrings.address,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           ),
           const SizedBox(height: 8),
           TextField(
@@ -107,8 +104,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                   Text(
                     AppStrings.postCode,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   SizedBox(
@@ -139,8 +136,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                   Text(
                     AppStrings.city,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   SizedBox(
@@ -171,15 +168,12 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           Row(
             spacing: 10,
             children: [
-              Icon(
-                Icons.check_box_outline_blank,
-                color: AppColors.red,
-              ),
+              Icon(Icons.check_box_outline_blank, color: AppColors.red),
               Text(
                 AppStrings.useAsDefaultAddress,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -187,155 +181,191 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
           Text(
             AppStrings.checkoutDeliveryOption,
             style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurfaceVariant),
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           ),
           const SizedBox(height: 8),
           ShippingListItem(
-              icon: Icons.location_on,
-              title: AppStrings.checkoutShipToPickup,
-              subtitle: AppStrings.checkoutPickupSubtitle,
-              value: 'pickup',
-              groupValue: _delivery,
-              onChanged: (value) {
-                if (postcodeController.text.isEmpty &&
-                    context.read<CheckoutViewModel>().selectedInpost == null) {
-                  Fluttertoast.showToast(
-                      msg: "Postcode required",
-                      backgroundColor: AppColors.red,
-                      textColor: AppColors.white);
-                  return;
-                }
-                setState(() {
-                  _delivery = value;
+            icon: Icons.location_on,
+            title: AppStrings.checkoutShipToPickup,
+            subtitle: AppStrings.checkoutPickupSubtitle,
+            value: 'pickup',
+            groupValue: _delivery,
+            onChanged: (value) {
+              if (postcodeController.text.isEmpty &&
+                  context.read<CheckoutViewModel>().selectedInpost == null) {
+                Fluttertoast.showToast(
+                  msg: "Postcode required",
+                  backgroundColor: AppColors.red,
+                  textColor: AppColors.white,
+                );
+                return;
+              }
+              setState(() {
+                _delivery = value;
 
-                  if (context.read<CheckoutViewModel>().selectedInpost !=
-                      null) {
-                    _deliverExpanded = true;
-                  }
-                });
-                Provider.of<CheckoutViewModel>(context, listen: false)
-                    .setDeliveryChoice(value ?? '');
-                if (context.read<CheckoutViewModel>().selectedInpost == null) {
-                  showDialog(
-                    context: context,
-                    builder: (context) => ShareLocationDialog(
-                        postcode: postcodeController.text.trim()),
-                  );
+                if (context.read<CheckoutViewModel>().selectedInpost != null) {
+                  _deliverExpanded = true;
                 }
-              }),
+              });
+              Provider.of<CheckoutViewModel>(
+                context,
+                listen: false,
+              ).setDeliveryChoice(value ?? '');
+              if (context.read<CheckoutViewModel>().selectedInpost == null) {
+                showDialog(
+                  context: context,
+                  builder: (context) => ShareLocationDialog(
+                    postcode: postcodeController.text.trim(),
+                  ),
+                );
+              }
+            },
+          ),
           const SizedBox(height: 8),
           ShippingListItem(
-              icon: Icons.home,
-              title: AppStrings.checkoutShipToHome,
-              subtitle: AppStrings.checkoutHomeSubtitle,
-              value: 'home',
-              groupValue: _delivery,
-              onChanged: (value) {
-                setState(
-                  () {
-                    _delivery = value;
-                    _deliverExpanded = false;
-                  },
-                );
-                Provider.of<CheckoutViewModel>(context, listen: false)
-                    .setShowLocker(false);
-                Provider.of<CheckoutViewModel>(context, listen: false)
-                    .setDeliveryChoice(value ?? '');
-              }),
+            icon: Icons.home,
+            title: AppStrings.checkoutShipToHome,
+            subtitle: AppStrings.checkoutHomeSubtitle,
+            value: 'home',
+            groupValue: _delivery,
+            onChanged: (value) {
+              setState(() {
+                _delivery = value;
+                _deliverExpanded = false;
+              });
+              Provider.of<CheckoutViewModel>(
+                context,
+                listen: false,
+              ).setShowLocker(false);
+              Provider.of<CheckoutViewModel>(
+                context,
+                listen: false,
+              ).setDeliveryChoice(value ?? '');
+            },
+          ),
 
           // Show pickup points when pickup is selected
           if (_delivery == 'pickup' &&
               context.watch<CheckoutViewModel>().showLocker) ...[
-            Consumer<CheckoutViewModel>(builder: (context, model, _) {
-              final status = model.status;
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 8),
+                Outlined(
+                  child: ListTile(
+                    onTap: () =>
+                        setState(() => _deliverExpanded = !_deliverExpanded),
+                    leading: const Icon(Icons.map),
+                    title: const Text(AppStrings.checkoutPickupPoint),
+                    trailing: _deliverExpanded
+                        ? const Icon(Icons.expand_less)
+                        : const Icon(Icons.expand_more),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Consumer<CheckoutViewModel>(
+                  builder: (context, model, _) {
+                    final status = model.status;
 
-              final inposts = model.nearestInpost;
+                    final inposts = model.nearestInpost;
 
-              if (status.type == StatusType.loading) {
-                PickupPointsLoadingWidget();
-              } else if (status.type == StatusType.failure) {
-                PickupPointErrorWidget(
-                  errorMessage: status.message,
-                  onRetry: () =>
-                      model.fetchNearestInPosts(postcodeController.text.trim()),
-                );
-              } else if (status.type == StatusType.success) {
-                if (inposts.isEmpty) {
-                  return PickupPointsEmptyWidget();
-                }
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 8),
-                    Outlined(
-                      child: ListTile(
-                        onTap: () => setState(
-                            () => _deliverExpanded = !_deliverExpanded),
-                        leading: const Icon(Icons.map),
-                        title: const Text(AppStrings.checkoutPickupPoint),
-                        trailing: _deliverExpanded
-                            ? const Icon(Icons.expand_less)
-                            : const Icon(Icons.expand_more),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    if (_deliverExpanded) ...[
-                      model.selectedInpost != null &&
-                              context.watch<CheckoutViewModel>().hasLocker
-                          ? Outlined(
-                              child: Column(
-                                children: [
-                                  CheckboxListTile(
-                                    controlAffinity:
-                                        ListTileControlAffinity.leading,
-                                    title: Text(
-                                      model.selectedInpost?.name ?? '',
-                                      style: TextStyle(),
-                                    ),
-                                    subtitle: Text(
-                                        model.selectedInpost?.address ?? ''),
-                                    value: true,
-                                    onChanged: null,
+                    if (status.type == StatusType.loading) {
+                      PickupPointsLoadingWidget();
+                    } else if (status.type == StatusType.failure) {
+                      PickupPointErrorWidget(
+                        errorMessage: status.message,
+                        onRetry: () => model.fetchNearestInPosts(
+                          postcodeController.text.trim(),
+                        ),
+                      );
+                    } else if (status.type == StatusType.success) {
+                      if (inposts.isEmpty) {
+                        return PickupPointsEmptyWidget();
+                      }
+
+                      if (_deliverExpanded) {
+                        if (model.selectedInpost != null &&
+                            context.watch<CheckoutViewModel>().hasLocker) {
+                          // case: locker already selected
+                          return Outlined(
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Provider.of<CheckoutViewModel>(
+                                        context,
+                                        listen: false,
+                                      ).setSelectedInpost(null);
+                                      Provider.of<CheckoutViewModel>(
+                                        context,
+                                        listen: false,
+                                      ).setDeliveryChoice('');
+                                      Provider.of<CheckoutViewModel>(
+                                        context,
+                                        listen: false,
+                                      ).setShowLocker(false);
+                                      setState(() {
+                                        _delivery = null;
+                                      });
+                                    },
+                                    child: Text("Change pickup point"),
                                   ),
-                                ],
-                              ),
-                            )
-                          : Outlined(
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount: inposts.length,
-                                itemBuilder: (context, index) {
-                                  final data = inposts[index];
-                                  return Column(
-                                    children: [
-                                      CheckboxListTile(
-                                        controlAffinity:
-                                            ListTileControlAffinity.leading,
-                                        title: Text(data.name),
-                                        subtitle: Text(data.address),
-                                        value:
-                                            model.selectedInpost?.id == data.id,
-                                        onChanged: (val) {
-                                          if (val == true) {
-                                            model.setSelectedInpost(data);
-                                          }
-                                        },
-                                      ),
-                                      if (index != inposts.length - 1)
-                                        const Divider(height: 1),
-                                    ],
-                                  );
-                                },
-                              ),
+                                ),
+                                CheckboxListTile(
+                                  controlAffinity:
+                                      ListTileControlAffinity.leading,
+                                  title: Text(model.selectedInpost?.name ?? ''),
+                                  subtitle: Text(
+                                    model.selectedInpost?.address ?? '',
+                                  ),
+                                  value: true,
+                                  onChanged: null,
+                                ),
+                              ],
                             ),
-                    ],
-                  ],
-                );
-              }
-
-              return SizedBox.shrink();
-            })
+                          );
+                        } else {
+                          // case: show list of lockers
+                          return Outlined(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: inposts.length,
+                              itemBuilder: (context, index) {
+                                final data = inposts[index];
+                                return Column(
+                                  children: [
+                                    CheckboxListTile(
+                                      controlAffinity:
+                                          ListTileControlAffinity.leading,
+                                      title: Text(data.name),
+                                      subtitle: Text(data.address),
+                                      value:
+                                          model.selectedInpost?.id == data.id,
+                                      onChanged: (val) {
+                                        if (val == true) {
+                                          model.setSelectedInpost(data);
+                                        }
+                                      },
+                                    ),
+                                    if (index != inposts.length - 1)
+                                      const Divider(height: 1),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        }
+                      }
+                    }
+                    return SizedBox.shrink();
+                  },
+                ),
+              ],
+            ),
           ],
 
           // Show address input field when home delivery is selected
@@ -344,8 +374,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
             Text(
               AddressConstants.deliveryAddressTitle,
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 8),
             ShippingAddressWidget(
