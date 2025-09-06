@@ -8,6 +8,7 @@ class DonationFormField extends StatelessWidget {
   final IconData? hintIcon;
   final IconData? suffixIcon;
   final int? minLines;
+  final String? Function(String?)? validator;
 
   const DonationFormField(
       {super.key,
@@ -16,7 +17,8 @@ class DonationFormField extends StatelessWidget {
       this.hintIcon,
       this.title,
       this.suffixIcon,
-      this.minLines});
+      this.minLines,
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class DonationFormField extends StatelessWidget {
                 maxLines: null,
                 controller: controller,
                 minLines: minLines,
-                validator: validateDonationFormFields,
+                validator: validator ?? validateDonationFormFields,
                 decoration: InputDecoration(
                     hintText: hintIcon == null ? hintText : null,
                     helper: hintIcon != null

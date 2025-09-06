@@ -38,8 +38,8 @@ class ProductCard extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               image: DecorationImage(
-                                  image: ImageProviderHelper.getImageProvider(
-                                      product.productImages.first),
+                                  image:
+                                      ImageProviderHelper.getImageProvider(product.productImages.first),
                                   fit: BoxFit.cover)),
                         ),
                       ),

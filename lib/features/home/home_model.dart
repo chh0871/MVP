@@ -11,11 +11,10 @@ const dummyProducts = [
     size: "M",
     productImages: [
       AppImages.mensTShirt,
-      AppImages.mensTShirt, // You can add more images or different ones
+      AppImages.mensTShirt,
     ],
     donation: 6.40,
     price: 7.00,
-    charityImage: AppImages.homeStart,
     likes: 8,
     number: 8,
   ),
@@ -32,7 +31,6 @@ const dummyProducts = [
     ],
     donation: 16.00,
     price: 17.00,
-    charityImage: AppImages.homeStart,
     likes: 33,
     number: 8,
   ),
@@ -48,7 +46,6 @@ const dummyProducts = [
     ],
     donation: 17.00,
     price: 17.00,
-    charityImage: AppImages.homeStart,
     likes: 33,
     number: 9,
   ),
@@ -64,7 +61,6 @@ const dummyProducts = [
     ],
     donation: 17.00,
     price: 17.00,
-    charityImage: AppImages.homeStart,
     likes: 33,
     number: 9,
   )

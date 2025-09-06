@@ -1,5 +1,6 @@
 class ApiEndpoints {
   static const String products = '/products';
+  static const String productsWithDetails = '/products/with-details';
 
   // Versioned endpoints (if we need API versioning)
   static const String apiVersion = 'v1';
@@ -7,4 +8,6 @@ class ApiEndpoints {
 
   static const String categories = '/categories';
   static const String inpostLockers = '/shipping/inpost/lockers';
+  static const String charities = '/charities';
+
 }

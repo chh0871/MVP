@@ -58,12 +58,27 @@ class LoginRepository {
     final result = await _authService.signInWithApple();
 
     if (result.isSuccess) {
-      // If login is successful, proceed to fetch user details
       final userCredentials = result.value;
+      // If login is successful,save user data into firestore
+      // any change in google profile will be updated automatically like pic and name
+      Map<String, dynamic> data = {
+        FirestoreConstants.firstname: userCredentials?.firstname ?? "",
+        FirestoreConstants.email: userCredentials?.email ?? "",
+        FirestoreConstants.phone: userCredentials?.phonenumber ?? "",
+        FirestoreConstants.id: userCredentials?.uid ?? "",
+        FirestoreConstants.photoUrl: userCredentials?.photoUrl ?? "",
+      };
+      await _firestoreService.saveDocument(
+          FirestoreConstants.pathUserCollection,
+          userCredentials?.uid ?? "",
+          data);
+
+      //proceed to fetch user details
+
       await fetchUserFromFirestore(userCredentials?.uid ?? "");
+
       return result;
     } else {
-      ///TODO: complete this to add logic to create user in firestore if user does not exist(first time user)
       return Result.failure(result.error);
     }
   }
