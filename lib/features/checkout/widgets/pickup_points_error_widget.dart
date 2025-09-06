@@ -21,7 +21,7 @@ class PickupPointErrorWidget extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              AppStrings.failedToLoadCategories,
+              AppStrings.failedToLoadPickupPoint,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey[600],

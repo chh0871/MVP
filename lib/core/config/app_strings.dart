@@ -260,4 +260,5 @@ class AppStrings {
   static const String noPickupPointAvailable =
       'Pickup points currently unavailable, please try again later';
   static const loadingPickupPoint = 'Loading Pickup point...';
+  static const failedToLoadPickupPoint = 'Failed to load Pickup point';
 }

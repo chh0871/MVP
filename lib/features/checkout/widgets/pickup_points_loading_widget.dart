@@ -14,7 +14,7 @@ class PickupPointsLoadingWidget extends StatelessWidget {
             CircularProgressIndicator(),
             SizedBox(height: 16),
             Text(
-              AppStrings.loadingCategories,
+              AppStrings.loadingPickupPoint,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
