@@ -6,6 +6,7 @@ part 'product.g.dart';
 
 @JsonSerializable()
 class Product {
+  final String userId;
   final String id;
   final String name;
   final String description;
@@ -30,6 +31,7 @@ class Product {
 
   const Product({
     required this.id,
+    required this.userId,
     required this.name,
     required this.description,
     required this.quality,
@@ -55,8 +57,10 @@ class Product {
     if (json['product_images'] == null && json['images'] != null) {
       json['product_images'] = json['images'];
     }
-    
-    return _$ProductFromJson(json);
+    return _$ProductFromJson({
+      ...json,
+      'userId': json['userId'] ?? json['user_id'] ?? '',
+    });
   }
 
   Map<String, dynamic> toJson() => _$ProductToJson(this);
