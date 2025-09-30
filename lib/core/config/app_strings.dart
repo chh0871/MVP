@@ -92,7 +92,7 @@ class AppStrings {
   static const popularText = "Popular";
   static const smallerCharitiesText = "Smaller Charities";
   static const localToYouText = "Local to you";
-// feature/118-product-details-page
+  // feature/118-product-details-page
   static const discoverSomethingText = "Discover something beautiful...";
 
   // Category Texts
@@ -168,21 +168,22 @@ class AppStrings {
       "Applicable for buyer discounts";
 
   // donation fields
-  static const donationsText = "Donations";
+  static const donationsText = "Donation an item";
   static const titleText = "Title";
   static const descriptionText = "Description";
   static const categoryText = "Category";
-  static const charityError='Failed to load charities';
-  static const loadCharities='Loading charities...';
-  static const noCharitiesAvailable='No charities available';
+  static const charityError = 'Failed to load charities';
+  static const loadCharities = 'Loading charities...';
+  static const noCharitiesAvailable = 'No charities available';
   static const searchCharities = 'Search charities';
   static const seeMore = 'See More';
-  static const charityDescription = 'Supporting communities through various charitable initiatives and programs.';
+  static const charityDescription =
+      'Supporting communities through various charitable initiatives and programs.';
 
   static const charityText = "Charity";
   static const priceText = "Price";
   static const conditionText = "Condition";
-  static const catchEyesText = "Catch eyes by using quality photos!";
+  static const catchEyesText = "Catch eyes by using \nquality photos!";
   static const photosTipPopupHeading = "Your photos should...";
   static const clearWellLit = "Be clear and well lit.";
   static const multipleAngles =
@@ -191,6 +192,8 @@ class AppStrings {
   static const showItOff =
       "If you’re comfortable, get it on & show it off! If not, something for reference is great!";
   static const learnHow = "Learn How";
+  static const thoughtsOnUpload = "Thoughts on our upload process?";
+  static const giveFeedback = "Give feedback";
 
   //   Discover page
   static const itemsInSupportText = "Items in support";
@@ -235,7 +238,8 @@ class AppStrings {
   static const cardDetailsCvcHint = 'CVC';
   static const cardDetailsSaveCard = 'Save card details for future payments';
   static const cardDetailsCountryOrRegion = 'Country or region';
-  static const cardDetailsAgreeToSave = 'Agree to save these card details for '
+  static const cardDetailsAgreeToSave =
+      'Agree to save these card details for '
       'faster checkout. You can remove the card anytime in settings, '
       'under payments.';
   static const cardDetailsSaveAndUse = 'Save and use this card';
@@ -268,27 +272,28 @@ class AppStrings {
       'Pickup points currently unavailable, please try again later';
   static const loadingPickupPoint = 'Loading Pickup point...';
   static const failedToLoadPickupPoint = 'Failed to load Pickup point';
-  
+
   // Donation form validation messages
   static const pleaseSelectAllDropdowns = 'Please select all dropdowns';
   static const pleaseSelectCharity = 'Please select a charity';
   static const pleaseAddPhoto = 'Please add at least one photo';
   static const submitDonation = 'Submit Donation';
-  
+
   // Photo upload messages
   static const errorPickingImage = 'Error picking image';
   static const tapToAddPhotos = 'Tap to add photos (multiple allowed)';
   static const galleryPhotoMultiple = 'Gallery Photo (Multiple)';
-  
+
   // Donation submission messages
-  static const donationSubmittedSuccessfully = 'Donation submitted successfully!';
+  static const donationSubmittedSuccessfully =
+      'Donation submitted successfully!';
   static const unexpectedErrorOccurred = 'An unexpected error occurred';
   static const userNotAuthenticated = 'User not authenticated';
   static const failedToUploadImages = 'Failed to upload images';
   static const failedToSubmitDonation = 'Failed to submit donation';
-  
+
   // Success page messages
   static const congratulations = 'Congratulations!';
-  static const itemUploadedSuccessfully = 'Your Item has been Successfully Uploaded.';
-
+  static const itemUploadedSuccessfully =
+      'Your Item has been Successfully Uploaded.';
 }
