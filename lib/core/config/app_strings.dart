@@ -92,7 +92,7 @@ class AppStrings {
   static const popularText = "Popular";
   static const smallerCharitiesText = "Smaller Charities";
   static const localToYouText = "Local to you";
-// feature/118-product-details-page
+  // feature/118-product-details-page
   static const discoverSomethingText = "Discover something beautiful...";
 
   // Category Texts
@@ -172,12 +172,13 @@ class AppStrings {
   static const titleText = "Title";
   static const descriptionText = "Description";
   static const categoryText = "Category";
-  static const charityError='Failed to load charities';
-  static const loadCharities='Loading charities...';
-  static const noCharitiesAvailable='No charities available';
+  static const charityError = 'Failed to load charities';
+  static const loadCharities = 'Loading charities...';
+  static const noCharitiesAvailable = 'No charities available';
   static const searchCharities = 'Search charities';
   static const seeMore = 'See More';
-  static const charityDescription = 'Supporting communities through various charitable initiatives and programs.';
+  static const charityDescription =
+      'Supporting communities through various charitable initiatives and programs.';
 
   static const charityText = "Charity";
   static const priceText = "Price";
@@ -235,7 +236,8 @@ class AppStrings {
   static const cardDetailsCvcHint = 'CVC';
   static const cardDetailsSaveCard = 'Save card details for future payments';
   static const cardDetailsCountryOrRegion = 'Country or region';
-  static const cardDetailsAgreeToSave = 'Agree to save these card details for '
+  static const cardDetailsAgreeToSave =
+      'Agree to save these card details for '
       'faster checkout. You can remove the card anytime in settings, '
       'under payments.';
   static const cardDetailsSaveAndUse = 'Save and use this card';
@@ -268,27 +270,66 @@ class AppStrings {
       'Pickup points currently unavailable, please try again later';
   static const loadingPickupPoint = 'Loading Pickup point...';
   static const failedToLoadPickupPoint = 'Failed to load Pickup point';
-  
+
+  // Purchase security page
+  static const purchaseSecurityHeading = "Purchase Security";
+  static const purchaseSecuritySubHeading =
+      "Learn how we calculate the Purchase Security fee";
+  static const refundPolicyHeading = "Refund policy";
+  static const refundPolicyConditionsHeading =
+      "You can receive a refund if your order:";
+  static const refundPolicyConditionOne = "was never shipped or is lost";
+  static const refundPolicyConditionTwo = "arrives damaged";
+  static const refundPolicyConditionThree = "is significantly not as described";
+  static const refundPolicyBodyTextStart = "You have ";
+  static const refundPolicyBodyTextBold = "2 days to submit your claim";
+  static const refundPolicyBodyTextEnd =
+      " from when you're notified that an item was delivered, even if the item never arrived.";
+  static const refundPolicyReturns =
+      "Buyers cover the cost of returning an item unless agreed otherwise. Learn more in our ";
+  static const refundPolicyLinkText = "Refund Policy";
+  static const secureTransactionsHeading = "Secure transactions";
+  static const secureTransactionsBodyOne =
+      "Your money is held securely throughout the entire transaction. We won’t release the funds to the charity until you receive and confirm (‘OK’) your order. Failing this, all funds will be held securely in escrow for 7 days, then 100% of the funds will be released to the charity.";
+  static const secureTransactionsBodyTwo =
+      "Payments are encrypted by our payment partner, so your money is always sent and received safely.";
+  static const secureTransactionsBodyThreeBold =
+      "The seller will never see your payment details.";
+  static const yourSupportHeading = "Your Support";
+  static const yourSupportBody =
+      "Reach out to our support at any time with any issues, disputes questions, guidance or anything else- they’re here to help!";
+  static const supportMissionHeading = "Support our mission";
+  static const supportMissionBoldTextSpan =
+      "cherry is a CIC (Community Interest Company) limited by guarantee, ";
+  static const supportMissionNormalTextSpan = "NOT by shares.";
+  static const supportMissionPlainText = "Meaning ";
+  static const supportMissionPinkText =
+      "we will NEVER work in the interests of profiteers.";
+  static const supportMissionBodyText =
+      "When you buy on cherry, you’re helping in our mission to support charities online, combat fast fashion, reduce waste, maintain a transparent platform and so much more! Thank you.";
+  static const purchaseSecurityButtonText = "Got it";
+
   // Donation form validation messages
   static const pleaseSelectAllDropdowns = 'Please select all dropdowns';
   static const pleaseSelectCharity = 'Please select a charity';
   static const pleaseAddPhoto = 'Please add at least one photo';
   static const submitDonation = 'Submit Donation';
-  
+
   // Photo upload messages
   static const errorPickingImage = 'Error picking image';
   static const tapToAddPhotos = 'Tap to add photos (multiple allowed)';
   static const galleryPhotoMultiple = 'Gallery Photo (Multiple)';
-  
+
   // Donation submission messages
-  static const donationSubmittedSuccessfully = 'Donation submitted successfully!';
+  static const donationSubmittedSuccessfully =
+      'Donation submitted successfully!';
   static const unexpectedErrorOccurred = 'An unexpected error occurred';
   static const userNotAuthenticated = 'User not authenticated';
   static const failedToUploadImages = 'Failed to upload images';
   static const failedToSubmitDonation = 'Failed to submit donation';
-  
+
   // Success page messages
   static const congratulations = 'Congratulations!';
-  static const itemUploadedSuccessfully = 'Your Item has been Successfully Uploaded.';
-
+  static const itemUploadedSuccessfully =
+      'Your Item has been Successfully Uploaded.';
 }
