@@ -338,8 +338,9 @@ class AppStrings {
   // Discover
   static const itemsInSupportText = "Items in support";
   static const seeAllText = "See All";
+  static const currencySymbol = "£";
 
-  // Professional
+// Professional
   static const professional = 'Professionals';
   static const signUpInstruction =
       'Click below to sign up as a parent or a healthcare professional';
